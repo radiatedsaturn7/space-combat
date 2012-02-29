@@ -1,0 +1,31 @@
+package com.spacecombat;
+
+import java.util.Date;
+
+public class Time 
+{
+	private static long currentTime;
+	private static long deltaTime;
+	private static long lastTime;
+	
+	public static long getTime ()
+	{
+		return currentTime;
+	}
+	
+	public static long getDeltaTime ()
+	{
+		return deltaTime;
+	}
+	
+	public static void tick ()
+	{
+		currentTime = (new Date()).getTime();
+		if (lastTime == 0)
+		{
+			lastTime = currentTime;
+		}
+		deltaTime = currentTime - lastTime;
+	}
+	
+}

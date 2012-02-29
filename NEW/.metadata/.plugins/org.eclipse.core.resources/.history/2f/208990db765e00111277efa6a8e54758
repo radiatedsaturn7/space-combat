@@ -1,0 +1,49 @@
+package com.spacecombat;
+
+public class GLAnimation extends Component 
+{
+	private GLGraphic graphic;
+	private Animation animation;
+	private float lastDraw = 0;
+	
+	public GLAnimation (GLGraphic graphic, Animation animation)
+	{
+		this.graphic = graphic;
+		this.animation = animation;
+		setEnabled(false);
+	}
+	
+	public float getDuration ()
+	{
+		
+		return (1.0f / (float)animation.getFps()) * (float)(animation.getEndFrame() - animation.getStartFrame());
+	}
+	
+	public void play()
+	{
+		setEnabled(true);
+	}
+	
+	public boolean isDone ()
+	{
+		return animation.isDone();
+	}//
+	
+	public void draw ()
+	{
+		//System.out.println("Drawing " + getName());
+		graphic.draw(animation.getX(), animation.getY(), animation.getWidth(), animation.getHeight(),gameObject.transform.position.x,gameObject.transnform.position.y);
+		
+		
+		if (Time.getTime() - lastDraw > (1.0/(float)animation.getFps()))
+		{
+			lastDraw = Time.getTime();
+			animation.nextFrame();
+		}
+	}
+	
+	public String getName ()
+	{
+		return animation.getName();
+	}
+}

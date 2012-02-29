@@ -1,0 +1,27 @@
+package com.spacecombat;
+
+import java.io.InputStream;
+
+public class Laser extends Weapon
+{
+	private static final String name = "laser";
+	private static final int damage = 10;	
+	private static final float reloadTime = 1;
+	private static final int shotSpeed = 128;
+	private static final Vector3 Direction = new Vector3(1,0,0);
+	
+	public Laser(InputStream shotImage, Direction d) 
+	{
+		super(name, damage, shotImage, reloadTime);
+	}
+
+	public void shoot(Vector3 position, Vector3 speed, String[] tags, int life, InputStream is) 
+	{
+		lastShotTime = Time.getTime();
+		GameObject.create(PrefabFactory.createLaser(position, speed, tags, shotImage, baseDamage, powerLevel, life));			
+	}	
+	
+	public void update ()
+	{
+	}
+}

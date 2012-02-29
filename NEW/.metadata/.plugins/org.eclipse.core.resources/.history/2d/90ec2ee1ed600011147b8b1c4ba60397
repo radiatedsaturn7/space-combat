@@ -1,0 +1,241 @@
+package com.spacecombat;
+
+import java.io.InputStream;
+import com.nea.nehe.lesson06.R;
+
+import android.content.Context;
+
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class Engine
+{
+
+	//this is da master list of all components
+
+	//private int fps = 60;
+	//private int sleepTime; //calculated
+
+	private int width = 0;
+	private int height = 0;
+
+	private boolean useMultithreadedDrawLoop = false;
+	private boolean runDrawLoop = true;
+	private boolean useFrameRate = false;
+	private int drawFrameRate = 32;	
+
+	private boolean useMultithreadedGameLoop = false;
+	private boolean runGameLoop = true;
+	private boolean useGameFrameRate = false;			
+	private int updateFrameRate = 32;
+	
+	private boolean printFrameRate = true;
+	private float lastTimeCheck = 0;
+	private int frames = 0;
+	
+
+	/** The Activity Context ( NEW ) */
+	private Context context;
+	List<GameObject> gameObjects = GameObject.getAllGameObjects();			
+	
+	/**	 * Instance the Cube object and set 
+	 * the Activity Context handed over
+	 */
+	public Engine(Context context) {
+		this.context = context;		
+		System.out.println("STARTING");
+
+		if (useMultithreadedGameLoop)
+		{
+			Thread gameLoop = new UpdateLoop();
+			gameLoop.start();			
+		}
+		
+		if (useMultithreadedDrawLoop)
+		{
+			Thread drawLoop = new DrawLoop();
+			drawLoop.start();
+		}
+	}
+	
+	public void createGameObjects ()
+	{		
+		InputStream renegade = context.getResources().openRawResource(R.drawable.prenegade);
+		InputStream laser = context.getResources().openRawResource(R.drawable.hlaser);
+		InputStream enemyLaser = context.getResources().openRawResource(R.drawable.helaser);
+		InputStream enemy = context.getResources().openRawResource(R.drawable.enemy);
+		InputStream wad = context.getResources().openRawResource(R.drawable.wad3);
+
+		int [] map = 
+			{
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				5,5,4,5,5,5,5,5,
+				0,0,1,0,0,0,0,0,
+				0,0,1,0,0,0,0,0,
+				0,0,3,0,0,0,0,0,
+				0,0,1,0,6,0,0,0,
+				0,0,2,0,6,0,0,0,
+				0,0,1,0,0,0,0,0,
+			};
+		
+
+		//GameObject.create(PrefabFactory.createLevel(map, 8, 14, wad, "wad3"));
+
+		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(180,600,0),renegade,laser));
+		
+		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(120,200,0),renegade,laser));
+		
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(0,0,0),enemy,laser,1,0));
+		/*GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(32,600,0),enemy,enemyLaser,2,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(64,600,0),enemy,enemyLaser,3,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(96,600,0),enemy,enemyLaser,4,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(128,600,0),enemy,enemyLaser,5,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(144,600,0),enemy,enemyLaser,6,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(160,600,0),enemy,enemyLaser,7,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(176,600,0),enemy,enemyLaser,8,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(192,600,0),enemy,enemyLaser,9,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(208,600,0),enemy,enemyLaser,10,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(224,600,0),enemy,enemyLaser,11,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(240,600,0),enemy,enemyLaser,12,0));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(256,600,0),enemy,enemyLaser,13,0));*/		
+	}
+
+	/**
+	 * Here we do our drawing
+	 */
+	public void drawLoop() 
+	{		
+		if (useFrameRate)
+		{
+			try
+			{				
+				Thread.sleep(1000/drawFrameRate);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		if (printFrameRate)
+		{
+			if (lastTimeCheck == 0)
+			{
+				lastTimeCheck = Time.getTime();
+			}
+			
+			frames++;
+			if (Time.getTime() - lastTimeCheck > 1)
+			{				
+				System.out.println("FPS:" + frames);								
+				frames = 0;
+				lastTimeCheck = Time.getTime();
+			}
+		}
+		
+		if (!runDrawLoop)
+		{
+			return;
+		}
+		
+		int x = 0; 
+		for (x = 0; x < gameObjects.size(); x++)		
+		{			
+			gameObjects.get(x).draw();			
+		}				
+	}
+	
+	public void updateLoop ()
+	{
+		Time.tick();
+		
+		if (!runGameLoop)
+		{
+			return;
+		}
+
+		for (int x = 0; x < gameObjects.size(); x++)		
+		{
+			GameObject xGameObject = gameObjects.get(x);
+
+			xGameObject.update();
+
+			if (xGameObject.getRigidBody() == null || xGameObject.getRigidBody().getCollider() == null)
+			{
+				continue;
+			}
+			
+			int y = 0;
+			for (y = x+1; y < gameObjects.size(); y++)
+			{
+				GameObject yGameObject = gameObjects.get(y);
+				
+				if (yGameObject.getRigidBody() == null || yGameObject.getRigidBody().getCollider() == null)
+				{
+					continue;
+				}
+				
+				if (xGameObject.getRigidBody().getCollider().collidesWith(yGameObject.getRigidBody().getCollider()))
+				{					
+					xGameObject.collide(new Collision(xGameObject,yGameObject));
+					yGameObject.collide(new Collision(yGameObject,xGameObject));
+				}
+			}
+		}
+
+		//DONT TOUCH
+		int size = gameObjects.size();
+		for (int x = 0; x < size; x++)
+		{
+			if (gameObjects.get(x).isDestroyed())
+			{						
+				gameObjects.remove(x);
+				x--;
+				size = gameObjects.size();
+			}
+		}
+
+		
+		if (useMultithreadedGameLoop && useGameFrameRate)
+		{
+			try 
+			{
+				Thread.currentThread().sleep(1000/updateFrameRate);
+			} 
+			catch (InterruptedException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private class UpdateLoop extends Thread
+	{
+		public void run ()
+		{
+			while (true)
+			{	
+				updateLoop();
+			}
+		}
+	}
+	
+	private class DrawLoop extends Thread
+	{
+		public void run ()
+		{
+			while (true)
+			{	
+				drawLoop();
+			}
+		}
+	}
+}

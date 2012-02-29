@@ -1,0 +1,9 @@
+!SESSION 2006-04-28 23:40:02.182 -----------------------------------------------
+eclipse.buildId=
+java.fullversion=GNU libgcj 4.0.2 20050808 (prerelease) (Ubuntu 4.0.1-4ubuntu9)
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  
+Command-line arguments:  -data /home/iceshaft07/workspace2/Main (another copy) -os linux -ws gtk -arch x86 
+
+!ENTRY org.eclipse.update.configurator 2006-04-28 23:40:05.269
+!MESSAGE /usr/local/lib/eclipse/plugins is not a valid plugins directory.

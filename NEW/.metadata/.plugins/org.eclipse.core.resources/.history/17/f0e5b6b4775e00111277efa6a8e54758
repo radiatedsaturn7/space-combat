@@ -1,0 +1,7 @@
+package com.spacecombat;
+
+public interface GenericGraphic {
+	public create (String name, InputStream is);
+	public draw (int x, int y, int width, int height, int rotx, int roty, int scalex, int scaley);
+
+}

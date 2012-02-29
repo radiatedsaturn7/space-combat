@@ -1,0 +1,727 @@
+package com.spacecombat;
+
+public class AllyAI extends AIScript 
+{
+	public static int numOfPlayers = 1;
+	public static int numOfAllies = 1;
+	public int id = 1;
+	public GameObject targetPlayer;
+	public Rectangle screen;
+	
+	//set this to the ally ID i am, so I can target different enemies
+	
+	public int formationID;
+	public int spacing;
+	public int give;
+	public int formation;
+	public int roamFormation;
+	public int side;
+	public GameObject followPlayer;
+	public Rectangle followRectangle;
+	public Rectangle dodgeRectangle;
+	public Rectangle boundingBox;
+	public BoxCollider boxCollider;
+	public float lastFormationTime;
+	public float formationHoldTime;
+	public boolean headUnit;
+	private RigidBody rigidBody;
+	private Vector3 maxSpeed;
+	private Rectangle sBoundingBox;
+	
+	private Rectangle Top = new Rectangle();
+	private Rectangle Bottom = new Rectangle();
+	private Rectangle Left = new Rectangle();
+	private Rectangle Right = new Rectangle();
+	
+	public void onCreate ()
+	{
+		spacing = 32;
+		give = 5;
+		dodgeRectangle = new Rectangle();
+		boundingBox = new Rectangle();
+		formationID = 0;
+		lastFormationTime = -1;
+		formationHoldTime = 5;
+		formation = 5;
+		roamFormation = 5;
+		headUnit = false;
+		sBoundingBox = new Rectangle();
+		boxCollider = (BoxCollider)gameObject.getRigidBody().getCollider();
+		rigidBody = gameObject.getRigidBody();
+		screen = new Rectangle(0,0,480,800);
+		maxSpeed = new Vector3(32,32,0);
+	}
+	
+	public void update ()
+	{
+		if (gameObject == null)
+		{			
+			return;
+		}
+		else if (boxCollider == null)
+		{			
+			boxCollider = (BoxCollider)gameObject.getRigidBody().getCollider();
+			if (boxCollider == null)
+			{
+				return;
+			}
+		}		
+		if (boundingBox == null)
+		{
+			boundingBox = new Rectangle();
+		}
+		boundingBox.x = (int)gameObject.transform.position.x;
+		boundingBox.y = (int)gameObject.transform.position.y;
+		boundingBox.width = (int)boxCollider.size.x;
+		boundingBox.height = (int)boxCollider.size.y;
+		
+		numOfPlayers = GameObject.findAllByTags(new String [] {"player"}).size();
+		
+		if (numOfPlayers > 0)
+		{
+			followPlayer = GameObject.findAllByTags(new String [] {"Player"}).get(id%numOfPlayers);
+			
+			getBoundingBox(followPlayer,followRectangle);
+
+		}
+		else
+		{
+			followPlayer = null;
+			followRectangle = null;
+		}
+
+		if (numOfPlayers != 0)
+		{
+			side = (int)(formationID / numOfPlayers);
+		}
+		if (headUnit)
+		{
+			formation = 5;
+			roamFormation = 5;
+		}
+
+		//THIS IS OK
+		if (canShoot())
+		{
+			shoot();
+		}
+		
+		
+		if (checkDodge())
+		{
+			System.out.println("dodging");
+			dodge();
+			return;
+		}
+		
+		if (formation == 5 || roamFormation == 5)
+		{			
+			roam();
+		}
+				
+		if (followRectangle != null && !headUnit)
+		{
+			if (formation == 1 || roamFormation == 1)
+				wedge();
+			if (formation == 2 || roamFormation == 2)
+				line();
+			if (formation == 3 || roamFormation == 3)
+				column();
+			if (formation == 4 || roamFormation == 4)
+				cover();
+		}
+	}
+	public void dodge ()
+	{		
+		int searchHeight = 512;
+		
+		Top.x = boundingBox.x - (boundingBox.width*2);
+		Top.y = boundingBox.y + searchHeight;
+		Top.width = boundingBox.width*5;
+		Top.height = searchHeight;
+		
+		Bottom.x = boundingBox.x - (boundingBox.width*2);
+		Bottom.y = boundingBox.y - boundingBox.height;
+		Bottom.width = boundingBox.width*5;
+		Bottom.height = searchHeight/4;
+		
+		Left.x = boundingBox.x - (boundingBox.width*2);
+		Left.y = boundingBox.y + searchHeight;
+		Left.width = (boundingBox.width*2);
+		Left.height = searchHeight + boundingBox.height + searchHeight/4;
+		
+		Right.x = boundingBox.x + (boundingBox.width*2);
+		Right.y = boundingBox.y + searchHeight;
+		Right.width = boundingBox.width*2;
+		Right.height = searchHeight + boundingBox.height + searchHeight/4;
+		//
+		//get all the game objects
+		
+		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
+		{
+			GameObject s = GameObject.getAllGameObjects().get(x);
+			getBoundingBox(s,sBoundingBox);
+			if (s == null || sBoundingBox == null)
+			{
+				continue;
+			}
+			
+			if (!(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
+			{				
+				if (sBoundingBox.collidesWith(Top) || sBoundingBox.collidesWith(Bottom))
+				{					
+					if (sBoundingBox.collidesWith(Top))
+					{
+						if (rigidBody.speed.y > -(2*maxSpeed.y))
+							rigidBody.speed.y--;
+					}
+					else if (sBoundingBox.collidesWith(Bottom))
+					{
+						System.out.println("Bottom");
+						if (rigidBody.speed.y < maxSpeed.y)
+							rigidBody.speed.y++;
+					}
+					if (sBoundingBox.collidesWith(Right))
+					{
+						if (rigidBody.speed.x > -maxSpeed.x)
+							rigidBody.speed.x--;
+					}
+					else if (sBoundingBox.collidesWith(Left))
+					{
+						if (rigidBody.speed.x < maxSpeed.x)
+							rigidBody.speed.x++;
+					}
+					break;
+				}
+				else if (sBoundingBox.collidesWith(Right)  && !(s.hasTag("PowerUp")))
+				{
+					if (rigidBody.speed.x > -maxSpeed.x)
+						rigidBody.speed.x--;
+					break;
+				}
+				else if (sBoundingBox.collidesWith(Left)  && !(s.hasTag("PowerUp")))
+				{
+					if (rigidBody.speed.x < maxSpeed.x)
+						rigidBody.speed.x++;
+					break;
+				}
+			}
+		}
+	}
+	
+	public boolean checkDodge()
+	{
+		if (dodgeRectangle == null || boundingBox == null)
+		{
+			return false;
+		}
+		
+		dodgeRectangle.x = boundingBox.x - (boundingBox.width*2);
+		dodgeRectangle.width = boundingBox.width*5;
+		dodgeRectangle.y = boundingBox.y + (boundingBox.height*2);
+		dodgeRectangle.height = boundingBox.height*5;
+		
+		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
+		{
+			GameObject s = GameObject.getAllGameObjects().get(x);
+			getBoundingBox(s,sBoundingBox);
+			
+			if (s == null || sBoundingBox == null)
+			{
+				continue;
+			}
+			
+			//System.out.println(sBoundingBox + " " + dodgeRectangle + " " + sBoundingBox.collidesWith(dodgeRectangle));
+			if (sBoundingBox.collidesWith(dodgeRectangle) &&
+				!(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void draw()
+	{
+		/*
+		if (rigidBody.speed.y > 0)
+		{
+			if (rigidBody.speed.x > 0)
+				gameObject.playAnimation("DOWNRIGHT");
+			else if (rigidBody.speed.x < 0)
+				gameObject.playAnimation("DOWNLEFT");
+			else
+				gameObject.playAnimation("DOWN");
+		}
+		else if (rigidBody.speed.y < 0)
+		{
+			if (rigidBody.speed.x > 0)
+				gameObject.playAnimation("UPRIGHT");
+			else if (rigidBody.speed.x < 0)
+				gameObject.playAnimation("UPLEFT");
+			else
+				gameObject.playAnimation("UP");
+		}
+		else if (rigidBody.speed.x > 0)
+			gameObject.playAnimation("RIGHT");
+		else if (rigidBody.speed.x < 0)
+			gameObject.playAnimation("LEFT");
+		else
+			gameObject.playAnimation("IDLE");
+		
+		*/
+	}
+	
+	public boolean canShoot()
+	{
+		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
+		{
+			GameObject s = GameObject.getAllGameObjects().get(x);
+			getBoundingBox(s,sBoundingBox); 
+			
+			if (sBoundingBox == null)
+			{
+				continue;
+			}
+
+			if (sBoundingBox.x + sBoundingBox.width > boundingBox.x && 
+					sBoundingBox.x < boundingBox.x + boundingBox.width &&	
+					sBoundingBox.y > boundingBox.y && !(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
+				{	
+					return true;
+				}
+			}		
+		return false;
+	}
+
+	public void shoot()
+	{
+		Laser weapon = (Laser)gameObject.getComponent(Laser.class);
+		
+		/*
+		if (weapon.canShoot())
+			weapon.shoot(gameObject.transform.position, new Vector3(0.0f,8.0f,0.0f), new String [] {"Ally"}, 5000,weapon.getShotImage());
+		*/
+
+	}
+	
+	public void wedge()
+	{
+		int neg = 1;
+		int fix = numOfPlayers;
+		
+		if (fix == 0)
+			fix = 1;
+		if (side % 2 == 1)
+		{
+			neg = -1; //switch the side the ally appears on
+		}
+		
+		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix - give))
+		{
+			if (rigidBody.speed.x < maxSpeed.x)
+				rigidBody.speed.x++;
+		}
+		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix + give))
+		{
+			if (rigidBody.speed.x > -maxSpeed.x)
+				rigidBody.speed.x--;
+		}
+		else
+		{
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+		}
+		if (boundingBox.y < followRectangle.y + followRectangle.height + (spacing * formationID/fix - give))
+		{
+			if (rigidBody.speed.y < maxSpeed.y)
+				rigidBody.speed.y++;
+
+		}
+		else if (boundingBox.y > followRectangle.y + followRectangle.height + (spacing * formationID/fix + give))
+		{
+			if (rigidBody.speed.y > -maxSpeed.y)
+				rigidBody.speed.y--;
+		}
+		else
+		{
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		}
+	}
+	public void line()
+	{
+		int neg = 1;
+		int fix = numOfPlayers;
+		
+		
+		if (fix == 0)
+			fix = 1;
+		if (side % 2 == 1)
+		{
+			neg = -1; //switch the side the ally appears on
+		}
+		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix - give))
+		{
+			if (rigidBody.speed.x < maxSpeed.x)
+				rigidBody.speed.x++;
+
+		}
+		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix + give))
+		{
+			if (rigidBody.speed.x > -maxSpeed.x)
+				rigidBody.speed.x--;
+		}
+		else
+		{
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+		}
+		if (boundingBox.y < followRectangle.y - give)
+		{
+			if (rigidBody.speed.y < maxSpeed.y)
+				rigidBody.speed.y++;
+		}
+		else if (boundingBox.y > followRectangle.y +  give)
+		{
+			if (rigidBody.speed.y > -maxSpeed.y)
+				rigidBody.speed.y--;
+		}
+		else
+		{
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		}
+	}
+	public void column()
+	{
+		int neg = 1;
+		int fix = numOfPlayers;
+		if (fix == 0)
+			fix = 1;
+		if (side % 2 == 1)
+		{
+			neg = -2; //switch the side the ally appears on
+		}
+		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing - give))
+		{
+			if (rigidBody.speed.x < maxSpeed.x)
+				rigidBody.speed.x++;
+
+		}
+		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing + give))
+		{
+			if (rigidBody.speed.x > -maxSpeed.x)
+				rigidBody.speed.x--;
+		}
+		else
+		{
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+			gameObject.playAnimation("IDLE");
+		}
+		if (boundingBox.y < followRectangle.y + followRectangle.height + (spacing * formationID/fix - give))
+		{
+			if (rigidBody.speed.y < maxSpeed.y)
+				rigidBody.speed.y++;
+
+		}
+		else if (boundingBox.y > followRectangle.y + followRectangle.height + (spacing * formationID/fix + give))
+		{
+			if (rigidBody.speed.y > -maxSpeed.y)
+				rigidBody.speed.y--;
+		}
+		else
+		{
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		}
+	}
+	public void cover()
+	{
+		if (boundingBox.x < followRectangle.x - (spacing * formationID) - give - ((int)boundingBox.width/2))
+		{
+			if (rigidBody.speed.x < maxSpeed.x)
+				rigidBody.speed.x++;
+
+		}
+		else if (boundingBox.x > followRectangle.x + followRectangle.width + (spacing * formationID) + give - ((int)boundingBox.width/2))
+		{
+			if (rigidBody.speed.x > -maxSpeed.x)
+				rigidBody.speed.x--;
+		}
+		else
+		{
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+		}
+		if (boundingBox.y < followRectangle.y - spacing * formationID  - give - ((int)boundingBox.height/2))
+		{
+			if (rigidBody.speed.y < maxSpeed.y)
+				rigidBody.speed.y++;
+
+		}
+		else if (boundingBox.y > followRectangle.y + followRectangle.height + spacing * formationID + give - ((int)boundingBox.height/2))
+		{
+			if (rigidBody.speed.y > -maxSpeed.y)
+				rigidBody.speed.y--;
+		}
+		else
+		{
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		}
+	}
+	
+	public void roam ()
+	{
+		GameObject s = null;
+		GameObject st = null;
+		int x = 0;
+		int start = (GameObject.getAllGameObjects().size()/numOfAllies)*id;
+
+		x = start+1;
+		if (x >= GameObject.getAllGameObjects().size())
+		{
+			x = 0;
+		}
+		
+		boolean foundenemy = false;
+
+		int enemycount = 0;
+		
+		//NOTE: THIS NEEDS TO BE PLAYER1/2, NOT ME
+		//if the player is not dead
+		
+		int playersHealth = 0;
+
+		if (followPlayer != null)
+		{
+			HealthController hc = (HealthController)followPlayer.getComponent(HealthController.class);
+			if (hc != null)
+			{
+				playersHealth = hc.health;
+		
+				//the player is hurt
+				if (numOfPlayers != 0 && playersHealth < 20 && playersHealth > 0)
+				{
+					//switch to a cover formation
+					roamFormation = 4;
+					return;
+				}
+			}
+		}
+		
+		boolean looped = false;
+		while (true)
+		{
+			s = GameObject.getAllGameObjects().get(x);
+			getBoundingBox(s,sBoundingBox);
+			
+			if (sBoundingBox == null)
+			{
+				continue;
+			}
+			
+			if (!(s.hasTag(gameObject.getTags())) &&
+				s.hasTag("Enemy") &&
+				sBoundingBox.y < screen.y + screen.height + 256 &&
+				sBoundingBox.y > screen.y)
+			{
+				enemycount++;
+				if (enemycount == 1)
+				{
+					st = GameObject.getAllGameObjects().get(x);
+					foundenemy = true;
+				}
+			}
+			
+			if (x == start)
+				break;
+			
+			x++;
+			
+			if (x >= GameObject.getAllGameObjects().size())
+			{
+				x = 0;
+				if (looped)
+				{
+					break;
+				}
+				looped = true;
+			}
+		}
+	
+		s = st;
+
+		//if I did not find anything, don't move
+		if ((!foundenemy && headUnit) || (s == null && headUnit))
+		{
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		
+			System.out.println("Nothing Found");
+			return;
+		}
+		
+		if (canChangeFormation())
+		{						
+			int r = Util.RandomNumber(0,1);			
+			
+			if (r == 1)
+			{
+				//should change depending on spacing of enemies
+				if (enemycount <= 2 && enemycount >= 1)
+				{
+					roamFormation = 3;
+					lastFormationTime = Time.getTime();
+					getBoundingBox(targetPlayer,followRectangle);
+				}
+				else if (enemycount >= 3)
+				{
+					roamFormation = 1;
+					lastFormationTime = Time.getTime();
+					getBoundingBox(targetPlayer,followRectangle);
+				}
+			}
+			else
+			{
+				if (foundenemy)
+				{
+					roamFormation = 5;
+				}
+				else
+				{
+					roamFormation = 2;
+					getBoundingBox(targetPlayer,followRectangle);
+				}
+				lastFormationTime = Time.getTime();
+			}
+		}
+		if (!canChangeFormation() && (roamFormation == 5 || roamFormation == 2))
+		{
+			if (foundenemy)
+			{
+				roamFormation = 5;
+			}
+			else
+			{
+				roamFormation = 2;
+				getBoundingBox(targetPlayer,followRectangle);
+			}			
+		}
+	
+		if (s == null)
+		{
+			roamFormation = 2;
+		}
+		if (roamFormation != 5)
+		{
+			System.out.println("Not Roaming");
+			return;
+		}
+		
+		getBoundingBox(s,sBoundingBox);
+		if (boundingBox.x < sBoundingBox.x - give)
+		{
+			if (rigidBody.speed.x < maxSpeed.x)
+				rigidBody.speed.x++;
+		}
+		else if (boundingBox.x > sBoundingBox.x + give)
+		{
+			if (rigidBody.speed.x > -maxSpeed.x)
+				rigidBody.speed.x--;
+		}
+		else
+		{
+			//rigidBody.speed.x = 0;
+			
+			if (rigidBody.speed.x < 0)
+				rigidBody.speed.x++;
+			if (rigidBody.speed.x > 0)
+				rigidBody.speed.x--;
+				
+				
+		}
+		
+		if (boundingBox.y < sBoundingBox.y + 256 - give)
+		{
+			if (rigidBody.speed.y < maxSpeed.y)
+				rigidBody.speed.y++;
+				
+		}
+		else if (boundingBox.y > sBoundingBox.y + 256 + give)
+		{
+			if (rigidBody.speed.y > -maxSpeed.y)
+				rigidBody.speed.y--;
+		}
+		else
+		{
+			if (rigidBody.speed.y < 0)
+				rigidBody.speed.y++;
+			if (rigidBody.speed.y > 0)
+				rigidBody.speed.y--;
+		}
+		
+	}
+	
+	public boolean canChangeFormation()
+	{
+		
+		if (lastFormationTime + formationHoldTime < Time.getTime())
+			return true;
+		return false;
+	}
+	
+	public boolean getBoundingBox (GameObject s, Rectangle r)
+	{
+		if (s == null)
+		{
+			return false;
+		}
+		
+		if (s.getRigidBody() == null)
+		{
+			return false;
+		}
+		
+		if (!(s.getRigidBody().getCollider() instanceof BoxCollider))
+		{
+			return false;
+		}
+		
+		if (r == null)
+		{
+			return false;
+		}
+		
+		r.x = (int)s.transform.position.x;
+		r.y = (int)s.transform.position.y;
+		
+		r.width = (int)((BoxCollider)s.getRigidBody().getCollider()).size.x;
+		r.height = (int)((BoxCollider)s.getRigidBody().getCollider()).size.y;
+		return true;
+	}
+}

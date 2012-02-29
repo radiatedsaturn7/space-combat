@@ -1,0 +1,62 @@
+import java.awt.*;
+
+public abstract class Entity
+{
+	public boolean m_bUpdated;
+	public Rectangle m_rcBoundingBox;
+	public Point m_pGlobalOffsetPosition;
+	public Entity m_eTarget;
+	
+	public Entity(Entity e)
+	{
+		m_rcBoundingBox = new Rectangle(e.m_rcBoundingBox);
+		m_pGlobalOffsetPosition = new Point(e.m_pGlobalOffsetPosition);
+		m_bUpdated = e.m_bUpdated;
+	}
+	public Entity(int x, int y, int w, int h, Point p)
+	{
+		m_rcBoundingBox = new Rectangle(x,y,w,h);
+		m_pGlobalOffsetPosition = new Point (p.x,p.y);
+		m_bUpdated = false;
+	}
+	public void Update(Sprite S)
+	{
+		m_bUpdated = true;
+		if (m_eTarget != null)
+			m_eTarget.Update(S);
+	}
+	public void Update()
+	{
+		m_bUpdated = true;
+		if (m_eTarget != null)
+			m_eTarget.Update();
+	}
+	
+	public boolean IsColliding(Rectangle B)
+	{
+		if (this.m_rcBoundingBox.intersects(B))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean IsOnScreen()
+	{
+		Rectangle R = new Rectangle(
+			-(Util.m_pGlobalOffset.x + Util.m_rcScreen.x), 
+			-(Util.m_pGlobalOffset.y + Util.m_rcScreen.y),
+			Util.m_rcScreen.width,
+			Util.m_rcScreen.height);
+		Rectangle R2 = new Rectangle(
+			m_pGlobalOffsetPosition.x + m_rcBoundingBox.x, 
+			m_pGlobalOffsetPosition.y + m_rcBoundingBox.y,
+			m_rcBoundingBox.width,
+			m_rcBoundingBox.height);
+		if (R2.intersects(R))
+		{
+				return true;
+		}
+		return false;
+	}
+}

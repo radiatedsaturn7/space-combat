@@ -1,0 +1,6 @@
+1330090381123	Rename type 'GLAnimation'
+1330090428263	Rename compilation unit 'GenericAnimation.java'
+1330130873269	Rename field 'useMultithreaded'
+1330130882712	Rename field 'useMultithreadedDraw'
+1330130923424	Rename field 'frameRate'
+1330130939091	Rename field 'gameFps'

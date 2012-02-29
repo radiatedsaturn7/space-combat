@@ -1,0 +1,134 @@
+package com.spacecombat;
+
+import java.io.IOException;
+import android.content.Context;
+import java.io.InputStream;
+import java.util.HashMap;
+import android.graphics.Rect;
+import com.nea.nehe.lesson06.R;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+
+public class CanvasGraphic implements GenericGraphic 
+{
+	private static Canvas canvas;
+	private static Paint paint;
+	private static HashMap<String,Bitmap> loaded;
+	
+	private int maxHeight;
+	private int maxWidth;
+	private String name;
+	private static Context context;
+	
+	public static void setCanvas (Canvas canvas)
+	{
+		CanvasGraphic.canvas = canvas;
+	}
+	
+	public static void setPaint (Paint paint)
+	{
+		CanvasGraphic.paint = paint;
+	}
+	
+	public static void setContext (Context c)
+	{
+		CanvasGraphic.context = c;
+	}
+	
+	public CanvasGraphic ()
+	{		
+	}
+	
+	public void create (String name, InputStream is) 
+	{
+		this.name = name;
+		
+		if (loaded == null)
+		{
+			System.out.println("CREATED NEW IMAGE ARRAY");
+			loaded = new HashMap<String,Bitmap>();
+		}
+				
+		if (loaded.containsKey(name))
+		{
+			return;
+		}
+				
+		Bitmap bitmap = null;
+		try {
+			//BitmapFactory is an Android graphics utility for images
+			bitmap = BitmapFactory.decodeStream(is);
+		} finally {
+			//Always clear and close
+			try {
+				is.close();
+				is = null;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		loaded.put(name, bitmap);	
+		System.out.println("DONE CREATING");
+	}
+	
+	public int getWidth()
+	{		
+		return 32;
+	}
+	
+	public int getHeight()
+	{		
+		return 32;
+	}
+	
+	public void draw(int x, int y, int width, int height, int offsetX, int offsetY, int rotx, int roty, int scalex, int scaley) 
+	{
+		if (canvas != null && paint != null)
+		{
+			System.out.println("drawing " + name + " at (" + offsetX + "," + offsetY +") size=" + width + "x" + height);
+			
+			//Bitmap bitmap = loaded.get(name);
+
+			InputStream is2 = context.getResources().openRawResource(R.drawable.phunter);
+			Bitmap bitmap = null;
+					try {
+						//BitmapFactory is an Android graphics utility for images
+						bitmap = BitmapFactory.decodeStream(is2);
+					} finally {
+						//Always clear and close
+						try {
+							is2.close();
+							is2 = null;
+						} catch (IOException e) {
+							throw new RuntimeException(e);
+						}
+					}
+			
+			Rect src = new Rect(1,1,33,33);
+			Rect dst = new Rect(1,1,33,33);
+			
+			//Rect src = new Rect(x,y,x+width,y+height);
+			//Rect dst = new Rect(offsetX,offsetY,offsetX+width,offsetY+height);
+			
+			System.out.println(src);
+			System.out.println(dst);			
+			System.out.println(bitmap);
+			System.out.println(paint);
+			
+			canvas.drawBitmap(bitmap,0,0,paint);
+			//canvas.drawBitmap(bitmap, src, src, paint);
+		}
+		else if (canvas == null)
+		{
+			System.out.println("Canvas is null");
+		}
+		else if (paint == null)
+		{
+			System.out.println("paint is null");
+		}
+	}
+}

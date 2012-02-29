@@ -1,0 +1,13 @@
+1326651643763	Rename compilation unit 'HealthController.java'
+1326651655622	Rename compilation unit 'ShotColliion.java'
+1326842989093	Rename type 'GLGraphic'
+1326843020281	Rename type 'Trashed'
+1326980408509	Rename field 'm_iBaseDamage'
+1326980426482	Rename field 'm_iPowerLevel'
+1326980442860	Rename field 'm_iMaxPowerLevel'
+1326980483422	Rename field 'm_iPowerLevel2'
+1326980500617	Rename field 'm_iMaxPowerLevel2'
+1326980531866	Rename field 'm_tReloadTime'
+1326980544957	Rename field 'm_tLastShotTime'
+1326980565342	Rename field 'm_sName'
+1327015616008	Delete element

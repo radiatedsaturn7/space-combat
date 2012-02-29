@@ -1,0 +1,23 @@
+package com.spacecombat;
+
+public class LockingWeaponHandler extends Component 
+{
+	private Weapon w;
+	private GameObject go;
+	private Vector3 defaultDirection;
+	
+	public WeaponHandler (Weapon w, String [] target)
+	{
+		this.w = w;
+	}
+		
+	public void update ()
+	{
+		
+		if (w != null && w.canShoot())
+		{
+			w.shoot();
+		}
+	}
+}
+

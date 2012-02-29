@@ -1,0 +1,39 @@
+package com.spacecombat;
+
+public class HealthController extends Component
+{
+	public int health;
+	
+	public void setHealth (int health)
+	{
+		this.health = health;
+	}
+	
+	public void collide (Collision collision)
+	{
+		if (!collision.getWhatIHit().hasTag(collision.getMe().getTags()))
+		{
+			ShotCollision sc = (ShotCollision)collision.getWhatIHit().getComponent(ShotCollision.class);
+			
+			if (sc != null)
+			{
+				System.out.println(collision.getMe().getName() + " took " + sc.getDamage() + " hp: " + health);
+				health -= sc.getDamage();
+			}
+			else
+			{
+				System.out.println("Something wrong, what I hit:" + collision.getWhatIHit().getName());
+			}
+			
+			GraphicAnimation animation = gameObject.getCurrentAnimation();
+			
+			if (health <= 0 && !(animation.getName().equals("death")))
+			{
+				GraphicAnimation death = (GraphicAnimation)gameObject.playAnimation("death");
+				gameObject.destroyAfter((long)death.getDuration());
+
+				gameObject.removeComponent(AIScript.class);
+			}
+		}
+	}
+}

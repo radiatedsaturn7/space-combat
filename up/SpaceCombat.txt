@@ -1,0 +1,190 @@
+Main Character
+Teacher
+Racer
+Plumber
+Computer Scientist
+Physicist
+Chemist
+Black Smith
+Lock Smith
+Treasure Hunter
+Soldier
+Pirate
+Government Agent
+Mechanic
+Resteraunt Owner
+Trainer
+Politician
+Phone Repair man
+Robot
+Princess
+King
+Farmer
+Fisherman
+Asteroid Miner
+Construction worker
+Trucker
+Librarian
+Lawyer
+Arcitect
+Engineer
+
+Sanity
+Money
+Love
+Heart
+Soul
+Intelligence
+Fame
+Honor
+Loyality
+Respect
+
+fighting
+exploreing
+killing
+searching
+caring
+oving
+working
+disecting
+
+
+
+
+Proposal Statement:
+A teacher tries to recover Gaia's souls by killing God
+
+Expanded
+SETUP: On Gaia apathy has consumed the human race.
+D1: God gives up on humans and takes all souls away.
+D2: God kills teachers brother.
+D3: God destroys Gaia.
+C: Teacher kills God, becomes new God.
+
+Teacher:
+name: Roe
+Story Line: Roe retrieves all souls back from God.
+Motivation: He does not beleive all people are evil.
+Goal: Wants to save the human race.
+Conflict: God
+Learns: You can accomplish anything if you try hard enough.
+PAR: After teaching an Gaian class, Roe notices something has changed. After a ghost named Dest, the same as his Brother tells him, Roe learns that the changes he is experiencing has been caused by God removing all Human souls from Gaia, causing them to all go to hell. Roe meets up with two people, and tries to convince God that he should give Gaia back their souls, but God refuses. After seeing Porain with God, Roe attempts to kill God, however, God banishes them back to earth, and also kills the Compass to God. After meeting up with more people, they come up with a plan to kill god. After returning home to tell Dest the plan, Dest is lying on the floor with blood pouring out of him. Dest warns Roe about God's plan to kill Roe. Dest tells Roe about the person in his party who owned a cruiser that could destroy Heaven's Gates. Roe meets up with many people, and helps them acheive their goals. By creating much needed faith from his friends, he gets help in acheiving his goal of killing God. After getting the cruiser ship, they leave the planet for Heaven. After reaching the stratosphere, GAIA explodes at the work of Porain. After Roe kills Porain, they revive Compass to God again. Roe finds, and kills God.
+
+
+Teachers Wife:
+name: Porain
+Story Line: Porain becomes God's Henchmen.
+Motivation: Greed.
+Goal: Wants to be God's wife.
+Conflict: Husband trying to kill God. God not loving her.
+Learns: Nothing.
+PAR: Porain, Roe's wife, leaves Roe in his time of need, and falls in love with God. Porain learns of a plan Raide has created to break into Heaven, and as a result consults God. Porain tells God to kill Roe and God follows through with Porain's plan. Porain seeks out Dest, however Dest refuses to tell Porain where Roe is. As a result, Porain kills Dest. Whe Roe meets his dieing brother, he becomes even more determined. After Roe finds the cruiser ship, Porain destroys Gaia with her magic ability granted by God. Porain is slayed by her ex-husband.
+
+Teachers Brother:
+name: Dest
+Story Line: Dies saving his brother.
+Motivation: Love for his brother.
+Goal: Want's his brother to have a better life.
+Conflict: Brother's Luck.
+Learns: Nothing.
+PAR: Dest constantly helps his brother. In a dream a ghost named Raide warns Dest that all humans will go to hell. In additon, he tell's Dest that no matter what he does, he cannot prevent this. He also warns Dest that if he tells anyone about his fortune reading, then the worlds fate is inevitable. But, if he makes the right choices, he can indirectly save the world. Lastly, Raide apologizes, but he can't figure out why. When Roe says he is going to kill God, Dest gives up his life entirely to support Roe. Eventually, Dest sacrifices himself so Roe can continue fighting against God, and as a result dies. Dest Returns as a Ghost and counciles Roe.
+
+Helper 1:
+name: Bailf
+Story Line: Bailf learns what friendship is.
+Motivation: Hatred.
+Goal: Wants to slay God.
+Conflict: Finding God.
+Learns: Learns what friendship is.
+PAR: Bailf is a very cold person. He grew up on the streets serving his drunkard father. People would throw stones at him for his father's mistakes. One day in the junkyard, he found a beat up ship. During the nights he would work on it, and swore everyone would regret it. One day he asked God to make life better for all humans. In his own humor, he agreed and God killed his father, Bailf's only living relative. For this reason, it has been Bailf's goal to find and take revenge on God. He at first uses Roe to find where God lives, and even fights with Roe. Eventaully, he finds a friend in Roe.
+
+Helper 2:
+name: Seven
+Story Line: Seven learns to love again.
+Motivation: Insecurity.
+Goal: Wants to find friends.
+Conflict: Can't let go of bad memories. (What memories?)
+Learns: That risks need to be taken in life.
+PAR: Seven is always looking for someone to hang on to. She had come from a rich family, and since she was rich, she was never treated nicely in school- kids would pick on her. For this reason, she was always very quiet and never says much. She has a hard time trusting anyone around her, since she was betrayed by everyone- including her own parents. She once hid a slave inside her house from the government. However, her parents found out and submitted her and the slave to the government. The person was executed in front of her, and she was tortured for commiting crime. She meets up several times with Roe, and helps him out as both a mysterious masked woman, and a cute girl who has a shy attraction towards him. Roe can not figure out who the mysterious woman is until she reveals herself when Weston's son dies and her self-confidence is recovered.
+
+Helper 3:
+name: Ebony
+Story Line: Ebony gets his cruiser ship.
+Motivation: Anger.
+Goal: Ebony wants his cruiser ship back.
+Conflict: Pirates keep getting away.
+Learns: There is more to life than his cruiser ship.
+PAR: Before the beginning of the three years war, Ebony's cruiser ship was stolen by pirates, lead by a black magician. It was said that his cruiser ship had the strength to break through even the gates of heaven. The pirates stole the ship as a mercenery-mission for Ada, the princess of Dumm. Since then, Ebony's ship has been employed in the Dumm's military service. Despite attempts to retrive the ship, he is unable to break through the barrier he created. On one attempt, he meets up with Roe who is attempting to destroy the ship. Although valiant attempts were made to recover the ship, they were unable to. There was one more attempt to get the ship back, but it was on the third that they retrieved it. Ebony helps Roe break through the gates through heaven. After breaking through heaven, God attempts to kill everyone with one powerful blast, but Ebony sacrifices his cruiser ship to sheild everyone from the beam.
+
+Helper 4: 
+name: Raide
+Story Line: Raide commits suicide.
+Motivation: Sadness.
+Goal: Wants to be happy.
+Conflict: People keep dying around him.
+Learns: Killing yourself isn't the best way out.
+PAR: Raide's mother died when having Raide. When Raide was young, he had a terrible disease, and his father contracted it and died, forcing him to live with his grand parents. Soon after his grandparents and sister died in the three years war. He lived in his grandparents house where he was accused of murdering his family. A convict all his life, Raide seeks comfort in a woman. When this woman learns of his past, she  throws him on to the streets. He meets Roe, where soon after Roe's brother dies as a result of Raides plan to kill God. Tired of life, Raide commits suicide. Blood is smeared all over the walls of his bed room, where he swallowed a tog-road worm (a worm that feeds on blood, eating the body from the heart and working it's way throught he veins). Raide returns as a demon from hell (since he had no soul when he died), however, because of his good nature, he was banished from hell back on to earth to wander forever. Raide finds Roe again, and helps him infiltrate Heaven. In the time that he does not exist, Raide goes back in time and warns both apologizes to Dest.
+
+Helper 5:
+name: Vor
+Story Line: Vor learns what happened to his family.
+Motivation: Information.
+Goal: Wants to know what happened to his family.
+Conflict: Lack of records (people / books). Learns about it in a history book.
+Learns: A family in his friends.
+PAR: Vor was fifteen when one day he woke with no family in his house. His sister, mother and father were all gone. Not a dust particle in the house had moved, as if they had disappeared. Searching records around the world, Vor is one of the most well informed people on the planet, however, he has yet to learn what happened to his family. When Vor saves Roe's life from a destroyed ship, Roe swears to help Vor find out what happens to his family. After a while, Roe learns about a stone that contains all the history of the world. When Roe takes Vor to the stone, Vor learns how his family died. When Vor has no one left to go to, Roe says that he can stay with them. Vor agrees, and helps Roe no matter what.
+
+NOTE: Vor's family died by burying them head deep pooring gasoline down their throats and then burning them alive from the inside out per order of Queen Ada. Queen Ada had learned that Vor's father had been communicating with King Salamander, and was a spy. Vor was spared because Zebbs had planned to use him to break through the Cruiser Ship's barrier, however, his soul was too strong and he was spared.
+
+Helper 6 (p2): 
+name: Weston
+Story Line: Kills his son.
+Motivation: Love for his only son.
+Goal: Wants to save is son from a black magician.
+Conflict: Can't find black magician. (Black Magician stole the Cruiser Ship).
+Learns: Sometimes you have to do what you don't want to do.
+PAR: Weston has been searching for a black Magician (who originally stole the cruiser ship). This black magician has influenced Hert (Weston's son) into become extremely heartless. His son, who wanted to be loved for something, became extremely cold in his ways. Raising higher in the magician ranks, his son became even more heartless. He was taught spells that would save one life at the cost of three. When Weston finally catches up with his son, his son is going to kill his sister in order to save his master. Weston makes a difficult choice- his son or his daughter. His son protests that if he learns more from his master he can save more people. Realizing that his son is senile, Weston fights and kills his own son. 
+
+Black Magician
+name: Zebbs
+Story Line: Steals Westons Son, Steals Ebony's Cruiser Ship
+Motivation: Thirst for blood
+Goal: Kill king Salamander and then kill Queen Ada
+Conflict: Weston keeps halting his progress
+Learns: Nothing
+PAR: Zebbs wants to control both Dumm and Schorn. He had successfully infiltrated Queen Ada's military, and secretly casted a spell that causes Queen Ada to live as long as King Salamander- but no longer. Queen Ada wants to control Schorn, and King Salamander wants independence for his people. In order to steal Ebony's cruiser ship, he needed someone completely heartless to penetrate the cruiser ships barrier. Casting a spell on Weston's son, he uses Hert to break through the barrier and releive Ebony of his cruiser ship. Zebbs uses the cruiser ship to break through Schorns defenses and kill King Salamander. As a result, Queen Ada also dies, causing Zebbs to be the master of both Schorn and Dumm. Eventually, Ebony and Weston catch up to Zebbs and kill him. Ebony gets his cruiser ship back, however Zebb's magician in training is killed by Weston.
+
+Weston's Son
+name: Hert
+Story Line: Hert is killed by Weston
+Motivation: To be loved
+Goal: To be a renowned good magician
+Conflict: His father is 'holding' him back.
+Learns: Becomes human again before he dies
+PAR: Hert has a spell casted on him by Zebbs. Zebbs uses his Hert's good soul with his heartlessness to break through Ebony's ship's barrier. Hert follows Zebbs like a faithful dog, and watches him in amazement with Zebb's spell casting abilities. Zebbs however, told him that he must learn the basics, and as a result sent Hert to a magician school. Hert constantly insulted other kids, however specifically targetted a girl named Seven. His first spell destroyed all confidence in Seven, and limited her abilities. However, when his master dies, he wants to sacrifice his sister's life to bring him back to life. Normally, spells break when the caster dies, however, Hert remains that heartless. After Weston kills Hert, his own son, the spell breaks on Seven, and she regains her self confidence.
+
+name: Queen Ada
+Story Line: Kills King Salamander at the cost of her own life
+Motivation: Greed
+Goal: Take Schorn under her control
+Confict: King Salamander and his army is too strong
+Learns: Close people can betray you
+PAR: Queen Ada is a greedy queen who wants to take over Schorn; as a result, her greed causes God to forsake all humans. Queen Ada employs a Black Magician who secretly casts a spell on her to die when King Salamon dies. Queen Ada uses this Black Magician to steal Ebony's cruiser ship, and tells Zebbs to break through Schorn's defences and kill King Salamander. In her own greed she dies as a result of Zebbs spell.
+
+name: King Salamander
+Story Line: Fails to protect his public from Queen Ada
+Motivation: Love
+Goal: Protect his public from Queen Ada
+Learns: Nothing
+PAR: King Salamder rose as a 'governer' of Schorn, until the public elected him as King and broke away from Queen Ada. Since then, Queen Ada has been trying to kill King Salamander. King Salamander was the best King ever recorded in history for his devotion to the public. When King Salamander learns of what happened between God and people, King Salamander tells Roe where the Compass to God is hidden-- something rumored, and only known to the highest of high officials. In Addition, Roe helps protect King Salamander from Queen Ada, however Roe fails as the Black Magician kill King Salamander. King Salamander continues life as a ghost, consouling Roe.
+
+
+God:
+name: Dea Kulaf
+Story Line: Steals all souls from Gaia.
+Motivation: Lost all hope for Humans.
+Goal: Doesn't want to be God anymore.
+Conflict: Teacher.
+Learns: Nothing.
+PAR: Dea Kulaf, God of Gaia, sits and watches the fighting furing the Three Years War. Negotiating with both the Queen Ada of Dumm and King Salamander of Schorn. After solving their problems, war breaks out again, and as a result, Dea Kulaf forsakes all humans to hell. Afterwards, Roe talks with Dea Kulaf about retreiving the souls back from earth. God rejects his plea, and after Roe sees God with Porain, Roe angrily attacks God. God banishes Roe back to earth, and also steals the Compass to God. Porain learns about Roe's plan and consults God. God allows Porain to seek out Roe. However, she kills Roe's brother without consulting God. This irritates Roe, and causes him to find God again. Roe breaks through Heaven's barrier using the cruiser ship. Finally, Dea Kulaf dies at the hands of the angry Roe.

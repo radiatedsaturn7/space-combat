@@ -1,0 +1,13 @@
+package com.spacecombat;
+
+import java.io.InputStream;
+
+public class Phaser extends Weapon {
+
+	@Override
+	protected void fire(Vector3 position, InputStream is) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

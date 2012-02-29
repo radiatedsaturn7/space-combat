@@ -1,0 +1,101 @@
+package com.spacecombat;
+
+public abstract class Collider  
+{
+	protected RigidBody rigidBody;
+	private String [] tags;
+	
+	public boolean collidesWith(Collider c)
+	{		
+		if (c instanceof BoxCollider)
+		{
+			return collidesWith((BoxCollider)c);
+		}
+		return false;
+	}
+	
+	public void setTags (String [] tags)
+	{
+		this.tags = tags;
+	}
+	
+	public String [] getTags ()
+	{
+		return tags;
+	}
+	
+	public boolean hasTag (String tag)
+	{
+		if (tags == null)
+		{
+			return false;
+		}
+		if (tag == null)
+		{
+			return false;
+		}
+		
+		int x = 0;
+		for (x = 0; x < tags.length; x++)
+		{
+			if (tags[x].equalsIgnoreCase(tag))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean hasTag (String [] otherTags)
+	{
+		if (tags == null)
+		{
+			return false;
+		}
+		if (otherTags == null)
+		{
+			return false;
+		}
+		
+		int x = 0;
+		for (x = 0; x < tags.length; x++)
+		{
+			int y = 0;
+			for (y = 0; y < otherTags.length; y++)
+			{
+				if (tags[x].equalsIgnoreCase(otherTags[y]) && otherTags[y] != null)
+				{
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+
+	public String getPrintableTags ()
+	{
+		String s = "";
+		if (tags != null)
+		{
+			int x = 0;
+			for (x = 0; x < tags.length; x++)
+			{
+				s += tags[x]+",";
+			}
+		}
+		return s;
+	}
+		
+	public void setRigidBody (RigidBody rigidBody)
+	{
+		this.rigidBody = rigidBody;
+	}	
+
+	public RigidBody getRigidBody ()
+	{
+		return rigidBody;
+	}
+	public abstract boolean collidesWith(BoxCollider boxCollider);		
+}
