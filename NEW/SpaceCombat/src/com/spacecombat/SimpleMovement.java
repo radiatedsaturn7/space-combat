@@ -2,12 +2,17 @@ package com.spacecombat;
 
 public class SimpleMovement extends Component 
 {
-	private Vector3 speed;
+	private float speedX = 0;
+	private float speedY = 0;
+	private float speedZ = 0;
+	
 	private RigidBody rigidBody;
 		
 	public void setSpeed (Vector3 speed)
 	{
-		this.speed = speed;		
+		speedX = speed.x;		
+		speedY = speed.y;		
+		speedZ = speed.z;		
 	}
 	
 	public void update ()
@@ -18,8 +23,8 @@ public class SimpleMovement extends Component
 			return;
 		}
 		
-		rigidBody.speed.x = speed.x;
-		rigidBody.speed.y = speed.y;
-		rigidBody.speed.z = speed.z;
+		rigidBody.speed.x = speedX;
+		rigidBody.speed.y = speedY;
+		rigidBody.speed.z = speedZ;
 	}
 }

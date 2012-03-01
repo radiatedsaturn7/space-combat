@@ -50,13 +50,16 @@ public class LockingWeaponHandler extends Component
 		
 		if (t == null || t.size() == 0)
 		{
+			System.out.println("TARGETTING:NULL");
 			w.setShootDirection(defaultDirection);
-			go = null;
+			go = null;			
 			return;
 		}
 		
 		int x = Util.RandomNumber(0, t.size()-1);
+				
 		go = t.get(x);
+		System.out.println("TARGETTING:"+go.getName());
 		
 		temp.x = (go.transform.position.x - gameObject.transform.position.x);
 		temp.y = (go.transform.position.y - gameObject.transform.position.y);
@@ -64,6 +67,6 @@ public class LockingWeaponHandler extends Component
 		
 		w.setShootDirection(temp);
 		
-		nextSearch += Time.getTime() + searchTime;
+		nextSearch = Time.getTime() + searchTime;		
 	}
 }

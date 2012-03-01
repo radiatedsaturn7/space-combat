@@ -66,10 +66,12 @@ public class AllyAI extends AIScript
 				return;
 			}
 		}		
+		
 		if (boundingBox == null)
 		{
 			boundingBox = new Rectangle();
 		}
+		
 		boundingBox.x = (int)gameObject.transform.position.x;
 		boundingBox.y = (int)gameObject.transform.position.y;
 		boundingBox.width = (int)boxCollider.size.x;

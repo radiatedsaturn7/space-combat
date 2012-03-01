@@ -89,10 +89,13 @@ public class Engine
 		//GameObject.create(PrefabFactory.createLevel(map, 8, 14, wad, "wad3"));
 
 		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(80,600,0),renegade,laser));
+		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(360,600,0),renegade,laser));
 		
-		GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(200,700,0),renegade,laser));
+		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(400,700,0),renegade,laser));
+		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(0,700,0),renegade,laser));
 		
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(200,0,0),enemy,laser,3,1));
+		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(100,0,0),enemy,laser,3,1));
+		GameObject.create(PrefabFactory.createEnemy("E2",new Vector3(300,0,0),enemy,laser,3,1));
 		/*GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(32,600,0),enemy,enemyLaser,2,0));
 		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(64,600,0),enemy,enemyLaser,3,0));
 		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(96,600,0),enemy,enemyLaser,4,0));
