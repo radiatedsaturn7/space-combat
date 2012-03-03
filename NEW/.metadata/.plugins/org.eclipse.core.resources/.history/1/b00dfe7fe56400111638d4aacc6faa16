@@ -1,0 +1,36 @@
+package com.spacecombat;
+
+public class AIScriptFour extends AIScript {
+
+	private RigidBody rigidBody;
+	
+		private Vector3 accel = new Vector3(2,2,0);
+		private Vector3 maxSpeed = new Vector3(32,128,0);
+		private GameObject target;
+
+		public AIScriptFour (String [] targets)
+		{
+			target = GameObject.findRandomByTags(targets);
+			
+		}
+		
+		public void onCreate ()
+		{		
+			rigidBody = gameObject.getRigidBody();
+		}
+		
+		public void update ()
+		{
+			if (rigidBody == null)
+			{
+				return;
+			}
+			
+			if (rigidBody.speed.y < maxSpeed.y)
+			{
+				rigidBody.speed.y+=accel.y;
+			}
+		}
+	}
+
+}

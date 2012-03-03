@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;m_bReverse&apos; in &apos;com.spacecombat.AIScriptTwo&apos; to &apos;isReverse&apos;&#x0D;&#x0A;- Original project: &apos;SpaceCombat&apos;&#x0D;&#x0A;- Original element: &apos;com.spacecombat.AIScriptTwo.m_bReverse&apos;&#x0D;&#x0A;- Renamed element: &apos;com.spacecombat.AIScriptTwo.isReverse&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;m_bReverse&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;com.spacecombat{AIScriptTwo.java[AIScriptTwo^m_bReverse" name="isReverse" references="true" setter="false" stamp="1330744013318" textual="false" version="1.0"/>
+</session>

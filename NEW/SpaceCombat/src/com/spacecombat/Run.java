@@ -38,12 +38,13 @@ public class Run extends Activity {
 		private Paint paint;
 		
 		public DemoView(Context context){
-			super(context);		
+			super(context);					
 			this.context = context;
 			paint = new Paint();
+			PrefabFactory.setContext(context);
 			CanvasGraphic.setPaint(paint);
 			e = new Engine(context);
-			e.createGameObjects();		
+			e.createGameObjects();				
 		}
 
 		@Override 

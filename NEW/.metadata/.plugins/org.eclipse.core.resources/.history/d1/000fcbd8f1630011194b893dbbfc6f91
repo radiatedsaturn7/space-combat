@@ -1,0 +1,388 @@
+package com.spacecombat;
+
+import java.io.InputStream;
+import android.content.Context;
+import javax.microedition.khronos.opengles.GL10;
+
+public class PrefabFactory 
+{
+	private static boolean useOpenGl = false;
+	private static int defaultFps = 17;
+	
+	private static final String [] enemyTargets = {"player","ally"}; 
+	
+	private static final Vector3 shootDown = new Vector3(0,200,0);
+	private static final Vector3 shootDownLeft = new Vector3(-8,8,0);
+	private static final Vector3 shootDownRight = new Vector3(8,8,0);	
+	private static final Vector3 shootLeft = new Vector3(-8,0,0);
+	private static final Vector3 shootRight = new Vector3(8,0,0);
+	private static final Vector3 shootUp = new Vector3(0,-8,0);
+	
+	private static Context context;
+	
+	public static void setContext (Context c)
+	{
+		PrefabFactory.context = c;
+	}
+	
+	public static GameObject createPlayer (String name, Vector3 position, InputStream is, InputStream is2)
+	{		
+		
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("renegade", is);
+		Animation idle = new Animation("idle",0,5,true,defaultFps,32,32);
+		idle.setFrameIncrement(2);
+		Animation death = new Animation("death",0,1,true,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+		
+		Weapon w = new Laser(shootUp,is2);
+		//WeaponHandler wh = new WeaponHandler();
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(new String [] {"Player","Ally"});
+		rigidBody.setCollider(collider);
+
+		HealthController hc = new HealthController();
+		hc.setHealth(100);
+		
+		GameObject o = new GameObject();		
+		o.setName(name);		
+		o.setTags(new String [] {"Player","Ally"});
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		o.addComponent(hc);
+		o.addComponent(w);
+		//o.addComponent(wh);
+		
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+
+		return o;
+	}
+	
+	public static GameObject createAlly (String name, Vector3 position, InputStream is, InputStream is2)
+	{		
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("renegade", is);
+		Animation idle = new Animation("idle",0,5,true,defaultFps,32,32);
+		idle.setFrameIncrement(2);
+		Animation death = new Animation("death",0,1,true,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+		
+		Weapon w = new MachineGun(shootUp,is2);
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(new String [] {"Player","Ally"});
+		
+		rigidBody.setCollider(collider);
+		
+		HealthController hc = new HealthController();
+		hc.setHealth(100);
+		
+		GameObject o = new GameObject();
+		o.setName(name);
+		o.setTags(new String [] {"Ally"});
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		
+		AIScript ai = new AllyAI();
+		o.addComponent(ai);
+		o.addComponent(w);
+		o.addComponent(hc);
+		
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+
+		return o;
+	}
+	
+	public static GameObject createLaser (Vector3 position, Vector3 speed, String [] tags, InputStream is, float damage, int power, float life)
+	{
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("laser", is);
+
+		Animation animation = new Animation("idle",power,power,true,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
+		glIdle.play();
+
+		ShotCollision sc = new ShotCollision();
+		sc.setDamage(damage);
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(tags);
+		rigidBody.setCollider(collider);
+
+		GameObject o = new GameObject();
+		o.setName("Laser");
+		
+		String [] newTags = new String [tags.length+1];
+		for (int x = 0; x < tags.length; x++)
+		{
+			newTags[x] = tags[x];
+		}
+		newTags[tags.length] = "shot";
+		o.setTags(newTags);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		o.addComponent(sc);
+		
+		SimpleMovement basicShotMovement = null;
+		basicShotMovement = new SimpleMovement();
+		basicShotMovement.setSpeed(speed);
+				
+		o.addComponent(glIdle);
+		o.addComponent(basicShotMovement);
+
+		o.destroyAfter(life);
+		
+		return o;
+	}
+	
+	public static GameObject createPhaser (Vector3 position, Vector3 speed, String [] tags, InputStream is, float damage, int power, float life)
+	{
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("phaser", is);
+
+		Animation animation = new Animation("idle",0,6,true,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
+		glIdle.play();
+
+		ShotCollision sc = new ShotCollision();
+		sc.setDamage(damage);
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(tags);
+		rigidBody.setCollider(collider);
+
+		GameObject o = new GameObject();
+		o.setName("Phaser");
+		
+		String [] newTags = new String [tags.length+1];
+		for (int x = 0; x < tags.length; x++)
+		{
+			newTags[x] = tags[x];
+		}
+		newTags[tags.length] = "shot";
+		o.setTags(newTags);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		o.addComponent(sc);
+		
+		SimpleMovement basicShotMovement = null;
+		basicShotMovement = new SimpleMovement();
+		basicShotMovement.setSpeed(speed);
+				
+		o.addComponent(glIdle);
+		o.addComponent(basicShotMovement);
+
+		o.destroyAfter(life);
+		
+		return o;
+	}
+	
+	public static GameObject createBullet (Vector3 position, Vector3 speed, String [] tags, InputStream is, float damage, int power, float life)
+	{
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("bullet", is);
+
+		Animation animation = new Animation("idle",power,power,true,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
+		glIdle.play();
+
+		ShotCollision sc = new ShotCollision();
+		sc.setDamage(damage);
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(tags);
+		rigidBody.setCollider(collider);
+
+		GameObject o = new GameObject();
+		o.setName("Phaser");
+		
+		String [] newTags = new String [tags.length+1];
+		for (int x = 0; x < tags.length; x++)
+		{
+			newTags[x] = tags[x];
+		}
+		newTags[tags.length] = "shot";
+		o.setTags(newTags);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		o.addComponent(sc);
+		
+		SimpleMovement basicShotMovement = null;
+		basicShotMovement = new SimpleMovement();
+		basicShotMovement.setSpeed(speed);
+				
+		o.addComponent(glIdle);
+		o.addComponent(basicShotMovement);
+
+		o.destroyAfter(life);
+		
+		return o;
+	}
+	
+	public static GameObject createEnemy (String name, Vector3 position, InputStream is, InputStream is2, int enemyType, int scriptType)
+	{
+		//Load the texture for the cube once during Surface creation
+		GenericGraphic graphic = createGraphic("enemy", is);
+		
+		int startFrame = (enemyType-1)*8+6;
+		int endFrame = startFrame+1;
+		Animation idle = new Animation("idle",startFrame,endFrame,true,defaultFps,32,32);
+		Animation death = new Animation("death",startFrame-6,startFrame,false,defaultFps,32,32);
+		
+		GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+		
+		RigidBody rigidBody = new RigidBody();
+		Collider collider = new BoxCollider(new Vector3(32,32,0));
+		collider.setTags(new String [] {"Enemy"});
+		HealthController hc = new HealthController();
+		hc.setHealth(100);
+		rigidBody.setCollider(collider);
+		
+		GameObject o = new GameObject();
+		o.setName(name);
+		o.setTags(new String [] {"Enemy"});
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		o.addComponent(hc);
+		
+		
+		Component ai = null;
+		if (scriptType == 1)
+		{
+			ai = new AIScriptOne();
+		}
+		else if (scriptType == 2)
+		{
+			ai = new AIScriptTwo();
+		}
+		else
+		{
+			ai = new AIScript();
+		}
+		
+		if (enemyType == 1)
+		{
+			Weapon w = new Phaser(shootDown,is2,4);
+			WeaponHandler wh = new WeaponHandler(w);
+						
+			o.addComponent(w);
+			o.addComponent(wh);
+		}
+		if (enemyType == 2)
+		{
+			Weapon w = new Phaser(shootDown,is2,3);
+			WeaponHandler wh = new WeaponHandler(w);
+						
+			o.addComponent(w);
+			o.addComponent(wh);
+		}
+		if (enemyType == 3)
+		{
+			Weapon w = new Phaser(shootDown,is2,4);
+			LockingWeaponHandler wh = new LockingWeaponHandler(w,enemyTargets);
+						
+			o.addComponent(w);
+			o.addComponent(wh);
+		}
+		if (enemyType == 4)
+		{
+			Weapon w = new Phaser(shootDown,is2,3);
+			LockingWeaponHandler wh = new LockingWeaponHandler(w,enemyTargets);
+						
+			o.addComponent(w);
+			o.addComponent(wh);
+		}
+		if (enemyType == 5 || enemyType == 6)
+		{
+			Weapon w = new Phaser(shootLeft,is2,4);			
+			WeaponHandler wh = new WeaponHandler(w);
+			
+			Weapon w2 = new Phaser(shootDownLeft,is2,4);			
+			WeaponHandler wh2 = new WeaponHandler(w2);
+			
+			Weapon w3 = new Phaser(shootDown,is2,4);			
+			LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,enemyTargets);
+			
+			Weapon w4 = new Phaser(shootDownRight,is2,4);			
+			WeaponHandler wh4 = new WeaponHandler(w4);
+			
+			Weapon w5 = new Phaser(shootRight,is2,4);	
+			WeaponHandler wh5 = new WeaponHandler(w5);
+			
+			o.addComponent(w);
+			o.addComponent(wh);
+			o.addComponent(w2);
+			o.addComponent(wh2);
+			o.addComponent(w3);
+			o.addComponent(wh3);
+			o.addComponent(w4);
+			o.addComponent(wh4);
+			o.addComponent(w5);
+			o.addComponent(wh5);
+			
+		}
+		if (enemyType == 7 || enemyType ==8)
+		{
+			
+		}
+		if (enemyType == 9 || enemyType == 10)
+		{
+			
+		}
+		
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+		o.addComponent(ai);
+
+		return o;
+	}
+	
+	public static GameObject createLevel (int [] map, int mapWidth, int mapHeight, InputStream wad, String wadName)
+	{
+		GenericGraphic graphic = createGraphic(wadName, wad);		
+		Level l = new Level();
+		l.createLevel(map, mapWidth, mapHeight, graphic, 64, 64);
+		GameObject o = new GameObject();
+		o.setName("Level");
+		o.setTags(new String [] {"level"});
+		o.addComponent(l);
+		return o;
+	}
+	
+	public static GenericGraphic createGraphic (String name, InputStream is)
+	{
+			CanvasGraphic temp = new CanvasGraphic();
+			temp.create(name,is);
+			return temp;
+	}
+		
+	public static InputStream getImage (String name)
+	{
+		
+	}
+}

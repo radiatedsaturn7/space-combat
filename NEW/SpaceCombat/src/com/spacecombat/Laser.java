@@ -9,15 +9,17 @@ public class Laser extends Weapon
 	private static final float reloadTime = 1;
 	private static final float shotSpeed = 128;
 	private static final float life = 5;
+	private static final float accuracy = 32;
+	private static final int magazineSize = 3;
+	private static final float magazineReloadTime = 2;
 	
-	public Laser(Vector3 direction,InputStream shotImage) 
+	public Laser(Vector3 direction) 
 	{
-		super(name, damage, shotImage, reloadTime, life, shotSpeed, direction);
+		super(name, damage, accuracy, reloadTime, magazineSize, magazineReloadTime, life, shotSpeed, direction, true);
 	}
 	
-	protected void fire (Vector3 position, InputStream is) 
+	protected void fire (Vector3 position) 
 	{
-		lastShotTime = Time.getTime();
-		GameObject.create(PrefabFactory.createLaser(position, shotSpeedVector, gameObject.getTags(), shotImage, baseDamage, powerLevel, life));			
+		GameObject.create(PrefabFactory.createShot("laser",position, shotSpeedVector, gameObject.getTags(), baseDamage, powerLevel, life));			
 	}	
 }

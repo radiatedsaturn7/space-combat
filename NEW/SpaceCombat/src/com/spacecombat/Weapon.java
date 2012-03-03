@@ -8,38 +8,38 @@ public abstract class Weapon extends Component
 	protected int powerLevel;
 	protected int maxPowerLevel;
 	protected float reloadTime;
-	protected float lastShotTime;
+	protected float nextShotTime;
 	protected String name;
-	protected InputStream shotImage;
 	protected float shotSpeed;
 	protected float life;
 	protected Vector3 shotSpeedVector;
+	protected float accuracy;
+	protected boolean usePhysics = true;
+	protected int magazineSize;
+	protected int shots;
+	protected float magazineReloadTime;
 		
-	public Weapon(String name, float damage, InputStream shotImage, float reloadTime, float life, float shotSpeed, Vector3 shootDirection)
+	public Weapon(String name, float damage, float accuracy, float reloadTime, int magazineSize, float magazineReloadTime, float life, float shotSpeed, Vector3 shootDirection, boolean usePhysics)
 	{
 		this.name = name;
-		baseDamage = damage;
-		lastShotTime = Time.getTime();
-		powerLevel = 1;
-		maxPowerLevel = 9;
-		lastShotTime = 0;
-		this.shotImage = shotImage;
+		this.baseDamage = damage;
+		this.nextShotTime = 0;
+		this.powerLevel = 1;
+		this.maxPowerLevel = 9;
 		this.reloadTime = reloadTime;
+		this.accuracy = accuracy;
 		this.shotSpeed = shotSpeed;				
 		this.life = life;
-		
-		setShootDirection(shootDirection);		
+		this.usePhysics = usePhysics;
+		this.shots = 0;
+		this.magazineSize = magazineSize;
+		this.magazineReloadTime = magazineReloadTime;
+		setShootDirection(shootDirection);
 	}
-	
-	public InputStream getShotImage ()
-	{
-		return shotImage;
-	}
-		
+			
 	public boolean canShoot()
 	{
-		//System.out.println((lastShotTime + reloadTime) + " < " + Time.getTime());
-		if (lastShotTime + reloadTime < Time.getTime())
+		if (Time.getTime() > nextShotTime)
 		{
 			return true;
 		}
@@ -67,17 +67,62 @@ public abstract class Weapon extends Component
 	
 	public void shoot ()
 	{
-		shotSpeedVector.x += gameObject.getRigidBody().speed.x;
-		shotSpeedVector.y += gameObject.getRigidBody().speed.y;
-		shotSpeedVector.z += gameObject.getRigidBody().speed.z;
+		if (!canShoot())
+		{
+			return;
+		}
+			
+		shots++;		
 		
-		fire(gameObject.transform.position,shotImage);
+		if (shots > magazineSize)
+		{												
+			nextShotTime = Time.getTime() + magazineReloadTime;			
+			shots = 0;
+		}
+		else
+		{
+			nextShotTime = Time.getTime() + reloadTime;
+		}
+
 		
-		shotSpeedVector.x -= gameObject.getRigidBody().speed.x;
-		shotSpeedVector.y -= gameObject.getRigidBody().speed.y;
-		shotSpeedVector.z -= gameObject.getRigidBody().speed.z;
+		if (usePhysics)
+		{
+			shotSpeedVector.x += gameObject.getRigidBody().speed.x;
+			shotSpeedVector.y += gameObject.getRigidBody().speed.y;
+			shotSpeedVector.z += gameObject.getRigidBody().speed.z;
+		}
+		
+		float randomX = Util.randomNumber(0,accuracy);
+		float randomY = Util.randomNumber(0,accuracy);
+		
+		int upDown = Util.randomNumber(0, 1);
+		int leftRight = Util.randomNumber(0, 1);
+		
+		if (upDown == 1)
+		{
+			randomY = -randomY;
+		}
+		if (leftRight == 1)
+		{
+			randomX = -randomX;
+		}
+		
+		shotSpeedVector.x += randomX;
+		shotSpeedVector.y += randomY;
+		
+		fire(gameObject.transform.position);
+
+		shotSpeedVector.x -= randomX;
+		shotSpeedVector.y -= randomY;
+				
+		if (usePhysics)
+		{
+			shotSpeedVector.x -= gameObject.getRigidBody().speed.x;
+			shotSpeedVector.y -= gameObject.getRigidBody().speed.y;
+			shotSpeedVector.z -= gameObject.getRigidBody().speed.z;
+		}
 
 	}
 	
-	protected abstract void fire (Vector3 position, InputStream is);
+	protected abstract void fire (Vector3 position);
 }

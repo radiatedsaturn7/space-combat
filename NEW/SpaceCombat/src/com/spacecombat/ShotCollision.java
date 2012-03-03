@@ -2,14 +2,14 @@ package com.spacecombat;
 
 public class ShotCollision extends Component
 {
-	public int damage = 1;
+	public float damage = 1;
 	
-	public void setDamage (int damage)
+	public void setDamage (float damage)
 	{
 		this.damage = damage;
 	}
 	
-	public int getDamage ()
+	public float getDamage ()
 	{
 		return damage;
 	}

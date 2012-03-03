@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Engine
 {
-
 	//this is da master list of all components
 
 	//private int fps = 60;
@@ -20,6 +19,7 @@ public class Engine
 	private int width = 0;
 	private int height = 0;
 
+	private boolean hasDrawn = false;
 	private boolean useMultithreadedDrawLoop = false;
 	private boolean runDrawLoop = true;
 	private boolean useFrameRate = false;
@@ -34,7 +34,8 @@ public class Engine
 	private float lastTimeCheck = 0;
 	private int frames = 0;
 	
-
+	private Object lock = new Object();
+	
 	/** The Activity Context ( NEW ) */
 	private Context context;
 	List<GameObject> gameObjects = GameObject.getAllGameObjects();			
@@ -61,12 +62,6 @@ public class Engine
 	
 	public void createGameObjects ()
 	{		
-		InputStream renegade = context.getResources().openRawResource(R.drawable.prenegade);
-		InputStream laser = context.getResources().openRawResource(R.drawable.hlaser);
-		InputStream enemyLaser = context.getResources().openRawResource(R.drawable.helaser);
-		InputStream enemy = context.getResources().openRawResource(R.drawable.enemy);
-		InputStream wad = context.getResources().openRawResource(R.drawable.wad3);
-
 		int [] map = 
 			{
 				0,0,1,0,0,0,0,0,
@@ -88,26 +83,27 @@ public class Engine
 
 		//GameObject.create(PrefabFactory.createLevel(map, 8, 14, wad, "wad3"));
 
-		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(80,600,0),renegade,laser));
-		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(360,600,0),renegade,laser));
+		GameObject.create(PrefabFactory.createPlayer("Player1",new Vector3(200,600,0),"renegade"));
 		
-		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(400,700,0),renegade,laser));
-		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(0,700,0),renegade,laser));
+		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(400,700,0),"renegade","laser"));
+		//GameObject.create(PrefabFactory.createAlly("Ally1",new Vector3(0,700,0),"renegade","machinegun"));
 		
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(100,0,0),enemy,laser,3,1));
-		GameObject.create(PrefabFactory.createEnemy("E2",new Vector3(300,0,0),enemy,laser,3,1));
-		/*GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(32,600,0),enemy,enemyLaser,2,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(64,600,0),enemy,enemyLaser,3,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(96,600,0),enemy,enemyLaser,4,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(128,600,0),enemy,enemyLaser,5,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(144,600,0),enemy,enemyLaser,6,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(160,600,0),enemy,enemyLaser,7,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(176,600,0),enemy,enemyLaser,8,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(192,600,0),enemy,enemyLaser,9,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(208,600,0),enemy,enemyLaser,10,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(224,600,0),enemy,enemyLaser,11,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(240,600,0),enemy,enemyLaser,12,0));
-		GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(256,600,0),enemy,enemyLaser,13,0));*/		
+		//GameObject.create(PrefabFactory.createEnemy("E1",new Vector3(0,0,0),13,3,false));		
+		GameObject.create(PrefabFactory.createEnemy("E2",new Vector3(0,0,0),1,5,true));
+		
+		/*
+		GameObject.create(PrefabFactory.createEnemy("E3",new Vector3(80,0,0),3,0,false));		
+		GameObject.create(PrefabFactory.createEnemy("E4",new Vector3(120,0,0),4,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E5",new Vector3(160,0,0),5,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E6",new Vector3(200,0,0),6,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E7",new Vector3(240,0,0),7,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E8",new Vector3(280,0,0),8,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E7",new Vector3(320,0,0),9,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E8",new Vector3(360,0,0),10,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E7",new Vector3(0,200,0),11,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E8",new Vector3(200,200,0),12,0,false));
+		GameObject.create(PrefabFactory.createEnemy("E8",new Vector3(360,200,0),13,0,false));
+		 */
 	}
 
 	/**
@@ -149,21 +145,33 @@ public class Engine
 		}
 		
 		int x = 0; 
-		for (x = 0; x < gameObjects.size(); x++)		
-		{			
-			gameObjects.get(x).draw();			
-		}				
+		synchronized (lock)
+		{
+			for (x = 0; x < gameObjects.size(); x++)		
+			{			
+				gameObjects.get(x).draw();			
+			}
+		}
+		
+		hasDrawn = true;
 	}
 	
 	public void updateLoop ()
 	{
+		if (!hasDrawn)
+		{
+			return;
+		}
+		
 		Time.tick();
 		
 		if (!runGameLoop)
 		{
 			return;
 		}
-
+		
+		synchronized (lock)
+		{
 		for (int x = 0; x < gameObjects.size(); x++)		
 		{
 			GameObject xGameObject = gameObjects.get(x);
@@ -203,6 +211,7 @@ public class Engine
 				x--;
 				size = gameObjects.size();
 			}
+		}
 		}
 
 		

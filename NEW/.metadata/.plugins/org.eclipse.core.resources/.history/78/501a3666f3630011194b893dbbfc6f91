@@ -1,0 +1,26 @@
+package com.spacecombat;
+
+import java.io.InputStream;
+
+public class MachineGun extends Weapon 
+{
+
+	private static final String name = "MachineGun";
+	private static final float damage = 10;	
+	private static final float reloadTime = 0.3f;
+	private static final float shotSpeed = 128;
+	private static final float life = 5;
+	
+	public MachineGun(Vector3 direction) 
+	{
+		super(name, damage, reloadTime, life, shotSpeed, direction, true);
+	}
+
+	@Override
+	protected void fire(Vector3 position, InputStream is) 
+	{
+		lastShotTime = Time.getTime();
+		GameObject.create(PrefabFactory.createBullet(position, shotSpeedVector, gameObject.getTags(), baseDamage, powerLevel, life));
+	}
+
+}

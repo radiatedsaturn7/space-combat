@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="com.spacecombat.CanvasGraphic"/>
 <fullyQualifiedTypeName name="com.spacecombat.RigidBody"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.string"/>
 </qualifiedTypeNameHistroy>

@@ -3,15 +3,18 @@ package com.spacecombat;
 public class AIScriptTwo extends AIScript
 {
 
-	private RigidBody rigidBody;	
-	private Vector3 accel = new Vector3(1,1,0);
-	private Vector3 maxSpeed = new Vector3(1,1,0);	
+	private RigidBody rigidBody;		
+	private Vector3 maxSpeed = new Vector3(32,32,0);	
 	//private int count = 0;
 	//private int maxCount = 120;
-	private boolean m_bReverse = false;
+	private boolean isReverse = false;
 	
 	private Vector3 maxPosition = new Vector3(480-32,400,0);
 
+	public AIScriptTwo (boolean isReverse)
+	{
+		this.isReverse = isReverse;
+	}
 	
 	public void onCreate ()
 	{
@@ -24,17 +27,18 @@ public class AIScriptTwo extends AIScript
 		{
 			rigidBody = gameObject.getRigidBody();	
 		}
-		if (!m_bReverse)
+		
+		if (!isReverse)
 		{
-			if (gameObject.transform.position.y > maxPosition.y)
+			if (gameObject.transform.position.y < maxPosition.y)
 			{
 				if (rigidBody.speed.x > 0)
 				{
 					rigidBody.speed.x=0;
 				}
-				if (rigidBody.speed.y > -maxSpeed.y)
+				if (rigidBody.speed.y < maxSpeed.y)
 				{
-					rigidBody.speed.y=-maxSpeed.y;
+					rigidBody.speed.y=maxSpeed.y;
 				}
 			}
 			else if (gameObject.transform.position.x < maxPosition.x)
@@ -43,7 +47,7 @@ public class AIScriptTwo extends AIScript
 				{
 					rigidBody.speed.x=maxSpeed.x;
 				}
-				if (rigidBody.speed.y < 0)
+				if (rigidBody.speed.y > 0)
 				{
 					rigidBody.speed.y=0;
 				}
@@ -54,9 +58,45 @@ public class AIScriptTwo extends AIScript
 				{
 					rigidBody.speed.x=0;
 				}
-				if (rigidBody.speed.y > -maxSpeed.y)
+				if (rigidBody.speed.y < maxSpeed.y)
 				{
-					rigidBody.speed.y=-maxSpeed.y;
+					rigidBody.speed.y=maxSpeed.y;
+				}
+			}
+		}
+		else if (isReverse)
+		{
+			if (gameObject.transform.position.y < maxPosition.y)
+			{
+				if (rigidBody.speed.x > 0)
+				{
+					rigidBody.speed.x=0;
+				}
+				if (rigidBody.speed.y < maxSpeed.y)
+				{
+					rigidBody.speed.y=maxSpeed.y;
+				}
+			}
+			else if (gameObject.transform.position.x > 0)
+			{
+				if (rigidBody.speed.x > -maxSpeed.x)
+				{
+					rigidBody.speed.x=-maxSpeed.x;
+				}
+				if (rigidBody.speed.y > 0)
+				{
+					rigidBody.speed.y=0;
+				}
+			}
+			else
+			{
+				if (rigidBody.speed.x < 0)
+				{
+					rigidBody.speed.x=0;
+				}
+				if (rigidBody.speed.y < maxSpeed.y)
+				{
+					rigidBody.speed.y=maxSpeed.y;
 				}
 			}
 		}

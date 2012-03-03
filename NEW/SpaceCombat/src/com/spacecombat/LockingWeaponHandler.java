@@ -10,7 +10,7 @@ public class LockingWeaponHandler extends Component
 	private Vector3 temp;
 	private String [] targets = null;
 	private List<GameObject> t;
-	private float searchTime = 1.0f;
+	private float searchTime = 2.0f;
 	private float nextSearch = 0.0f;
 	
 	public LockingWeaponHandler (Weapon w, String [] targets)
@@ -33,6 +33,11 @@ public class LockingWeaponHandler extends Component
 			}
 		}
 		
+		if (go != null)
+		{
+			calculateTrajectory();
+		}
+		
 		if (w != null && w.canShoot())
 		{
 			w.shoot();
@@ -44,8 +49,22 @@ public class LockingWeaponHandler extends Component
 		return (Time.getTime() > nextSearch);
 	}
 	
+	public void calculateTrajectory ()
+	{		
+		temp.x = (go.transform.position.x - gameObject.transform.position.x);
+		temp.y = (go.transform.position.y - gameObject.transform.position.y);
+		temp.z = -(go.transform.position.z - gameObject.transform.position.z);
+		
+		temp.x -= gameObject.getRigidBody().speed.x;
+		temp.y -= gameObject.getRigidBody().speed.y;
+		temp.z -= gameObject.getRigidBody().speed.z;
+		
+		w.setShootDirection(temp);
+	}
+	
 	public void search ()
 	{
+		nextSearch = Time.getTime() + searchTime;		
 		t = GameObject.findAllByTags(targets);
 		
 		if (t == null || t.size() == 0)
@@ -56,17 +75,8 @@ public class LockingWeaponHandler extends Component
 			return;
 		}
 		
-		int x = Util.RandomNumber(0, t.size()-1);
+		int x = Util.randomNumber(0, t.size()-1);
 				
-		go = t.get(x);
-		System.out.println("TARGETTING:"+go.getName());
-		
-		temp.x = (go.transform.position.x - gameObject.transform.position.x);
-		temp.y = (go.transform.position.y - gameObject.transform.position.y);
-		temp.z = -(go.transform.position.z - gameObject.transform.position.z);
-		
-		w.setShootDirection(temp);
-		
-		nextSearch = Time.getTime() + searchTime;		
+		go = t.get(x);				
 	}
 }

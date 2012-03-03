@@ -273,7 +273,7 @@ public class GameObject extends Component
 		}
 		
 		isDestroyed = true;
-		System.out.println("destroyed " + getName());		
+		//System.out.println("destroyed " + getName());		
 	}
 	
 	public void destroyAfter (float time)
@@ -394,7 +394,25 @@ public class GameObject extends Component
 		}
 		return gos;
 	}
-	
+
+	public static GameObject findRandomByTags (String [] search)
+	{
+		LinkedList<GameObject> gos = new LinkedList<GameObject>();
+		int x = 0;
+		for (x = 0; x < gameObjects.size(); x++)
+		{
+			if (gameObjects.get(x).hasTag(search))
+			{
+				gos.add(gameObjects.get(x));
+			}
+		}
+		if (gos.size() == 0)
+		{
+			return null;
+		}
+		return gos.get(Util.randomNumber(0, gos.size()-1));
+	}
+
 	public static void executeOnAllWithTags (String [] search, Function f)
 	{
 		int x = 0;
@@ -410,7 +428,7 @@ public class GameObject extends Component
 	public static void create (GameObject gameObject)
 	{		
 		gameObjects.add(gameObject);
-		System.out.println("created " + gameObject.getName());		
+		//System.out.println("created " + gameObject.getName());		
 		gameObject.onCreate();
 		gameObject.onStart();
 	}

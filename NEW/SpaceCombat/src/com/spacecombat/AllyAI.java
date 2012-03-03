@@ -1,5 +1,7 @@
 package com.spacecombat;
 
+import java.util.List;
+
 public class AllyAI extends AIScript 
 {
 	public static int numOfPlayers = 1;
@@ -27,11 +29,21 @@ public class AllyAI extends AIScript
 	private RigidBody rigidBody;
 	private Vector3 maxSpeed;
 	private Rectangle sBoundingBox;
+	private String [] targets = new String [] {"enemy"};
 	
 	private Rectangle Top = new Rectangle();
 	private Rectangle Bottom = new Rectangle();
 	private Rectangle Left = new Rectangle();
 	private Rectangle Right = new Rectangle();
+	private Weapon weapon;
+	
+	public static int ids = 1;
+	public AllyAI (Weapon w)
+	{
+		id = ids;
+		ids++;
+		weapon = w;
+	}
 	
 	public void onCreate ()
 	{
@@ -104,7 +116,6 @@ public class AllyAI extends AIScript
 			roamFormation = 5;
 		}
 
-		//THIS IS OK
 		if (canShoot())
 		{
 			shoot();
@@ -296,13 +307,9 @@ public class AllyAI extends AIScript
 	}
 
 	public void shoot()
-	{
-		/*
-		Laser weapon = (Laser)gameObject.getComponent(Laser.class);
-				
+	{				
 		if (weapon.canShoot())
 			weapon.shoot();
-		 */
 	}
 	
 	public void wedge()
@@ -506,9 +513,6 @@ public class AllyAI extends AIScript
 
 		int enemycount = 0;
 		
-		//NOTE: THIS NEEDS TO BE PLAYER1/2, NOT ME
-		//if the player is not dead
-		
 		int playersHealth = 0;
 
 		if (followPlayer != null)
@@ -528,6 +532,7 @@ public class AllyAI extends AIScript
 			}
 		}
 		
+		/*
 		boolean looped = false;
 		while (true)
 		{
@@ -569,6 +574,19 @@ public class AllyAI extends AIScript
 		}
 	
 		enemy = enemyTemp;
+		*/
+		List<GameObject> gos = GameObject.findAllByTags(targets);
+		
+		if (gos.size() > 0)
+		{
+			enemy = gos.get(Util.randomNumber(0, gos.size()-1));
+			foundenemy = true;
+		}
+		else
+		{
+			enemy = null;
+			foundenemy = false;
+		}
 
 		//if I did not find anything, don't move
 		if ((!foundenemy && headUnit) || (enemy == null && headUnit))
@@ -587,7 +605,7 @@ public class AllyAI extends AIScript
 		
 		if (canChangeFormation())
 		{						
-			int r = Util.RandomNumber(0,1);			
+			int r = Util.randomNumber(0,1);			//
 			
 			if (r == 1)
 			{

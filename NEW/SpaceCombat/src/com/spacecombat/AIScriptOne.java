@@ -8,9 +8,13 @@ public class AIScriptOne extends AIScript
 	private Vector3 accel = new Vector3(2,2,0);
 	private Vector3 maxSpeed = new Vector3(32,32,0);
 	private Vector3 startPos = new Vector3(0,0,0);
-	private int maxWidth = 150;
-	private int count = 0;
+	private int maxWidth = 100;
 
+	public AIScriptOne (boolean isReverse)
+	{
+		this.isReverse = isReverse;
+	}
+	
 	public void onCreate ()
 	{
 		rigidBody = gameObject.getRigidBody();
@@ -32,8 +36,7 @@ public class AIScriptOne extends AIScript
 		if (rigidBody.speed.y < maxSpeed.y)
 		{
 			rigidBody.speed.y+=accel.y;
-		}
-		
+		}		
 		if (!isReverse && gameObject.transform.position.x < startPos.x + maxWidth)
 		{
 			if (rigidBody.speed.x < maxSpeed.x)
