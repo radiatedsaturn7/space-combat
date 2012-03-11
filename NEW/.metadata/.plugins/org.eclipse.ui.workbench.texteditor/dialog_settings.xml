@@ -13,8 +13,9 @@
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="!(s.hasTag(gameObject.getTags())" key="selection"/>
+		<item value="followPlayer" key="selection"/>
 		<list key="findhistory">
+			<item value="targetPlayer"/>
 			<item value="s.m_iFaction != m_iFaction"/>
 			<item value="s instanceof PowerUp"/>
 			<item value=".m_alSprite.get"/>
@@ -22,9 +23,9 @@
 			<item value="intersects"/>
 			<item value="m_pSpeed"/>
 			<item value="speed"/>
-			<item value=""/>
 		</list>
 		<list key="replacehistory">
+			<item value="followPlayer"/>
 			<item value="!(s.hasTag(gameObject.getTags())"/>
 			<item value="s.hasTag(&quot;PowerUp&quot;)"/>
 			<item value="gameObject.playAnimation"/>

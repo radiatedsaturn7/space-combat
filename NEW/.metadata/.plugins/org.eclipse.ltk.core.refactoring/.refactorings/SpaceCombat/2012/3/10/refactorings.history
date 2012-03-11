@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;xGameObject&apos; in &apos;com.spacecombat.GameObject&apos; to &apos;staticXGameObject&apos;&#x0D;&#x0A;- Original project: &apos;SpaceCombat&apos;&#x0D;&#x0A;- Original element: &apos;com.spacecombat.GameObject.xGameObject&apos;&#x0D;&#x0A;- Renamed element: &apos;com.spacecombat.GameObject.staticXGameObject&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;xGameObject&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;com.spacecombat{GameObject.java[GameObject^xGameObject" name="staticXGameObject" references="true" setter="false" stamp="1331408018331" textual="false" version="1.0"/>
+</session>

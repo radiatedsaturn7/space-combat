@@ -1,30 +1,32 @@
 package com.spacecombat;
 
-public class SimpleMovement extends Component 
-{
+public class SimpleMovement extends Component {
 	private float speedX = 0;
 	private float speedY = 0;
-	private float speedZ = 0;
+
+	private RigidBody rigidBody;	
 	
-	private RigidBody rigidBody;
-		
-	public void setSpeed (Vector3 speed)
+	public SimpleMovement (RigidBody r, float x, float y)
 	{
-		speedX = speed.x;		
-		speedY = speed.y;		
-		speedZ = speed.z;		
+		rigidBody = r;
+		this.speedX = x;
+		this.speedY = y;
 	}
 	
-	public void update ()
-	{
-		if (rigidBody == null)
-		{
-			rigidBody = gameObject.getRigidBody();
+	public void setSpeed(float x, float y) {
+		this.speedX = x;
+		this.speedY = y;
+	}
+
+	@Override
+	public void update() {
+		
+		if (this.rigidBody == null) {
+			this.rigidBody = this.gameObject.getRigidBody();
 			return;
 		}
-		
-		rigidBody.speed.x = speedX;
-		rigidBody.speed.y = speedY;
-		rigidBody.speed.z = speedZ;
+
+		this.rigidBody.speed.x = this.speedX;
+		this.rigidBody.speed.y = this.speedY;
 	}
 }

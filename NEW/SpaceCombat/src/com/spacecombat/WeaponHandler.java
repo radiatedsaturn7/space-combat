@@ -1,19 +1,16 @@
 package com.spacecombat;
 
-public class WeaponHandler extends Component 
-{
-	private Weapon w;
-	
-	public WeaponHandler (Weapon w)
-	{
+public class WeaponHandler extends Component {
+	private final Weapon w;
+
+	public WeaponHandler(final Weapon w) {
 		this.w = w;
 	}
-		
-	public void update ()
-	{
-		if (w != null && w.canShoot())
-		{
-			w.shoot();
+
+	@Override
+	public void update() {
+		if (this.w != null && this.w.canShoot()) {
+			this.w.shoot();
 		}
 	}
 }

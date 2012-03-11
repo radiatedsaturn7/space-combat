@@ -1,39 +1,34 @@
 package com.spacecombat;
 
-public class HealthController extends Component
-{
+public class HealthController extends Component {
 	public int health;
-	
-	public void setHealth (int health)
-	{
-		this.health = health;
-	}
-	
-	public void collide (Collision collision)
-	{
-		if (!collision.getWhatIHit().hasTag(collision.getMe().getTags()))
-		{
-			ShotCollision sc = (ShotCollision)collision.getWhatIHit().getComponent(ShotCollision.class);
+
+	@Override
+	public void collide(final Collision collision) {
+		if (!collision.getWhatIHit().hasTag(collision.getMe().getTags())) {
+			
+			final ShotCollision sc = (ShotCollision) collision.getWhatIHit().getComponent(ShotCollision.class);					
+			final GraphicAnimation animation = this.gameObject.getCurrentAnimation();
 			
 			if (sc != null)
 			{
-				System.out.println(collision.getMe().getName() + " took " + sc.getDamage() + " hp: " + health);
 				health -= sc.getDamage();
 			}
-			else
-			{
-				System.out.println("Something wrong, what I hit:" + collision.getWhatIHit().getName());
-			}
 			
-			GraphicAnimation animation = gameObject.getCurrentAnimation();
-			
-			if (health <= 0 && !(animation.getName().equals("death")))
+			if (animation != null)
 			{
-				GraphicAnimation death = (GraphicAnimation)gameObject.playAnimation("death");
-				gameObject.destroyAfter((long)death.getDuration());
+				if (this.health <= 0 && !(animation.getName().equals("death"))) {
+					final GraphicAnimation death = this.gameObject
+							.playAnimation("death");
+					this.gameObject.destroyAfter((long) death.getDuration());
 
-				gameObject.removeComponent(AIScript.class);
+					this.gameObject.removeComponent(AIScript.class);
+				}
 			}
 		}
+	}
+
+	public void setHealth(final int health) {
+		this.health = health;
 	}
 }

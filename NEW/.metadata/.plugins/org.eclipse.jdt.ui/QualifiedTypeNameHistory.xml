@@ -5,10 +5,11 @@
 <fullyQualifiedTypeName name="javax.microedition.khronos.opengles.GL10"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="com.spacecombat.Time"/>
 <fullyQualifiedTypeName name="com.spacecombat.CanvasGraphic"/>
 <fullyQualifiedTypeName name="com.spacecombat.RigidBody"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.string"/>
+<fullyQualifiedTypeName name="com.spacecombat.Time"/>
+<fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
 </qualifiedTypeNameHistroy>

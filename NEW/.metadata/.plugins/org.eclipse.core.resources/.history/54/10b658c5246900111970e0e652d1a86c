@@ -1,0 +1,27 @@
+package com.spacecombat;
+
+public class Input 
+{
+	private float x;
+	private float y;
+	
+	public ClickListener onClick();
+	
+	public static void setX(float x) {
+		this.x = x;
+	}
+
+	public static void setY(float y) {
+		this.y = y;
+	}
+
+	public static float getY ()
+	{
+		return this.y;
+	}
+	
+	public static float getX ()
+	{
+		return this.x;
+	}
+}

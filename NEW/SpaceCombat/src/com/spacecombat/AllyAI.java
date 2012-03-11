@@ -1,743 +1,713 @@
 package com.spacecombat;
 
+import java.util.LinkedList;
 import java.util.List;
 
-public class AllyAI extends AIScript 
-{
+public class AllyAI extends AIScript {
 	public static int numOfPlayers = 1;
 	public static int numOfAllies = 1;
-	public int id = 1;
-	public GameObject targetPlayer;
-	public Rectangle screen;
-	
-	//set this to the ally ID i am, so I can target different enemies
-	
+	public int id = 1;	
+	public Vector2 distances = new Vector2();
+
+	// set this to the ally ID i am, so I can target different enemies
+
 	public int formationID;
 	public int spacing;
 	public int give;
 	public int formation;
 	public int roamFormation;
+	public boolean tempLine = false;	
 	public int side;
 	public GameObject followPlayer;
-	public Rectangle followRectangle;
-	public Rectangle dodgeRectangle;
-	public Rectangle boundingBox;
+	
+	public Rectangle screen = new Rectangle();
+	public Rectangle followRectangle = new Rectangle();
+	public Rectangle dodgeRectangle = new Rectangle();
+	public Rectangle boundingBox = new Rectangle();
+	private Rectangle sBoundingBox = new Rectangle();
+	
 	public BoxCollider boxCollider;
-	public float lastFormationTime;
-	public float formationHoldTime;
+	public float nextFormationTime;
+	public float formationHoldTime = 1;
 	public boolean headUnit;
 	private RigidBody rigidBody;
-	private Vector3 maxSpeed;
-	private Rectangle sBoundingBox;
-	private String [] targets = new String [] {"enemy"};
-	
-	private Rectangle Top = new Rectangle();
-	private Rectangle Bottom = new Rectangle();
-	private Rectangle Left = new Rectangle();
-	private Rectangle Right = new Rectangle();
-	private Weapon weapon;
-	
+	private Vector2 maxSpeed;
+
+	private List<GameObject> gos;
+	private GameObject enemy = null;
+	private float searchTime;
+	private float nextSearch;
+	private int enemyCount = 0;
+
+	public String[] playerTag = new String[] { "Player" };
+	private final String[] targets = new String[] { "enemy" };
+
+	private final Rectangle Top = new Rectangle();
+	private final Rectangle Bottom = new Rectangle();
+	private final Rectangle Left = new Rectangle();
+	private final Rectangle Right = new Rectangle();
+	private final Weapon weapon;
+
 	public static int ids = 1;
-	public AllyAI (Weapon w)
-	{
-		id = ids;
-		ids++;
-		weapon = w;
-	}
-	
-	public void onCreate ()
-	{
-		spacing = 32;
-		give = 5;
-		dodgeRectangle = new Rectangle();
-		boundingBox = new Rectangle();
-		formationID = 0;
-		lastFormationTime = -1;
-		formationHoldTime = 5;
-		formation = 5;
-		roamFormation = 5;
-		headUnit = false;
-		sBoundingBox = new Rectangle();
-		boxCollider = (BoxCollider)gameObject.getRigidBody().getCollider();
-		rigidBody = gameObject.getRigidBody();
-		screen = new Rectangle(0,0,480,800);
-		maxSpeed = new Vector3(32,32,0);
-	}
-	
-	public void update ()
-	{
-		if (gameObject == null)
-		{			
-			return;
-		}
-		else if (boxCollider == null)
-		{			
-			boxCollider = (BoxCollider)gameObject.getRigidBody().getCollider();
-			if (boxCollider == null)
-			{
-				return;
-			}
-		}		
-		
-		if (boundingBox == null)
-		{
-			boundingBox = new Rectangle();
-		}
-		
-		boundingBox.x = (int)gameObject.transform.position.x;
-		boundingBox.y = (int)gameObject.transform.position.y;
-		boundingBox.width = (int)boxCollider.size.x;
-		boundingBox.height = (int)boxCollider.size.y;
-		
-		numOfPlayers = GameObject.findAllByTags(new String [] {"player"}).size();
-		
-		if (numOfPlayers > 0)
-		{
-			followPlayer = GameObject.findAllByTags(new String [] {"Player"}).get(id%numOfPlayers);
-			
-			getBoundingBox(followPlayer,followRectangle);
 
-		}
-		else
-		{
-			followPlayer = null;
-			followRectangle = null;
-			formation = 5;
-			roamFormation = 5;
-		}
-
-		if (numOfPlayers != 0)
-		{
-			side = (int)(formationID / numOfPlayers);
-		}
-		if (headUnit)
-		{
-			formation = 5;
-			roamFormation = 5;
-		}
-
-		if (canShoot())
-		{
-			shoot();
-		}
-		
-		
-		if (checkDodge())
-		{
-			dodge();
-			return;
-		}
-		
-		if (formation == 5 || roamFormation == 5)
-		{			
-			roam();
-		}
-				
-		if (followRectangle != null && !headUnit)
-		{
-			if (formation == 1 || roamFormation == 1)
-				wedge();
-			if (formation == 2 || roamFormation == 2)
-				line();
-			if (formation == 3 || roamFormation == 3)
-				column();
-			if (formation == 4 || roamFormation == 4)
-				cover();
-		}
+	public AllyAI(final Weapon w) {
+		this.id = AllyAI.ids;
+		this.gos = new LinkedList<GameObject>();
+		AllyAI.ids++;
+		this.weapon = w;
 	}
-	public void dodge ()
-	{		
-		int searchHeight = 512;
-		
-		Top.x = boundingBox.x - (boundingBox.width*2);
-		Top.y = boundingBox.y + searchHeight;
-		Top.width = boundingBox.width*5;
-		Top.height = searchHeight;
-		
-		Bottom.x = boundingBox.x - (boundingBox.width*2);
-		Bottom.y = boundingBox.y - boundingBox.height;
-		Bottom.width = boundingBox.width*5;
-		Bottom.height = searchHeight/4;
-		
-		Left.x = boundingBox.x - (boundingBox.width*2);
-		Left.y = boundingBox.y + searchHeight;
-		Left.width = (boundingBox.width*2);
-		Left.height = searchHeight + boundingBox.height + searchHeight/4;
-		
-		Right.x = boundingBox.x + (boundingBox.width*2);
-		Right.y = boundingBox.y + searchHeight;
-		Right.width = boundingBox.width*2;
-		Right.height = searchHeight + boundingBox.height + searchHeight/4;
-		//
-		//get all the game objects
-		
-		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
-		{
-			GameObject s = GameObject.getAllGameObjects().get(x);
-			getBoundingBox(s,sBoundingBox);
-			if (s == null || sBoundingBox == null)
-			{
+
+	public boolean canChangeFormation() {
+
+		if (Time.getTime() > this.nextFormationTime) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean canSearch() {
+		if (Time.getTime() >= this.nextSearch) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean canShoot() {
+		for (int x = 0; x < GameObject.getAllGameObjects().size(); x++) {
+			final GameObject s = GameObject.getAllGameObjects().get(x);
+			this.sBoundingBox = getBoundingBox(s, this.sBoundingBox);
+
+			if (this.sBoundingBox.isNull()) {
 				continue;
 			}
-			
-			if (!(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
-			{				
-				if (sBoundingBox.collidesWith(Top) || sBoundingBox.collidesWith(Bottom))
-				{					
-					if (sBoundingBox.collidesWith(Top))
-					{
-						if (rigidBody.speed.y > -(2*maxSpeed.y))
-							rigidBody.speed.y--;
-					}
-					else if (sBoundingBox.collidesWith(Bottom))
-					{
-						if (rigidBody.speed.y < maxSpeed.y)
-							rigidBody.speed.y++;
-					}
-					if (sBoundingBox.collidesWith(Right))
-					{
-						if (rigidBody.speed.x > -maxSpeed.x)
-							rigidBody.speed.x--;
-					}
-					else if (sBoundingBox.collidesWith(Left))
-					{
-						if (rigidBody.speed.x < maxSpeed.x)
-							rigidBody.speed.x++;
-					}
-					break;
-				}
-				else if (sBoundingBox.collidesWith(Right)  && !(s.hasTag("PowerUp")))
-				{
-					if (rigidBody.speed.x > -maxSpeed.x)
-						rigidBody.speed.x--;
-					break;
-				}
-				else if (sBoundingBox.collidesWith(Left)  && !(s.hasTag("PowerUp")))
-				{
-					if (rigidBody.speed.x < maxSpeed.x)
-						rigidBody.speed.x++;
-					break;
-				}
-			}
-		}
-	}
-	
-	public boolean checkDodge()
-	{
-		if (dodgeRectangle == null || boundingBox == null)
-		{
-			return false;
-		}
-		
-		dodgeRectangle.x = boundingBox.x - (boundingBox.width*2);
-		dodgeRectangle.width = boundingBox.width*5;
-		dodgeRectangle.y = boundingBox.y + (boundingBox.height*2);
-		dodgeRectangle.height = boundingBox.height*5;
-		
-		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
-		{
-			GameObject s = GameObject.getAllGameObjects().get(x);
-			getBoundingBox(s,sBoundingBox);
-			
-			if (s == null || sBoundingBox == null)
-			{
-				continue;
-			}
-			
-			if (sBoundingBox.collidesWith(dodgeRectangle) &&
-				!(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
-			{
+
+			if (this.sBoundingBox.x + this.sBoundingBox.width > this.boundingBox.x
+					&& this.sBoundingBox.x < this.boundingBox.x
+					+ this.boundingBox.width
+					&& this.sBoundingBox.y < this.boundingBox.y
+					&& !(s.hasTag(this.gameObject.getTags()))
+					&& !(s.hasTag("PowerUp"))) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public void draw()
-	{
-		/*
-		if (rigidBody.speed.y > 0)
-		{
-			if (rigidBody.speed.x > 0)
-				gameObject.playAnimation("DOWNRIGHT");
-			else if (rigidBody.speed.x < 0)
-				gameObject.playAnimation("DOWNLEFT");
-			else
-				gameObject.playAnimation("DOWN");
+	public boolean checkDodge() {
+		if (this.dodgeRectangle.isNull() || this.boundingBox.isNull()) {
+			return false;
 		}
-		else if (rigidBody.speed.y < 0)
-		{
-			if (rigidBody.speed.x > 0)
-				gameObject.playAnimation("UPRIGHT");
-			else if (rigidBody.speed.x < 0)
-				gameObject.playAnimation("UPLEFT");
-			else
-				gameObject.playAnimation("UP");
-		}
-		else if (rigidBody.speed.x > 0)
-			gameObject.playAnimation("RIGHT");
-		else if (rigidBody.speed.x < 0)
-			gameObject.playAnimation("LEFT");
-		else
-			gameObject.playAnimation("IDLE");
-		
-		*/
-	}
-	
-	public boolean canShoot ()
-	{
-		for(int x =0; x < GameObject.getAllGameObjects().size(); x++)
-		{
-			GameObject s = GameObject.getAllGameObjects().get(x);
-			getBoundingBox(s,sBoundingBox); 
-			
-			if (sBoundingBox == null)
-			{
+
+		this.dodgeRectangle.x = this.boundingBox.x
+				- (this.boundingBox.width * 2);
+		this.dodgeRectangle.width = this.boundingBox.width * 5;
+		this.dodgeRectangle.y = this.boundingBox.y
+				+ (this.boundingBox.height * 2);
+		this.dodgeRectangle.height = this.boundingBox.height * 5;
+
+		for (int x = 0; x < GameObject.getAllGameObjects().size(); x++) {
+			final GameObject s = GameObject.getAllGameObjects().get(x);
+			this.sBoundingBox = getBoundingBox(s, this.sBoundingBox);
+
+			if (s == null || this.sBoundingBox.isNull()) {
 				continue;
 			}
 
-			if (sBoundingBox.x + sBoundingBox.width > boundingBox.x && 
-					sBoundingBox.x < boundingBox.x + boundingBox.width &&	
-					sBoundingBox.y < boundingBox.y && !(s.hasTag(gameObject.getTags())) && !(s.hasTag("PowerUp")))
-				{	
-					return true;
-				}
-			}		
+			if (this.sBoundingBox.collidesWith(this.dodgeRectangle)
+					&& !(s.hasTag(this.gameObject.getTags()))
+					&& !(s.hasTag("PowerUp"))) {
+				return true;
+			}
+		}
 		return false;
 	}
 
-	public void shoot()
-	{				
-		if (weapon.canShoot())
-			weapon.shoot();
-	}
-	
-	public void wedge()
-	{
+	public void column() {
+		
 		int neg = 1;
-		int fix = numOfPlayers;
-		
-		if (fix == 0)
-			fix = 1;
-		if (side % 2 == 1)
-		{
-			neg = -1; //switch the side the ally appears on
-		}
-		
-		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix - give))
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x++;
-		}
-		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix + give))
-		{
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x--;
-		}
-		else
-		{
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-		}
-		if (boundingBox.y < followRectangle.y + followRectangle.height + (spacing * formationID/fix - give))
-		{
-			if (rigidBody.speed.y < maxSpeed.y)
-				rigidBody.speed.y++;
+		int fix = AllyAI.numOfPlayers;
 
+		if (fix == 0) {
+			fix = 1;
 		}
-		else if (boundingBox.y > followRectangle.y + followRectangle.height + (spacing * formationID/fix + give))
-		{
-			if (rigidBody.speed.y > -maxSpeed.y)
-				rigidBody.speed.y--;
+
+		if (this.side % 2 == 1) {
+			neg = -1; // switch the side the ally appears on
 		}
-		else
-		{
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
+
+		if (this.boundingBox.x < this.followRectangle.x + neg
+				* this.followRectangle.width * .25
+				+ (neg * this.spacing - this.give)) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x++;
+			}
+		} else if (this.boundingBox.x > this.followRectangle.x + neg
+				* this.followRectangle.width * .25
+				+ (neg * this.spacing + this.give)) {
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x--;
+			}
+		} else {
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
+			}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
+			}
+		}
+
+		if (this.boundingBox.y < this.followRectangle.y
+				+ this.followRectangle.height * .5
+				+ (this.spacing * this.id - this.give)) {
+			if (this.rigidBody.speed.y < this.maxSpeed.y) {
+				this.rigidBody.speed.y++;
+			}
+
+		} else if (this.boundingBox.y > this.followRectangle.y
+				+ this.followRectangle.height * .5
+				+ (this.spacing * this.id + this.give)) {
+			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
+				this.rigidBody.speed.y--;
+			}
+		} else {
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
+			}
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
 		}
 	}
-	public void line()
-	{
+
+	public void cover() {
+		if (this.boundingBox.x < this.followRectangle.x
+				- (this.spacing * this.formationID) - this.give
+				- (this.boundingBox.width / 2)) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x++;
+			}
+
+		} else if (this.boundingBox.x > this.followRectangle.x
+				+ this.followRectangle.width
+				+ (this.spacing * this.formationID) + this.give
+				- (this.boundingBox.width / 2)) {
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x--;
+			}
+		} else {
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
+			}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
+			}
+		}
+		if (this.boundingBox.y < this.followRectangle.y - this.spacing
+				* this.formationID - this.give - (this.boundingBox.height / 2)) {
+			if (this.rigidBody.speed.y < this.maxSpeed.y) {
+				this.rigidBody.speed.y++;
+			}
+
+		} else if (this.boundingBox.y > this.followRectangle.y
+				+ this.followRectangle.height + this.spacing * this.formationID
+				+ this.give - (this.boundingBox.height / 2)) {
+			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
+				this.rigidBody.speed.y--;
+			}
+		} else {
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
+			}
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
+		}
+	}
+
+	public void dodge() {
+		final int searchHeight = 512;
+
+		this.Top.x = this.boundingBox.x - (this.boundingBox.width * 2);
+		this.Top.y = this.boundingBox.y + searchHeight;
+		this.Top.width = this.boundingBox.width * 5;
+		this.Top.height = searchHeight;
+
+		this.Bottom.x = this.boundingBox.x - (this.boundingBox.width * 2);
+		this.Bottom.y = this.boundingBox.y - this.boundingBox.height;
+		this.Bottom.width = this.boundingBox.width * 5;
+		this.Bottom.height = searchHeight / 4;
+
+		this.Left.x = this.boundingBox.x - (this.boundingBox.width * 2);
+		this.Left.y = this.boundingBox.y + searchHeight;
+		this.Left.width = (this.boundingBox.width * 2);
+		this.Left.height = searchHeight + this.boundingBox.height
+				+ searchHeight / 4;
+
+		this.Right.x = this.boundingBox.x + (this.boundingBox.width * 2);
+		this.Right.y = this.boundingBox.y + searchHeight;
+		this.Right.width = this.boundingBox.width * 2;
+		this.Right.height = searchHeight + this.boundingBox.height
+				+ searchHeight / 4;
+		//
+		// get all the game objects
+
+		for (int x = 0; x < GameObject.getAllGameObjects().size(); x++) {
+			final GameObject s = GameObject.getAllGameObjects().get(x);
+			this.sBoundingBox = getBoundingBox(s, this.sBoundingBox);
+			if (s == null || this.sBoundingBox.isNull()) {
+				continue;
+			}
+
+			if (!(s.hasTag(this.gameObject.getTags()))
+					&& !(s.hasTag("PowerUp"))) {
+				if (this.sBoundingBox.collidesWith(this.Top)
+						|| this.sBoundingBox.collidesWith(this.Bottom)) {
+					if (this.sBoundingBox.collidesWith(this.Top)) {
+						if (this.rigidBody.speed.y > -(2 * this.maxSpeed.y)) {
+							this.rigidBody.speed.y--;
+						}
+					} else if (this.sBoundingBox.collidesWith(this.Bottom)) {
+						if (this.rigidBody.speed.y < this.maxSpeed.y) {
+							this.rigidBody.speed.y++;
+						}
+					}
+					if (this.sBoundingBox.collidesWith(this.Right)) {
+						if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+							this.rigidBody.speed.x--;
+						}
+					} else if (this.sBoundingBox.collidesWith(this.Left)) {
+						if (this.rigidBody.speed.x < this.maxSpeed.x) {
+							this.rigidBody.speed.x++;
+						}
+					}
+					break;
+				} else if (this.sBoundingBox.collidesWith(this.Right)
+						&& !(s.hasTag("PowerUp"))) {
+					if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+						this.rigidBody.speed.x--;
+					}
+					break;
+				} else if (this.sBoundingBox.collidesWith(this.Left)
+						&& !(s.hasTag("PowerUp"))) {
+					if (this.rigidBody.speed.x < this.maxSpeed.x) {
+						this.rigidBody.speed.x++;
+					}
+					break;
+				}
+			}
+		}
+	}
+
+	@Override
+	public void draw() {
+		/*
+		 * if (rigidBody.speed.y > 0) { if (rigidBody.speed.x > 0)
+		 * gameObject.playAnimation("DOWNRIGHT"); else if (rigidBody.speed.x <
+		 * 0) gameObject.playAnimation("DOWNLEFT"); else
+		 * gameObject.playAnimation("DOWN"); } else if (rigidBody.speed.y < 0) {
+		 * if (rigidBody.speed.x > 0) gameObject.playAnimation("UPRIGHT"); else
+		 * if (rigidBody.speed.x < 0) gameObject.playAnimation("UPLEFT"); else
+		 * gameObject.playAnimation("UP"); } else if (rigidBody.speed.x > 0)
+		 * gameObject.playAnimation("RIGHT"); else if (rigidBody.speed.x < 0)
+		 * gameObject.playAnimation("LEFT"); else
+		 * gameObject.playAnimation("IDLE");
+		 */
+	}
+
+	public Rectangle getBoundingBox (final GameObject s, Rectangle r) {
+		if (s == null) {
+			r.makeNull();
+			return r;
+		}
+
+		if (s.getRigidBody() == null) {
+			r.makeNull();
+			return r;
+		}
+
+		if (!(s.getRigidBody().getCollider() instanceof BoxCollider)) {
+			r.makeNull();
+			return r;
+		}
+
+		if (r.isNull()) {
+
+			r.init(0,0,0,0);
+		}
+
+		r.x = (int) s.transform.position.x;
+		r.y = (int) s.transform.position.y;
+
+		r.width = (int) ((BoxCollider) s.getRigidBody().getCollider()).size.x;
+		r.height = (int) ((BoxCollider) s.getRigidBody().getCollider()).size.y;
+
+		return r;
+	}
+
+	public void line () {
 		int neg = 1;
-		int fix = numOfPlayers;
-		
-		
-		if (fix == 0)
+		int fix = AllyAI.numOfPlayers;
+
+		if (fix == 0) {
 			fix = 1;
-		if (side % 2 == 1)
-		{
-			neg = -1; //switch the side the ally appears on
 		}
-		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix - give))
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x++;
+		if (this.side % 2 == 1) {
+			neg = -1; // switch the side the ally appears on
+		}
+		if (this.boundingBox.x < this.followRectangle.x + neg
+				* this.followRectangle.width
+				+ (neg * this.spacing * this.formationID / fix - this.give)) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x++;
+			}
 
+		} else if (this.boundingBox.x > this.followRectangle.x + neg
+				* this.followRectangle.width
+				+ (neg * this.spacing * this.formationID / fix + this.give)) {
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x--;
+			}
+		} else {
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
+			}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
+			}
 		}
-		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing * formationID/fix + give))
-		{
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x--;
-		}
-		else
-		{
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-		}
-		if (boundingBox.y < followRectangle.y - give)
-		{
-			if (rigidBody.speed.y < maxSpeed.y)
-				rigidBody.speed.y++;
-		}
-		else if (boundingBox.y > followRectangle.y +  give)
-		{
-			if (rigidBody.speed.y > -maxSpeed.y)
-				rigidBody.speed.y--;
-		}
-		else
-		{
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
+		if (this.boundingBox.y < this.followRectangle.y - this.give) {
+			if (this.rigidBody.speed.y < this.maxSpeed.y) {
+				this.rigidBody.speed.y++;
+			}
+		} else if (this.boundingBox.y > this.followRectangle.y + this.give) {
+			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
+				this.rigidBody.speed.y--;
+			}
+		} else {
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
+			}
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
 		}
 	}
-	public void column()
-	{
-		int neg = 1;
-		int fix = numOfPlayers;
-		if (fix == 0)
-			fix = 1;
-		if (side % 2 == 1)
-		{
-			neg = -2; //switch the side the ally appears on
-		}
-		if (boundingBox.x < followRectangle.x + neg*followRectangle.width + (neg*spacing - give))
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x++;
 
-		}
-		else if (boundingBox.x > followRectangle.x + neg*followRectangle.width + (neg*spacing + give))
-		{
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x--;
-		}
-		else
-		{
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-			gameObject.playAnimation("IDLE");
-		}
-		if (boundingBox.y < followRectangle.y + followRectangle.height + (spacing * formationID/fix - give))
-		{
-			if (rigidBody.speed.y < maxSpeed.y)
-				rigidBody.speed.y++;
+	@Override
+	public void onCreate() {
+		this.spacing = 38;
+		this.give = 5;
+		this.dodgeRectangle = new Rectangle();
+		this.boundingBox = new Rectangle();
+		this.formationID = 0;
+		this.nextFormationTime = 0;
+		this.formationHoldTime = 1;
+		this.searchTime = 1;
+		this.nextSearch = 0;
+		this.tempLine = true;
+		this.formation = 5;
+		this.roamFormation = 5;
+		this.headUnit = false;
+		this.sBoundingBox = new Rectangle();
+		this.boxCollider = (BoxCollider) this.gameObject.getRigidBody()
+				.getCollider();
+		this.rigidBody = this.gameObject.getRigidBody();
+		this.screen = new Rectangle(0, 0, 480, 800);
+		this.maxSpeed = new Vector2(64, 64);
 
-		}
-		else if (boundingBox.y > followRectangle.y + followRectangle.height + (spacing * formationID/fix + give))
-		{
-			if (rigidBody.speed.y > -maxSpeed.y)
-				rigidBody.speed.y--;
-		}
-		else
-		{
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
-		}
+		// this makes it so 1 = 1, 2 = 1, 3 = 2, 4 = 2
+		// do this so we can adjust the side and height the ally appears on
+		// otherwise it would be staggered
+		this.formationID = Math.round((this.id * 0.5f) + .01f) - 1;
 	}
-	public void cover()
-	{
-		if (boundingBox.x < followRectangle.x - (spacing * formationID) - give - ((int)boundingBox.width/2))
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x++;
 
+	public void roam () {
+		if (canSearch()) {
+			search();
 		}
-		else if (boundingBox.x > followRectangle.x + followRectangle.width + (spacing * formationID) + give - ((int)boundingBox.width/2))
-		{
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x--;
-		}
-		else
-		{
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-		}
-		if (boundingBox.y < followRectangle.y - spacing * formationID  - give - ((int)boundingBox.height/2))
-		{
-			if (rigidBody.speed.y < maxSpeed.y)
-				rigidBody.speed.y++;
 
-		}
-		else if (boundingBox.y > followRectangle.y + followRectangle.height + spacing * formationID + give - ((int)boundingBox.height/2))
-		{
-			if (rigidBody.speed.y > -maxSpeed.y)
-				rigidBody.speed.y--;
-		}
-		else
-		{
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
-		}
-	}
-	
-	public void roam ()
-	{
-		GameObject enemy = null;
-		GameObject enemyTemp = null;
-		int x = 0;
-		int start = (GameObject.getAllGameObjects().size()/numOfAllies)*id;
-
-		x = start+1;
-		if (x >= GameObject.getAllGameObjects().size())
-		{
-			x = 0;
-		}
-		
-		boolean foundenemy = false;
-
-		int enemycount = 0;
-		
 		int playersHealth = 0;
 
-		if (followPlayer != null)
-		{
-			HealthController hc = (HealthController)followPlayer.getComponent(HealthController.class);
-			if (hc != null)
-			{
+		if (this.followPlayer != null) {
+			final HealthController hc = (HealthController) this.followPlayer
+					.getComponent(HealthController.class);
+
+			if (hc != null) {
 				playersHealth = hc.health;
-		
-				//the player is hurt
-				if (numOfPlayers != 0 && playersHealth < 20 && playersHealth > 0)
-				{
-					//switch to a cover formation
-					roamFormation = 4;
+
+				// the player is hurt
+				if (AllyAI.numOfPlayers != 0 && playersHealth < 20
+						&& playersHealth > 0) {
+					// switch to a cover formation
+					this.roamFormation = 4;
 					return;
 				}
 			}
 		}
-		
-		/*
-		boolean looped = false;
-		while (true)
-		{
-			enemy = GameObject.getAllGameObjects().get(x);
-			getBoundingBox(enemy,sBoundingBox);
-			
-			if (sBoundingBox == null)
-			{
-				continue;
+
+		// if I did not find anything, don't move
+		if (this.enemy == null && this.headUnit) {
+			this.enemyCount = 0;
+
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
 			}
-			
-			if (!(enemy.hasTag(gameObject.getTags())) &&
-				enemy.hasTag("Enemy") &&
-				sBoundingBox.y < screen.y + screen.height + 256 &&
-				sBoundingBox.y > screen.y)
-			{
-				enemycount++;
-				if (enemycount == 1)
-				{
-					enemyTemp = GameObject.getAllGameObjects().get(x);
-					foundenemy = true;
-				}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
 			}
-			
-			if (x == start)
-				break;
-			
-			x++;
-			
-			if (x >= GameObject.getAllGameObjects().size())
-			{
-				x = 0;
-				if (looped)
-				{
-					break;
-				}
-				looped = true;
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
 			}
-		}
-	
-		enemy = enemyTemp;
-		*/
-		List<GameObject> gos = GameObject.findAllByTags(targets);
-		
-		if (gos.size() > 0)
-		{
-			enemy = gos.get(Util.randomNumber(0, gos.size()-1));
-			foundenemy = true;
-		}
-		else
-		{
-			enemy = null;
-			foundenemy = false;
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
+
+			return;
 		}
 
-		//if I did not find anything, don't move
-		if ((!foundenemy && headUnit) || (enemy == null && headUnit))
-		{
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
-		
-			return;
+		if (canChangeFormation()) {
+			this.nextFormationTime = Time.getTime() + formationHoldTime;
+			this.followRectangle = getBoundingBox(this.followPlayer,
+					this.followRectangle);
+			
+			
+			if (this.distances.x >= 200 && this.distances.y >= 500 && this.enemyCount >= 5) {
+				tempLine = true;
+				this.roamFormation = 5;
+			} else if (this.distances.x >= 200 && this.distances.y >= 200 && this.enemyCount >= 3) {				
+				this.roamFormation = 1;
+			} else if (this.distances.x >= 200 && this.distances.y >= 0) {
+				tempLine = false;
+				this.roamFormation = 2;
+			} else if (this.distances.x >= 0 && this.distances.y >= 200) {
+				this.roamFormation = 3;
+
+			} else {
+				tempLine = true;
+				this.roamFormation = 5;
+			}
 		}
-		
-		if (canChangeFormation())
+		else if (tempLine && this.roamFormation == 2) 
 		{						
-			int r = Util.randomNumber(0,1);			//
-			
-			if (r == 1)
-			{
-				//should change depending on spacing of enemies
-				if (enemycount <= 2 && enemycount >= 1)
-				{
-					roamFormation = 3;
-					lastFormationTime = Time.getTime();
-					getBoundingBox(targetPlayer,followRectangle);
-				}
-				else if (enemycount >= 3)
-				{
-					roamFormation = 1;
-					lastFormationTime = Time.getTime();
-					getBoundingBox(targetPlayer,followRectangle);
-				}
-			}
-			else
-			{
-				if (foundenemy)
-				{
-					roamFormation = 5;
-				}
-				else
-				{
-					roamFormation = 2;
-					getBoundingBox(targetPlayer,followRectangle);
-				}
-				lastFormationTime = Time.getTime();
+			if (this.enemy != null) {
+				tempLine = true;
+				this.roamFormation = 5;
 			}
 		}
-		if (!canChangeFormation() && (roamFormation == 5 || roamFormation == 2))
+		else if (this.roamFormation == 5)
 		{
-			if (foundenemy)
-			{
-				roamFormation = 5;
-			}
-			else
-			{
-				roamFormation = 2;
-				getBoundingBox(targetPlayer,followRectangle);
-			}			
+			if (this.enemy == null) {
+					this.roamFormation = 2;
+					tempLine = true;
+				}
 		}
-	
-		if (enemy == null)
-		{
-			roamFormation = 2;
+
+		//System.out.println(this.tempLine + " " + this.roamFormation + " " + this.distances);
+		
+		if (this.roamFormation != 5) {
+			return;
 		}
-		if (roamFormation != 5)
-		{
+
+		this.sBoundingBox = getBoundingBox(this.enemy, this.sBoundingBox);
+		
+		if (this.sBoundingBox.isNull()) {
+			this.roamFormation = 2;
+			tempLine = true;
 			return;
 		}
 		
-		getBoundingBox(enemy,sBoundingBox);
-		if (boundingBox.x < sBoundingBox.x - give)
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x++;
+		if (this.boundingBox.x < this.sBoundingBox.x - this.give) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x++;
+			}
+		} else if (this.boundingBox.x > this.sBoundingBox.x + this.give) {
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x--;
+			}
+		} else {
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
+			}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
+			}
 		}
-		else if (boundingBox.x > sBoundingBox.x + give)
-		{
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x--;
+
+		if (this.boundingBox.y < this.sBoundingBox.y + 256 - this.give) {
+			if (this.rigidBody.speed.y < this.maxSpeed.y) {
+				this.rigidBody.speed.y++;
+			}
+
+		} else if (this.boundingBox.y > this.sBoundingBox.y + 256 + this.give) {
+			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
+				this.rigidBody.speed.y--;
+			}
+		} else {
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
+			}
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
 		}
-		else
-		{
-			//rigidBody.speed.x = 0;
+
+	}
+
+	public void search() {
+		this.nextSearch = Time.getTime() + this.searchTime;
+
+		this.gos = GameObject.findAllByTags(this.targets, this.gos);
+		this.enemyCount = this.gos.size();
+		this.distances = GameObject.getDistances();
+
+		if (this.gos.size() > 0) {
+			this.enemy = this.gos.get(Util.randomNumber(0, this.gos.size() - 1));
+		} else {
+			this.enemy = null;
+		}
+	}
+
+	public void shoot() {
+
+		if (this.weapon.canShoot()) {
+				this.weapon.shoot();
+		}
+	}
+
+	@Override
+	public void update() {
+		if (this.gameObject == null) {
+			return;			
+		} else if (this.boxCollider == null) {
+			this.boxCollider = (BoxCollider) this.gameObject.getRigidBody()
+					.getCollider();
+			if (this.boxCollider == null) {
+				return;
+			}
+		}
+		
+		if (this.boundingBox.isNull()) {
+			this.boundingBox.init(0,0,0,0);
+		}
+
+		this.boundingBox.x = (int) this.gameObject.transform.position.x;
+		this.boundingBox.y = (int) this.gameObject.transform.position.y;
+		this.boundingBox.width = (int) this.boxCollider.size.x;
+		this.boundingBox.height = (int) this.boxCollider.size.y;
+		
+		if (this.followPlayer == null || this.followRectangle.isNull()) {
+			this.gos = GameObject.findAllByTags(this.playerTag, this.gos);
+			AllyAI.numOfPlayers = this.gos.size();
 			
-			if (rigidBody.speed.x < 0)
-				rigidBody.speed.x++;
-			if (rigidBody.speed.x > 0)
-				rigidBody.speed.x--;
-				
-				
+			if (AllyAI.numOfPlayers > 0) {
+				this.followPlayer = this.gos.get(this.id % AllyAI.numOfPlayers);
+				this.followRectangle = getBoundingBox(this.followPlayer,
+						this.followRectangle);
+			} else {
+				this.followPlayer = null;
+				this.followRectangle.makeNull();
+				tempLine = true;
+				this.formation = 5;
+				this.roamFormation = 5;
+			}
+		}
+
+
+		if (AllyAI.numOfPlayers != 0) {
+			this.side = (this.id / AllyAI.numOfPlayers);
+		}
+
+		if (this.headUnit) {
+			tempLine = true;
+			this.formation = 5;
+			this.roamFormation = 5;
 		}
 		
-		if (boundingBox.y < sBoundingBox.y + 256 - give)
-		{
-			if (rigidBody.speed.y < maxSpeed.y)
-				rigidBody.speed.y++;
-				
-		}
-		else if (boundingBox.y > sBoundingBox.y + 256 + give)
-		{
-			if (rigidBody.speed.y > -maxSpeed.y)
-				rigidBody.speed.y--;
-		}
-		else
-		{
-			if (rigidBody.speed.y < 0)
-				rigidBody.speed.y++;
-			if (rigidBody.speed.y > 0)
-				rigidBody.speed.y--;
+		if (canShoot()) {
+			shoot();
 		}
 		
+		if (checkDodge()) {
+			dodge();
+			return;
+		}
+		
+		if (this.formation == 5) {
+			roam();
+		}
+		
+		this.followRectangle = getBoundingBox(this.followPlayer,
+				this.followRectangle);
+		
+		if (!this.followRectangle.isNull() && !this.headUnit) {
+			if (this.formation == 1 || this.roamFormation == 1) {
+				wedge();
+			}
+			if (this.formation == 2 || this.roamFormation == 2) {
+				line();
+			}
+			if (this.formation == 3 || this.roamFormation == 3) {
+				column();
+			}
+			if (this.formation == 4 || this.roamFormation == 4) {
+				cover();
+			}
+		}
 	}
-	
-	public boolean canChangeFormation()
-	{
-		
-		if (lastFormationTime + formationHoldTime < Time.getTime())
-			return true;
-		return false;
-	}
-	
-	public boolean getBoundingBox (GameObject s, Rectangle r)
-	{
-		if (s == null)
-		{
-			return false;
+
+	public void wedge() {
+		int neg = 1;
+		int fix = AllyAI.numOfPlayers;
+
+		if (fix == 0) {
+			fix = 1;
 		}
-		
-		if (s.getRigidBody() == null)
-		{
-			return false;
+
+		if (this.side % 2 == 1) {
+			neg = -1; // switch the side the ally appears on
 		}
-		
-		if (!(s.getRigidBody().getCollider() instanceof BoxCollider))
-		{
-			return false;
+
+		if (this.boundingBox.x < this.followRectangle.x + neg
+				* this.followRectangle.width
+				+ (neg * this.spacing * this.formationID / fix - this.give)) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x++;
+			}
+		} else if (this.boundingBox.x > this.followRectangle.x + neg
+				* this.followRectangle.width
+				+ (neg * this.spacing * this.formationID / fix + this.give)) {
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x--;
+			}
+		} else {
+			if (this.rigidBody.speed.x < 0) {
+				this.rigidBody.speed.x++;
+			}
+			if (this.rigidBody.speed.x > 0) {
+				this.rigidBody.speed.x--;
+			}
 		}
-		
-		if (r == null)
-		{
-			return false;
+
+		if (this.boundingBox.y < this.followRectangle.y
+				+ this.followRectangle.height
+				+ (this.spacing * this.formationID / fix - this.give)) {
+			if (this.rigidBody.speed.y < this.maxSpeed.y) {
+				this.rigidBody.speed.y++;
+			}
+
+		} else if (this.boundingBox.y > this.followRectangle.y
+				+ this.followRectangle.height
+				+ (this.spacing * this.formationID / fix + this.give)) {
+			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
+				this.rigidBody.speed.y--;
+			}
+		} else {
+			if (this.rigidBody.speed.y < 0) {
+				this.rigidBody.speed.y++;
+			}
+			if (this.rigidBody.speed.y > 0) {
+				this.rigidBody.speed.y--;
+			}
 		}
-		
-		r.x = (int)s.transform.position.x;
-		r.y = (int)s.transform.position.y;
-		
-		r.width = (int)((BoxCollider)s.getRigidBody().getCollider()).size.x;
-		r.height = (int)((BoxCollider)s.getRigidBody().getCollider()).size.y;
-		return true;
 	}
 }

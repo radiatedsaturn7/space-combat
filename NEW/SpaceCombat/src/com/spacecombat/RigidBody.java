@@ -1,43 +1,40 @@
 package com.spacecombat;
 
-public class RigidBody extends Component 
-{	
-	public Vector3 speed = new Vector3(0,0,0);
-	public Collider collider = null;	
-	
-	public void update ()
-	{	
-		//System.out.println(speed + " * " + Time.getDeltaTime());
-		gameObject.transform.position.x += (((float)speed.x) * Time.getDeltaTime());
-		gameObject.transform.position.y += (((float)speed.y) * Time.getDeltaTime());
-		gameObject.transform.position.z += (((float)speed.z) * Time.getDeltaTime());				
+public class RigidBody extends Component {
+	public Vector2 speed = new Vector2(0, 0);
+	public Collider collider = null;
+
+	public Collider getCollider() {
+		return this.collider;
 	}
-	
-	public void setCollider (Collider collider)
-	{
+
+	public void setCollider(final Collider collider) {
 		this.collider = collider;
 		collider.setRigidBody(this);
 	}
-	
-	public Collider getCollider ()
-	{
-		return this.collider;
-	}
-	
-	public String toString ()
-	{
-		StringBuffer s = new StringBuffer();
+
+	@Override
+	public String toString() {
+		final StringBuffer s = new StringBuffer();
 		//
-		if (gameObject != null)
-		{
+		if (this.gameObject != null) {
 			s.append("RigidBody.position=");
-			s.append(gameObject.transform.position);
+			s.append(this.gameObject.transform.position);
 			s.append("\n");
 		}
-		
+
 		s.append("RigidBody.speed=");
-		s.append(speed.toString());
+		s.append(this.speed.toString());
 		s.append("\n");
 		return s.toString();
+	}
+
+	@Override
+	public void update() {
+		// System.out.println(speed + " * " + Time.getDeltaTime());
+		this.gameObject.transform.position.x += (this.speed.x * Time
+				.getDeltaTime());
+		this.gameObject.transform.position.y += (this.speed.y * Time
+				.getDeltaTime());
 	}
 }

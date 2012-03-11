@@ -1,436 +1,396 @@
 package com.spacecombat;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ArrayList;
 
-public class GameObject extends Component 
-{
+public class GameObject extends Component {
+
 	private static List<GameObject> gameObjects = new ArrayList<GameObject>();
+	private static Vector2 distances = new Vector2();
 	
-	public Transform transform;
 	
-	private float destroyTimeStamp;
-	//
-	private RigidBody rigidBody;
-	private String name = "GameObject";
-	private String [] tags;
-	private boolean isDestroyed = false;
-	private boolean isDestroying = false;
+	private static GameObject staticXGameObject;
+	private GameObject XGameObject;
+	private Component xComponent;
 
-	private List<Component> components;
-	
-	public GameObject ()
-	{
-		name = "GameObject";
-		tags = new String [] {};
-		transform = new Transform();
-		components = new LinkedList<Component>();
-	}
-	
-	public void setName (String name)
-	{
-		this.name = name;
-	}
-	
-	public String getName ()
-	{
-		return name;
+	public static void create(final GameObject gameObject) {
+		GameObject.gameObjects.add(gameObject);
+		// System.out.println("created " + gameObject.getName());
+		gameObject.onCreate();
+		gameObject.onStart();
 	}
 
-	public void setTags (String [] tags)
-	{
-		this.tags = tags;
-	}
-	
-	public String [] getTags ()
-	{
-		return tags;
-	}
-	
-	public boolean hasTag (String tag)
-	{
-		if (tags == null)
-		{
-			return false;
-		}
-		if (tag == null)
-		{
-			return false;
-		}
-		
-		int x = 0;
-		for (x = 0; x < tags.length; x++)
-		{
-			if (tags[x].equalsIgnoreCase(tag))
-			{
-				return true;
+	public static void executeOnAllWithTags(final String[] search,
+			final Function f) {
+		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
+				f.execute(staticXGameObject);
 			}
 		}
-		
-		return false;
 	}
-	
-	public boolean hasTag (String [] otherTags)
-	{
-		if (tags == null)
-		{
-			return false;
+
+	public static List<GameObject> findAllByName(final String search) {
+		final LinkedList<GameObject> gos = new LinkedList<GameObject>();
+		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
+			staticXGameObject = GameObject.gameObjects.get(staticX); 
+			if (staticXGameObject.getName().equals(search)) {
+				gos.add(staticXGameObject);
+			}
 		}
-		if (otherTags == null)
-		{
-			return false;
+		return gos;
+	}
+
+	public static List<GameObject> findAllByTags(final String[] search,
+			final List<GameObject> gos) {
+		gos.clear();
+
+		float xMin = 800;
+		float xMax = 0;
+		float yMin = 800;
+		float yMax = 0;
+
+		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
+				xMax = Math.max(
+						staticXGameObject.transform.position.x,
+						xMax);
+				xMin = Math.min(
+						staticXGameObject.transform.position.x,
+						xMin);
+				yMax = Math.max(
+						staticXGameObject.transform.position.y,
+						yMax);
+				yMin = Math.min(
+						staticXGameObject.transform.position.y,
+						yMin);
+
+				gos.add(staticXGameObject);
+			}
 		}
+		GameObject.distances.x = xMax - xMin;
+		GameObject.distances.y = yMax - yMin;
+
+		return gos;
+	}
+
+	public static GameObject findByName(final String search) {
+		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.getName().equals(search)) {
+				return staticXGameObject;
+			}
+		}
+		return null;
+	}
+
+	public static GameObject findRandomByTags(final String[] search) {
 		
-		int x = 0;
-		for (x = 0; x < tags.length; x++)
-		{
-			int y = 0;
-			for (y = 0; y < otherTags.length; y++)
-			{
-				if (tags[x].equalsIgnoreCase(otherTags[y]) && otherTags[y] != null)
-				{
-					return true;
+		final LinkedList<GameObject> gos = new LinkedList<GameObject>();		
+		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
+				gos.add(staticXGameObject);
+			}
+		}
+		if (gos.size() == 0) {
+			return null;
+		}
+		return gos.get(Util.randomNumber(0, gos.size() - 1));
+	}
+
+	public static List<GameObject> getAllGameObjects() {
+		return GameObject.gameObjects;
+	}
+
+	public static Vector2 getDistances() {
+		return GameObject.distances;
+	}
+
+	public Transform transform;
+
+	private float destroyTimeStamp;
+
+	//
+	private RigidBody rigidBody;
+
+	private String name = "GameObject";
+
+	private String[] tags;
+
+	private boolean isDestroyed = false;
+
+	private boolean isDestroying = false;
+
+	private final List<Component> components;
+
+	public GameObject() {
+		this.name = "GameObject";
+		this.tags = new String[] {};
+		this.transform = new Transform();
+		this.components = new LinkedList<Component>();
+	}
+
+	public void addComponent(final Component c) {
+		c.setGameObject(this);
+		// System.out.println("Added:" + c.getClass().getSimpleName());
+		this.components.add(c);
+	}
+
+	@Override
+	public void collide(final Collision collision) {
+		if (this.isDestroyed) {
+			return;
+		}
+
+		for (int x = 0; x < this.components.size(); x++) {
+			this.components.get(x).collide(collision);
+		}
+	}
+
+	@Override
+	public void destroy() {
+		for (int x = 0; x < this.components.size(); x++) {
+			this.components.get(x).onBeforeDestroy();
+		}
+
+		this.isDestroyed = true;
+		// System.out.println("destroyed " + getName());
+	}
+
+	public void destroyAfter(final float time) {
+		this.destroyTimeStamp = Time.getTime();
+
+		this.destroyTimeStamp += time;
+		this.isDestroying = true;
+	}
+
+	@Override
+	public void draw() {
+		if (this.isDestroyed) {
+			return;
+		}
+
+		if (this.rigidBody != null) {
+			this.rigidBody.draw();
+		}
+
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);
+			if (xComponent.isEnabled()) {
+				xComponent.draw();
+			}
+		}
+	}
+
+	public GraphicAnimation getAnimation(final String name) {
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				if (((GraphicAnimation) xComponent).getName()
+						.equals(name)) {
+					return (GraphicAnimation) xComponent;
+				}
+			}
+
+		}
+		return null;
+	}
+
+	public Component getComponent(final Class<? extends Component> getClass) {
+		// String s = "";
+		for (int x = 0; x < this.components.size(); x++) {
+			// s += c.getClass().getSimpleName() + ",";
+
+			xComponent = this.components.get(x);
+			if (xComponent.getClass() == getClass) {
+				// System.out.println(getName() + " found " +
+				// getClass.getSimpleName());
+				return xComponent;
+			}
+		}
+
+		// System.out.println(getName() + " did not find " +
+		// getClass.getSimpleName() + " in " + s);
+		return null;
+	}
+
+	public GraphicAnimation getCurrentAnimation() {
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				if (xComponent.isEnabled()) {
+					return (GraphicAnimation) xComponent;
 				}
 			}
 		}
-		
-		return false;
+		return null;
 	}
 
-	public String getPrintableTags ()
-	{
+	public String getName() {
+		return this.name;
+	}
+
+	public String getPrintableTags() {
 		String s = "";
-		if (tags != null)
-		{
-			int x = 0;
-			for (x = 0; x < tags.length; x++)
-			{
-				s += tags[x]+",";
+		if (this.tags != null) {
+			for (int x = 0; x < this.tags.length; x++) {
+				s += this.tags[x] + ",";
 			}
 		}
 		return s;
 	}
-	public void setRigidBody(RigidBody rigidBody)
-	{
-		//System.out.println("Created RigidBody:"+rigidBody);
-		rigidBody.setGameObject(this);
-		this.rigidBody = rigidBody;
-		rigidBody.setGameObject(this);	
-	}
-	
-	public RigidBody getRigidBody()
-	{
-		return rigidBody;
-	}
-	
-	public void addComponent(Component c)
-	{
-		c.setGameObject(this);
-		//System.out.println("Added:" + c.getClass().getSimpleName());
-		components.add(c);		
-	}
-	
-	public Component getComponent(Class<? extends Component> getClass)
-	{			
-		//String s = "";
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			//s += c.getClass().getSimpleName() + ",";
-			
-			if (components.get(x).getClass() == getClass)
-			{
-				//System.out.println(getName() + " found " + getClass.getSimpleName());
-				return components.get(x);
-			}
-		}
-		
-		//System.out.println(getName() + " did not find " + getClass.getSimpleName() + " in " + s);
-		return null;
-	}
-	
-	public void removeComponent (Component c)
-	{
-		components.remove(c);
-	}
-	
-	public void removeComponent(Class<? extends Component> getClass)
-	{			
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			if (components.get(x).getClass() == getClass)
-			{
-				components.remove(components.get(x));
-				return;
-			}
-				
-		}
-	}
-	
-	public void collide (Collision collision)
-	{
-		if (isDestroyed)
-		{
-			return;
-		}
-		
-		for (int x = 0; x < components.size(); x++)
-		{
-			components.get(x).collide(collision);
-		}
-	}
-	
-	public void draw ()
-	{
-		if (isDestroyed)
-		{
-			return;
-		}
-				
-		if (rigidBody != null)
-		{
-			rigidBody.draw();
-		}
-		
-		for (int x = 0; x < components.size(); x++)
-		{
-			if (components.get(x).isEnabled())
-			{
-				components.get(x).draw();
-			}
-		}		
+
+	public RigidBody getRigidBody() {
+		return this.rigidBody;
 	}
 
-	public void onCreate ()
-	{
-		if (rigidBody != null)
-		{
-			rigidBody.onCreate();
-		}
-			
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			components.get(x).onCreate();
-		}
+	public String[] getTags() {
+		return this.tags;
 	}
-	
-	public void onStart ()
-	{
-		if (rigidBody != null)
-		{
-			rigidBody.onStart();
-		}
-		
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			components.get(x).onStart();
-		}
-	}
-	
-	public void update ()
-	{
-		if (isDestroyed)
-		{
-			return;
-		}		
-		
-		//technically should happen somewhereElse
-		if (rigidBody != null)
-		{
-			//System.out.println("Updating RigidBody");
-			rigidBody.update();
-		}
-				
-		for (int x = 0; x < components.size(); x++)
-		{
-			if (components.get(x).isEnabled())
-			{
-				//System.out.println("Updating:" + c.getClass().getSimpleName());
-				components.get(x).update();
-			}
-		}
-		
-		if (isDestroying)
-		{
-			if (destroyTimeStamp < Time.getTime())
-			{
-				destroy();
-			}
-		}
-	}
-	
-	public void destroy ()
-	{
-		int x = 0;
-		
-		for (x = 0; x < components.size(); x++)
-		{
-			components.get(x).onBeforeDestroy();
-		}
-		
-		isDestroyed = true;
-		//System.out.println("destroyed " + getName());		
-	}
-	
-	public void destroyAfter (float time)
-	{
-		destroyTimeStamp = Time.getTime();
 
-		destroyTimeStamp += time;
-		isDestroying = true;
+	public boolean hasTag(final String tag) {
+		if (this.tags == null) {
+			return false;
+		}
+		if (tag == null) {
+			return false;
+		}
+
+		for (int x = 0; x < this.tags.length; x++) {
+			if (this.tags[x].equalsIgnoreCase(tag)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
-	
-	public boolean isDestroyed ()
-	{
-		return isDestroyed;	
-	}
-	
-	public GraphicAnimation getCurrentAnimation ()
-	{
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			if (components.get(x) instanceof GraphicAnimation)
-			{
-				if (components.get(x).isEnabled())
-				{
-					return (GraphicAnimation)components.get(x);
+
+	public boolean hasTag(final String[] otherTags) {
+		if (this.tags == null) {
+			return false;
+		}
+		if (otherTags == null) {
+			return false;
+		}
+
+		for (int x = 0; x < this.tags.length; x++) {
+			for (int y = 0; y < otherTags.length; y++) {
+				if (this.tags[x].equalsIgnoreCase(otherTags[y])
+						&& otherTags[y] != null) {
+					return true;
 				}
 			}
 		}
-		return null;
+
+		return false;
 	}
-	
-	public GraphicAnimation playAnimation (String name)
-	{
+
+	public boolean isDestroyed() {
+		return this.isDestroyed;
+	}
+
+	@Override
+	public void onCreate() {
+		if (this.rigidBody != null) {
+			this.rigidBody.onCreate();
+		}
+
+		for (int x = 0; x < this.components.size(); x++) {
+			this.components.get(x).onCreate();
+		}
+	}
+
+	@Override
+	public void onStart() {
+		if (this.rigidBody != null) {
+			this.rigidBody.onStart();
+		}
+
+		for (int x = 0; x < this.components.size(); x++) {
+			this.components.get(x).onStart();
+		}
+	}
+
+	public GraphicAnimation playAnimation(final String name) {
 		GraphicAnimation animation = null;
-		
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			if (components.get(x) instanceof GraphicAnimation)
-			{
-				GraphicAnimation gl = (GraphicAnimation)components.get(x);
-				
-				if (gl.getName().equals(name))
-				{
+
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				final GraphicAnimation gl = (GraphicAnimation) xComponent;
+
+				if (gl.getName().equals(name)) {
 					System.out.println("Playing " + name);
 					gl.setEnabled(true);
 					animation = gl;
-				}
-				else
-				{
+				} else {
 					gl.setEnabled(false);
 				}
 			}
 		}
-		
+
 		return animation;
 	}
-	
-	public GraphicAnimation getAnimation (String name)
-	{
-		int x = 0;
-		for (x = 0; x < components.size(); x++)
-		{
-			if (components.get(x) instanceof GraphicAnimation)
-			{
-				if (((GraphicAnimation)components.get(x)).getName().equals(name))
-				{
-					return (GraphicAnimation)components.get(x);
-				}
+
+	public void removeComponent(final Class<? extends Component> getClass) {
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);
+			if (xComponent.getClass() == getClass) {
+				this.components.remove(xComponent);
+				return;
 			}
 
 		}
-		return null;
-	}
-	
-	public static List<GameObject> getAllGameObjects ()
-	{
-		return gameObjects;
-	}
-	
-	public static GameObject findByName (String search)
-	{	
-		int x = 0;
-		for (x = 0; x < gameObjects.size(); x++)
-		{
-			if (gameObjects.get(x).getName().equals(search))
-			{
-				return gameObjects.get(x);
-			}
-		}
-		return null;
-	}
-	
-	public static List<GameObject> findAllByName (String search)
-	{		
-		LinkedList<GameObject> gos = new LinkedList<GameObject>();
-		int x = 0;
-		for (x = 0; x < gameObjects.size(); x++)
-		{
-			if (gameObjects.get(x).getName().equals(search))
-			{
-				gos.add(gameObjects.get(x));
-			}
-		}
-		return gos;
-	}
-	
-	public static List<GameObject> findAllByTags (String [] search)
-	{
-		LinkedList<GameObject> gos = new LinkedList<GameObject>();
-		int x = 0;
-		for (x = 0; x < gameObjects.size(); x++)
-		{
-			if (gameObjects.get(x).hasTag(search))
-			{
-				gos.add(gameObjects.get(x));
-			}
-		}
-		return gos;
 	}
 
-	public static GameObject findRandomByTags (String [] search)
-	{
-		LinkedList<GameObject> gos = new LinkedList<GameObject>();
-		int x = 0;
-		for (x = 0; x < gameObjects.size(); x++)
-		{
-			if (gameObjects.get(x).hasTag(search))
-			{
-				gos.add(gameObjects.get(x));
-			}
-		}
-		if (gos.size() == 0)
-		{
-			return null;
-		}
-		return gos.get(Util.randomNumber(0, gos.size()-1));
+	public void removeComponent(final Component c) {
+		this.components.remove(c);
 	}
 
-	public static void executeOnAllWithTags (String [] search, Function f)
-	{
-		int x = 0;
-		for (x = 0; x < gameObjects.size(); x++)
-		{
-			if (gameObjects.get(x).hasTag(search))
-			{
-				f.execute(gameObjects.get(x));
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public void setRigidBody(final RigidBody rigidBody) {
+		// System.out.println("Created RigidBody:"+rigidBody);
+		rigidBody.setGameObject(this);
+		this.rigidBody = rigidBody;
+		rigidBody.setGameObject(this);
+	}
+
+	public void setTags(final String[] tags) {
+		this.tags = tags;
+	}
+
+	@Override
+	public void update() {
+		if (this.isDestroyed) {
+			return;
+		}
+
+		// technically should happen somewhereElse
+		if (this.rigidBody != null) {
+			// System.out.println("Updating RigidBody");
+			this.rigidBody.update();
+		}
+
+		for (int x = 0; x < this.components.size(); x++) {
+			xComponent = this.components.get(x);			
+			if (xComponent.isEnabled()) {
+				// System.out.println("Updating:" +
+				// c.getClass().getSimpleName());
+				xComponent.update();
 			}
 		}
-	}
-	
-	public static void create (GameObject gameObject)
-	{		
-		gameObjects.add(gameObject);
-		//System.out.println("created " + gameObject.getName());		
-		gameObject.onCreate();
-		gameObject.onStart();
+
+		if (this.isDestroying) {
+			if (this.destroyTimeStamp < Time.getTime()) {
+				destroy();
+			}
+		}
 	}
 
 }

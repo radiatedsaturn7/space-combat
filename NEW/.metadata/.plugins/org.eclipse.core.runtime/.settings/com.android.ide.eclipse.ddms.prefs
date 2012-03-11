@@ -1,8 +1,9 @@
-#Mon Feb 27 09:03:16 EST 2012
+#Sat Mar 10 15:05:05 EST 2012
 threadPanel.stack.col0=113
 emulatorControl.waypoint.desc=94
 logcat.view.colsize.Time=69
 logcat.view.display.filters=false
+allocPanel.sash=505
 emulatorControl.track.first=118
 logcat.view.colsize.PID=48
 emulatorControl.waypoint.elevation=52

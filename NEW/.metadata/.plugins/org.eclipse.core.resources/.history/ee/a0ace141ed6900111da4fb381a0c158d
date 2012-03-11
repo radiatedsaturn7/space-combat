@@ -1,0 +1,86 @@
+package com.spacecombat;
+
+public class Level extends Component {
+	public int tileHeight;
+	public int tileWidth;
+	public int mapHeight;
+	public int mapWidth;
+	public int[][] map;
+	public int[] solids;
+
+	public GraphicAnimation[] wad;
+
+	public int sizeX;
+	public int sizeY;
+
+	public void createLevel(final int[] map, final int mapWidth,
+			final int mapHeight, final GenericGraphic image,
+			final int tileWidth, final int tileHeight) {
+		setMap(map, mapWidth, mapHeight);
+		setWad(image, tileWidth, tileHeight);
+		this.sizeX = mapWidth * tileWidth;
+		this.sizeY = mapHeight * tileHeight;
+	}
+
+	@Override
+	public void draw() {
+		float originalX = this.gameObject.transform.position.x;
+		float originalY = this.gameObject.transform.position.y;
+		
+		for (int x = 0; x < this.mapWidth; x++) {
+			for (int y = 0; y < this.mapHeight; y++) {
+				this.gameObject.transform.position.x += tileWidth;
+				this.wad[this.map[x][y]].setGameObject(this.gameObject);
+				this.wad[this.map[x][y]].draw();				
+			}
+			this.gameObject.transform.position.y += tileHeight;
+			this.gameObject.transform.position.x = originalX;
+		}
+		
+		this.gameObject.transform.position.x = originalX; 
+		this.gameObject.transform.position.y = originalY;
+	}
+
+	public void setMap(final int[] map, final int mapWidth, final int mapHeight) {
+		int x = 0;
+		int y = 0;
+		this.mapWidth = mapWidth;
+		this.mapHeight = mapHeight;
+		this.map = new int[this.mapWidth][this.mapHeight];
+
+		System.out.println("--MAP--");//
+		int i = 0;
+		for (i = 0; i < map.length; i++) {
+			if (i % this.mapWidth == 0 && i != 0) {
+				System.out.println("   x=" + x + " y=" + y + " i=" + i);
+				y++;
+				x = 0;
+			}
+
+			if (x < this.map.length && y < this.map[x].length) {
+				System.out.print(map[i]);
+				this.map[x][y] = map[i];
+			}
+			x++;
+		}
+		System.out.println("   x=" + x + " y=" + y + " i=" + i);
+	}
+
+	public void setWad(final GenericGraphic image, final int tileWidth,
+			final int tileHeight) {
+		final int tiles = (image.getHeight() - 1) / (tileHeight + 1);
+
+		this.wad = new GraphicAnimation[tiles];
+
+		for (int x = 0; x < this.wad.length; x++) {
+			final Animation a = new Animation("idle", x - 1, x - 1, false, 17,
+					tileWidth, tileHeight);
+			GraphicAnimation b = new GraphicAnimation(image, a);
+			b.setGameObject(this.gameObject);
+			this.wad[x] = b;
+		}
+
+		this.tileHeight = tileHeight;
+		this.tileWidth = tileWidth;
+	}
+}

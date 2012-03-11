@@ -1,82 +1,72 @@
 package com.spacecombat;
 
+import java.util.LinkedList;
 import java.util.List;
 
-public class LockingWeaponHandler extends Component 
-{
-	private Weapon w;
+public class LockingWeaponHandler extends Component {
+	private final Weapon w;
 	private GameObject go = null;
-	private Vector3 defaultDirection;
-	private Vector3 temp;
-	private String [] targets = null;
-	private List<GameObject> t;
-	private float searchTime = 2.0f;
+	private final Vector2 defaultDirection;
+	private final Vector2 temp;
+	private String[] targets = null;
+	private final float searchTime = 2.0f;
 	private float nextSearch = 0.0f;
-	
-	public LockingWeaponHandler (Weapon w, String [] targets)
-	{
+	private List<GameObject> gos;
+
+	public LockingWeaponHandler(final Weapon w, final String[] targets) {
+		this.gos = new LinkedList<GameObject>();
 		this.w = w;
-		Vector3 t = new Vector3(w.getShotDirection());
+		final Vector2 t = new Vector2(w.getShotDirection());
 		this.defaultDirection = t;
 		this.targets = targets;
-		temp = new Vector3();
+		this.temp = new Vector2();
 	}
-		
-	public void update ()
-	{
-		if (go == null && canSearch())
-		{
-			search();
-			if (go == null)
-			{
-				w.setShootDirection(defaultDirection);
-			}
-		}
-		
-		if (go != null)
-		{
-			calculateTrajectory();
-		}
-		
-		if (w != null && w.canShoot())
-		{
-			w.shoot();
-		}
+
+	public void calculateTrajectory() {
+		this.temp.x = (this.go.transform.position.x - this.gameObject.transform.position.x);
+		this.temp.y = (this.go.transform.position.y - this.gameObject.transform.position.y);
+
+		this.temp.x -= this.gameObject.getRigidBody().speed.x;
+		this.temp.y -= this.gameObject.getRigidBody().speed.y;
+
+		this.w.setShootDirection(this.temp);
 	}
-	
-	public boolean canSearch ()
-	{
-		return (Time.getTime() > nextSearch);
+
+	public boolean canSearch() {
+		return (Time.getTime() > this.nextSearch);
 	}
-	
-	public void calculateTrajectory ()
-	{		
-		temp.x = (go.transform.position.x - gameObject.transform.position.x);
-		temp.y = (go.transform.position.y - gameObject.transform.position.y);
-		temp.z = -(go.transform.position.z - gameObject.transform.position.z);
-		
-		temp.x -= gameObject.getRigidBody().speed.x;
-		temp.y -= gameObject.getRigidBody().speed.y;
-		temp.z -= gameObject.getRigidBody().speed.z;
-		
-		w.setShootDirection(temp);
-	}
-	
-	public void search ()
-	{
-		nextSearch = Time.getTime() + searchTime;		
-		t = GameObject.findAllByTags(targets);
-		
-		if (t == null || t.size() == 0)
-		{
+
+	public void search() {
+		this.nextSearch = Time.getTime() + this.searchTime;
+		this.gos = GameObject.findAllByTags(this.targets, this.gos);
+
+		if (this.gos == null || this.gos.size() == 0) {
 			System.out.println("TARGETTING:NULL");
-			w.setShootDirection(defaultDirection);
-			go = null;			
+			this.w.setShootDirection(this.defaultDirection);
+			this.go = null;
 			return;
 		}
-		
-		int x = Util.randomNumber(0, t.size()-1);
-				
-		go = t.get(x);				
+
+		final int x = Util.randomNumber(0, this.gos.size() - 1);
+
+		this.go = this.gos.get(x);
+	}
+
+	@Override
+	public void update() {
+		if (this.go == null && canSearch()) {
+			search();
+			if (this.go == null) {
+				this.w.setShootDirection(this.defaultDirection);
+			}
+		}
+
+		if (this.go != null) {
+			calculateTrajectory();
+		}
+
+		if (this.w != null && this.w.canShoot()) {
+			this.w.shoot();
+		}
 	}
 }

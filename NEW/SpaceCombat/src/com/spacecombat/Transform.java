@@ -1,15 +1,13 @@
 package com.spacecombat;
 
-public class Transform 
-{
-    public Vector3 position;
-    public Vector3 rotation;
-    public Vector3 scale;
+public class Transform {
+	public Vector2 position;
+	public Vector2 rotation;
+	public Vector2 scale;
 
-	public Transform ()
-	{
-	    position = new Vector3(0,0,0);
-	    rotation = new Vector3(0,0,0);
-	    scale = new Vector3(1,1,1);
+	public Transform() {
+		this.position = new Vector2(0, 0);
+		this.rotation = new Vector2(0, 0);
+		this.scale = new Vector2(1, 1);
 	}
 }

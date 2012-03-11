@@ -3,109 +3,110 @@ package com.spacecombat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import android.graphics.Rect;
-import com.nea.nehe.lesson06.R;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Color;
+import android.graphics.Rect;
 
-public class CanvasGraphic implements GenericGraphic 
-{
+public class CanvasGraphic implements GenericGraphic {
+
+	private static Rect screen = new Rect(0,0,480,800);
 	private static Canvas canvas;
 	private static Paint paint;
-	private static HashMap<String,Bitmap> loaded;
-	
-	private Rect src;
-	private Rect dst;
-	private Bitmap myBitmap;
-		
-	public static void setCanvas (Canvas canvas)
-	{
+	private static HashMap<String, Bitmap> loaded;
+
+	public static void setCanvas(final Canvas canvas) {
 		CanvasGraphic.canvas = canvas;
 	}
-	
-	public static void setPaint (Paint paint)
-	{
+
+	public static void setPaint(final Paint paint) {
 		CanvasGraphic.paint = paint;
 	}
-	
-	public CanvasGraphic ()
-	{		
-	}
-	
-	public void create (String name, InputStream is) 
-	{		
-		src = new Rect(0,0,32,32);
-		dst = new Rect(0,0,32,32);
 
-		
-		if (loaded == null)
-		{
+	private Rect src;
+
+	private Rect dst;
+
+	private Bitmap myBitmap;
+
+	public CanvasGraphic() {
+	}
+
+	@Override
+	public void create(final String name, InputStream is) {
+		this.src = new Rect(0, 0, 32, 32);
+		this.dst = new Rect(0, 0, 32, 32);
+
+		if (CanvasGraphic.loaded == null) {
 			System.out.println("CREATED NEW IMAGE ARRAY");
-			loaded = new HashMap<String,Bitmap>();
+			CanvasGraphic.loaded = new HashMap<String, Bitmap>();
 		}
-				
-		if (loaded.containsKey(name))
-		{
-			myBitmap = loaded.get(name);
+
+		if (CanvasGraphic.loaded.containsKey(name)) {
+			this.myBitmap = CanvasGraphic.loaded.get(name);
 			return;
 		}
-				
+
 		Bitmap bitmap = null;
 		try {
-			//BitmapFactory is an Android graphics utility for images
+			// BitmapFactory is an Android graphics utility for images
 			bitmap = BitmapFactory.decodeStream(is);
 		} finally {
-			//Always clear and close
+			// Always clear and close
 			try {
 				is.close();
 				is = null;
-			} catch (IOException e) {
+			} catch (final IOException e) {
 				throw new RuntimeException(e);
 			}
 		}
 
-		loaded.put(name, bitmap);	
-		myBitmap = loaded.get(name);
+		CanvasGraphic.loaded.put(name, bitmap);
+		this.myBitmap = CanvasGraphic.loaded.get(name);
 		System.out.println("DONE CREATING");
 	}
-	
-	public int getWidth()
-	{		
-		return myBitmap.getWidth();
-	}
-	
-	public int getHeight()
-	{		
-		return myBitmap.getHeight();
-	}
-	
-	public void draw(int x, int y, int width, int height, int offsetX, int offsetY, int rotx, int roty, int scalex, int scaley) 
-	{
-		if (canvas != null && paint != null)
+
+	@Override
+	public void draw(final int x, final int y, final int width,
+			final int height, final int offsetX, final int offsetY,
+			final int rotx, final int roty, final int scalex, final int scaley) {
+		
+		this.dst.set(offsetX, offsetY, offsetX + width, offsetY + height);
+		
+		if (!this.dst.intersect(screen))
 		{
-			//Bitmap bitmap = loaded.get(name);
-
-			//Rect src = new Rect(x,y,x+width,y+height);
-			//Rect dst = new Rect(offsetX,offsetY,offsetX+width,offsetY+width);
-
-			//canvas.drawBitmap(bitmap, 100, 100, paint);
-			
-			src.set(x,y,x+width,y+height);
-			dst.set(offsetX,offsetY,offsetX+width,offsetY+height);
-
-			canvas.drawBitmap(myBitmap,src,dst,paint);
+			return;
 		}
-		else if (canvas == null)
-		{
+		
+
+		if (CanvasGraphic.canvas != null && CanvasGraphic.paint != null) {
+			// Bitmap bitmap = loaded.get(name);
+
+			// Rect src = new Rect(x,y,x+width,y+height);
+			// Rect dst = new Rect(offsetX,offsetY,offsetX+width,offsetY+width);
+
+			// canvas.drawBitmap(bitmap, 100, 100, paint);
+
+			this.src.set(x, y, x + width, y + height);
+
+			CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,
+					CanvasGraphic.paint);
+		} else if (CanvasGraphic.canvas == null) {
 			System.out.println("Canvas is null");
-		}
-		else if (paint == null)
-		{
+		} else if (CanvasGraphic.paint == null) {
 			System.out.println("paint is null");
 		}
+	}
+
+	@Override
+	public int getHeight() {
+		return this.myBitmap.getHeight();
+	}
+
+	@Override
+	public int getWidth() {
+		return this.myBitmap.getWidth();
 	}
 }

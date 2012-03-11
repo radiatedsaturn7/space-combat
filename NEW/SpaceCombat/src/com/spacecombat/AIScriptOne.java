@@ -1,56 +1,51 @@
 package com.spacecombat;
 
-public class AIScriptOne extends AIScript 
-{
+public class AIScriptOne extends AIScript {
 	private boolean isReverse = false;
 
-	private RigidBody rigidBody;	
-	private Vector3 accel = new Vector3(2,2,0);
-	private Vector3 maxSpeed = new Vector3(32,32,0);
-	private Vector3 startPos = new Vector3(0,0,0);
-	private int maxWidth = 100;
+	private RigidBody rigidBody;
+	private final Vector2 accel = new Vector2(2, 2);
+	private final Vector2 maxSpeed = new Vector2(32, 32);
+	private Vector2 startPos = new Vector2(0, 0);
+	private final int maxWidth = 100;
 
-	public AIScriptOne (boolean isReverse)
-	{
+	public AIScriptOne(final boolean isReverse) {
 		this.isReverse = isReverse;
 	}
-	
-	public void onCreate ()
-	{
-		rigidBody = gameObject.getRigidBody();
-		startPos = new Vector3(gameObject.transform.position);
-		
-		if (isReverse)
-		{
-			rigidBody.speed.x = -rigidBody.speed.x;
+
+	@Override
+	public void onCreate() {
+		this.rigidBody = this.gameObject.getRigidBody();
+		this.startPos = new Vector2(this.gameObject.transform.position);
+
+		if (this.isReverse) {
+			this.rigidBody.speed.x = -this.rigidBody.speed.x;
 		}
 	}
-	
-	public void update ()
-	{
-		if (rigidBody == null)
-		{
+
+	@Override
+	public void update() {
+		if (this.rigidBody == null) {
 			return;
 		}
-		
-		if (rigidBody.speed.y < maxSpeed.y)
-		{
-			rigidBody.speed.y+=accel.y;
-		}		
-		if (!isReverse && gameObject.transform.position.x < startPos.x + maxWidth)
-		{
-			if (rigidBody.speed.x < maxSpeed.x)
-				rigidBody.speed.x+=accel.x;
+
+		if (this.rigidBody.speed.y < this.maxSpeed.y) {
+			this.rigidBody.speed.y += this.accel.y;
 		}
-		else if (gameObject.transform.position.x > startPos.x - maxWidth)
-		{
-			isReverse = true;
-			if (rigidBody.speed.x > -maxSpeed.x)
-				rigidBody.speed.x-=accel.x;
+		if (!this.isReverse
+				&& this.gameObject.transform.position.x < this.startPos.x
+				+ this.maxWidth) {
+			if (this.rigidBody.speed.x < this.maxSpeed.x) {
+				this.rigidBody.speed.x += this.accel.x;
+			}
+		} else if (this.gameObject.transform.position.x > this.startPos.x
+				- this.maxWidth) {
+			this.isReverse = true;
+			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
+				this.rigidBody.speed.x -= this.accel.x;
+			}
+		} else {
+			this.isReverse = false;
 		}
-		else
-		{
-			isReverse = false;
-		}						
 	}
 }

@@ -1,34 +1,45 @@
 package com.spacecombat;
 
-public class Animation
-{
-	private String name;
-	private int startFrame;
-	private int endFrame;
-	private boolean loop;
-	private int fps;
-	private int width;
-	private int height;
+public class Animation {
+	private final String name;
+	private final int startFrame;
+	private final int endFrame;
+	private final boolean loop;
+	private final int fps;
+	private final int width;
+	private final int height;
 	private int currentFrame;
 
 	private boolean isDone;
 	private int frameIncrement = 1;
-	
-	public Animation()
-	{
-		name = "NO_ANIMATION_LOADED";
-		startFrame = 0;
-		endFrame = 1;
-		loop = true;
-		fps = 17;
-		width = 32;
-		height = 32;
-		isDone = false;
+
+	public Animation() {
+		this.name = "NO_ANIMATION_LOADED";
+		this.startFrame = 0;
+		this.endFrame = 1;
+		this.loop = true;
+		this.fps = 17;
+		this.width = 32;
+		this.height = 32;
+		this.isDone = false;
 		this.frameIncrement = 1;
 	}
-	
-	public Animation (String name, int start, int end, boolean loop, int fps, int width, int height)
-	{
+
+	public Animation(final Animation a) {
+		this.name = a.name;
+		this.startFrame = a.startFrame;
+		this.endFrame = a.endFrame;
+		this.loop = a.loop;
+		this.fps = a.fps;
+		this.width = a.width;
+		this.height = a.height;
+		this.currentFrame = a.currentFrame;
+		this.isDone = a.isDone;
+		this.frameIncrement = a.frameIncrement;
+	}
+
+	public Animation(final String name, final int start, final int end,
+			final boolean loop, final int fps, final int width, final int height) {
 		this.name = name;
 		this.startFrame = start;
 		this.endFrame = end;
@@ -38,101 +49,68 @@ public class Animation
 		this.height = height;
 		this.isDone = false;
 		this.frameIncrement = 1;
-		this.currentFrame = startFrame;
-	}
-	
-	public void setFrameIncrement(int x)
-	{
-		frameIncrement = x;
-	}
-	
-	public Animation (Animation a)
-	{
-		name = a.name;
-		startFrame = a.startFrame;
-		endFrame = a.endFrame;
-		loop = a.loop;
-		fps = a.fps;
-		width = a.width;
-		height = a.height;
-		currentFrame = a.currentFrame;
-		isDone = a.isDone;
-		frameIncrement = a.frameIncrement;
+		this.currentFrame = this.startFrame;
 	}
 
-	public int getStartFrame ()
-	{
-		return startFrame;
+	public int framesLeft() {
+		return this.endFrame - this.currentFrame;
 	}
-	
-	public int getEndFrame ()
-	{
-		return endFrame;
+
+	public int getEndFrame() {
+		return this.endFrame;
 	}
-	
-	public int getFps()
-	{
-		return fps;
+
+	public int getFps() {
+		return this.fps;
 	}
-	
-	public int getX ()
-	{
+
+	public int getHeight() {
+		return this.height;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public int getStartFrame() {
+		return this.startFrame;
+	}
+
+	public int getWidth() {
+		return this.width;
+	}
+
+	public int getX() {
 		return 1;
 	}
-	
-	public int getY ()
-	{
-		return (int)(1 + (height * currentFrame) + currentFrame);
+
+	public int getY() {
+		return (1 + (this.height * this.currentFrame) + this.currentFrame);
 	}
-	
-	public int getWidth ()
-	{
-		return width;
+
+	public boolean isDone() {
+		return this.isDone;
 	}
-	
-	public int getHeight ()
-	{
-		return height;
-	}
-	
-	public void nextFrame ()
-	{
-		if (!isDone)
-		{
-			currentFrame+=frameIncrement;
-		}
-		else
-		{
+
+	public void nextFrame() {
+		if (!this.isDone) {
+			this.currentFrame += this.frameIncrement;
+		} else {
 			return;
 		}
-		
-		if (loop && currentFrame > endFrame )
-		{
-			currentFrame = startFrame;
-		}
-		else if (!loop && currentFrame >= endFrame)
-		{
-			isDone = true;
+
+		if (this.loop && this.currentFrame > this.endFrame) {
+			this.currentFrame = this.startFrame;
+		} else if (!this.loop && this.currentFrame >= this.endFrame) {
+			this.isDone = true;
 		}
 	}
-	
-	public void restart ()
-	{
-		currentFrame = startFrame;
+
+	public void restart() {
+		this.currentFrame = this.startFrame;
 	}
-	
-	public int framesLeft ()
-	{
-		return endFrame - currentFrame;
-	}
-	
-	public boolean isDone()
-	{
-		return isDone;
-	}
-	
-	public String getName ()
-	{
-		return name;
+
+	public void setFrameIncrement(final int x) {
+		this.frameIncrement = x;
 	}
 }

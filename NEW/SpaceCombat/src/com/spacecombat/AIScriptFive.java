@@ -3,37 +3,32 @@ package com.spacecombat;
 public class AIScriptFive extends AIScript {
 
 	private RigidBody rigidBody;
-	
-		private Vector3 accel = new Vector3(2,2,0);
-		private Vector3 maxSpeed = new Vector3(32,32,0);
-		private GameObject target;
 
-		public AIScriptFive (String [] targets)
-		{
-			target = GameObject.findRandomByTags(targets);			
+	private final Vector2 accel = new Vector2(2, 2);
+	private final Vector2 maxSpeed = new Vector2(32, 32);
+	private final GameObject target;
+
+	public AIScriptFive(final String[] targets) {
+		this.target = GameObject.findRandomByTags(targets);
+	}
+
+	@Override
+	public void onCreate() {
+		this.rigidBody = this.gameObject.getRigidBody();
+	}
+
+	@Override
+	public void update() {
+		if (this.rigidBody == null) {
+			return;
 		}
-		
-		public void onCreate ()
-		{		
-			rigidBody = gameObject.getRigidBody();
+
+		if (this.target != null) {
+			this.gameObject.transform.position.x = this.target.transform.position.x;
 		}
-		
-		public void update ()
-		{
-			if (rigidBody == null)
-			{
-				return;
-			}
-			
-			if (target != null)
-			{
-				gameObject.transform.position.x = target.transform.position.x;
-			}
-			
-			if (rigidBody.speed.y < maxSpeed.y)
-			{
-				rigidBody.speed.y+=accel.y;
-			}
+
+		if (this.rigidBody.speed.y < this.maxSpeed.y) {
+			this.rigidBody.speed.y += this.accel.y;
 		}
+	}
 }
-

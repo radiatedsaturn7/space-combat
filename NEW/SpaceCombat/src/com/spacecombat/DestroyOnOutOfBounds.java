@@ -1,27 +1,22 @@
 package com.spacecombat;
 
-public class DestroyOnOutOfBounds extends Component 
-{
-	public void update ()
-	{
-		if (gameObject.transform.position.y > 128)
-		{
-			gameObject.destroy();
+public class DestroyOnOutOfBounds extends Component {
+	@Override
+	public void update() {
+		if (this.gameObject.transform.position.y > 128) {
+			this.gameObject.destroy();
 		}
-		
-		if (gameObject.transform.position.y < 128)
-		{
-			gameObject.destroy();
+
+		if (this.gameObject.transform.position.y < 128) {
+			this.gameObject.destroy();
 		}
-		
-		if (gameObject.transform.position.x > 528)
-		{
-			gameObject.destroy();
+
+		if (this.gameObject.transform.position.x > 528) {
+			this.gameObject.destroy();
 		}
-		
-		if (gameObject.transform.position.x < -128)
-		{
-			gameObject.destroy();
+
+		if (this.gameObject.transform.position.x < -128) {
+			this.gameObject.destroy();
 		}
 	}
 }

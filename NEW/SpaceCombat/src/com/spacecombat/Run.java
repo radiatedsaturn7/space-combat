@@ -1,59 +1,63 @@
 package com.spacecombat;
 
 import android.app.Activity;
-
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.DashPathEffect;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-
-import java.io.IOException;
-import java.io.InputStream;
-import android.content.Context;
-import com.nea.nehe.lesson06.R;
 
 public class Run extends Activity {
 
-	DemoView demoview;	
+	private class DemoView extends View implements View.OnTouchListener {
+		private final Engine e;
+		private final Paint paint;
+
+		public DemoView(final Context context) {
+			super(context);
+			this.paint = new Paint();
+			PrefabFactory.setContext(context);
+			CanvasGraphic.setPaint(this.paint);
+			this.e = new Engine();
+			this.e.createGameObjects();
+		}
+
+		@Override
+		protected void onDraw(final Canvas canvas) {
+
+			super.onDraw(canvas);
+			CanvasGraphic.setCanvas(canvas);
+			this.e.drawLoop();
+			this.invalidate();			
+		}
+
+		@Override
+		public boolean onTouch(final View v, final MotionEvent event) {
+			
+			Input.setX(event.getX());
+			Input.setY(event.getY());
+			
+			if (event.getAction() == event.ACTION_DOWN)
+			{
+				Input.setClickDown(true);
+			}
+			if (event.getAction() == event.ACTION_UP)
+			{
+				Input.setClickDown(false);
+			}			
+			return true;
+		}
+	}
+
+	DemoView demoview;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		demoview = new DemoView(this);
-		setContentView(demoview);
+		this.demoview = new DemoView(this);
+		this.demoview.setOnTouchListener(this.demoview);
+		setContentView(this.demoview);
 	}
 
-	private class DemoView extends View
-	{
-		private Engine e;
-		private Context context;
-		private Paint paint;
-		
-		public DemoView(Context context){
-			super(context);					
-			this.context = context;
-			paint = new Paint();
-			PrefabFactory.setContext(context);
-			CanvasGraphic.setPaint(paint);
-			e = new Engine(context);
-			e.createGameObjects();				
-		}
-
-		@Override 
-		protected void onDraw(Canvas canvas) 
-		{						
-			super.onDraw(canvas);					
-			CanvasGraphic.setCanvas(canvas);
-			e.drawLoop();			
-			this.invalidate();
-		}
-	}
 }

@@ -1,35 +1,42 @@
 package com.spacecombat;
 
-public class Component 
-{
-	protected GameObject gameObject = null;	
+public class Component {
+	protected GameObject gameObject = null;
 	protected boolean isEnabled = true;
-		
-	public void onCreate () {}
-	public void onStart () {}
-	public void update () {}
-	public void draw () {}
-	
-	public void onBeforeDestroy() {}
-	
-	public void destroy () 
-	{
-		if (gameObject != null)
-		{
-			gameObject.removeComponent(this);
+
+	public void collide(final Collision collision) {
+	}
+
+	public void destroy() {
+		if (this.gameObject != null) {
+			this.gameObject.removeComponent(this);
 		}
 	}
-	
-	public void setEnabled (boolean enabled)
-	{
-		isEnabled = enabled;
+
+	public void draw() {
 	}
-	
-	public boolean isEnabled ()
-	{
-		return isEnabled;
+
+	public boolean isEnabled() {
+		return this.isEnabled;
 	}
-	
-	public void collide (Collision collision) {}	
-	public void setGameObject(GameObject o) { gameObject = o; }
+
+	public void onBeforeDestroy() {
+	}
+
+	public void onCreate() {
+	}
+
+	public void onStart() {
+	}
+
+	public void setEnabled(final boolean enabled) {
+		this.isEnabled = enabled;
+	}
+
+	public void setGameObject(final GameObject o) {
+		this.gameObject = o;
+	}
+
+	public void update() {
+	}
 }
