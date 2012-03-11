@@ -1,0 +1,31 @@
+package com.spacecombat;
+
+public class WeaponController extends Component {
+	public Weapon weapon;
+	
+	public WeaponController (Weapon weapon)
+	{
+		this.weapon = weapon;
+	}
+
+	@Override
+	public void collide(final Collision collision) {
+		if (!collision.getWhatIHit().hasTag(new String [] {"PowerUp"})) {
+			
+			final PowerUp powerUp = (PowerUp) collision.getWhatIHit().getComponent(PowerUp.class);
+			
+			if (powerUp != null && weapon != null)
+			{
+				if (powerUp.getType() == 0)
+				{
+					weapon.powerUp();					
+				}
+			}
+			collision.getWhatIHit().destroy();
+		}
+		else
+		{
+			System.out.println(collision.getWhatIHit().getName());
+		}
+	}
+}

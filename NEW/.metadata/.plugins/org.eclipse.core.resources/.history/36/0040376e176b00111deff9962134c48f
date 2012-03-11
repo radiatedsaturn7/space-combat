@@ -1,0 +1,35 @@
+package com.spacecombat;
+
+public class PowerUp  
+{
+	public float nextChange;
+	public float changeTime;
+	
+	
+	public int type;
+	public final int maxTypes = 10;
+	
+	public PowerUp (int type, boolean canChange)
+	{
+		
+	}
+	
+	public void update ()
+	{
+		if (Time.getTime() > nextChange)
+		{
+			change();
+		}
+	}
+	
+	public void change ()
+	{
+		nextChange = Time.getTime() + changeTime;		
+		type++;
+		
+		if (type > maxTypes)
+		{
+			type = 0;
+		}
+	}
+}

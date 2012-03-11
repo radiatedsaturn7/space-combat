@@ -323,7 +323,6 @@ public class GameObject extends Component {
 				final GraphicAnimation gl = (GraphicAnimation) xComponent;
 
 				if (gl.getName().equals(name)) {
-					System.out.println("Playing " + name);
 					gl.setEnabled(true);
 					animation = gl;
 				} else {

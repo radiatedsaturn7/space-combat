@@ -16,7 +16,6 @@ public class PulseCannon extends Weapon {
 				PulseCannon.reloadTime, PulseCannon.magazineSize,
 				PulseCannon.magazineReloadTime, PulseCannon.life,
 				PulseCannon.shotSpeed, direction, true);
-		this.powerLevel = 9;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class PulseCannon extends Weapon {
 			position.y -= 32;
 			GameObject.create(PrefabFactory.createShot("pulse", position,
 				this.shotSpeedVector, this.gameObject.getTags(),
-				this.baseDamage, draw, PulseCannon.life));
+				this.baseDamage + (25 * this.powerLevel), draw, PulseCannon.life));
 		}
 	}
 

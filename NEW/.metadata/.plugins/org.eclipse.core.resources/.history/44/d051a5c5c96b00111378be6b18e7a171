@@ -1,0 +1,31 @@
+package com.spacecombat;
+
+import java.io.File;
+
+
+import com.nea.nehe.lesson06.R;
+import android.content.res.Resources;
+
+public class LevelLoader {
+	
+	private static Context context;
+	
+	public static SetContext (Context c)
+	{
+		LevelLoader.context = c;
+	}
+	
+	public static void LoadLevel (String Name)
+	{
+		File f;
+	}
+	
+	public static File getLevel (String name)
+	{
+		if (name.equalsIgnoreCase("level1"))
+		{
+			LevelLoader.context.getResources().openRawResource(R.raw.level1;)
+		}
+		return null;
+	}
+}

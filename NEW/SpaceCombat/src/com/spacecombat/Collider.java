@@ -7,9 +7,11 @@ public abstract class Collider {
 	public abstract boolean collidesWith(BoxCollider boxCollider);
 
 	public boolean collidesWith(final Collider c) {
+
 		if (c.hasTag(this.tags)) {
 			return false;
 		}
+
 
 		if (c instanceof BoxCollider) {
 			return collidesWith((BoxCollider) c);

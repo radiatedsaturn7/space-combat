@@ -1,0 +1,5 @@
+package com.spacecombat;
+
+public class Text extends Component {
+
+}

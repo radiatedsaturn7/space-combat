@@ -41,7 +41,6 @@ public class LockingWeaponHandler extends Component {
 		this.gos = GameObject.findAllByTags(this.targets, this.gos);
 
 		if (this.gos == null || this.gos.size() == 0) {
-			System.out.println("TARGETTING:NULL");
 			this.w.setShootDirection(this.defaultDirection);
 			this.go = null;
 			return;

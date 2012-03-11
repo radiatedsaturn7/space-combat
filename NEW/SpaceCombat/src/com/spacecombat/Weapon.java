@@ -107,4 +107,8 @@ public abstract class Weapon extends Component {
 		}
 
 	}
+
+	public void powerUp() {
+		powerLevel++;
+	}
 }

@@ -12,8 +12,7 @@ public class FlameThrower extends Weapon {
 	private static final float magazineReloadTime = 1;
 
 	public FlameThrower(final Vector2 direction) {
-		super(FlameThrower.name, FlameThrower.damage, FlameThrower.accuracy,
-				FlameThrower.reloadTime, FlameThrower.magazineSize,
+		super(FlameThrower.name, FlameThrower.damage, FlameThrower.accuracy,				FlameThrower.reloadTime, FlameThrower.magazineSize,
 				FlameThrower.magazineReloadTime, FlameThrower.life,
 				FlameThrower.shotSpeed, direction, true);
 	}
@@ -22,7 +21,7 @@ public class FlameThrower extends Weapon {
 	protected void fire(final Vector2 position) {
 		GameObject.create(PrefabFactory.createShot("flame", position,
 				this.shotSpeedVector, this.gameObject.getTags(),
-				this.baseDamage, this.powerLevel, FlameThrower.life));
+				this.baseDamage + (15 * this.powerLevel), this.powerLevel, FlameThrower.life * 1.1f * this.powerLevel));
 	}
 
 }

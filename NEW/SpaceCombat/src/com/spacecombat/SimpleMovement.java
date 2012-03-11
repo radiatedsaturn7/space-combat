@@ -8,7 +8,7 @@ public class SimpleMovement extends Component {
 	
 	public SimpleMovement (RigidBody r, float x, float y)
 	{
-		rigidBody = r;
+		this.rigidBody = r;
 		this.speedX = x;
 		this.speedY = y;
 	}
@@ -16,16 +16,23 @@ public class SimpleMovement extends Component {
 	public void setSpeed(float x, float y) {
 		this.speedX = x;
 		this.speedY = y;
+		
+		this.rigidBody.speed.x = this.speedX;
+		this.rigidBody.speed.y = this.speedY;
 	}
-
+	
+	public float getSpeedX ()
+	{
+		return speedX;
+	}
+	
+	public float getSpeedY ()
+	{
+		return speedY;
+	}
+	
 	@Override
 	public void update() {
-		
-		if (this.rigidBody == null) {
-			this.rigidBody = this.gameObject.getRigidBody();
-			return;
-		}
-
 		this.rigidBody.speed.x = this.speedX;
 		this.rigidBody.speed.y = this.speedY;
 	}

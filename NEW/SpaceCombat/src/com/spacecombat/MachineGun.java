@@ -3,7 +3,7 @@ package com.spacecombat;
 public class MachineGun extends Weapon {
 
 	private static final String name = "MachineGun";
-	private static final float damage = 10;
+	private static final float damage = 20;
 	private static final float reloadTime = 0.2f;
 	private static final float shotSpeed = 128;
 	private static final float life = 5;
@@ -22,7 +22,7 @@ public class MachineGun extends Weapon {
 	protected void fire(final Vector2 position) {
 		GameObject.create(PrefabFactory.createShot("bullet", position,
 				this.shotSpeedVector, this.gameObject.getTags(),
-				this.baseDamage, this.powerLevel, MachineGun.life));
+				this.baseDamage + (7.5f * this.powerLevel), this.powerLevel, MachineGun.life));
 	}
 
 }

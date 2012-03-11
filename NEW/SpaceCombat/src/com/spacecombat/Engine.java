@@ -40,7 +40,7 @@ public class Engine implements ClickListener {
 
 	private final boolean useGameFrameRate = true;
 	private final int updateFrameRate = 20;
-	private final boolean printFrameRate = true;
+	private final boolean printFrameRate = false;
 
 	private float lastTimeCheck = 0;
 
@@ -104,23 +104,29 @@ public class Engine implements ClickListener {
 		synchronized (this.lock)
 		{
 			GameObject.create(PrefabFactory.createLevel(map, 8, 24, "wad3"));
-
-			GameObject.create(PrefabFactory.createPlayer("Player1", new Vector2(
-					200, 600), "renegade"));
+			
+			GameObject.create(PrefabFactory.createPlayer("Player1", new Vector2(200, 600), "hunter"));
+			
+			
 			GameObject.create(PrefabFactory.createAlly("Ally1", new Vector2(400,
-					700), "renegade", "laser"));
+					700), "sentinel", "laser"));
 			GameObject.create(PrefabFactory.createAlly("Ally2",
-					new Vector2(0, 700), "renegade", "machinegun"));
+					new Vector2(0, 700), "pariah", "machinegun"));
 			GameObject.create(PrefabFactory.createAlly("Ally3", new Vector2(400,
 					500), "renegade", "flamethrower"));
 			GameObject.create(PrefabFactory.createAlly("Ally4",
-					new Vector2(0, 500), "renegade", "pulsecannon"));
+					new Vector2(0, 500), "calumniator", "pulsecannon"));
 
+			/*
 			GameObject.create(PrefabFactory.createEnemy("E1", new Vector2(0, 0), 13, 0, false));
 			GameObject.create(PrefabFactory.createEnemy("E2", new Vector2(300, 0), 13, 0, false));
 			GameObject.create(PrefabFactory.createEnemy("E3", new Vector2(200, 400), 13, 0, false));
 			GameObject.create(PrefabFactory.createEnemy("E4", new Vector2(300, 0), 13, 0, false));
 			GameObject.create(PrefabFactory.createEnemy("E5", new Vector2(300, 700), 13, 0, false));
+
+			GameObject.create(PrefabFactory.createPowerUp(new Vector2(200, 200), 0, true));
+			*/
+			GameObject.create(PrefabFactory.createRandomLevel());
 		}
 
 		// GameObject.create(PrefabFactory.createEnemy("E2",new
@@ -216,7 +222,7 @@ public class Engine implements ClickListener {
 				if (xGameObject.getRigidBody() == null
 						|| xGameObject.getRigidBody().getCollider() == null) {
 					continue;
-				}
+				}//
 
 				for (y = x + 1; y < this.gameObjects.size(); y++) {
 					yGameObject = this.gameObjects.get(y);
@@ -225,18 +231,17 @@ public class Engine implements ClickListener {
 							|| yGameObject.getRigidBody().getCollider() == null) {
 						continue;
 					}
-
-					if (xGameObject
-							.getRigidBody()
-							.getCollider()
-							.collidesWith(
-									yGameObject.getRigidBody().getCollider())) {
-
-						synchronized (this.lock) {
+					
+					boolean collision = xGameObject
+					.getRigidBody()
+					.getCollider()
+					.collidesWith(
+							yGameObject.getRigidBody().getCollider());
+					
+					if (collision) {
 							xGameObject.collide(new Collision(xGameObject,yGameObject));
 							yGameObject.collide(new Collision(yGameObject,
 									xGameObject));
-						}
 					}
 				}
 			}

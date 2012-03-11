@@ -8,8 +8,10 @@
 <fullyQualifiedTypeName name="com.spacecombat.CanvasGraphic"/>
 <fullyQualifiedTypeName name="com.spacecombat.RigidBody"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.string"/>
 <fullyQualifiedTypeName name="com.spacecombat.Time"/>
 <fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.drawable"/>
+<fullyQualifiedTypeName name="android.R.raw"/>
 </qualifiedTypeNameHistroy>

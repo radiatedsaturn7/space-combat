@@ -1,0 +1,11 @@
+package com.spacecombat;
+
+public class RandomSpawner extends Component {
+	public float nextSpawn = 0;
+	public float spawnTime = .3;
+	
+	public void update ()
+	{
+		
+	}
+}

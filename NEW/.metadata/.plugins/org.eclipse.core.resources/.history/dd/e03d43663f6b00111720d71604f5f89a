@@ -1,0 +1,21 @@
+package com.spacecombat;
+
+public class RandomSpawner extends Component {
+	public float nextSpawn = 0;
+	public float spawnTime = .3;
+	
+	public void update ()
+	{
+		if (Time.getTime() > nextSpawn)
+		{
+			nextSpawn = Time.getTime() + spawnTime();
+			if (Util.randomNumber(0, 1) == 1)
+			{
+				return;
+			}
+			
+			int spawn = Util.randomNumber(0,15);
+			
+		}
+	}
+}
