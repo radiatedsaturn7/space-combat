@@ -1,5 +1,8 @@
 package com.spacecombat;
 
+import com.spacecombat.game.LevelLoader;
+import com.spacecombat.game.PrefabFactory;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -18,6 +21,7 @@ public class Run extends Activity {
 			super(context);
 			this.paint = new Paint();
 			PrefabFactory.setContext(context);
+			LevelLoader.setContext(context);
 			CanvasGraphic.setPaint(this.paint);
 			this.e = new Engine();
 			this.e.createGameObjects();

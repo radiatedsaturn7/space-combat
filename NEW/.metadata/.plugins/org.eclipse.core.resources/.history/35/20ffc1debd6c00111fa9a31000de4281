@@ -1,0 +1,57 @@
+package com.spacecombat;
+
+public class WeaponController extends Component implements ClickListener {
+	public Weapon [] weapons;
+	public int selectedWeapon = 0;
+	
+	public WeaponController (int x, Weapon [] weapons)
+	{
+		this.selectedWeapon = x;
+		this.weapons = weapons;
+		Input.subscribeListener(this);
+	}
+
+	@Override
+	public void collide(final Collision collision) {
+		
+		if (collision.getWhatIHit().hasTag(new String [] {"PowerUp"})) {
+			
+			final PowerUp powerUp = (PowerUp) collision.getWhatIHit().getComponent(PowerUp.class);
+			
+			if (powerUp != null && weapons != null)
+			{
+				weapons[selectedWeapon].powerUp();					
+			}
+
+			collision.getWhatIHit().destroy();
+		}
+		else
+		{
+			System.out.println("Bad Collision " + collision.getWhatIHit().getName());
+		}
+	}
+
+	@Override
+	public void onClick(float x, float y) 
+	{
+		if (y > 700)
+		{
+			selectedWeapon++;
+			if (selectedWeapon > weapons.length)
+			{
+				selectedWeapon = 0;
+			}
+			
+			for (int z = 0; z < weapons.length; z++)
+			{
+				weapons[z].setEnabled(false);
+			}
+			weapons[selectedWeapon].setEnabled(true);
+		}
+	}
+	
+	public Weapon getSelectedWeapon()
+	{
+		return weapons[selectedWeapon];
+	}
+}

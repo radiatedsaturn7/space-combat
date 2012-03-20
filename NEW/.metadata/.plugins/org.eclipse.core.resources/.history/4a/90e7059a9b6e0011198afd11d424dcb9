@@ -1,0 +1,16 @@
+package com.spacecombat;
+
+public class FixedJoint extends Component {
+	private GameObject attachedTo;
+	private Vector2 lastPosition;
+	public FixedJoint (GameObject thisIsAttachedTo)
+	{
+		attachedTo = thisIsAttachedTo;
+		lastPosition = new Vector2(attachedTo.transform.position);
+	}	
+	
+	public void udpate();
+	{
+		
+	}
+}

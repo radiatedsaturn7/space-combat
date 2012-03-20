@@ -251,6 +251,7 @@ public class GameObject extends Component {
 		return this.tags;
 	}
 
+
 	public boolean hasTag(final String tag) {
 		if (this.tags == null) {
 			return false;
@@ -322,7 +323,7 @@ public class GameObject extends Component {
 			if (xComponent instanceof GraphicAnimation) {
 				final GraphicAnimation gl = (GraphicAnimation) xComponent;
 
-				if (gl.getName().equals(name)) {
+				if (gl.getName().equalsIgnoreCase(name)) {
 					gl.setEnabled(true);
 					animation = gl;
 				} else {

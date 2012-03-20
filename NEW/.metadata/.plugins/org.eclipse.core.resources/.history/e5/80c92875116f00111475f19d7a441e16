@@ -1,0 +1,24 @@
+package com.spacecombat;
+
+public class FixedJoint extends Component {
+	private GameObject attachedTo;
+	private Vector2 lastPosition;
+	
+	public FixedJoint (GameObject thisIsAttachedTo)
+	{
+		attachedTo = thisIsAttachedTo;
+		lastPosition = new Vector2(attachedTo.transform.position);
+	}	
+	
+	public void update()
+	{
+		if (!attachedTo.transform.position.equals(lastPosition))
+		{
+			float xDiff = lastPosition.x - attachedTo.transform.position.x;
+			float yDiff = lastPosition.y - attachedTo.transform.position.y;
+			
+			attachedTo.transform.position.x -= xDiff;
+			attachedTo.transform.position.x -= yDiff;
+		}	
+	}
+}

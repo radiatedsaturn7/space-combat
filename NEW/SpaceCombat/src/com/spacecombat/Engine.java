@@ -3,6 +3,9 @@ package com.spacecombat;
 import java.io.InputStream;
 import java.util.List;
 
+import com.spacecombat.game.LevelLoader;
+import com.spacecombat.game.PrefabFactory;
+
 public class Engine implements ClickListener {
 	// this is da master list of all components
 
@@ -73,89 +76,12 @@ public class Engine implements ClickListener {
 		Input.subscribeListener(this);
 	}
 
-	public void createGameObjects() {
-		int [] map = new int [] {
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-				0,0,0,0,1,0,0,0,
-		};
+	public void createGameObjects() {		
 
 		synchronized (this.lock)
 		{
-			GameObject.create(PrefabFactory.createLevel(map, 8, 24, "wad3"));
-			
-			GameObject.create(PrefabFactory.createPlayer("Player1", new Vector2(200, 600), "hunter"));
-			
-			
-			GameObject.create(PrefabFactory.createAlly("Ally1", new Vector2(400,
-					700), "sentinel", "laser"));
-			GameObject.create(PrefabFactory.createAlly("Ally2",
-					new Vector2(0, 700), "pariah", "machinegun"));
-			GameObject.create(PrefabFactory.createAlly("Ally3", new Vector2(400,
-					500), "renegade", "flamethrower"));
-			GameObject.create(PrefabFactory.createAlly("Ally4",
-					new Vector2(0, 500), "calumniator", "pulsecannon"));
-
-			/*
-			GameObject.create(PrefabFactory.createEnemy("E1", new Vector2(0, 0), 13, 0, false));
-			GameObject.create(PrefabFactory.createEnemy("E2", new Vector2(300, 0), 13, 0, false));
-			GameObject.create(PrefabFactory.createEnemy("E3", new Vector2(200, 400), 13, 0, false));
-			GameObject.create(PrefabFactory.createEnemy("E4", new Vector2(300, 0), 13, 0, false));
-			GameObject.create(PrefabFactory.createEnemy("E5", new Vector2(300, 700), 13, 0, false));
-
-			GameObject.create(PrefabFactory.createPowerUp(new Vector2(200, 200), 0, true));
-			*/
-			GameObject.create(PrefabFactory.createRandomLevel());
+			LevelLoader.loadLevel("level1");			
 		}
-
-		// GameObject.create(PrefabFactory.createEnemy("E2",new
-		// Vector2(0,0),1,5,true));
-
-		/*
-		 * GameObject.create(PrefabFactory.createEnemy("E3",new
-		 * Vector2(80,0),3,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E4",new
-		 * Vector2(120,0),4,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E5",new
-		 * Vector2(160,0),5,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E6",new
-		 * Vector2(200,0),6,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E7",new
-		 * Vector2(240,0),7,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E8",new
-		 * Vector2(280,0),8,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E7",new
-		 * Vector2(320,0),9,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E8",new
-		 * Vector2(360,0),10,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E7",new
-		 * Vector2(0,200),11,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E8",new
-		 * Vector2(200,200),12,0,false));
-		 * GameObject.create(PrefabFactory.createEnemy("E8",new
-		 * Vector2(360,200),13,0,false));
-		 */
 	}
 
 	/**

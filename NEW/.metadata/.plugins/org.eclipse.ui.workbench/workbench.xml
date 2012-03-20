@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="34" version="2.0">
 <workbenchAdvisor/>
-<window height="900" maximized="true" width="739" x="739" y="0">
+<window height="900" width="739" x="739" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="154" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="185" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="85" y="22"/>
@@ -28,8 +28,8 @@
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.vaadin.visualdesigner.eclipse.editors.VaadinEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.layout.LayoutEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
@@ -55,100 +55,65 @@
 <part id="11"/>
 <part id="12"/>
 <part id="13"/>
-<part id="14"/>
-<part id="15"/>
-<part id="16"/>
-<part id="17"/>
-<part id="18"/>
-<part id="19"/>
-<part id="20"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" partName="PrefabFactory.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/PrefabFactory.java" title="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/PrefabFactory.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/PrefabFactory.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8953" selectionTopPixel="5542"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" partName="LevelLoader.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/LevelLoader.java" title="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/game/LevelLoader.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1743" selectionTopPixel="855"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Engine.java" partName="Engine.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Engine.java" title="Engine.java" tooltip="SpaceCombat/src/com/spacecombat/Engine.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Engine.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2537" selectionTopPixel="1365"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnOnCollision.java" partName="SpawnOnCollision.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java" title="SpawnOnCollision.java" tooltip="SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="295" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WeaponController.java" partName="WeaponController.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/WeaponController.java" title="WeaponController.java" tooltip="SpaceCombat/src/com/spacecombat/WeaponController.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/WeaponController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="635" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixedJoint.java" partName="FixedJoint.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/FixedJoint.java" title="FixedJoint.java" tooltip="SpaceCombat/src/com/spacecombat/FixedJoint.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/FixedJoint.java"/>
+<editorState selectionHorizontalPixel="20" selectionLength="0" selectionOffset="15" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerInput.java" partName="PlayerInput.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/PlayerInput.java" title="PlayerInput.java" tooltip="SpaceCombat/src/com/spacecombat/PlayerInput.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/PlayerInput.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="444" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Collider.java" partName="Collider.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Collider.java" title="Collider.java" tooltip="SpaceCombat/src/com/spacecombat/Collider.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Collider.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="271" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vector2.java" partName="Vector2.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Vector2.java" title="Vector2.java" tooltip="SpaceCombat/src/com/spacecombat/Vector2.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Vector2.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="120" selectionOffset="677" selectionTopPixel="111"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameObject.java" partName="GameObject.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GameObject.java" title="GameObject.java" tooltip="SpaceCombat/src/com/spacecombat/GameObject.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GameObject.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6413" selectionTopPixel="3600"/>
+<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="7582" selectionTopPixel="4590"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RandomSpawner.java" partName="RandomSpawner.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/RandomSpawner.java" title="RandomSpawner.java" tooltip="SpaceCombat/src/com/spacecombat/RandomSpawner.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/RandomSpawner.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="319" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AllyAI.java" partName="AllyAI.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/ai/AllyAI.java" title="AllyAI.java" tooltip="SpaceCombat/src/com/spacecombat/ai/AllyAI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/ai/AllyAI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10285" selectionTopPixel="4545"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Laser.java" partName="Laser.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Laser.java" title="Laser.java" tooltip="SpaceCombat/src/com/spacecombat/Laser.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Laser.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="871" selectionTopPixel="0"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="level1.txt" partName="level1.txt" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/res/raw/level1.txt" title="level1.txt" tooltip="SpaceCombat/res/raw/level1.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/res/raw/level1.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="220" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MachineGun.java" partName="MachineGun.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/MachineGun.java" title="MachineGun.java" tooltip="SpaceCombat/src/com/spacecombat/MachineGun.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/MachineGun.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="919" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Engine.java" partName="Engine.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Engine.java" title="Engine.java" tooltip="SpaceCombat/src/com/spacecombat/Engine.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Engine.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1809" selectionTopPixel="861"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FlameThrower.java" partName="FlameThrower.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/FlameThrower.java" title="FlameThrower.java" tooltip="SpaceCombat/src/com/spacecombat/FlameThrower.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/FlameThrower.java"/>
-<editorState selectionHorizontalPixel="197" selectionLength="0" selectionOffset="1019" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerInput.java" partName="PlayerInput.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/PlayerInput.java" title="PlayerInput.java" tooltip="SpaceCombat/src/com/spacecombat/game/PlayerInput.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/PlayerInput.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2043" selectionTopPixel="981"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PulseCannon.java" partName="PulseCannon.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/PulseCannon.java" title="PulseCannon.java" tooltip="SpaceCombat/src/com/spacecombat/PulseCannon.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/PulseCannon.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="804" selectionTopPixel="150"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnOnDestroy.java" partName="SpawnOnDestroy.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java" title="SpawnOnDestroy.java" tooltip="SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="382" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DestroyOnOutOfBounds.java" partName="DestroyOnOutOfBounds.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/DestroyOnOutOfBounds.java" title="DestroyOnOutOfBounds.java" tooltip="SpaceCombat/src/com/spacecombat/DestroyOnOutOfBounds.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/DestroyOnOutOfBounds.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="357" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SetPositionOnCreate.java" partName="SetPositionOnCreate.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java" title="SetPositionOnCreate.java" tooltip="SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="379" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LockingWeaponHandler.java" partName="LockingWeaponHandler.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/LockingWeaponHandler.java" title="LockingWeaponHandler.java" tooltip="SpaceCombat/src/com/spacecombat/LockingWeaponHandler.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/LockingWeaponHandler.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1212" selectionTopPixel="465"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DestroyOnCreate.java" partName="DestroyOnCreate.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java" title="DestroyOnCreate.java" tooltip="SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="295" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CanvasText.java" partName="CanvasText.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/CanvasText.java" title="CanvasText.java" tooltip="SpaceCombat/src/com/spacecombat/CanvasText.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/CanvasText.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="175" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" partName="PrefabFactory.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" title="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="178" selectionOffset="7283" selectionTopPixel="2250"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericGraphic.java" partName="GenericGraphic.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GenericGraphic.java" title="GenericGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/GenericGraphic.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GenericGraphic.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="336" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericText.java" partName="GenericText.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GenericText.java" title="GenericText.java" tooltip="SpaceCombat/src/com/spacecombat/GenericText.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GenericText.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="286" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CanvasGraphic.java" partName="CanvasGraphic.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/CanvasGraphic.java" title="CanvasGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/CanvasGraphic.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="346" selectionOffset="344" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphicAnimation.java" partName="GraphicAnimation.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GraphicAnimation.java" title="GraphicAnimation.java" tooltip="SpaceCombat/src/com/spacecombat/GraphicAnimation.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="472" selectionTopPixel="15"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DrawableText.java" partName="DrawableText.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/DrawableText.java" title="DrawableText.java" tooltip="SpaceCombat/src/com/spacecombat/DrawableText.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/DrawableText.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="182" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" partName="LevelLoader.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/LevelLoader.java" title="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/LevelLoader.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/LevelLoader.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="280" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" partName="R.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/gen/com/nea/nehe/lesson06/R.java" title="R.java" tooltip="SpaceCombat/gen/com/nea/nehe/lesson06/R.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/gen/com/nea/nehe/lesson06/R.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="3" selectionOffset="1855" selectionTopPixel="165"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HealthController.java" partName="HealthController.java" path="C:/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/HealthController.java" title="HealthController.java" tooltip="SpaceCombat/src/com/spacecombat/game/HealthController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/HealthController.java"/>
+<editorState selectionHorizontalPixel="136" selectionLength="0" selectionOffset="773" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -172,9 +137,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (11 items)"/>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (19 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="75" org.eclipse.ui.ide.markerType="215" org.eclipse.ui.ide.pathField="100" org.eclipse.ui.ide.resourceField="75" org.eclipse.ui.ide.severityAndDescriptionField="371"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -244,8 +207,8 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.limit="1000" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 </viewState>
 </view>
 <view id="com.android.ide.eclipse.ddms.views.DeviceView" partName="Devices">
@@ -493,7 +456,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@f6c074" ratio="0.8527778" ratioLeft="614" ratioRight="106" relationship="2" relative="left">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@f6c074" ratio="0.69325155" ratioLeft="1017" ratioRight="450" relationship="2" relative="left">
 <folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
 <page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
 <page content="org.eclipse.help.ui.HelpView" label="Help"/>
@@ -507,7 +470,7 @@
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.16863033" ratioLeft="229" ratioRight="1129" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.30989182" ratioLeft="401" ratioRight="893" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74623114" ratioLeft="594" ratioRight="202" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -689,34 +652,24 @@
 <view id="com.android.ide.eclipse.ddms.views.LogCatView"/>
 <view id="org.eclipse.help.ui.HelpView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@16bb944" ratio="0.74965984" ratioLeft="1102" ratioRight="368" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="Help"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@16bb944" ratio="0.74965984" ratioLeft="1102" ratioRight="368" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="Help"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.74968714" ratioLeft="599" ratioRight="200" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.74968714" ratioLeft="599" ratioRight="200" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
@@ -724,38 +677,28 @@
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
 <page content="org.eclipse.wst.xsl.jaxp.debug.ui.view1" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@69d7ee" ratio="0.5" ratioLeft="735" ratioRight="735" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
-<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@69d7ee" ratio="0.5" ratioLeft="735" ratioRight="735" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.2529511" ratioLeft="150" ratioRight="443" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.8959854" ratioLeft="982" ratioRight="114" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.8959854" ratioLeft="982" ratioRight="114" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="735" ratioRight="735" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="735" ratioRight="735" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
@@ -767,169 +710,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/PrefabFactory.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/DestroyOnOutOfBounds.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/LockingWeaponHandler.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/SpaceCombat/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" path="/SpaceCombat/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/Text.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GenericGraphic.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GenericText.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/CanvasText.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/DrawableText.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/Engine.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/LevelLoader.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/gen/com/nea/nehe/lesson06/R.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/SpaceCombat/res/raw/level1.txt"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/gen/com/nea/nehe/lesson06/R.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SimpleMovement.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GameObject.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/HealthController.java"/>
 </editors>
-<item historyLabel="AndroidManifest.xml" index="3">
+<item historyLabel="SetPositionOnCreate.java" index="3">
+<position info="not_deleted" x="377" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13795" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13886" y="0"/>
+</item>
+<item historyLabel="LevelLoader.java" index="4">
+<position info="not_deleted" x="2183" y="0"/>
+</item>
+<item historyLabel="LevelLoader.java" index="4">
+<position info="not_deleted" x="1743" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13275" y="0"/>
+</item>
+<item historyLabel="SpawnOnDestroy.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="4"/>
-<item historyLabel="AndroidManifest.xml" index="3">
+<item historyLabel="SpawnOnDestroy.java" index="1">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="SpawnOnDestroy.java" index="1">
+<position info="not_deleted" x="436" y="0"/>
+</item>
+<item historyLabel="SpawnOnDestroy.java" index="1">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="SetPositionOnCreate.java" index="3">
+<position info="not_deleted" x="377" y="0"/>
+</item>
+<item historyLabel="SpawnOnDestroy.java" index="1">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="SimpleMovement.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="4"/>
-<item historyLabel="AndroidManifest.xml" index="3">
+<item historyLabel="SpawnOnDestroy.java" index="1">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LockingWeaponHandler.java" index="2">
-<position info="not_deleted" x="1579" y="0"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13296" y="0"/>
 </item>
-<item historyLabel="DestroyOnOutOfBounds.java" index="1">
-<position info="not_deleted" x="357" y="0"/>
+<item historyLabel="SpawnOnCollision.java" index="5">
+<position info="not_deleted" x="536" y="0"/>
 </item>
-<item historyLabel="LockingWeaponHandler.java" index="2">
-<position info="not_deleted" x="1212" y="0"/>
+<item historyLabel="SpawnOnDestroy.java" index="6">
+<position info="not_deleted" x="382" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
+<item historyLabel="SetPositionOnCreate.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
-<position info="not_deleted" x="187" y="0"/>
+<item historyLabel="SetPositionOnCreate.java" index="7">
+<position info="not_deleted" x="379" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
-<position info="not_deleted" x="274" y="0"/>
+<item historyLabel="SpawnOnDestroy.java" index="6">
+<position info="not_deleted" x="382" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
-<position info="not_deleted" x="303" y="0"/>
+<item historyLabel="SpawnOnCollision.java" index="5">
+<position info="not_deleted" x="536" y="0"/>
 </item>
-<item historyLabel="GenericGraphic.java" index="6">
-<position info="not_deleted" x="0" y="336"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13680" y="0"/>
 </item>
-<item historyLabel="GenericText.java" index="7">
-<position info="not_deleted" x="289" y="0"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13895" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
-<position info="not_deleted" x="151" y="0"/>
+<item historyLabel="SpawnOnCollision.java" index="5">
+<position info="not_deleted" x="295" y="0"/>
 </item>
-<item historyLabel="CanvasGraphic.java" index="8">
-<position info="not_deleted" x="344" y="346"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13895" y="0"/>
 </item>
-<item historyLabel="GenericText.java" index="7">
-<position info="not_deleted" x="286" y="0"/>
+<item historyLabel="GameObject.java" index="8">
+<position info="not_deleted" x="7906" y="0"/>
 </item>
-<item historyLabel="Text.java" index="5">
-<position info="not_deleted" x="151" y="0"/>
-</item>
-<item historyLabel="Text.java" index="5">
+<item historyLabel="PrefabFactory.java" index="0">
 <position/>
 </item>
-<item historyLabel="CanvasText.java" index="9">
-<position info="not_deleted" x="79" y="0"/>
+<item historyLabel="GameObject.java" index="8">
+<position info="not_deleted" x="4072" y="0"/>
 </item>
-<item historyLabel="CanvasGraphic.java" index="8">
-<position info="not_deleted" x="344" y="346"/>
-</item>
-<item historyLabel="CanvasText.java" index="9">
-<position info="not_deleted" x="175" y="0"/>
-</item>
-<item historyLabel="GraphicAnimation.java" index="10">
-<position info="not_deleted" x="472" y="0"/>
-</item>
-<item historyLabel="CanvasText.java" index="9">
-<position info="not_deleted" x="187" y="0"/>
-</item>
-<item historyLabel="DrawableText.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DrawableText.java" index="11">
-<position info="not_deleted" x="115" y="0"/>
-</item>
-<item historyLabel="DrawableText.java" index="11">
-<position info="not_deleted" x="184" y="0"/>
-</item>
-<item historyLabel="GenericText.java" index="7">
-<position info="not_deleted" x="286" y="0"/>
-</item>
-<item historyLabel="DrawableText.java" index="11">
-<position info="not_deleted" x="182" y="0"/>
-</item>
-<item historyLabel="GraphicAnimation.java" index="10">
-<position info="not_deleted" x="472" y="0"/>
-</item>
-<item historyLabel="CanvasText.java" index="9">
-<position info="not_deleted" x="175" y="0"/>
+<item historyLabel="SpawnOnCollision.java" index="5">
+<position info="not_deleted" x="295" y="0"/>
 </item>
 <item historyLabel="PrefabFactory.java" index="0">
-<position info="not_deleted" x="10553" y="0"/>
-</item>
-<item historyLabel="Engine.java" index="12">
-<position info="not_deleted" x="2537" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="212" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="255" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="254" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="256" y="0"/>
-</item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="153" y="0"/>
+<position/>
 </item>
 <item historyLabel="PrefabFactory.java" index="0">
-<position info="not_deleted" x="8953" y="0"/>
+<position info="not_deleted" x="13961" y="0"/>
 </item>
-<item historyLabel="R.java" index="14">
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13967" y="0"/>
+</item>
+<item historyLabel="DestroyOnCreate.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="153" y="0"/>
+<item historyLabel="DestroyOnCreate.java" index="9">
+<position info="not_deleted" x="181" y="0"/>
 </item>
-<item historyLabel="R.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="DestroyOnCreate.java" index="9">
+<position info="not_deleted" x="239" y="0"/>
 </item>
-<item historyLabel="R.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="DestroyOnCreate.java" index="9">
+<position info="not_deleted" x="284" y="0"/>
 </item>
-<item historyLabel="level1.txt" index="15">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="13522" y="0"/>
 </item>
-<item historyLabel="R.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="DestroyOnCreate.java" index="9">
+<position info="not_deleted" x="284" y="0"/>
 </item>
-<item historyLabel="level1.txt" index="15">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="GameObject.java" index="8">
+<position info="not_deleted" x="4072" y="0"/>
 </item>
-<item historyLabel="R.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="DestroyOnCreate.java" index="9">
+<position info="not_deleted" x="295" y="0"/>
 </item>
-<item historyLabel="LevelLoader.java" index="13">
-<position info="not_deleted" x="280" y="0"/>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="7316" y="5"/>
 </item>
-<item active="true" historyLabel="R.java" index="16">
-<position info="not_deleted" x="1855" y="3"/>
+<item historyLabel="HealthController.java" index="10">
+<position info="not_deleted" x="692" y="0"/>
+</item>
+<item historyLabel="GameObject.java" index="8">
+<position info="not_deleted" x="7582" y="4"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="7316" y="5"/>
+</item>
+<item historyLabel="HealthController.java" index="10">
+<position info="not_deleted" x="777" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="7316" y="5"/>
+</item>
+<item historyLabel="HealthController.java" index="10">
+<position info="not_deleted" x="598" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="0">
+<position info="not_deleted" x="7283" y="178"/>
+</item>
+<item active="true" historyLabel="HealthController.java" index="10">
+<position info="not_deleted" x="598" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -937,12 +878,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="left"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@f6c074"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -951,55 +886,54 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="SpaceCombat/gen/com/nea/nehe/lesson06/R.java">
-<persistable path="/SpaceCombat/gen/com/nea/nehe/lesson06/R.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HealthController.java" tooltip="SpaceCombat/src/com/spacecombat/game/HealthController.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/HealthController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/game/PrefabFactory.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DestroyOnCreate.java" tooltip="SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/DestroyOnCreate.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="exp1.png" tooltip="SpaceCombat/res/drawable/exp1.png">
+<persistable path="/SpaceCombat/res/drawable/exp1.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SetPositionOnCreate.java" tooltip="SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/SetPositionOnCreate.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnOnDestroy.java" tooltip="SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/SpawnOnDestroy.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SimpleMovementOnCreate.java" tooltip="SpaceCombat/src/com/spacecombat/game/SimpleMovementOnCreate.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/SimpleMovementOnCreate.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Component.java" tooltip="SpaceCombat/src/com/spacecombat/Component.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/Component.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerInput.java" tooltip="SpaceCombat/src/com/spacecombat/game/PlayerInput.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/PlayerInput.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="pexemplar.png" tooltip="SpaceCombat/res/drawable/pexemplar.png">
+<persistable path="/SpaceCombat/res/drawable/pexemplar.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="prenegade.png" tooltip="SpaceCombat/res/drawable/prenegade.png">
+<persistable path="/SpaceCombat/res/drawable/prenegade.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ppaladin.png" tooltip="SpaceCombat/res/drawable/ppaladin.png">
+<persistable path="/SpaceCombat/res/drawable/ppaladin.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Engine.java" tooltip="SpaceCombat/src/com/spacecombat/Engine.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/Engine.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Run.java" tooltip="SpaceCombat/src/com/spacecombat/Run.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/Run.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="level1.txt" tooltip="SpaceCombat/res/raw/level1.txt">
 <persistable path="/SpaceCombat/res/raw/level1.txt"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/LevelLoader.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/LevelLoader.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DrawableText.java" tooltip="SpaceCombat/src/com/spacecombat/DrawableText.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/DrawableText.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphicAnimation.java" tooltip="SpaceCombat/src/com/spacecombat/GraphicAnimation.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CanvasGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/CanvasGraphic.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericText.java" tooltip="SpaceCombat/src/com/spacecombat/GenericText.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/GenericText.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/GenericGraphic.java">
-<persistable path="/SpaceCombat/src/com/spacecombat/GenericGraphic.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="icon.png" tooltip="SpaceCombat/res/drawable/icon.png">
-<persistable path="/SpaceCombat/res/drawable/icon.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="psentinel.png" tooltip="SpaceCombat/res/drawable/psentinel.png">
-<persistable path="/SpaceCombat/res/drawable/psentinel.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="SpaceCombat/res/values/strings.xml">
-<persistable path="/SpaceCombat/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="AndroidManifest.xml" tooltip="SpaceCombat/AndroidManifest.xml">
-<persistable path="/SpaceCombat/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="hud1.png" tooltip="SpaceCombat/res/drawable/hud1.png">
-<persistable path="/SpaceCombat/res/drawable/hud1.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="wad3.png" tooltip="SpaceCombat/res/drawable/wad3.png">
-<persistable path="/SpaceCombat/res/drawable/wad3.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="wad2.png" tooltip="SpaceCombat/res/drawable/wad2.png">
-<persistable path="/SpaceCombat/res/drawable/wad2.png"/>
 </file>
 </mruList>
 </workbench>

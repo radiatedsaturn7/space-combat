@@ -1,0 +1,7 @@
+package com.spacecombat.game;
+
+import Component;
+
+public class SpawnOnDestroy extends Component {
+
+}

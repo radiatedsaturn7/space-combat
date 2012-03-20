@@ -1,0 +1,16 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Collision;
+import com.spacecombat.Component;
+
+public class SpawnOnCollision extends Component {
+	
+	@Override
+	public void  collide (final Collision collision)
+	{
+		if (collision.getWhatIHit().getName().equals("Player1") || collision.getWhatIHit().getName().equals("Player2"))
+		{
+			
+		}
+	}
+}

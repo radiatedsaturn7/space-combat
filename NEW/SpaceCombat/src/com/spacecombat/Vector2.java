@@ -27,6 +27,19 @@ public class Vector2 {
 		final float l = (float) Math.sqrt(this.x * this.x + this.y * this.y);
 		return new Vector2(this.x / l, this.y / l);
 	}
+	
+	public boolean equals (Object o)
+	{
+		if (o instanceof Vector2)
+		{
+			Vector2 v = (Vector2)o;
+			if (Math.abs(v.x - x) < 0.001 && Math.abs(v.y - y) < 0.001)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {

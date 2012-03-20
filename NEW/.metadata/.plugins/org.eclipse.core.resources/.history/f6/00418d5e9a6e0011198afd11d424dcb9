@@ -1,0 +1,22 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Collision;
+import com.spacecombat.Component;
+import com.spacecombat.GameObject;
+
+public class SpawnOnCollision extends Component {
+	
+	public GameObject go;
+	public SpawnOnCollision (GameObject go) 
+	{
+		this.go = go;
+	}
+	@Override
+	public void  collide (final Collision collision)
+	{
+		if (collision.getWhatIHit().getName().equals("TopOfScreen"))
+		{
+			GameObject.create(go);
+		}
+	}
+}
