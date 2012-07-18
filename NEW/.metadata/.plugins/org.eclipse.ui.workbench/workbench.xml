@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
-<window height="900" maximized="true" width="739" x="0" y="0">
+<window height="900" maximized="true" width="739" x="739" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -99,15 +99,10 @@
 <part id="55"/>
 <part id="56"/>
 <part id="57"/>
-<part id="58"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" partName="LevelLoader.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/LevelLoader.java" title="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/game/LevelLoader.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
-<editorState selectionHorizontalPixel="122" selectionLength="0" selectionOffset="7483" selectionTopPixel="3510"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnOnCollision.java" partName="SpawnOnCollision.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java" title="SpawnOnCollision.java" tooltip="SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/SpawnOnCollision.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="104" selectionTopPixel="45"/>
@@ -210,7 +205,7 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphicAnimation.java" partName="GraphicAnimation.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GraphicAnimation.java" title="GraphicAnimation.java" tooltip="SpaceCombat/src/com/spacecombat/GraphicAnimation.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="585" selectionTopPixel="225"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="643" selectionTopPixel="90"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AIScriptFive.java" partName="AIScriptFive.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/ai/AIScriptFive.java" title="AIScriptFive.java" tooltip="SpaceCombat/src/com/spacecombat/ai/AIScriptFive.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/ai/AIScriptFive.java"/>
@@ -282,7 +277,7 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerFollower.java" partName="PlayerFollower.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/PlayerFollower.java" title="PlayerFollower.java" tooltip="SpaceCombat/src/com/spacecombat/game/PlayerFollower.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/PlayerFollower.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1516" selectionTopPixel="229"/>
+<editorState selectionHorizontalPixel="595" selectionLength="0" selectionOffset="1367" selectionTopPixel="229"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DestroyOnOutOfBounds.java" partName="DestroyOnOutOfBounds.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/DestroyOnOutOfBounds.java" title="DestroyOnOutOfBounds.java" tooltip="SpaceCombat/src/com/spacecombat/game/DestroyOnOutOfBounds.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/DestroyOnOutOfBounds.java"/>
@@ -304,9 +299,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Pool.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2315" selectionTopPixel="1275"/>
 </editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="level1.txt" partName="level1.txt" path="C:/SpaceCombat/NEW/SpaceCombat/res/raw/level1.txt" title="level1.txt" tooltip="SpaceCombat/res/raw/level1.txt" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="level1.txt" partName="level1.txt" path="C:/SpaceCombat/NEW/SpaceCombat/res/raw/level1.txt" title="level1.txt" tooltip="SpaceCombat/res/raw/level1.txt" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/res/raw/level1.txt"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3461" selectionTopPixel="1260"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3465" selectionTopPixel="1800"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Transform.java" partName="Transform.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Transform.java" title="Transform.java" tooltip="SpaceCombat/src/com/spacecombat/Transform.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Transform.java"/>
@@ -314,7 +309,7 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CanvasGraphic.java" partName="CanvasGraphic.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/CanvasGraphic.java" title="CanvasGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/CanvasGraphic.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="396" selectionTopPixel="935"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2331" selectionTopPixel="990"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FaceSpeedDirection.java" partName="FaceSpeedDirection.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/FaceSpeedDirection.java" title="FaceSpeedDirection.java" tooltip="SpaceCombat/src/com/spacecombat/game/FaceSpeedDirection.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/FaceSpeedDirection.java"/>
@@ -324,10 +319,6 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/RotateEachSecond.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="567" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericGraphic.java" partName="GenericGraphic.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/GenericGraphic.java" title="GenericGraphic.java" tooltip="SpaceCombat/src/com/spacecombat/GenericGraphic.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/GenericGraphic.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Run.java" partName="Run.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Run.java" title="Run.java" tooltip="SpaceCombat/src/com/spacecombat/Run.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/Run.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="25" selectionTopPixel="15"/>
@@ -336,9 +327,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/HomingMovement.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="624" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" partName="PrefabFactory.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" title="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" partName="PrefabFactory.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" title="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/game/PrefabFactory.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="20536" selectionTopPixel="8884"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="20383" selectionTopPixel="8820"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" partName="LevelLoader.java" path="C:/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/game/LevelLoader.java" title="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/game/LevelLoader.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7618" selectionTopPixel="3109"/>
 </editor>
 </editors>
 <views>
@@ -485,7 +480,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.ui.DefaultTextEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -691,10 +686,10 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@f6c074" ratio="0.66802996" ratioLeft="980" ratioRight="487" relationship="2" relative="left">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@f6c074" ratio="0.64621675" ratioLeft="948" ratioRight="519" relationship="2" relative="left">
 <folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
 <page content="org.eclipse.rse.ui.view.SystemSearchView" label="Remote Search"/>
+<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
@@ -704,7 +699,7 @@
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.18968385" ratioLeft="228" ratioRight="974" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.31304348" ratioLeft="360" ratioRight="790" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.5703518" ratioLeft="454" ratioRight="342" relationship="4" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
@@ -944,14 +939,7 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GameObject.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/weapons/MissileLauncher.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/weapons/LockingLaser.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/LerpMovement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/HomingMovement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PlayerFollower.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/Vector2.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/SimpleMovement.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
@@ -960,156 +948,162 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/RotateEachSecond.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/CanvasGraphic.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GraphicAnimation.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/game/PlayerFollower.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SpaceCombat/src/com/spacecombat/GenericGraphic.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/SpaceCombat/res/raw/level1.txt"/>
 </editors>
-<item historyLabel="LockingLaser.java" index="2">
-<position info="not_deleted" x="1015" y="0"/>
-</item>
-<item historyLabel="LerpMovement.java" index="3">
-<position info="not_deleted" x="545" y="0"/>
-</item>
-<item historyLabel="HomingMovement.java" index="4">
-<position info="not_deleted" x="1838" y="0"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="28743" y="0"/>
-</item>
-<item historyLabel="HomingMovement.java" index="4">
-<position info="not_deleted" x="1838" y="0"/>
-</item>
-<item historyLabel="HomingMovement.java" index="4">
-<position info="not_deleted" x="1023" y="0"/>
-</item>
-<item historyLabel="GameObject.java" index="0">
-<position info="not_deleted" x="1667" y="0"/>
-</item>
-<item historyLabel="HomingMovement.java" index="4">
-<position info="not_deleted" x="624" y="0"/>
-</item>
-<item historyLabel="MissileLauncher.java" index="1">
-<position info="not_deleted" x="387" y="0"/>
-</item>
-<item historyLabel="HomingMovement.java" index="4">
-<position info="not_deleted" x="624" y="0"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="28743" y="0"/>
-</item>
-<item historyLabel="PlayerFollower.java" index="6">
-<position info="not_deleted" x="445" y="14"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="20049" y="0"/>
-</item>
-<item historyLabel="GameObject.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Vector2.java" index="7">
-<position info="not_deleted" x="920" y="0"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="20472" y="0"/>
-</item>
-<item historyLabel="PlayerFollower.java" index="6">
-<position info="not_deleted" x="1533" y="0"/>
-</item>
-<item historyLabel="GameObject.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="20472" y="0"/>
-</item>
-<item historyLabel="PlayerFollower.java" index="6">
-<position info="not_deleted" x="1533" y="0"/>
-</item>
-<item historyLabel="PrefabFactory.java" index="5">
-<position info="not_deleted" x="20472" y="0"/>
-</item>
-<item historyLabel="PlayerFollower.java" index="6">
-<position info="not_deleted" x="1533" y="0"/>
-</item>
-<item historyLabel="SimpleMovement.java" index="8">
-<position info="not_deleted" x="1190" y="0"/>
-</item>
-<item historyLabel="PlayerFollower.java" index="6">
-<position info="not_deleted" x="253" y="0"/>
-</item>
-<item historyLabel="SimpleMovement.java" index="8">
+<item historyLabel="SimpleMovement.java" index="1">
 <position info="not_deleted" x="1436" y="2"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="253" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position/>
 </item>
-<item historyLabel="PrefabFactory.java" index="9">
+<item historyLabel="PrefabFactory.java" index="2">
 <position info="not_deleted" x="20501" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="1059" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="9">
+<item historyLabel="PrefabFactory.java" index="2">
 <position info="not_deleted" x="20820" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="807" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="9">
+<item historyLabel="PrefabFactory.java" index="2">
 <position info="not_deleted" x="20380" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="807" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="20381" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="21100" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="1365" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="1091" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="21100" y="0"/>
 </item>
-<item historyLabel="SimpleMovement.java" index="11">
+<item historyLabel="SimpleMovement.java" index="4">
 <position info="not_deleted" x="1143" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="30376" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="1600" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="30376" y="0"/>
 </item>
-<item historyLabel="Camera.java" index="12">
+<item historyLabel="Camera.java" index="5">
 <position info="not_deleted" x="112" y="0"/>
 </item>
-<item historyLabel="CanvasGraphic.java" index="13">
+<item historyLabel="CanvasGraphic.java" index="6">
 <position info="not_deleted" x="512" y="181"/>
 </item>
-<item historyLabel="GraphicAnimation.java" index="14">
+<item historyLabel="GraphicAnimation.java" index="7">
 <position info="not_deleted" x="585" y="0"/>
 </item>
-<item historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="20381" y="0"/>
 </item>
-<item historyLabel="Camera.java" index="12">
+<item historyLabel="Camera.java" index="5">
 <position info="not_deleted" x="112" y="0"/>
 </item>
-<item historyLabel="RotateEachSecond.java" index="15">
+<item historyLabel="RotateEachSecond.java" index="8">
 <position info="not_deleted" x="567" y="0"/>
 </item>
-<item historyLabel="PlayerFollower.java" index="6">
+<item historyLabel="PlayerFollower.java" index="0">
 <position info="not_deleted" x="1516" y="0"/>
 </item>
-<item active="true" historyLabel="PrefabFactory.java" index="10">
+<item historyLabel="PrefabFactory.java" index="3">
 <position info="not_deleted" x="20381" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="1172" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="LevelLoader.java" index="11">
+<position info="not_deleted" x="7483" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="3">
+<position info="not_deleted" x="21723" y="0"/>
+</item>
+<item historyLabel="LevelLoader.java" index="11">
+<position info="not_deleted" x="7618" y="0"/>
+</item>
+<item historyLabel="PrefabFactory.java" index="3">
+<position info="not_deleted" x="21723" y="0"/>
+</item>
+<item historyLabel="PlayerFollower.java" index="12">
+<position info="not_deleted" x="1367" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="1172" y="0"/>
+</item>
+<item historyLabel="GenericGraphic.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="2336" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="349" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="1994" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="349" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="1994" y="0"/>
+</item>
+<item historyLabel="GenericGraphic.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="1994" y="0"/>
+</item>
+<item historyLabel="CanvasGraphic.java" index="9">
+<position info="not_deleted" x="2331" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="349" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="643" y="0"/>
+</item>
+<item historyLabel="GraphicAnimation.java" index="10">
+<position info="not_deleted" x="642" y="0"/>
+</item>
+<item active="true" historyLabel="level1.txt" index="14">
+<position info="not_deleted" x="3461" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -1129,6 +1123,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LevelLoader.java" tooltip="SpaceCombat/src/com/spacecombat/game/LevelLoader.java">
+<persistable path="/SpaceCombat/src/com/spacecombat/game/LevelLoader.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrefabFactory.java" tooltip="SpaceCombat/src/com/spacecombat/game/PrefabFactory.java">
 <persistable path="/SpaceCombat/src/com/spacecombat/game/PrefabFactory.java"/>
 </file>
@@ -1170,9 +1167,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pool.java" tooltip="SpaceCombat/src/com/spacecombat/Pool.java">
 <persistable path="/SpaceCombat/src/com/spacecombat/Pool.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.vaadin.visualdesigner.eclipse.editors.VaadinEditor" name="Weapon.java" tooltip="RemoteSystemsTempFiles/LOCALHOST/c/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Weapon.java">
-<persistable path="/RemoteSystemsTempFiles/LOCALHOST/c/Users/rpiskule/Desktop/SpaceCombat/NEW/SpaceCombat/src/com/spacecombat/Weapon.java"/>
 </file>
 </mruList>
 </workbench>

@@ -949,7 +949,7 @@ public class PrefabFactory {
 		return go;		
 	}
 	
-	public static GameObject createSpawner (final float spawnX, final float spawnY, final GameObject objectToCreate)
+	public static GameObject createSpawner (final GameObject level, final float spawnX, final float spawnY, final GameObject objectToCreate)
 	{
 		final GameObject spawner = GameObject.getNew();
 		//GameObject spawner = new GameObject();

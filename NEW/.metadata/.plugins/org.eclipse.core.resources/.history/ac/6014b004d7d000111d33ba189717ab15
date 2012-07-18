@@ -72,8 +72,7 @@ public class CanvasGraphic implements GenericGraphic {
 			final int height, final int offsetX, final int offsetY,
 			final int rotx, final int roty, final int scalex, final int scaley) {
 
-		//this.dst.set(offsetX, offsetY, offsetX + width, offsetY + height);
-		this.dst.set(offsetX, offsetY, width, height);
+		this.dst.set(offsetX, offsetY, offsetX + width, offsetY + height);
 
 		if (!this.dst.intersect(CanvasGraphic.screen))
 		{

@@ -81,6 +81,11 @@ public class Level extends Component {
 		System.out.println("   x=" + x + " y=" + y + " i=" + i);
 	}
 
+	public void setScrollTarget (final GameObject target)
+	{
+		this.target = target;
+	}
+
 	public void setWad(final GenericGraphic image, final int tileWidth,
 			final int tileHeight) {
 		final int tiles = (image.getHeight() - 1) / (tileHeight + 1);

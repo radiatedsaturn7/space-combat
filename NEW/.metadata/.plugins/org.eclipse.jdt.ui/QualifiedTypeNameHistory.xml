@@ -39,9 +39,9 @@
 <fullyQualifiedTypeName name="com.spacecombat.Poolable"/>
 <fullyQualifiedTypeName name="com.spacecombat.Pool"/>
 <fullyQualifiedTypeName name="com.spacecombat.FixedJoint"/>
-<fullyQualifiedTypeName name="com.spacecombat.Camera"/>
 <fullyQualifiedTypeName name="com.spacecombat.Time"/>
 <fullyQualifiedTypeName name="com.spacecombat.TextAnimation"/>
 <fullyQualifiedTypeName name="com.spacecombat.GenericText"/>
 <fullyQualifiedTypeName name="com.spacecombat.CanvasText"/>
+<fullyQualifiedTypeName name="com.spacecombat.Camera"/>
 </qualifiedTypeNameHistroy>
