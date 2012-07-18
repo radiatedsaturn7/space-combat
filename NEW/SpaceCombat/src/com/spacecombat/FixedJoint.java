@@ -1,32 +1,32 @@
 package com.spacecombat;
 
 public class FixedJoint extends Component {
-	private GameObject attachedTo;
-	private Vector2 lastPosition;
-	
-	public FixedJoint (GameObject thisIsAttachedTo)
+	private final GameObject attachedTo;
+	private final Vector2 lastPosition;
+
+	public FixedJoint (final GameObject thisIsAttachedTo)
 	{
-		attachedTo = thisIsAttachedTo;
-		lastPosition = new Vector2(attachedTo.transform.position.x,attachedTo.transform.position.y);
+		this.attachedTo = thisIsAttachedTo;
+		this.lastPosition = new Vector2(this.attachedTo.transform.position.x,this.attachedTo.transform.position.y);
 	}	
-	
+
+	@Override
 	public void update()
 	{
-		if (attachedTo == null)
+		if (this.attachedTo == null) {
 			return;
-		
-		//System.out.println(gameObject.getName() + " " + gameObject.transform.position);
+		}
 
-		if (!attachedTo.transform.position.equals(lastPosition))
+		if (!this.attachedTo.transform.position.equals(this.lastPosition))
 		{
-			float xDiff = lastPosition.x - attachedTo.transform.position.x;
-			float yDiff = lastPosition.y - attachedTo.transform.position.y;
-			
-			gameObject.transform.position.x -= xDiff;
-			gameObject.transform.position.y -= yDiff;
-			
-			lastPosition.x = attachedTo.transform.position.x;
-			lastPosition.y = attachedTo.transform.position.y;
+			final float xDiff = this.lastPosition.x - this.attachedTo.transform.position.x;
+			final float yDiff = this.lastPosition.y - this.attachedTo.transform.position.y;
+
+			this.gameObject.transform.position.x -= xDiff;
+			this.gameObject.transform.position.y -= yDiff;
+
+			this.lastPosition.x = this.attachedTo.transform.position.x;
+			this.lastPosition.y = this.attachedTo.transform.position.y;
 		}	
 	}
 }

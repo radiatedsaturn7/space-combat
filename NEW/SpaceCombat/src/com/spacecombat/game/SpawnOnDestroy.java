@@ -4,28 +4,28 @@ import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 
 public class SpawnOnDestroy extends Component {
-	
-	private GameObject go;
+
+	private final GameObject go;
 	private boolean isFired;
-	
-	public SpawnOnDestroy (GameObject go) 
+
+	public SpawnOnDestroy (final GameObject go) 
 	{
 		this.go = go;
 		this.isFired = false;
 	}
 
+	@Override
 	public void  onBeforeDestroy ()
 	{
-		if (isFired)
+		if (this.isFired)
 		{
 			return;
 		}
 
-		isFired = true;
+		this.isFired = true;
 
-		System.out.println("Creating " + go.getName());
-		GameObject.create(go);
-		
-		gameObject.destroy();
+		GameObject.create(this.go);
+
+		this.gameObject.destroy();
 	}
 }

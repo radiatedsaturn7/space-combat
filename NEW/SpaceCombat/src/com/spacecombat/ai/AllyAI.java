@@ -29,13 +29,13 @@ public class AllyAI extends AIScript {
 	public boolean tempLine = false;	
 	public int side;
 	public GameObject followPlayer;
-	
+
 	public Rectangle screen = new Rectangle();
 	public Rectangle followRectangle = new Rectangle();
 	public Rectangle dodgeRectangle = new Rectangle();
 	public Rectangle boundingBox = new Rectangle();
 	private Rectangle sBoundingBox = new Rectangle();
-	
+
 	public BoxCollider boxCollider;
 	public float nextFormationTime;
 	public float formationHoldTime = 1;
@@ -66,16 +66,6 @@ public class AllyAI extends AIScript {
 		this.gos = new LinkedList<GameObject>();
 		AllyAI.ids++;
 		this.weapon = w;	
-	}
-	
-	public void setSpeed(Vector2 v)
-	{
-		this.maxSpeed = v;
-	}
-	
-	public void setAccel(Vector2 v)
-	{
-		this.accel = v;
 	}
 
 	public boolean canChangeFormation() {
@@ -144,7 +134,7 @@ public class AllyAI extends AIScript {
 	}
 
 	public void column() {
-		
+
 		int neg = 1;
 		int fix = AllyAI.numOfPlayers;
 
@@ -160,20 +150,20 @@ public class AllyAI extends AIScript {
 				* this.followRectangle.width * .25
 				+ (neg * this.spacing - this.give)) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 		} else if (this.boundingBox.x > this.followRectangle.x + neg
 				* this.followRectangle.width * .25
 				+ (neg * this.spacing + this.give)) {
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		} else {
 			if (this.rigidBody.speed.x < 0) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 			if (this.rigidBody.speed.x > 0) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		}
 
@@ -181,21 +171,21 @@ public class AllyAI extends AIScript {
 				+ this.followRectangle.height * .5
 				+ (this.spacing * this.id - this.give)) {
 			if (this.rigidBody.speed.y < this.maxSpeed.y) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 
 		} else if (this.boundingBox.y > this.followRectangle.y
 				+ this.followRectangle.height * .5
 				+ (this.spacing * this.id + this.give)) {
 			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		} else {
 			if (this.rigidBody.speed.y < 0) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 			if (this.rigidBody.speed.y > 0) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
 	}
@@ -205,7 +195,7 @@ public class AllyAI extends AIScript {
 				- (this.spacing * this.formationID) - this.give
 				- (this.boundingBox.width / 2)) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 
 		} else if (this.boundingBox.x > this.followRectangle.x
@@ -213,34 +203,34 @@ public class AllyAI extends AIScript {
 				+ (this.spacing * this.formationID) + this.give
 				- (this.boundingBox.width / 2)) {
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		} else {
 			if (this.rigidBody.speed.x < 0) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 			if (this.rigidBody.speed.x > 0) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		}
 		if (this.boundingBox.y < this.followRectangle.y - this.spacing
 				* this.formationID - this.give - (this.boundingBox.height / 2)) {
 			if (this.rigidBody.speed.y < this.maxSpeed.y) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 
 		} else if (this.boundingBox.y > this.followRectangle.y
 				+ this.followRectangle.height + this.spacing * this.formationID
 				+ this.give - (this.boundingBox.height / 2)) {
 			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		} else {
 			if (this.rigidBody.speed.y < 0) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 			if (this.rigidBody.speed.y > 0) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
 	}
@@ -285,33 +275,33 @@ public class AllyAI extends AIScript {
 						|| this.sBoundingBox.collidesWith(this.Bottom)) {
 					if (this.sBoundingBox.collidesWith(this.Top)) {
 						if (this.rigidBody.speed.y > -(2 * this.maxSpeed.y)) {
-							this.rigidBody.speed.y-=accel.y;
+							this.rigidBody.speed.y-=this.accel.y;
 						}
 					} else if (this.sBoundingBox.collidesWith(this.Bottom)) {
 						if (this.rigidBody.speed.y < this.maxSpeed.y) {
-							this.rigidBody.speed.y+=accel.y;
+							this.rigidBody.speed.y+=this.accel.y;
 						}
 					}
 					if (this.sBoundingBox.collidesWith(this.Right)) {
 						if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-							this.rigidBody.speed.x-=accel.x;
+							this.rigidBody.speed.x-=this.accel.x;
 						}
 					} else if (this.sBoundingBox.collidesWith(this.Left)) {
 						if (this.rigidBody.speed.x < this.maxSpeed.x) {
-							this.rigidBody.speed.x+=accel.x;
+							this.rigidBody.speed.x+=this.accel.x;
 						}
 					}
 					break;
 				} else if (this.sBoundingBox.collidesWith(this.Right)
 						&& !(s.hasTag("PowerUp"))) {
 					if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-						this.rigidBody.speed.x-=accel.x;
+						this.rigidBody.speed.x-=this.accel.x;
 					}
 					break;
 				} else if (this.sBoundingBox.collidesWith(this.Left)
 						&& !(s.hasTag("PowerUp"))) {
 					if (this.rigidBody.speed.x < this.maxSpeed.x) {
-						this.rigidBody.speed.x+=accel.x;
+						this.rigidBody.speed.x+=this.accel.x;
 					}
 					break;
 				}
@@ -322,29 +312,32 @@ public class AllyAI extends AIScript {
 	@Override
 	public void draw() {
 
-		 if (rigidBody.speed.y > 0) { 
-			 if (rigidBody.speed.x > 0)
-				 gameObject.playAnimation("DOWNRIGHT"); 
-			 else if (rigidBody.speed.x < 0) 
-				 gameObject.playAnimation("DOWNLEFT"); 
-			 else
-				 gameObject.playAnimation("DOWN"); 
-		} else if (rigidBody.speed.y < 0) {
-			if (rigidBody.speed.x > 0) 
-				gameObject.playAnimation("UPRIGHT"); 
-			else if (rigidBody.speed.x < 0) 
-				gameObject.playAnimation("UPLEFT"); 
-			else
-				gameObject.playAnimation("UP"); 
-		} else if (rigidBody.speed.x > 0)
-				gameObject.playAnimation("RIGHT"); 
-		else if (rigidBody.speed.x < 0)
-			gameObject.playAnimation("LEFT"); 
-		else
-			gameObject.playAnimation("IDLE");
+		if (this.rigidBody.speed.y > 0) { 
+			if (this.rigidBody.speed.x > 0) {
+				this.gameObject.playAnimation("DOWNRIGHT");
+			} else if (this.rigidBody.speed.x < 0) {
+				this.gameObject.playAnimation("DOWNLEFT");
+			} else {
+				this.gameObject.playAnimation("DOWN");
+			} 
+		} else if (this.rigidBody.speed.y < 0) {
+			if (this.rigidBody.speed.x > 0) {
+				this.gameObject.playAnimation("UPRIGHT");
+			} else if (this.rigidBody.speed.x < 0) {
+				this.gameObject.playAnimation("UPLEFT");
+			} else {
+				this.gameObject.playAnimation("UP");
+			} 
+		} else if (this.rigidBody.speed.x > 0) {
+			this.gameObject.playAnimation("RIGHT");
+		} else if (this.rigidBody.speed.x < 0) {
+			this.gameObject.playAnimation("LEFT");
+		} else {
+			this.gameObject.playAnimation("IDLE");
+		}
 	}
 
-	public Rectangle getBoundingBox (final GameObject s, Rectangle r) {
+	public Rectangle getBoundingBox (final GameObject s, final Rectangle r) {
 		if (s == null) {
 			r.makeNull();
 			return r;
@@ -388,37 +381,37 @@ public class AllyAI extends AIScript {
 				* this.followRectangle.width
 				+ (neg * this.spacing * this.formationID / fix - this.give)) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 
 		} else if (this.boundingBox.x > this.followRectangle.x + neg
 				* this.followRectangle.width
 				+ (neg * this.spacing * this.formationID / fix + this.give)) {
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		} else {
 			if (this.rigidBody.speed.x < 0) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 			if (this.rigidBody.speed.x > 0) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		}
 		if (this.boundingBox.y < this.followRectangle.y - this.give) {
 			if (this.rigidBody.speed.y < this.maxSpeed.y) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 		} else if (this.boundingBox.y > this.followRectangle.y + this.give) {
 			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		} else {
 			if (this.rigidBody.speed.y < 0) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 			if (this.rigidBody.speed.y > 0) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
 	}
@@ -495,88 +488,86 @@ public class AllyAI extends AIScript {
 		}
 
 		if (canChangeFormation()) {
-			this.nextFormationTime = Time.getTime() + formationHoldTime;
+			this.nextFormationTime = Time.getTime() + this.formationHoldTime;
 			this.followRectangle = getBoundingBox(this.followPlayer,
 					this.followRectangle);
-			
-			
+
+
 			if (this.distances.x >= 200 && this.distances.y >= 500 && this.enemyCount >= 5) {
-				tempLine = true;
+				this.tempLine = true;
 				this.roamFormation = 5;
 			} else if (this.distances.x >= 200 && this.distances.y >= 200 && this.enemyCount >= 3) {				
 				this.roamFormation = 1;
 			} else if (this.distances.x >= 200 && this.distances.y >= 0) {
-				tempLine = false;
+				this.tempLine = false;
 				this.roamFormation = 2;
 			} else if (this.distances.x >= 0 && this.distances.y >= 200) {
 				this.roamFormation = 3;
 
 			} else {
-				tempLine = true;
+				this.tempLine = true;
 				this.roamFormation = 5;
 			}
 		}
-		else if (tempLine && this.roamFormation == 2) 
+		else if (this.tempLine && this.roamFormation == 2) 
 		{						
 			if (this.enemy != null) {
-				tempLine = true;
+				this.tempLine = true;
 				this.roamFormation = 5;
 			}
 		}
 		else if (this.roamFormation == 5)
 		{
 			if (this.enemy == null) {
-					this.roamFormation = 2;
-					tempLine = true;
-				}
+				this.roamFormation = 2;
+				this.tempLine = true;
+			}
 		}
 
-		//System.out.println(this.tempLine + " " + this.roamFormation + " " + this.distances);
-		
 		if (this.roamFormation != 5) {
 			return;
 		}
 
 		this.sBoundingBox = getBoundingBox(this.enemy, this.sBoundingBox);
-		
+
 		if (this.sBoundingBox.isNull()) {
 			this.roamFormation = 2;
-			tempLine = true;
+			this.tempLine = true;
 			return;
 		}
-		
+
 		if (this.boundingBox.x < this.sBoundingBox.x - this.give) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 		} else if (this.boundingBox.x > this.sBoundingBox.x + this.give) {
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		} else {
 			if (this.rigidBody.speed.x < 0) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 			if (this.rigidBody.speed.x > 0) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		}
 
 		if (this.boundingBox.y < this.sBoundingBox.y + 256 - this.give) {
 			if (this.rigidBody.speed.y < this.maxSpeed.y) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 
 		} else if (this.boundingBox.y > this.sBoundingBox.y + 256 + this.give) {
 			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		} else {
 			if (this.rigidBody.speed.y < 0) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 			if (this.rigidBody.speed.y > 0) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
 
@@ -596,10 +587,20 @@ public class AllyAI extends AIScript {
 		}
 	}
 
+	public void setAccel(final Vector2 v)
+	{
+		this.accel = v;
+	}
+
+	public void setSpeed(final Vector2 v)
+	{
+		this.maxSpeed = v;
+	}
+
 	public void shoot() {
 
 		if (this.weapon.canShoot()) {
-				this.weapon.shoot();
+			this.weapon.shoot();
 		}
 	}
 
@@ -614,7 +615,7 @@ public class AllyAI extends AIScript {
 				return;
 			}
 		}
-		
+
 		if (this.boundingBox.isNull()) {
 			this.boundingBox.init(0,0,0,0);
 		}
@@ -623,11 +624,11 @@ public class AllyAI extends AIScript {
 		this.boundingBox.y = (int) this.gameObject.transform.position.y;
 		this.boundingBox.width = (int) this.boxCollider.size.x;
 		this.boundingBox.height = (int) this.boxCollider.size.y;
-		
+
 		if (this.followPlayer == null || this.followRectangle.isNull()) {
 			this.gos = GameObject.findAllByTags(this.playerTag, this.gos);
 			AllyAI.numOfPlayers = this.gos.size();
-			
+
 			if (AllyAI.numOfPlayers > 0) {
 				this.followPlayer = this.gos.get(this.id % AllyAI.numOfPlayers);
 				this.followRectangle = getBoundingBox(this.followPlayer,
@@ -635,7 +636,7 @@ public class AllyAI extends AIScript {
 			} else {
 				this.followPlayer = null;
 				this.followRectangle.makeNull();
-				tempLine = true;
+				this.tempLine = true;
 				this.formation = 5;
 				this.roamFormation = 5;
 			}
@@ -647,27 +648,27 @@ public class AllyAI extends AIScript {
 		}
 
 		if (this.headUnit) {
-			tempLine = true;
+			this.tempLine = true;
 			this.formation = 5;
 			this.roamFormation = 5;
 		}
-		
+
 		if (canShoot()) {
 			shoot();
 		}
-		
+
 		if (checkDodge()) {
 			dodge();
 			return;
 		}
-		
+
 		if (this.formation == 5) {
 			roam();
 		}
-		
+
 		this.followRectangle = getBoundingBox(this.followPlayer,
 				this.followRectangle);
-		
+
 		if (!this.followRectangle.isNull() && !this.headUnit) {
 			if (this.formation == 1 || this.roamFormation == 1) {
 				wedge();
@@ -700,20 +701,20 @@ public class AllyAI extends AIScript {
 				* this.followRectangle.width
 				+ (neg * this.spacing * this.formationID / fix - this.give)) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 		} else if (this.boundingBox.x > this.followRectangle.x + neg
 				* this.followRectangle.width
 				+ (neg * this.spacing * this.formationID / fix + this.give)) {
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		} else {
 			if (this.rigidBody.speed.x < 0) {
-				this.rigidBody.speed.x+=accel.x;
+				this.rigidBody.speed.x+=this.accel.x;
 			}
 			if (this.rigidBody.speed.x > 0) {
-				this.rigidBody.speed.x-=accel.x;
+				this.rigidBody.speed.x-=this.accel.x;
 			}
 		}
 
@@ -721,21 +722,21 @@ public class AllyAI extends AIScript {
 				+ this.followRectangle.height
 				+ (this.spacing * this.formationID / fix - this.give)) {
 			if (this.rigidBody.speed.y < this.maxSpeed.y) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 
 		} else if (this.boundingBox.y > this.followRectangle.y
 				+ this.followRectangle.height
 				+ (this.spacing * this.formationID / fix + this.give)) {
 			if (this.rigidBody.speed.y > -this.maxSpeed.y) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		} else {
 			if (this.rigidBody.speed.y < 0) {
-				this.rigidBody.speed.y+=accel.y;
+				this.rigidBody.speed.y+=this.accel.y;
 			}
 			if (this.rigidBody.speed.y > 0) {
-				this.rigidBody.speed.y-=accel.y;
+				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
 	}

@@ -1,7 +1,0 @@
-package com.spacecombat;
-
-import Component;
-
-public class FixedJoint extends Component {
-
-}

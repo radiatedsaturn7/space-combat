@@ -2,7 +2,7 @@ package com.spacecombat;
 
 public class GraphicAnimation extends Component {
 	private final GenericGraphic graphic;
-	private final Animation animation;
+	private Animation animation;
 	private float lastDraw = 0;
 
 	public GraphicAnimation(final GenericGraphic graphic,
@@ -14,16 +14,23 @@ public class GraphicAnimation extends Component {
 
 	@Override
 	public void draw() {
+
 		if (this.graphic == null || this.animation == null) {
+			return;
+		}
+
+		if (Camera.mainCamera == null)
+		{
+			System.out.println("Can't Draw, No Camera To Draw On!");
 			return;
 		}
 
 		this.graphic.draw(this.animation.getX(), this.animation.getY(),
 				this.animation.getWidth(), this.animation.getHeight(),
-				(int) this.gameObject.transform.position.x,
-				(int) this.gameObject.transform.position.y,
-				(int) this.gameObject.transform.rotation.x,
-				(int) this.gameObject.transform.rotation.y,
+				(int) (this.gameObject.transform.position.x-Camera.mainCamera.gameObject.transform.position.x),
+				(int) (this.gameObject.transform.position.y-Camera.mainCamera.gameObject.transform.position.y),
+				(int) (this.gameObject.transform.rotation.x-Camera.mainCamera.gameObject.transform.rotation.x),
+				(int) (this.gameObject.transform.rotation.y-Camera.mainCamera.gameObject.transform.rotation.y),
 				(int) this.gameObject.transform.scale.x,
 				(int) this.gameObject.transform.scale.y);
 
@@ -40,6 +47,11 @@ public class GraphicAnimation extends Component {
 						.getStartFrame());
 	}
 
+	public int getLayer()
+	{
+		return this.graphic.getLayer();
+	}
+
 	public String getName() {
 		return this.animation.getName();
 	}
@@ -50,5 +62,10 @@ public class GraphicAnimation extends Component {
 
 	public void play() {
 		setEnabled(true);
+	}
+	
+	public void onBeforeDestroy()
+	{
+		animation.onBeforeDestroy();
 	}
 }

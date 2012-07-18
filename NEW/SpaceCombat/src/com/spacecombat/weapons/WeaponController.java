@@ -1,8 +1,8 @@
 package com.spacecombat.weapons;
 
 import com.spacecombat.ClickListener;
-import com.spacecombat.Collision;
 import com.spacecombat.Component;
+import com.spacecombat.GameObject;
 import com.spacecombat.Input;
 import com.spacecombat.Time;
 import com.spacecombat.game.PowerUp;
@@ -10,63 +10,60 @@ import com.spacecombat.game.PowerUp;
 public class WeaponController extends Component implements ClickListener {
 	public Weapon [] weapons;
 	public int selectedWeapon = 0;
-	
+
 	public float nextWeaponSelect = 0.0f;
 	public float weaponSelectTime = 1.0f;
-	
-	
-	public WeaponController (int x, Weapon [] weapons)
+
+
+	public WeaponController (final int x, final Weapon [] weapons)
 	{
 		this.selectedWeapon = x;
 		this.weapons = weapons;
 		Input.subscribeListener(this);
 	}
-
+	
+	private final static String powerUpTag = "PowerUp";
 	@Override
-	public void collide(final Collision collision) {
-		
-		if (collision.getWhatIHit().hasTag(new String [] {"PowerUp"})) {
-			
-			final PowerUp powerUp = (PowerUp) collision.getWhatIHit().getComponent(PowerUp.class);
-			
-			if (powerUp != null && weapons != null)
-			{
-				weapons[selectedWeapon].powerUp();					
-			}
+	public void collide(final GameObject whatIHit) {
+		if (whatIHit.hasTag(powerUpTag)) {
+			final PowerUp powerUp = (PowerUp) whatIHit.getComponent(PowerUp.class);
 
-			collision.getWhatIHit().destroy();
+			if (powerUp != null && this.weapons != null && powerUp.type == this.weapons[this.selectedWeapon].getPowerUpType())
+			{
+				this.weapons[this.selectedWeapon].powerUp();
+			}
 		}
 	}
 
+	public Weapon getSelectedWeapon()
+	{
+		return this.weapons[this.selectedWeapon];
+	}	
+
 	@Override
-	public void onClick(float x, float y) 
+	public void onClick(final float x, final float y) 
 	{		
-		if (Time.getTime() < nextWeaponSelect)
+		if (Time.getTime() < this.nextWeaponSelect)
 		{
 			return;
 		}
-		
+
 		if (y > 700)
 		{
-			nextWeaponSelect = weaponSelectTime + Time.getTime(); 
-					
-			selectedWeapon++;
-			if (selectedWeapon >= weapons.length)
+			this.nextWeaponSelect = this.weaponSelectTime + Time.getTime(); 
+
+			this.selectedWeapon++;
+			if (this.selectedWeapon >= this.weapons.length)
 			{
-				selectedWeapon = 0;
+				this.selectedWeapon = 0;
 			}
-			
-			for (int z = 0; z < weapons.length; z++)
+
+			for (int z = 0; z < this.weapons.length; z++)
 			{
-				weapons[z].setEnabled(false);
+				this.weapons[z].setEnabled(false);
 			}
-			
-			weapons[selectedWeapon].setEnabled(true);
+
+			this.weapons[this.selectedWeapon].setEnabled(true);
 		}
-	}
-	
-	public Weapon getSelectedWeapon()
-	{
-		return weapons[selectedWeapon];
 	}
 }

@@ -15,7 +15,7 @@ public class CanvasGraphic implements GenericGraphic {
 	private static Rect screen = new Rect(0,0,480,800);
 	private static Canvas canvas;
 	private static Paint paint;
-	private static HashMap<String, Bitmap> loaded;
+	private static HashMap<String, Bitmap> loaded;	
 
 	public static void setCanvas(final Canvas canvas) {
 		CanvasGraphic.canvas = canvas;
@@ -30,17 +30,17 @@ public class CanvasGraphic implements GenericGraphic {
 	private Rect dst;
 
 	private Bitmap myBitmap;
+	private int layer;
 
 	public CanvasGraphic() {
 	}
 
 	@Override
-	public void create(final String name, InputStream is) {
+	public void create(final String name, InputStream is, final int layer) {
 		this.src = new Rect(0, 0, 32, 32);
 		this.dst = new Rect(0, 0, 32, 32);
-
+		this.layer = layer;
 		if (CanvasGraphic.loaded == null) {
-			System.out.println("CREATED NEW IMAGE ARRAY");
 			CanvasGraphic.loaded = new HashMap<String, Bitmap>();
 		}
 
@@ -65,21 +65,20 @@ public class CanvasGraphic implements GenericGraphic {
 
 		CanvasGraphic.loaded.put(name, bitmap);
 		this.myBitmap = CanvasGraphic.loaded.get(name);
-		System.out.println("DONE CREATING");
 	}
 
 	@Override
 	public void draw(final int x, final int y, final int width,
 			final int height, final int offsetX, final int offsetY,
 			final int rotx, final int roty, final int scalex, final int scaley) {
-		
+
 		this.dst.set(offsetX, offsetY, offsetX + width, offsetY + height);
-		
-		if (!this.dst.intersect(screen))
+
+		if (!this.dst.intersect(CanvasGraphic.screen))
 		{
 			return;
 		}
-		
+
 
 		if (CanvasGraphic.canvas != null && CanvasGraphic.paint != null) {
 			// Bitmap bitmap = loaded.get(name);
@@ -91,18 +90,37 @@ public class CanvasGraphic implements GenericGraphic {
 
 			this.src.set(x, y, x + width, y + height);
 
-			CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,
-					CanvasGraphic.paint);
+			
+			if (rotx != 0)
+			{
+				CanvasGraphic.canvas.save();
+				CanvasGraphic.canvas.rotate(rotx,this.dst.left+width/2,this.dst.top+height/2);
+								CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,					
+						CanvasGraphic.paint);	
+				CanvasGraphic.canvas.restore();
+			}
+			else
+			{
+				CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,					
+						CanvasGraphic.paint);	
+			}
+
 		} else if (CanvasGraphic.canvas == null) {
-			System.out.println("Canvas is null");
+			throw new RuntimeException("Canvas is null");
 		} else if (CanvasGraphic.paint == null) {
-			System.out.println("paint is null");
+			throw new RuntimeException("paint is null");
 		}
 	}
 
 	@Override
 	public int getHeight() {
 		return this.myBitmap.getHeight();
+	}
+
+	@Override
+	public int getLayer ()
+	{
+		return this.layer;
 	}
 
 	@Override

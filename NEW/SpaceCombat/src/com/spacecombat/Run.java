@@ -1,8 +1,5 @@
 package com.spacecombat;
 
-import com.spacecombat.game.LevelLoader;
-import com.spacecombat.game.PrefabFactory;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,6 +7,9 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.spacecombat.game.LevelLoader;
+import com.spacecombat.game.PrefabFactory;
 
 public class Run extends Activity {
 
@@ -23,6 +23,7 @@ public class Run extends Activity {
 			PrefabFactory.setContext(context);
 			LevelLoader.setContext(context);
 			CanvasGraphic.setPaint(this.paint);
+			CanvasText.setPaint(this.paint);
 			this.e = new Engine();
 			this.e.createGameObjects();
 		}
@@ -32,21 +33,22 @@ public class Run extends Activity {
 
 			super.onDraw(canvas);
 			CanvasGraphic.setCanvas(canvas);
+			CanvasText.setCanvas(canvas);
 			this.e.drawLoop();
 			this.invalidate();			
 		}
 
 		@Override
 		public boolean onTouch(final View v, final MotionEvent event) {
-			
+
 			Input.setX(event.getX());
 			Input.setY(event.getY());
-			
-			if (event.getAction() == event.ACTION_DOWN)
+
+			if (event.getAction() == MotionEvent.ACTION_DOWN)
 			{
 				Input.setClickDown(true);
 			}
-			if (event.getAction() == event.ACTION_UP)
+			if (event.getAction() == MotionEvent.ACTION_UP)
 			{
 				Input.setClickDown(false);
 			}			

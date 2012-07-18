@@ -1,6 +1,7 @@
 package com.spacecombat.game;
 
 import com.spacecombat.BoxCollider;
+import com.spacecombat.Camera;
 import com.spacecombat.ClickListener;
 import com.spacecombat.Component;
 import com.spacecombat.Input;
@@ -8,103 +9,119 @@ import com.spacecombat.Time;
 import com.spacecombat.weapons.WeaponController;
 
 public class PlayerInput extends Component implements ClickListener {
-	
-	WeaponController wc = null;
+
+	WeaponController [] wc = null;
 	BoxCollider collider = null;
-	
+
 	float changeTime = 0.25f;
 	float nextChange = 0.0f;
 	float lastX = 0;
 	float lastY = 0;
+	boolean clicked = false;
 
-	public PlayerInput(final WeaponController wc, final BoxCollider c) {
+	public PlayerInput(final WeaponController [] wc, final BoxCollider c) {
 		Input.subscribeListener(this);
 		this.wc = wc;
 		this.collider = c;		
 	}
 
 	@Override
-	public void onClick(float x, float y) {		
+	public void onClick(final float x, final float y) {		
 		if (this.gameObject == null) {
 			return;
 		}
 
-		if (this.wc.getSelectedWeapon() != null) {
-			this.wc.getSelectedWeapon().shoot();
-		}		
-		
-		lastX = this.gameObject.transform.position.x;
-		lastY = this.gameObject.transform.position.y;
-		
-		this.gameObject.transform.position.x = x;
-		this.gameObject.transform.position.y = y;
-		
-		if (collider != null)
+		for (int d = 0; d < this.wc.length; d++)
 		{
-			this.gameObject.transform.position.x -= collider.size.x * .5;
-			this.gameObject.transform.position.y -= collider.size.y * 2;				
+			if (this.wc[d].getSelectedWeapon() != null) {				
+				this.wc[d].getSelectedWeapon().shoot();
+			}
 		}
+
+		this.lastX = this.gameObject.transform.position.x;
+		this.lastY = this.gameObject.transform.position.y;
+
+		this.gameObject.transform.position.x = x + Camera.mainCamera.gameObject.transform.position.x;
+		this.gameObject.transform.position.y = y + Camera.mainCamera.gameObject.transform.position.y;
+
+		if (this.collider != null)
+		{
+			this.gameObject.transform.position.x -= this.collider.size.x * .5;
+			this.gameObject.transform.position.y -= this.collider.size.y * 4;				
+		}
+		clicked = true;
 	}
-	
+
+	@Override
 	public void update ()
 	{
-		if (Time.getTime() <= nextChange)
+		if (!clicked)
+		{
+			this.gameObject.getRigidBody().speed.y = -10;
+		}
+		else
+		{
+			this.gameObject.getRigidBody().speed.y = 0;
+		}
+		
+		clicked = false;
+		if (Time.getTime() <= this.nextChange)
 		{
 			return;			
 		}				
-		
-		if (lastY < this.gameObject.transform.position.y)
+
+		if (this.lastY < this.gameObject.transform.position.y)
 		{
-			nextChange = Time.getTime() + changeTime;
-			if (lastX < this.gameObject.transform.position.x)
+			this.nextChange = Time.getTime() + this.changeTime;
+			if (this.lastX < this.gameObject.transform.position.x)
 			{
-				gameObject.playAnimation("DOWNRIGHT");				
+				this.gameObject.playAnimation("DOWNRIGHT");				
 			}
-			else if (lastX > this.gameObject.transform.position.x)
+			else if (this.lastX > this.gameObject.transform.position.x)
 			{
-				gameObject.playAnimation("DOWNLEFT");
+				this.gameObject.playAnimation("DOWNLEFT");
 			}
 			else
 			{
-				gameObject.playAnimation("DOWN");
+				this.gameObject.playAnimation("DOWN");
 			}
 		}
-		else if (lastY > this.gameObject.transform.position.y)
+		else if (this.lastY > this.gameObject.transform.position.y)
 		{
-			nextChange = Time.getTime() + changeTime;
-			if (lastX < this.gameObject.transform.position.x)
+			this.nextChange = Time.getTime() + this.changeTime;
+			if (this.lastX < this.gameObject.transform.position.x)
 			{
-				gameObject.playAnimation("UPLEFT");
+				this.gameObject.playAnimation("UPLEFT");
 			}
-			else if (lastX > this.gameObject.transform.position.x)
+			else if (this.lastX > this.gameObject.transform.position.x)
 			{
-				gameObject.playAnimation("UPLEFT");
+				this.gameObject.playAnimation("UPLEFT");
 			}
 			else
 			{
-				gameObject.playAnimation("UP");
+				this.gameObject.playAnimation("UP");
 			}			
 		}
 		else
 		{
-			if (lastX < this.gameObject.transform.position.x)
+			if (this.lastX < this.gameObject.transform.position.x)
 			{
-				nextChange = Time.getTime() + changeTime;
-				gameObject.playAnimation("RIGHT");
+				this.nextChange = Time.getTime() + this.changeTime;
+				this.gameObject.playAnimation("RIGHT");
 			}
-			else if (lastX > this.gameObject.transform.position.x)
+			else if (this.lastX > this.gameObject.transform.position.x)
 			{
-				nextChange = Time.getTime() + changeTime;
-				gameObject.playAnimation("LEFT");
+				this.nextChange = Time.getTime() + this.changeTime;
+				this.gameObject.playAnimation("LEFT");
 			}
 			else
 			{
-				gameObject.playAnimation("IDLE");
+				this.gameObject.playAnimation("IDLE");
 			}
 		}
-		
-		lastX = this.gameObject.transform.position.x;
-		lastY = this.gameObject.transform.position.y;
+
+		this.lastX = this.gameObject.transform.position.x;
+		this.lastY = this.gameObject.transform.position.y;
 
 	}
 }

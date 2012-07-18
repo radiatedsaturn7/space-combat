@@ -10,7 +10,7 @@ public class BoxCollider extends Collider {
 
 	@Override
 	public boolean collidesWith(final BoxCollider boxCollider) {
-		
+
 		if (this.rigidBody.gameObject == null) {
 			throw new RuntimeException(
 					"gameObject is null -- can't perform collision");
@@ -20,7 +20,7 @@ public class BoxCollider extends Collider {
 			throw new RuntimeException(
 					"boxCollider.gameObject is null -- can't perform collision");
 		}
-		
+
 		if (this.rigidBody.gameObject.transform.position.x + this.size.x >= boxCollider
 				.getRigidBody().gameObject.transform.position.x
 				&& this.rigidBody.gameObject.transform.position.y + this.size.y >= boxCollider

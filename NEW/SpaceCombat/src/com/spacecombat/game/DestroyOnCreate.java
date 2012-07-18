@@ -4,13 +4,14 @@ import com.spacecombat.Component;
 
 public class DestroyOnCreate extends Component {
 	public float destroyAfter;
-	public DestroyOnCreate (float l)
+	public DestroyOnCreate (final float l)
 	{
-		destroyAfter = l;
+		this.destroyAfter = l;
 	}
-	
+
+	@Override
 	public void onCreate ()
 	{
-		gameObject.destroyAfter(destroyAfter);
+		this.gameObject.destroyAfter(this.destroyAfter);
 	}
 }

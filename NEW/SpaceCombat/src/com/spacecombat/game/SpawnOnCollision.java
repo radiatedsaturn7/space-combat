@@ -1,32 +1,33 @@
 package com.spacecombat.game;
 
-import com.spacecombat.Collision;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 
 public class SpawnOnCollision extends Component {
-	
-	private GameObject go;
-	private boolean isFired;
-	
-	public SpawnOnCollision (GameObject go) 
+
+	private final GameObject go;
+	private boolean isFired = false;
+
+	public SpawnOnCollision (final GameObject go) 
 	{
 		this.go = go;
 		this.isFired = false;
 	}
 
-	public void  collide (final Collision collision)
+	@Override
+	public void  collide (final GameObject whatIHit)
 	{
-		if (collision.getWhatIHit().getName().equals("TopOfScreen"))
+		if (whatIHit.getName().equals("TopOfScreen"))
 		{
-			if (isFired)
+			if (this.isFired)
 			{
 				return;
 			}
-			isFired = true;
-			
-			GameObject.create(go);
-			gameObject.destroy();
+			this.isFired = true;
+
+			System.out.println("FIRING:"+go.getName());
+			GameObject.create(this.go);			
+			this.gameObject.destroy();
 		}
 	}
 }

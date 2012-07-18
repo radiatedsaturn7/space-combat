@@ -1,0 +1,52 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Component;
+import com.spacecombat.GameObject;
+import com.spacecombat.Pool;
+import com.spacecombat.Poolable;
+import com.spacecombat.RigidBody;
+
+public class PlayerFollower extends Component
+{
+	public GameObject target;
+	public float minWidth;
+	public float maxWidth;
+	public float startScrollLeft;
+	public float startScrollRight;
+	public float yScroll;
+	public SimpleMovement simpleMovement;
+	
+	public PlayerFollower (GameObject target, SimpleMovement simpleMovement, float minWidth, float maxWidth, float startScrollLeft, float startScrollRight, float yScroll)
+	{
+		this.target = target;
+		this.maxWidth = maxWidth;
+		this.minWidth = minWidth;
+		this.startScrollLeft = startScrollLeft;
+		this.startScrollRight = startScrollRight;
+		this.yScroll = yScroll;
+		this.simpleMovement = simpleMovement;
+	}
+	
+	public void update ()
+	{
+		if (this.target == null || this.target.isDestroyed() || this.gameObject.getRigidBody() == null || simpleMovement == null)
+		{
+			return;
+		}
+
+		/*
+		if (this.target.transform.position.x > startScrollRight && this.gameObject.transform.position.x > maxWidth)
+		{
+			simpleMovement.setSpeed(-32, yScroll);
+		}
+		else if (this.target.transform.position.x < startScrollLeft && this.gameObject.transform.position.x < minWidth)
+		{
+			simpleMovement.setSpeed(32, yScroll);
+		}
+		else
+		{
+			simpleMovement.setSpeed(0, yScroll);
+		}
+		*/
+	}
+}

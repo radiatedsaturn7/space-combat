@@ -11,24 +11,24 @@ public class Phaser extends Weapon //
 	private static final float shotSpeed = 128;
 	private static final float life = 5;
 	private static final float accuracy = 0;
+	private static final int powerUpType = 0;
 
 	public Phaser(final Vector2 direction, final float reloadTime) {
 		super(Phaser.name, Phaser.damage, Phaser.accuracy, reloadTime, 0,
-				reloadTime, Phaser.life, Phaser.shotSpeed, direction, false);
+				reloadTime, Phaser.life, Phaser.shotSpeed, direction, false, powerUpType);
 	}
 
 	public Phaser(final Vector2 direction, final float reloadTime,
 			final int magazineSize, final float magazineReloadTime) {
 		super(Phaser.name, Phaser.damage, 0, reloadTime, magazineSize,
 				magazineReloadTime, Phaser.life, Phaser.shotSpeed, direction,
-				false);
+				false, powerUpType);
 	}
 
 	@Override
 	protected void fire(final Vector2 position) {
-		// TODO Auto-generated method stub
 		GameObject.create(PrefabFactory.createShot("phaser", position,
-				this.shotSpeedVector, this.gameObject.getTags(),
+				this.shotSpeedVector, this.tags,
 				this.baseDamage, this.powerLevel, Phaser.life));
 	}
 }

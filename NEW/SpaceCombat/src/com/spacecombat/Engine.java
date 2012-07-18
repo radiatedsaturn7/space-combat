@@ -1,10 +1,8 @@
 package com.spacecombat;
 
-import java.io.InputStream;
 import java.util.List;
 
 import com.spacecombat.game.LevelLoader;
-import com.spacecombat.game.PrefabFactory;
 
 public class Engine implements ClickListener {
 	// this is da master list of all components
@@ -30,19 +28,19 @@ public class Engine implements ClickListener {
 		}
 	}
 
-	private boolean useInputStep = false;
+	private final boolean useInputStep = false;
 	private boolean canRun = true;
 
 	private final boolean useMultithreadedDrawLoop = false;
 	private final boolean runDrawLoop = true;
 
-	private final boolean useFrameRate = false;
+	private final boolean useFrameRate = true;
 	private final int drawFrameRate = 32;
 	private final boolean useMultithreadedGameLoop = true;
 	private final boolean runGameLoop = true;
 
 	private final boolean useGameFrameRate = true;
-	private final int updateFrameRate = 20;
+	private final int updateFrameRate = 32;
 	private final boolean printFrameRate = false;
 
 	private float lastTimeCheck = 0;
@@ -123,9 +121,15 @@ public class Engine implements ClickListener {
 
 
 
+	@Override
+	public void onClick(final float x, final float y) 
+	{
+		this.canRun = true;
+	}
+
 	public void updateLoop() {
 		Input.update();
-		if (useInputStep)
+		if (this.useInputStep)
 		{
 			if (!this.canRun) {
 				return;
@@ -140,36 +144,55 @@ public class Engine implements ClickListener {
 
 
 		synchronized (this.lock) {
-			for (x = 0; x < this.gameObjects.size(); x++) {
-				xGameObject = this.gameObjects.get(x);
+			for (this.x = 0; this.x < this.gameObjects.size(); this.x++) {
 
-				xGameObject.update();
+				this.xGameObject = this.gameObjects.get(this.x);
 
-				if (xGameObject.getRigidBody() == null
-						|| xGameObject.getRigidBody().getCollider() == null) {
+				this.xGameObject.update();
+
+				//skip objects not on the screen for collision
+				if (this.xGameObject.transform.position.y < Camera.mainCamera.gameObject.transform.position.y - 128)
+				{
+					continue;
+				}
+				if (this.xGameObject.transform.position.y > Camera.mainCamera.gameObject.transform.position.y + 864)
+				{
+					continue;
+				}
+
+
+				if (this.xGameObject.getRigidBody() == null
+						|| this.xGameObject.getRigidBody().getCollider() == null) {
 					continue;
 				}//
 
-				for (y = x + 1; y < this.gameObjects.size(); y++) {
-					yGameObject = this.gameObjects.get(y);
+				for (this.y = this.x + 1; this.y < this.gameObjects.size(); this.y++) {
+					this.yGameObject = this.gameObjects.get(this.y);
 
-					if (yGameObject.getRigidBody() == null
-							|| yGameObject.getRigidBody().getCollider() == null) {
+					if (this.yGameObject.getRigidBody() == null
+							|| this.yGameObject.getRigidBody().getCollider() == null) {
 						continue;
 					}
-					
-					boolean collision = xGameObject
-					.getRigidBody()
-					.getCollider()
-					.collidesWith(
-							yGameObject.getRigidBody().getCollider());
-					
+
+					final boolean collision = this.xGameObject
+							.getRigidBody()
+							.getCollider()
+							.collidesWith(
+									this.yGameObject.getRigidBody().getCollider());
+
 					if (collision) {
-							xGameObject.collide(new Collision(xGameObject,yGameObject));
-							yGameObject.collide(new Collision(yGameObject,
-									xGameObject));
+						this.xGameObject.collide(this.yGameObject);
+						this.yGameObject.collide(this.xGameObject);
 					}
 				}
+			}
+		}
+
+		synchronized (this.lock)
+		{
+			for (this.x = 0; this.x < this.gameObjects.size(); this.x++) {
+				this.xGameObject = this.gameObjects.get(this.x);
+				this.xGameObject.onAfterUpdate();
 			}
 		}
 
@@ -177,10 +200,10 @@ public class Engine implements ClickListener {
 		int size = this.gameObjects.size();
 
 		synchronized (this.lock) {
-			for (x = 0; x < size; x++) {
-				if (this.gameObjects.get(x).isDestroyed()) {
-					this.gameObjects.remove(x);
-					x--;
+			for (this.x = 0; this.x < size; this.x++) {
+				if (this.gameObjects.get(this.x).isDestroyed()) {
+					this.gameObjects.remove(this.x);
+					this.x--;
 					size = this.gameObjects.size();
 				}
 			}
@@ -195,11 +218,5 @@ public class Engine implements ClickListener {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	public void onClick(float x, float y) 
-	{
-		canRun = true;
 	}
 }

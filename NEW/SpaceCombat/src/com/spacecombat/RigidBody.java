@@ -31,7 +31,6 @@ public class RigidBody extends Component {
 
 	@Override
 	public void update() {
-		// System.out.println(speed + " * " + Time.getDeltaTime());
 		this.gameObject.transform.position.x += (this.speed.x * Time
 				.getDeltaTime());
 		this.gameObject.transform.position.y += (this.speed.y * Time

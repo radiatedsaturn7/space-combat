@@ -1,25 +1,22 @@
 package com.spacecombat.game;
 
-import com.spacecombat.Collision;
+
 import com.spacecombat.Component;
+import com.spacecombat.GameObject;
 
 public class ShotCollision extends Component {
 	public float damage = 1;
 
+		
 	@Override
-	public void collide(final Collision collision) {
-		if (collision.getWhatIHit() == null) {
-			// System.out.println("Something Wrong");
-		} else {
-			// System.out.println("Shot hit " + whatIHit.getName() );
-		}
+	public void collide(final GameObject whatIHit) {
 
-		if (collision.getWhatIHit().hasTag("shot") || collision.getWhatIHit().hasTag("powerup")) {
+		if (whatIHit.getName().equalsIgnoreCase("TopOfScreen") || whatIHit.hasTag("shot") || whatIHit.hasTag("node") || whatIHit.hasTag("powerup") || whatIHit.hasTag("powerup") || whatIHit.hasTag("dying")) {
 			return;
 		}
 
-		if (!(collision.getWhatIHit().hasTag(collision.getMe().getTags()))) {
-			collision.getMe().destroy();
+		if (!(whatIHit.hasTag(this.gameObject.getTags()))) {
+			this.gameObject.destroy();
 		}
 	}
 

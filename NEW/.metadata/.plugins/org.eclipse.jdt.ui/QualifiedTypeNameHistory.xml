@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.spacecombat.Weapon"/>
 <fullyQualifiedTypeName name="javax.microedition.khronos.opengles.GL10"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
@@ -18,14 +17,31 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
 <fullyQualifiedTypeName name="com.spacecombat.Vector2"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.HellGun"/>
-<fullyQualifiedTypeName name="com.spacecombat.FixedJoint"/>
 <fullyQualifiedTypeName name="com.spacecombat.RigidBody"/>
 <fullyQualifiedTypeName name="com.spacecombat.BoxCollider"/>
 <fullyQualifiedTypeName name="com.spacecombat.Collider"/>
 <fullyQualifiedTypeName name="com.spacecombat.Util"/>
-<fullyQualifiedTypeName name="com.spacecombat.Time"/>
+<fullyQualifiedTypeName name="com.spacecombat.weapons.LockingLaser"/>
+<fullyQualifiedTypeName name="com.spacecombat.R.drawable"/>
+<fullyQualifiedTypeName name="com.spacecombat.game.HealthController"/>
+<fullyQualifiedTypeName name="com.spacecombat.weapons.MissileLauncher"/>
+<fullyQualifiedTypeName name="com.spacecombat.Level"/>
+<fullyQualifiedTypeName name="com.spacecombat.game.SimpleMovement"/>
 <fullyQualifiedTypeName name="com.spacecombat.Component"/>
+<fullyQualifiedTypeName name="com.spacecombat.ai.Node"/>
+<fullyQualifiedTypeName name="com.spacecombat.ai.AINodeFollower"/>
+<fullyQualifiedTypeName name="com.spacecombat.Collision"/>
+<fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="com.spacecombat.Poolable"/>
+<fullyQualifiedTypeName name="com.spacecombat.Pool"/>
+<fullyQualifiedTypeName name="com.spacecombat.FixedJoint"/>
+<fullyQualifiedTypeName name="com.spacecombat.Camera"/>
+<fullyQualifiedTypeName name="com.spacecombat.Time"/>
+<fullyQualifiedTypeName name="com.spacecombat.TextAnimation"/>
+<fullyQualifiedTypeName name="com.spacecombat.GenericText"/>
+<fullyQualifiedTypeName name="com.spacecombat.CanvasText"/>
 </qualifiedTypeNameHistroy>

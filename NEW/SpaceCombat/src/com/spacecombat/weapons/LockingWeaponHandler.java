@@ -18,14 +18,17 @@ public class LockingWeaponHandler extends Component {
 	private final float searchTime = 2.0f;
 	private float nextSearch = 0.0f;
 	private List<GameObject> gos;
+	private boolean autoShoot = false;
+	private final String [] nonTargets = new String [] {"shot"};
 
-	public LockingWeaponHandler(final Weapon w, final String[] targets) {
+	public LockingWeaponHandler(final Weapon w, final String[] targets, final boolean autoShoot) {
 		this.gos = new LinkedList<GameObject>();
 		this.w = w;
 		final Vector2 t = new Vector2(w.getShotDirection());
 		this.defaultDirection = t;
 		this.targets = targets;
 		this.temp = new Vector2();
+		this.autoShoot = autoShoot;
 	}
 
 	public void calculateTrajectory() {
@@ -44,7 +47,8 @@ public class LockingWeaponHandler extends Component {
 
 	public void search() {
 		this.nextSearch = Time.getTime() + this.searchTime;
-		this.gos = GameObject.findAllByTags(this.targets, this.gos);
+
+		this.gos = GameObject.findAllByTags(this.targets, this.nonTargets, this.gos);
 
 		if (this.gos == null || this.gos.size() == 0) {
 			this.w.setShootDirection(this.defaultDirection);
@@ -59,7 +63,7 @@ public class LockingWeaponHandler extends Component {
 
 	@Override
 	public void update() {
-		if (this.go == null && canSearch()) {
+		if (canSearch()) {
 			search();
 			if (this.go == null) {
 				this.w.setShootDirection(this.defaultDirection);
@@ -70,7 +74,7 @@ public class LockingWeaponHandler extends Component {
 			calculateTrajectory();
 		}
 
-		if (this.w != null && this.w.canShoot()) {
+		if (this.autoShoot && this.w != null && this.w.canShoot()) {
 			this.w.shoot();
 		}
 	}

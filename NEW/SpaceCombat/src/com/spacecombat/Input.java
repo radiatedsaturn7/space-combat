@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
-		
+
 	private static float xPos;
 	private static float yPos;
 	private static boolean isMouseDown = false; 
@@ -17,8 +17,13 @@ public class Input {
 		}
 
 		for (int x = 0; x < Input.listeners.size(); x++) {
-			Input.listeners.get(x).onClick(xPos, yPos);
+			Input.listeners.get(x).onClick(Input.xPos, Input.yPos);
 		}
+	}
+
+	public static void setClickDown	(final boolean b) 
+	{
+		Input.isMouseDown = b;
 	}
 
 	public static void setX(final float x) {
@@ -36,16 +41,11 @@ public class Input {
 		Input.listeners.add(l);
 	}
 
-	public static void setClickDown	(boolean b) 
-	{
-		isMouseDown = b;
-	}
-	
 	public static void update ()
 	{
-		if (isMouseDown)
+		if (Input.isMouseDown)
 		{
-			fireOnClick();
+			Input.fireOnClick();
 		}
 	}
 }

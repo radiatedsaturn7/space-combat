@@ -20,13 +20,16 @@ public abstract class Weapon extends Component {
 	protected int magazineSize;
 	protected int shots;
 	protected float magazineReloadTime;
-	private Vector2 shotPosition;
+	protected String [] tags = null;
+	protected boolean useMagazine = true;
+	private final Vector2 shotPosition;
+	protected int powerUpType = -1;
 
 	public Weapon(final String name, final float damage, final float accuracy,
 			final float reloadTime, final int magazineSize,
 			final float magazineReloadTime, final float life,
 			final float shotSpeed, final Vector2 shootDirection,
-			final boolean usePhysics) {
+			final boolean usePhysics, final int powerUpType) {
 		this.name = name;
 		this.baseDamage = damage;
 		this.nextShotTime = 0;
@@ -40,12 +43,14 @@ public abstract class Weapon extends Component {
 		this.shots = 0;
 		this.magazineSize = magazineSize;
 		this.magazineReloadTime = magazineReloadTime;
-		this.shotPosition = new Vector2(0.0f,0.0f);
+		this.powerUpType = powerUpType;
+		this.shotPosition = new Vector2(0.0f,0.0f);		
+
 		setShootDirection(shootDirection);
 	}
 
-	public boolean canShoot() {
-		if (Time.getTime() > this.nextShotTime) {
+	public boolean canShoot() {				
+		if (Time.getTime() > this.nextShotTime && powerLevel >= 1) {
 			return true;
 		}
 		return false;
@@ -55,6 +60,10 @@ public abstract class Weapon extends Component {
 
 	public Vector2 getShotDirection() {
 		return this.shotSpeedVector;
+	}
+
+	public void powerUp() {
+		this.powerLevel++;
 	}
 
 	public void setShootDirection(final Vector2 v) {
@@ -68,15 +77,41 @@ public abstract class Weapon extends Component {
 		this.shotSpeedVector.y = v.y * this.shotSpeed;
 	}
 
+	public void setUseMagazine (final boolean use)
+	{
+		this.useMagazine = use;
+	}
+
 	public void shoot() {
+
 		if (!canShoot()) {
 			return;
+		}
+
+		if (this.tags == null)
+		{
+			this.tags = this.gameObject.getTags().clone();
+			final String [] temp = new String [this.tags.length+2];
+
+			for (int x = 0; x < this.tags.length; x++)
+			{
+				temp[x] = this.tags[x];				
+			}
+			temp[temp.length-1] = "shot";
+			temp[temp.length-2] = "node";
 		}
 
 		this.shots++;
 
 		if (this.shots > this.magazineSize) {
-			this.nextShotTime = Time.getTime() + this.magazineReloadTime;
+			if (this.useMagazine)
+			{
+				this.nextShotTime = Time.getTime() + this.magazineReloadTime;
+			}
+			else
+			{
+				this.nextShotTime = Time.getTime() + this.reloadTime;
+			}
 			this.shots = 0;
 		} else {
 			this.nextShotTime = Time.getTime() + this.reloadTime;
@@ -103,8 +138,9 @@ public abstract class Weapon extends Component {
 		this.shotSpeedVector.x += randomX;
 		this.shotSpeedVector.y += randomY;
 
-		shotPosition.x = gameObject.transform.position.x;
-		shotPosition.y = gameObject.transform.position.y;
+		this.shotPosition.x = this.gameObject.transform.position.x;
+		this.shotPosition.y = this.gameObject.transform.position.y;
+
 		fire(this.shotPosition);
 
 		this.shotSpeedVector.x -= randomX;
@@ -115,8 +151,14 @@ public abstract class Weapon extends Component {
 			this.shotSpeedVector.y -= this.gameObject.getRigidBody().speed.y;
 		}
 	}
-
-	public void powerUp() {
-		powerLevel++;
+	
+	public int getPowerUpType ()
+	{
+		return powerUpType;
+	}
+	
+	public void setPowerLevel (int pl)
+	{
+		powerLevel = pl;
 	}
 }

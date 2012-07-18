@@ -1,7 +1,0 @@
-package com.spacecombat.game;
-
-import com.spacecombat.Component;
-
-public class SimpleMovementOnCreate extends Component {
-
-}

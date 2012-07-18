@@ -8,7 +8,7 @@ public abstract class Collider {
 
 	public boolean collidesWith(final Collider c) {
 
-		if (c.hasTag(this.tags)) {
+		if (c.hasIgnoreTag(this.tags)) {
 			return false;
 		}
 
@@ -17,6 +17,10 @@ public abstract class Collider {
 			return collidesWith((BoxCollider) c);
 		}
 		return false;
+	}
+
+	public String[] getIgnoreTags() {
+		return this.tags;
 	}
 
 	public String getPrintableTags() {
@@ -34,11 +38,7 @@ public abstract class Collider {
 		return this.rigidBody;
 	}
 
-	public String[] getTags() {
-		return this.tags;
-	}
-
-	public boolean hasTag(final String tag) {
+	public boolean hasIgnoreTag(final String tag) {
 		if (this.tags == null) {
 			return false;
 		}
@@ -57,7 +57,7 @@ public abstract class Collider {
 		return false;
 	}
 
-	public boolean hasTag(final String[] otherTags) {
+	public boolean hasIgnoreTag(final String[] otherTags) {
 		if (this.tags == null) {
 			return false;
 		}
@@ -79,11 +79,11 @@ public abstract class Collider {
 		return false;
 	}
 
-	public void setRigidBody(final RigidBody rigidBody) {
-		this.rigidBody = rigidBody;
+	public void setIgnoreTags(final String[] tags) {
+		this.tags = tags;
 	}
 
-	public void setTags(final String[] tags) {
-		this.tags = tags;
+	public void setRigidBody(final RigidBody rigidBody) {
+		this.rigidBody = rigidBody;
 	}
 }

@@ -5,16 +5,16 @@ import com.spacecombat.Vector2;
 
 public class SetPositionOnCreate extends Component {
 
-	private Vector2 position;
-	
-	public SetPositionOnCreate(Vector2 position) 
+	private final Vector2 position;
+
+	public SetPositionOnCreate(final Vector2 position) 
 	{
 		this.position = position;
 	}
-	
+
+	@Override
 	public void onCreate ()
 	{
-		gameObject.transform.position = new Vector2(position.x,position.y);
-		System.out.println(gameObject.getName() + " Set position to " + gameObject.transform.position);
+		this.gameObject.transform.position = new Vector2(this.position.x,this.position.y);
 	}
 }

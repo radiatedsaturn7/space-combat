@@ -30,7 +30,6 @@ public abstract class Weapon extends Component
 		
 	public boolean canShoot()
 	{
-		//System.out.println((lastShotTime + reloadTime) + " < " + Time.getTime());
 		if (lastShotTime + reloadTime < Time.getTime())
 		{
 			return true;

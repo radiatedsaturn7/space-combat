@@ -1,7 +1,0 @@
-package com.spacecombat.game;
-
-import com.spacecombat.Component;
-
-public class DestroyOnCreate extends Component {
-
-}

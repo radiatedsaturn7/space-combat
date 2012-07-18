@@ -1,17 +1,30 @@
 package com.spacecombat;
 
+import com.spacecombat.game.SimpleMovement;
+
 public class Level extends Component {
 	public int tileHeight;
 	public int tileWidth;
 	public int mapHeight;
 	public int mapWidth;
 	public int[][] map;
-	public int[] solids;
+	public int[] solids;	
 
 	public GraphicAnimation[] wad;
 
 	public int sizeX;
 	public int sizeY;
+
+	private GameObject target = null;
+
+	//THIS GOES AWAY
+	public void alignBottom ()
+	{
+		/*
+		this.gameObject.transform.position.y = -(this.mapHeight * this.tileHeight - 800);
+		this.gameObject.transform.position.x = 0;
+		*/
+	}
 
 	public void createLevel(final int[] map, final int mapWidth,
 			final int mapHeight, final GenericGraphic image,
@@ -21,35 +34,25 @@ public class Level extends Component {
 		this.sizeX = mapWidth * tileWidth;
 		this.sizeY = mapHeight * tileHeight;
 	}
-	
-	public void alignBottom ()
-	{
-		gameObject.transform.position.y = -(mapHeight * tileHeight - 800);
-		gameObject.transform.position.x = 0;
-	}
 
 	@Override
 	public void draw() {
-		float originalX = this.gameObject.transform.position.x;
-		float originalY = this.gameObject.transform.position.y;
-		
+		final float originalX = this.gameObject.transform.position.x;
+		final float originalY = this.gameObject.transform.position.y;
+
 		for (int x = 0; x < this.mapWidth; x++) {
 			for (int y = 0; y < this.mapHeight; y++) {
 				this.wad[this.map[x][y]].setGameObject(this.gameObject);
 				this.wad[this.map[x][y]].draw();		
-				this.gameObject.transform.position.y += tileHeight;
+				this.gameObject.transform.position.y += this.tileHeight;
 			}
-			
-			this.gameObject.transform.position.x += tileWidth;
+
+			this.gameObject.transform.position.x += this.tileWidth;
 			this.gameObject.transform.position.y = originalY;
 		}
-		
+
 		this.gameObject.transform.position.x = originalX; 
 		this.gameObject.transform.position.y = originalY;
-	}
-	
-	public void update()
-	{		
 	}
 
 	public void setMap(final int[] map, final int mapWidth, final int mapHeight) {
@@ -74,7 +77,13 @@ public class Level extends Component {
 			}
 			x++;
 		}
+		System.out.println();
 		System.out.println("   x=" + x + " y=" + y + " i=" + i);
+	}
+
+	public void setScrollTarget (final GameObject target)
+	{
+		this.target = target;
 	}
 
 	public void setWad(final GenericGraphic image, final int tileWidth,
@@ -84,9 +93,10 @@ public class Level extends Component {
 		this.wad = new GraphicAnimation[tiles];
 
 		for (int x = 0; x < this.wad.length; x++) {
-			final Animation a = new Animation("idle", x - 1, x - 1, false, 17,
+			final Animation a = Animation.getNew();
+			a.init("idle", x - 1, x - 1, false, 17,
 					tileWidth, tileHeight);
-			GraphicAnimation b = new GraphicAnimation(image, a);
+			final GraphicAnimation b = new GraphicAnimation(image, a);
 			b.setGameObject(this.gameObject);
 			this.wad[x] = b;
 		}

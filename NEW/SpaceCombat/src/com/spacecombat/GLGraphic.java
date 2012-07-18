@@ -60,16 +60,16 @@ public class GLGraphic implements GenericGraphic {
 	public static void setGl(final GL10 gl) {
 		GLGraphic.gl = gl;
 	}
+	private int layer = 0;
 
 	public GLGraphic() {
 	}
 
 	@Override
-	public void create(final String name, final InputStream is) {
-		GLGraphic.gl = GLGraphic.gl;
+	public void create(final String name, final InputStream is, final int layer) {
+		this.layer = layer;		
 
 		if (GLGraphic.loaded == null) {
-			System.out.println("CREATED NEW IMAGE ARRAY");
 			GLGraphic.loaded = new HashMap<String, int[]>();
 		}
 
@@ -234,6 +234,9 @@ public class GLGraphic implements GenericGraphic {
 	public int getHeight() {
 		return this.maxHeight;
 	}
+
+	@Override
+	public int getLayer () {return this.layer;}
 
 	@Override
 	public int getWidth() {

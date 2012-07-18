@@ -1,17 +1,27 @@
 package com.spacecombat;
 
-public class Animation {
-	private final String name;
-	private final int startFrame;
-	private final int endFrame;
-	private final boolean loop;
-	private final int fps;
-	private final int width;
-	private final int height;
+import com.spacecombat.game.SimpleMovement;
+
+public class Animation implements Poolable {
+	
+	private static Pool animationPool;
+	
+	private String name;
+	private int startFrame;
+	private int endFrame;
+	private boolean loop;
+	private int fps;
+	private int width;
+	private int height;
 	private int currentFrame;
 
 	private boolean isDone;
 	private int frameIncrement = 1;
+	
+	public static Animation getNew ()
+	{
+		return (Animation)animationPool.retreive();
+	}
 
 	public Animation() {
 		this.name = "NO_ANIMATION_LOADED";
@@ -38,8 +48,8 @@ public class Animation {
 		this.frameIncrement = a.frameIncrement;
 	}
 
-	public Animation(final String name, final int start, final int end,
-			final boolean loop, final int fps, final int width, final int height) {
+	public void init (String name, int start, int end,
+			boolean loop, int fps, int width, int height) {
 		this.name = name;
 		this.startFrame = start;
 		this.endFrame = end;
@@ -112,5 +122,40 @@ public class Animation {
 
 	public void setFrameIncrement(final int x) {
 		this.frameIncrement = x;
+	}
+
+	@Override
+	public void clean() {
+		this.name = "NO_ANIMATION_LOADED";
+		this.startFrame = 0;
+		this.endFrame = 1;
+		this.loop = true;
+		this.fps = 17;
+		this.width = 32;
+		this.height = 32;
+		this.isDone = false;
+		this.frameIncrement = 1;
+	}
+
+	private int poolId;
+	@Override	
+	public int getPoolId() {
+		return poolId;
+	}
+
+	@Override
+	public void setPoolId(int id) {
+		poolId = id;
+	}
+	//
+	public void onBeforeDestroy ()
+	{
+		Animation.animationPool.release(this);
+	}
+	
+	static
+	{
+		animationPool = new Pool();
+		animationPool.init(Animation.class, 100);
 	}
 }

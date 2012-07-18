@@ -1,10 +1,15 @@
 package com.spacecombat;
 
 public class Component {
-	protected GameObject gameObject = null;
+	public GameObject gameObject = null;
 	protected boolean isEnabled = true;
+	
+	public GameObject getGameObject ()
+	{
+		return gameObject;
+	}
 
-	public void collide(final Collision collision) {
+	public void collide(final GameObject g) {
 	}
 
 	public void destroy() {
@@ -18,6 +23,9 @@ public class Component {
 
 	public boolean isEnabled() {
 		return this.isEnabled;
+	}
+
+	public void onAfterUpdate() {
 	}
 
 	public void onBeforeDestroy() {

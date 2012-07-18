@@ -1,0 +1,22 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Component;
+import com.spacecombat.GameObject;
+import com.spacecombat.Pool;
+import com.spacecombat.Poolable;
+import com.spacecombat.RigidBody;
+
+public class FaceSpeedDirection extends Component {
+	private RigidBody rigidBody;
+	
+	public FaceSpeedDirection (final RigidBody r)
+	{
+		this.rigidBody = r;
+	}
+
+	@Override
+	public void update() {
+		this.rigidBody.speed.x = this.speedX;
+		this.rigidBody.speed.y = this.speedY;
+	}
+}
