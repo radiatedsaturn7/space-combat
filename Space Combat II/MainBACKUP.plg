@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MainBACKUP - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\BOB\LOCALS~1\Temp\RSP7D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/MainBACKUP.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\BOB\LOCALS~1\Temp\RSP7D.tmp" 
+Creating temporary file "C:\DOCUME~1\BOB\LOCALS~1\Temp\RSP7E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/MainBACKUP.pdb" /debug /machine:I386 /out:"Debug/MainBACKUP.exe" /pdbtype:sept 
+".\Debug\MainBACKUP.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\BOB\LOCALS~1\Temp\RSP7E.tmp"
+<h3>Output Window</h3>
+Compiling...
+MainBACKUP.cpp
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(792) : error C2065: 'g_HEAD' : undeclared identifier
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(792) : error C2109: subscript requires array or pointer type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(792) : error C2228: left of '.condition' must have class/struct/union type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(1413) : error C2109: subscript requires array or pointer type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(1413) : error C2228: left of '.condition' must have class/struct/union type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(2334) : error C2109: subscript requires array or pointer type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(2334) : error C2228: left of '.condition' must have class/struct/union type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(3243) : error C2109: subscript requires array or pointer type
+c:\documents and settings\bob\desktop\backup\c++(code)\arcadegame\mission.h(3243) : error C2228: left of '.condition' must have class/struct/union type
+C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp(131) : error C2065: 'RADARFIX' : undeclared identifier
+C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp(1223) : error C2601: 'WndProc' : local function definitions are illegal
+C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp(1270) : error C2601: 'Init' : local function definitions are illegal
+C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp(1402) : error C2601: 'DeInit' : local function definitions are illegal
+C:\Documents and Settings\BOB\Desktop\BACKUP\c++(code)\arcadegame\MainBACKUP.cpp(1490) : fatal error C1004: unexpected end of file found
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+MainBACKUP.exe - 14 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
