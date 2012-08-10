@@ -25,7 +25,6 @@ public class GraphicAnimation extends Component {
 			return;
 		}
 
-		System.out.println("DRAWING " + gameObject.getName());
 		this.graphic.draw(this.animation.getX(), this.animation.getY(),
 				this.animation.getWidth(), this.animation.getHeight(),
 				(int) (this.gameObject.transform.position.x-Camera.mainCamera.gameObject.transform.position.x),
@@ -65,8 +64,8 @@ public class GraphicAnimation extends Component {
 		setEnabled(true);
 	}
 	
-	public void onBeforeDestroy()
+	public void destroy()
 	{
-		animation.onBeforeDestroy();
+		animation.destroy();
 	}
 }

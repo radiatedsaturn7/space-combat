@@ -13,12 +13,17 @@ public class Component {
 	}
 
 	public void destroy() {
+		/*
 		if (this.gameObject != null) {
 			this.gameObject.removeComponent(this);
 		}
+		*/
 	}
 
 	public void draw() {
+	}
+	
+	public void onGUI() {
 	}
 
 	public boolean isEnabled() {
@@ -26,9 +31,6 @@ public class Component {
 	}
 
 	public void onAfterUpdate() {
-	}
-
-	public void onBeforeDestroy() {
 	}
 
 	public void onCreate() {

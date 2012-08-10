@@ -24,6 +24,11 @@ public class PlayerInput extends Component implements ClickListener {
 		this.wc = wc;
 		this.collider = c;		
 	}
+	
+	public void destroy()
+	{
+		Input.unsubscribeListener(this);
+	}
 
 	@Override
 	public void onClick(final float x, final float y) {		
@@ -31,12 +36,6 @@ public class PlayerInput extends Component implements ClickListener {
 			return;
 		}
 
-		for (int d = 0; d < this.wc.length; d++)
-		{
-			if (this.wc[d].getSelectedWeapon() != null) {				
-				this.wc[d].getSelectedWeapon().shoot();
-			}
-		}
 
 		this.lastX = this.gameObject.transform.position.x;
 		this.lastY = this.gameObject.transform.position.y;
@@ -49,6 +48,13 @@ public class PlayerInput extends Component implements ClickListener {
 			this.gameObject.transform.position.x -= this.collider.size.x * .5;
 			this.gameObject.transform.position.y -= this.collider.size.y * 4;				
 		}
+		
+		for (int d = 0; d < this.wc.length; d++)
+		{
+			if (this.wc[d].getSelectedWeapon() != null) {				
+				this.wc[d].getSelectedWeapon().shoot();
+			}
+		}
 		clicked = true;
 	}
 
@@ -57,7 +63,7 @@ public class PlayerInput extends Component implements ClickListener {
 	{
 		if (!clicked)
 		{
-			this.gameObject.getRigidBody().speed.y = -10;
+			this.gameObject.getRigidBody().speed.y = -15;
 		}
 		else
 		{

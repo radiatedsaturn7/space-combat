@@ -10,7 +10,7 @@ public class AIScriptOne extends AIScript {
 	private final Vector2 accel = new Vector2(2, 2);
 	private final Vector2 maxSpeed = new Vector2(32, 32);
 	private Vector2 startPos = new Vector2(0, 0);
-	private final int maxWidth = 100;
+	private final int maxWidth = 50;
 
 	public AIScriptOne(final boolean isReverse) {
 		this.isReverse = isReverse;

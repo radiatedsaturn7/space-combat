@@ -15,7 +15,7 @@ public class Run extends Activity {
 
 	private class DemoView extends View implements View.OnTouchListener {
 		private final Engine e;
-		private final Paint paint;
+		private final Paint paint;				
 
 		public DemoView(final Context context) {
 			super(context);
@@ -65,5 +65,4 @@ public class Run extends Activity {
 		this.demoview.setOnTouchListener(this.demoview);
 		setContentView(this.demoview);
 	}
-
 }

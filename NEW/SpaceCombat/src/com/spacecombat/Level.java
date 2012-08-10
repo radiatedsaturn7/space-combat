@@ -62,23 +62,23 @@ public class Level extends Component {
 		this.mapHeight = mapHeight;
 		this.map = new int[this.mapWidth][this.mapHeight];
 
-		System.out.println("--MAP--");//
+		//System.out.println("--MAP--");//
 		int i = 0;
 		for (i = 0; i < map.length; i++) {
 			if (i % this.mapWidth == 0 && i != 0) {
-				System.out.println("   x=" + x + " y=" + y + " i=" + i);
+				//System.out.println("   x=" + x + " y=" + y + " i=" + i);
 				y++;
 				x = 0;
 			}
 
 			if (x < this.map.length && y < this.map[x].length) {
-				System.out.print(map[i]);
+				//System.out.print(map[i]);
 				this.map[x][y] = map[i];
 			}
 			x++;
 		}
-		System.out.println();
-		System.out.println("   x=" + x + " y=" + y + " i=" + i);
+		//System.out.println();
+//		/System.out.println("   x=" + x + " y=" + y + " i=" + i);
 	}
 
 	public void setWad(final GenericGraphic image, final int tileWidth,

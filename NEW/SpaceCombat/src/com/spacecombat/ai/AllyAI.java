@@ -61,8 +61,49 @@ public class AllyAI extends AIScript {
 
 	public static int ids = 1;
 
+		
+	private static int [] freeIds = {1,2,3,4};
+	private static int [] usedIds = new int[freeIds.length];
+
+	public static void clear()
+	{
+		freeIds = new int [] {1,2,3,4};
+		usedIds = new int[freeIds.length];
+	}
+	public static int getId()
+	{
+		for (int x = 0; x < freeIds.length; x++)
+		{
+			if (freeIds[x] > 0)
+			{				
+				usedIds[x] = freeIds[x];
+				int tempId = freeIds[x];
+				freeIds[x] = -1;
+				return tempId;
+			}
+		}
+		
+		return ids;
+	}
+	
+	public void destroy()
+	{
+		System.out.println("ON BEFORE DESTROY");
+		for (int x = 0; x < usedIds.length; x++)
+		{
+			if (usedIds[x] == this.id)
+			{
+				freeIds[x] = this.id;
+				usedIds[x] = -1;
+				this.id = -1;
+				return;
+			}
+		}
+	}
+	
 	public AllyAI(final String allyType, final Weapon w) {
-		this.id = AllyAI.ids;
+		this.id = getId();
+		System.out.println("ALLY ID:" + this.id);
 		this.gos = new LinkedList<GameObject>();
 		AllyAI.ids++;
 		this.weapon = w;	
@@ -428,8 +469,8 @@ public class AllyAI extends AIScript {
 		this.searchTime = 1;
 		this.nextSearch = 0;
 		this.tempLine = true;
-		this.formation = 5;
-		this.roamFormation = 5;
+		this.formation = 2;
+		this.roamFormation = 2;
 		this.headUnit = false;
 		this.sBoundingBox = new Rectangle();
 		this.boxCollider = (BoxCollider) this.gameObject.getRigidBody()
@@ -629,7 +670,7 @@ public class AllyAI extends AIScript {
 			this.gos = GameObject.findAllByTags(this.playerTag, this.gos);
 			AllyAI.numOfPlayers = this.gos.size();
 
-			if (AllyAI.numOfPlayers > 0) {
+			if (AllyAI.numOfPlayers > 0 && this.gos != null) {
 				this.followPlayer = this.gos.get(this.id % AllyAI.numOfPlayers);
 				this.followRectangle = getBoundingBox(this.followPlayer,
 						this.followRectangle);

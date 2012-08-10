@@ -8,11 +8,17 @@ public class TextAnimation extends Component
 		this.text = text;
 	}
 
+	public void setText (String s)
+	{
+		text.setText(s);
+	}
+	
 	@Override
 	public void draw ()
 	{
-		this.text.draw((int) this.gameObject.transform.position.x,
-				(int) this.gameObject.transform.position.y,
+		this.text.draw(
+				(int) (this.gameObject.transform.position.x-Camera.mainCamera.gameObject.transform.position.x),
+				(int) (this.gameObject.transform.position.y-Camera.mainCamera.gameObject.transform.position.y),
 				(int) this.gameObject.transform.rotation.x,
 				(int) this.gameObject.transform.rotation.y,
 				(int) this.gameObject.transform.scale.x,

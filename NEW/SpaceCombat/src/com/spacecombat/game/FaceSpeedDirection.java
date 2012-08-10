@@ -16,6 +16,7 @@ public class FaceSpeedDirection extends Component {
 
 	@Override
 	public void update() {
+		//System.out.println("RIGID BODY SPEED:" + this.rigidBody.speed + ":" + this.gameObject.transform.rotation.x);
 		this.gameObject.transform.rotation.x = rigidBody.speed.getAngle(); 
 		//System.out.println("ROT:"+this.gameObject.transform.rotation.x);
 	}

@@ -1,11 +1,13 @@
 package com.spacecombat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GameObject extends Component implements Poolable {
-
+	
+	private boolean trace = false;	
 	private static List<GameObject> gameObjects = new ArrayList<GameObject>();
 	private static Vector2 distances = new Vector2();
 
@@ -65,7 +67,6 @@ public class GameObject extends Component implements Poolable {
 	private static int nextId = 0;
 	
 	public static GameObject create(final GameObject gameObject) {
-
 		//HACKY CODE
 		//technically something could have multiple graphics here
 		//but we assume one... this will get tricky if we do this with layers
@@ -215,20 +216,24 @@ public class GameObject extends Component implements Poolable {
 
 	private int poolId;
 
-	public GameObject() {
+	public GameObject() {		
 		this.name = "GameObject";
+		trace = false;	
 		this.tags = null;
 		this.transform = new Transform();
 		this.components = new ArrayList<Component>();
+		doTrace();
 	}
 
 	public void addComponent(final Component c) {
+		doTrace();
 		c.setGameObject(this);
-		this.components.add(c);
+		this.components.add(c);		
 	}
 
 	public void addTag(final String tag)
 	{
+		doTrace();
 		if (this.hasTag(tag))
 		{
 			return;
@@ -250,7 +255,9 @@ public class GameObject extends Component implements Poolable {
 
 	@Override
 	public void clean() {
+		doTrace();
 		this.components.clear();
+		this.trace = false;	
 		this.rigidBody = null;
 		this.transform.position.x = 0;
 		this.transform.position.y = 0;
@@ -264,6 +271,8 @@ public class GameObject extends Component implements Poolable {
 
 	@Override
 	public void collide(final GameObject g) {
+		doTrace();
+		
 		if (this.isDestroyed) {
 			return;
 		}
@@ -272,18 +281,53 @@ public class GameObject extends Component implements Poolable {
 			this.components.get(x).collide(g);
 		}
 	}
-
+	
 	@Override
-	public void destroy() {
-		for (int x = 0; x < this.components.size(); x++) {
-			this.components.get(x).onBeforeDestroy();
+	public void onGUI() {
+		doTrace();
+		
+		if (this.isDestroyed) {
+			return;
 		}
 
-		this.isDestroyed = true;
+		for (int x = 0; x < this.components.size(); x++) {
+			this.components.get(x).onGUI();
+		}
+	}
+	
+	public static void clear()
+	{
+		for (int x = 0; x < GameObject.gameObjects.size(); x++)
+		{
+			gameObjects.get(x).destroy();
+		} 
+
+		gameObjects.clear();
+	}
+	
+	@Override
+	public void destroy() {
+		doTrace();		
+		this.isDestroyed = true;		
+	}
+	
+	public void release()
+	{
+		int size = this.components.size();
+		//System.out.println("releasing:"+size);
+		for (int x = 0; x < size; x++) {
+			//System.out.println("    :"+x+"  "+this.components.get(x).getClass().getSimpleName()+"   ="+this.components.size());
+			this.components.get(x).destroy();
+			
+			//System.out.println("    :"+x+"  "+this.components.get(x).getClass().getSimpleName()+"   ="+this.components.size());
+		}
+		
 		GameObject.gameObjectsPool.release(this);
 	}
 
 	public void destroyAfter(final float time) {
+		doTrace();
+		
 		this.destroyTimeStamp = Time.getTime();
 
 		this.destroyTimeStamp += time;
@@ -292,6 +336,8 @@ public class GameObject extends Component implements Poolable {
 
 	@Override
 	public void draw() {
+		doTrace();
+		
 		if (this.isDestroyed) {
 			return;
 		}
@@ -310,6 +356,8 @@ public class GameObject extends Component implements Poolable {
 
 	public boolean equals (final GameObject g)
 	{
+		doTrace();
+		
 		if (g.getId() == this.id)
 		{
 			return true;
@@ -318,6 +366,8 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public GraphicAnimation getAnimation(final String name) {
+		doTrace();
+		
 		for (int x = 0; x < this.components.size(); x++) {
 			this.xComponent = this.components.get(x);
 			if (this.xComponent instanceof GraphicAnimation) {
@@ -332,21 +382,36 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	private Component xc;
-	public Component getComponent(final Class<? extends Component> getClass) {
-		// String s = "";		
-		for (int x = 0; x < this.components.size(); x++) {
+	public Component getComponent(final Class<? extends Component> getClass) 
+	{
+		return getComponent(getClass,false);
+	}
+
+	public Component getComponent(final Class<? extends Component> getClass, boolean print) {
+		doTrace();
+		
+		
+		//String s = "";
+		for (int x = 0; x < this.components.size(); x++) { 
 			xc = this.components.get(x);
-			// s += c.getClass().getSimpleName() + ",";
+			 //s += xc.getClass().getSimpleName() + ",";
 			if (xc.getClass() == getClass) {
-				return xc;
+				return xc; 
 			}
 		}
 
-		// getClass.getSimpleName() + " in " + s);
+		if (print)
+		{
+			//System.out.println(getName() + " does not have a " + getClass.getSimpleName());
+			//System.out.println(getClass.getSimpleName() + " is not in: " + s);
+		}
+
 		return null;
 	}
 
 	public GraphicAnimation getCurrentAnimation() {
+		doTrace();
+		
 		for (int x = 0; x < this.components.size(); x++) {
 			this.xComponent = this.components.get(x);
 			if (this.xComponent instanceof GraphicAnimation) {
@@ -359,27 +424,38 @@ public class GameObject extends Component implements Poolable {
 	}
 
 
-	public boolean getDestroyOnLevelLoad ()
+	public boolean getDestroyOnLevelLoad ()	
 	{
+		doTrace();
+		
 		return this.destroyOnLevelLoad;
 	}
 
 	public int getId()
 	{
+		doTrace();
+		
 		return this.id;
 	}
 
 	public String getName() {
+		doTrace();
+		
+
 		return this.name;
 	}
 
 	@Override
-	public int getPoolId ()
+	public int getPoolId ()	
 	{
+		doTrace();
+		
 		return this.poolId;
 	}
 
 	public String getPrintableTags() {
+		doTrace();
+		
 		String s = "";
 		if (this.tags != null) {
 			for (int x = 0; x < this.tags.length; x++) {
@@ -390,14 +466,20 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public RigidBody getRigidBody() {
+		//doTrace();
+		
 		return this.rigidBody;
 	}
 
 	public String[] getTags() {
+		doTrace();
+		
 		return this.tags;
 	}
 
 	public boolean hasTag(final String tag) {
+		doTrace();
+		
 		if (this.tags == null) {
 			return false;
 		}
@@ -414,16 +496,32 @@ public class GameObject extends Component implements Poolable {
 		return false;
 	}
 
-	public boolean hasTag(final String[] otherTags) {
+	public boolean hasTag(String[] otherTags) {
+		doTrace();
+		
+		return hasTag(otherTags,false);
+	}
+	
+	public boolean hasTag(String[] otherTags, boolean print) {
+		doTrace();
+		
 		if (this.tags == null) {
+			if (print)
+				System.out.println("NULL");
 			return false;
 		}
 		if (otherTags == null) {
+			if (print)
+				System.out.println("NULL");
 			return false;
 		}
 
 		for (int x = 0; x < this.tags.length; x++) {
 			for (int y = 0; y < otherTags.length; y++) {
+				if (print)
+				{
+					System.out.println(this.tags[x] + " " + otherTags[y]);
+				}
 				if (this.tags[x].equalsIgnoreCase(otherTags[y])
 						&& otherTags[y] != null) {
 					return true;
@@ -435,11 +533,15 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public boolean isDestroyed() {
+		doTrace();
+		
 		return this.isDestroyed;
 	}
 
 	@Override
 	public void onAfterUpdate() {
+		doTrace();
+		
 		if (this.isDestroyed) {
 			return;
 		}
@@ -466,6 +568,8 @@ public class GameObject extends Component implements Poolable {
 
 	@Override
 	public void onCreate() {
+		doTrace();
+		
 		this.isDestroyed = false;
 		this.id = GameObject.nextId;
 		GameObject.nextId++;
@@ -481,6 +585,8 @@ public class GameObject extends Component implements Poolable {
 
 	@Override
 	public void onStart() {
+		doTrace();
+		
 		if (this.rigidBody != null) {
 			this.rigidBody.onStart();
 		}
@@ -491,6 +597,8 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public GraphicAnimation playAnimation(final String name) {
+		doTrace();
+		
 		GraphicAnimation animation = null;
 
 		for (int x = 0; x < this.components.size(); x++) {
@@ -511,6 +619,8 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public void removeComponent(final Class<? extends Component> getClass) {
+		doTrace();
+		
 		for (int x = 0; x < this.components.size(); x++) {
 			this.xComponent = this.components.get(x);
 			if (this.xComponent.getClass() == getClass) {
@@ -522,34 +632,46 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	public void removeComponent(final Component c) {
+		doTrace();
+		
 		this.components.remove(c);
 	}
 
 	public void setDestroyOnLevelLoad (final boolean d)
 	{
+		doTrace();
+		
 		this.destroyOnLevelLoad = d;
 	}
 
 	public void setName(final String name) {
+		doTrace();
+		
 		this.name = name;
 	}
 
 	@Override
 	public void setPoolId (final int x)
 	{
+		doTrace();
 		this.poolId = x;
 	}
 
 	public void setRigidBody(final RigidBody rigidBody) {
+		doTrace();
+		
 		rigidBody.setGameObject(this);
 		this.rigidBody = rigidBody;
 		rigidBody.setGameObject(this);
 	}
 	public void setTags(final String[] tags) {
+		doTrace();		
 		this.tags = tags;
 	}
 	@Override
 	public void update() {
+		doTrace();
+		
 		if (this.isDestroyed) {
 			return;
 		}
@@ -565,6 +687,41 @@ public class GameObject extends Component implements Poolable {
 				// c.getClass().getSimpleName());
 				this.xComponent.update();
 			}
+		}
+	}
+	
+	public String toString()
+	{
+		String string = "";
+		string += "GameObject [" + this.name + "]:\n";
+		string += "    Transform:" + transform.position + " " + transform.rotation + " " + transform.scale + "\n";
+		string += "    RigidBody:" + rigidBody;	
+		
+		if (rigidBody != null)
+		{
+			string += "    Speed    :" + rigidBody.speed + "\n";
+		}
+		string += "    Components:" + components.size() + "\n";
+		
+		for (int x = 0; x < components.size(); x++)
+		{
+			string += "        " + components.get(x).getClass().getSimpleName() + "\n";
+		}
+		return string;		
+	}
+	
+	public void setTrace(boolean t)
+	{
+		doTrace();
+		trace = t;
+	}
+	
+	public void doTrace()
+	{
+		if (trace)
+		{
+			Exception e = new Exception("---TRACING---\n" + toString());
+			e.printStackTrace();
 		}
 	}
 }

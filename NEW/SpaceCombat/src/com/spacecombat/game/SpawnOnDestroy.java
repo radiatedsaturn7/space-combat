@@ -15,7 +15,7 @@ public class SpawnOnDestroy extends Component {
 	}
 
 	@Override
-	public void  onBeforeDestroy ()
+	public void  destroy ()
 	{
 		if (this.isFired)
 		{

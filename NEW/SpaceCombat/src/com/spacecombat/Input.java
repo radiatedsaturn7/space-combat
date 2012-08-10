@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Input {
 
-	private static float xPos;
-	private static float yPos;
+	public static float xPos;
+	public static float yPos;
 	private static boolean isMouseDown = false; 
 
 	private static List<ClickListener> listeners;
@@ -21,6 +21,10 @@ public class Input {
 		}
 	}
 
+	public static void clear ()
+	{
+		listeners.clear();
+	}
 	public static void setClickDown	(final boolean b) 
 	{
 		Input.isMouseDown = b;
@@ -47,5 +51,9 @@ public class Input {
 		{
 			Input.fireOnClick();
 		}
+	}
+
+	public static void unsubscribeListener(ClickListener l) {
+		Input.listeners.remove(l);
 	}
 }

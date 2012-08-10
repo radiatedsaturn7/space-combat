@@ -148,7 +148,7 @@ public class Animation implements Poolable {
 		poolId = id;
 	}
 	//
-	public void onBeforeDestroy ()
+	public void destroy ()
 	{
 		Animation.animationPool.release(this);
 	}

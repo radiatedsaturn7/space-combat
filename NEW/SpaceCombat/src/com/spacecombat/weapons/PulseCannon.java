@@ -24,11 +24,11 @@ public class PulseCannon extends Weapon {
 		super(PulseCannon.name, PulseCannon.damage, PulseCannon.accuracy,
 				PulseCannon.reloadTime, PulseCannon.magazineSize,
 				PulseCannon.magazineReloadTime, PulseCannon.life,
-				PulseCannon.shotSpeed, direction, true, powerUpType);
+				PulseCannon.shotSpeed, direction, false, powerUpType);
 	}
 
 	@Override
-	protected void fire(final Vector2 position) {
+	protected boolean fire(final Vector2 position) {
 		int draw = 4;
 		int draw2 = 4;
 		int count = 0;
@@ -82,5 +82,6 @@ public class PulseCannon extends Weapon {
 				position.y -= 32;
 			}
 		}
+		return true;
 	}
 }

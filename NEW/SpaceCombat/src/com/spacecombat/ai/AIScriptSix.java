@@ -33,11 +33,11 @@ public class AIScriptSix extends AIScript {
 		}
 
 		if (!this.isReverse
-				&& this.gameObject.transform.position.x < 400) {
+				&& this.gameObject.transform.position.x < 416) {
 			if (this.rigidBody.speed.x < this.maxSpeed.x) {
 				this.rigidBody.speed.x += this.accel.x;
 			}
-		} else if (this.gameObject.transform.position.x > 0) {
+		} else if (this.gameObject.transform.position.x > 64) {
 			this.isReverse = true;
 			if (this.rigidBody.speed.x > -this.maxSpeed.x) {
 				this.rigidBody.speed.x -= this.accel.x;

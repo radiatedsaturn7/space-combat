@@ -68,7 +68,7 @@ public class SimpleMovement extends Component implements Poolable{
 		return (SimpleMovement)SimpleMovement.simpleMovementPool.retreive();
 	}
 	
-	public void onBeforeDestroy ()
+	public void destroy ()
 	{
 		SimpleMovement.simpleMovementPool.release(this);
 	}

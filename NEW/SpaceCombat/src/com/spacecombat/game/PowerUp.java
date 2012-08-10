@@ -50,11 +50,23 @@ public class PowerUp extends Component
 		}
 		if (this.type == 1)
 		{
-			this.gameObject.playAnimation("Health");
+			this.gameObject.playAnimation("Missile");
 		}
 		if (this.type == 2)
 		{
-			this.gameObject.playAnimation("Missile");
+			this.gameObject.playAnimation("LockingLaser");
+		}
+		if (this.type == 3)
+		{
+			this.gameObject.playAnimation("Wingman");
+		}
+		if (this.type == 4)
+		{
+			this.gameObject.playAnimation("Health");
+		}
+		if (this.type == 5)
+		{
+			this.gameObject.playAnimation("Charge");
 		}
 	}
 

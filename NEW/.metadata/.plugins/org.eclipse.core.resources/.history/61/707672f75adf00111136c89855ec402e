@@ -1,0 +1,25 @@
+package com.spacecombat;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+
+public class Audio extends Component 
+{
+	private static Context context;
+	private MediaPlayer mediaPlayer;
+	public static void setContext(final Context c) 
+	{
+		Audio.context = c;
+	}
+	
+	public AudioComponent (MediaPlayer mp)
+	{
+		mediaPlayer = mp;
+		mediaPlayer.start(); 
+	}
+	
+	public void onCreate()
+	{
+		
+	}
+}

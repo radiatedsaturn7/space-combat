@@ -20,11 +20,11 @@ public class MachineGun extends Weapon {
 		super(MachineGun.name, MachineGun.damage, MachineGun.accuracy,
 				MachineGun.reloadTime, MachineGun.magazineSize,
 				MachineGun.magazineReloadTime, MachineGun.life,
-				MachineGun.shotSpeed, direction, true, powerUpType);
+				MachineGun.shotSpeed, direction, false, powerUpType);
 	}
 
 	@Override
-	protected void fire(final Vector2 position) {
+	protected boolean fire(final Vector2 position) {
 
 		GameObject.create(PrefabFactory.createShot("bullet", position,
 				this.shotSpeedVector, this.tags,
@@ -57,5 +57,6 @@ public class MachineGun extends Weapon {
 					this.baseDamage + (7.5f * (nextPowerLevel-1)), nextPowerLevel, MachineGun.life));
 			this.shotSpeedVector.x -= 60;
 		}
+		return true;
 	}
 }

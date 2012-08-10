@@ -1,5 +1,6 @@
 package com.spacecombat.weapons;
 
+import com.spacecombat.Audio;
 import com.spacecombat.Component;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
@@ -16,7 +17,7 @@ public abstract class Weapon extends Component {
 	protected float life;
 	protected Vector2 shotSpeedVector;
 	protected float accuracy;
-	protected boolean usePhysics = true;
+	protected boolean usePhysics = false;
 	protected int magazineSize;
 	protected int shots;
 	protected float magazineReloadTime;
@@ -24,6 +25,7 @@ public abstract class Weapon extends Component {
 	protected boolean useMagazine = true;
 	private final Vector2 shotPosition;
 	protected int powerUpType = -1;
+	private Audio audio;
 
 	public Weapon(final String name, final float damage, final float accuracy,
 			final float reloadTime, final int magazineSize,
@@ -56,7 +58,7 @@ public abstract class Weapon extends Component {
 		return false;
 	}
 
-	protected abstract void fire(Vector2 position);
+	protected abstract boolean fire(Vector2 position);
 
 	public Vector2 getShotDirection() {
 		return this.shotSpeedVector;
@@ -86,7 +88,7 @@ public abstract class Weapon extends Component {
 
 		if (!canShoot()) {
 			return;
-		}
+		}	
 
 		if (this.tags == null)
 		{
@@ -117,7 +119,7 @@ public abstract class Weapon extends Component {
 			this.nextShotTime = Time.getTime() + this.reloadTime;
 		}
 
-		if (this.usePhysics) {
+		if (this.usePhysics && this.gameObject.getRigidBody() != null) {
 			this.shotSpeedVector.x += this.gameObject.getRigidBody().speed.x;
 			this.shotSpeedVector.y += this.gameObject.getRigidBody().speed.y;
 		}
@@ -140,13 +142,19 @@ public abstract class Weapon extends Component {
 
 		this.shotPosition.x = this.gameObject.transform.position.x;
 		this.shotPosition.y = this.gameObject.transform.position.y;
-
-		fire(this.shotPosition);
+		
+		if (fire(this.shotPosition))
+		{
+			if (audio != null)
+			{
+				audio.playOnce();
+			}			
+		}
 
 		this.shotSpeedVector.x -= randomX;
 		this.shotSpeedVector.y -= randomY;
 
-		if (this.usePhysics) {
+		if (this.usePhysics && this.gameObject.getRigidBody() != null) {
 			this.shotSpeedVector.x -= this.gameObject.getRigidBody().speed.x;
 			this.shotSpeedVector.y -= this.gameObject.getRigidBody().speed.y;
 		}
@@ -160,5 +168,17 @@ public abstract class Weapon extends Component {
 	public void setPowerLevel (int pl)
 	{
 		powerLevel = pl;
+	}
+
+	public void addAudio(Audio sound) {
+		audio = sound;
+	}
+	
+	public void destroy ()
+	{
+		if (audio != null)
+		{
+			audio.destroy();
+		}
 	}
 }

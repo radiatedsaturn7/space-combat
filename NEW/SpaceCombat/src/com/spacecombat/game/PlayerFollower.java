@@ -32,17 +32,28 @@ public class PlayerFollower extends Component
 	{
 		if (this.target == null || this.target.isDestroyed() || this.gameObject.getRigidBody() == null || simpleMovement == null)
 		{
+			simpleMovement.setSpeed(0, yScroll);
 			this.target = GameObject.findByName("player");
-			System.out.println("NONE" + this.target);
 			return;
 		}
 
-		if (this.target.transform.position.x - Camera.mainCamera.gameObject.transform.position.x > startScrollRight/* && Camera.mainCamera.gameObject.transform.position.x < maxWidth*/)
+		//System.out.println(Camera.mainCamera.gameObject.transform.position.x + " BETWEEN " + maxWidth + " AND " + minWidth);
+		
+		if (simpleMovement.gameObject.transform.position.x < minWidth)
+		{
+			simpleMovement.gameObject.transform.position.x = minWidth;
+		}
+		if (simpleMovement.gameObject.transform.position.x > maxWidth)
+		{
+			simpleMovement.gameObject.transform.position.x = maxWidth;
+		}
+		
+		if (this.target.transform.position.x - Camera.mainCamera.gameObject.transform.position.x > startScrollRight && Camera.mainCamera.gameObject.transform.position.x < maxWidth)
 		{
 			//System.out.println("MOVE RIGHT");
 			simpleMovement.setSpeed(32, yScroll);
 		}
-		else if (this.target.transform.position.x - Camera.mainCamera.gameObject.transform.position.x < startScrollLeft/* && Camera.mainCamera.gameObject.transform.position.x > minWidth*/)
+		else if (this.target.transform.position.x - Camera.mainCamera.gameObject.transform.position.x < startScrollLeft && Camera.mainCamera.gameObject.transform.position.x > minWidth)
 		{
 			//System.out.println("CAMERA:"+this.gameObject.transform.rotation);
 			//System.out.println("TARGET:"+this.target.transform.rotation);

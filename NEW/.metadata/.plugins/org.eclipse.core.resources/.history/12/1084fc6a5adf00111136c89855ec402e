@@ -1,0 +1,19 @@
+package com.spacecombat;
+
+import android.media.MediaPlayer;
+
+public class Audio extends Component 
+{
+	public static Context;
+	
+	public void AudioComponent()
+	{
+		MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.sound_file_1);
+		mediaPlayer.start(); 
+	}
+	
+	public void onCreate()
+	{
+		
+	}
+}

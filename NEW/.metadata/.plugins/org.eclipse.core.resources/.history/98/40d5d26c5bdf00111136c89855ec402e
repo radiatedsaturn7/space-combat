@@ -1,0 +1,49 @@
+package com.spacecombat;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+
+public class Audio extends Component 
+{
+	private static Context context;
+	private MediaPlayer mediaPlayer;
+	public static void setContext(final Context c) 
+	{
+		Audio.context = c;
+	}
+	
+	public AudioComponent (MediaPlayer mp)
+	{
+		mediaPlayer = mp;
+	}
+	
+	public void play()
+	{
+		mediaPlayer.seekTo(0);
+		mediaPlayer.setLooping(true);
+		mediaPlayer.start(); 
+	}
+	
+	public void playOnce()
+	{
+		mediaPlayer.seekTo(0);
+		mediaPlayer.setLooping(false);
+		mediaPlayer.start(); 
+	}
+	
+	public void pause()
+	{
+		mediaPlayer.pause();
+	}
+	
+	public void stop()
+	{
+		mediaPlayer.pause();
+		mediaPlayer.seekTo(0);
+	}
+	
+	public void destroy()
+	{
+		mediaPlayer.release();
+	}
+}

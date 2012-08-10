@@ -6,7 +6,7 @@ import com.spacecombat.game.PrefabFactory;
 
 public class MissileLauncher extends Weapon {
 	private static final String name = "missileLauncher";
-	private static final float damage = 30;
+	private static final float damage = 50;
 	private static final float reloadTime = 3.0f;
 	private static final float shotSpeed = 128;
 	private static final float life = 5;
@@ -18,12 +18,12 @@ public class MissileLauncher extends Weapon {
 	public MissileLauncher(final Vector2 direction) {
 		super(MissileLauncher.name, MissileLauncher.damage, MissileLauncher.accuracy, MissileLauncher.reloadTime,
 				MissileLauncher.magazineSize, MissileLauncher.magazineReloadTime, MissileLauncher.life,
-				MissileLauncher.shotSpeed, direction, true, powerUpType);
+				MissileLauncher.shotSpeed, direction, false, powerUpType);
 	}
 
 	@Override
-	protected void fire(final Vector2 position) {
-		if (this.powerLevel == 1 || this.powerLevel == 3)
+	protected boolean fire(final Vector2 position) {
+		if (this.powerLevel == 1 || this.powerLevel >= 3)
 		{
 			GameObject.create(PrefabFactory.createShot("missile", position,
 				this.shotSpeedVector, this.tags,
@@ -32,7 +32,7 @@ public class MissileLauncher extends Weapon {
 		position.x += 16;
 		position.y += 16;
 		
-		if (this.powerLevel == 2)
+		if (this.powerLevel >= 2)
 		{
 			GameObject.create(PrefabFactory.createShot("missile", position,
 				this.shotSpeedVector, this.tags,
@@ -43,5 +43,6 @@ public class MissileLauncher extends Weapon {
 				this.shotSpeedVector, this.tags,
 				this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, MissileLauncher.life));
 		}
+		return true;
 	}
 }

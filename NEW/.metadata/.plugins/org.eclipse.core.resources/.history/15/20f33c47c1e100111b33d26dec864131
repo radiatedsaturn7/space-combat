@@ -1,0 +1,303 @@
+createLevel
+wad3
+16
+82
+0,0,0,0,0,0,0,1,0,7,0,0,0,0,0,0,
+7,0,7,0,0,0,0,1,0,6,0,0,0,0,0,0,
+6,0,6,0,0,0,0,1,0,6,0,0,0,0,0,0,
+6,0,0,0,0,7,0,1,0,6,0,7,0,0,0,0,
+0,0,0,0,0,6,0,1,0,6,0,6,0,0,0,0,
+0,0,0,7,0,6,0,1,0,0,0,6,0,7,0,0,
+0,0,0,6,0,0,0,1,0,0,0,6,0,6,0,0,
+0,0,0,6,0,0,0,1,0,0,0,0,0,0,0,0,
+0,10,0,10,0,0,0,15,0,10,0,10,0,0,0,0,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,
+0,10,0,10,0,0,0,14,0,10,0,10,0,0,0,0,
+9,9,9,9,9,9,9,1,9,9,9,9,9,9,9,9,
+8,8,8,8,8,8,8,1,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,1,8,8,8,8,8,8,8,8,
+17,17,17,17,17,17,17,1,17,17,17,17,17,17,17,17,
+0,10,0,10,0,0,0,15,0,10,0,10,0,0,0,0,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,7,11,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,6,14,11,13,13,13,13,13,13,13,
+13,13,13,13,13,13,6,1,10,13,13,13,13,13,13,13,
+13,13,13,13,13,13,10,1,10,13,13,13,13,13,13,13,
+13,13,13,13,13,13,0,1,0,13,13,13,13,13,13,13,
+13,13,13,13,13,13,16,15,16,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,16,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,
+0,0,0,0,0,0,0,14,7,0,0,0,0,0,0,0,
+0,0,10,0,10,0,0,1,0,10,0,0,0,10,0,0,
+0,0,0,0,0,0,0,1,0,0,0,10,0,10,0,0,
+0,10,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,10,0,0,0,0,0,0,
+0,0,0,0,10,0,0,1,0,0,10,0,10,0,0,0,
+0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,
+0,0,10,0,7,0,0,3,0,0,0,0,10,0,0,0,
+0,0,0,0,6,0,0,1,0,0,7,0,0,0,0,0,
+5,5,5,5,6,5,5,4,5,5,6,5,5,5,5,5,
+0,0,7,0,6,0,0,1,7,0,6,0,0,0,0,0,
+0,0,6,0,0,0,0,3,6,0,6,0,0,0,0,0,
+0,0,6,0,7,0,0,2,6,0,6,0,0,10,0,0,
+7,0,6,0,6,7,0,1,0,0,0,0,10,0,0,0,
+6,0,6,0,0,6,0,1,0,0,0,0,0,0,0,0,
+0,0,6,0,0,6,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,10,0,0,0,3,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+
+createPlayer
+64
+4448
+264
+4884
+hunter
+laser
+
+create_enemy(150, 13, 0, yes, 5, 0, no);
+create_enemy(155, 13, 0, yes, 0, 5, no);
+create_enemy(160, 13, 0, yes, 5, 0, no);
+create_enemy(165, 13, 0, yes, 0, 5, no);
+create_enemy(170, 13, 0, yes, 5, 0, no);
+create_enemy(175, 13, 0, yes, 0, 5, no);
+create_enemy(180, 13, 0, yes, 5, 0, no);
+create_enemy(185, 13, 0, yes, 0, 5, no);
+create_enemy(190, 13, 0, yes, 5, 0, no);
+create_enemy(195, 13, 0, yes, 0, 5, no);
+create_enemy(200, 13, 0, yes, 5, 0, no);
+create_enemy(205, 13, 0, yes, 0, 5, no);
+create_enemy(210, 13, 1, no,  0, 0, no);
+create_enemy(215, 13, 1, no,  0, 0, no);
+create_enemy(220, 13, 1, no,  0, 0, no);
+create_enemy(225, 13, 1, no,  0, 0, no);
+create_enemy(230, 13, 1, no,  0, 0, no);
+create_enemy(235, 13, 1, no,  0, 0, no);
+create_enemy(240, 13, 1, no,  0, 0, no);
+create_enemy(245, 13, 1, no,  0, 0, no);
+create_enemy(250, 13, 1, no,  0, 0, no);
+create_enemy(255, 13, 1, no,  0, 0, no);
+create_enemy(260, 13, 1, no,  0, 0, no);
+create_enemy(265, 13, 1, no,  0, 0, no);
+create_enemy(270, 13, 1, no,  0, 0, no);
+create_enemy(275, 13, 1, no,  0, 0, no);
+create_enemy(280, 13, 1, no,  0, 0, no);
+create_enemy(285, 13, 1, no,  0, 0, no);
+create_enemy(290, 13, 1, no,  0, 0, no);
+create_enemy(295, 13, 1, no,  0, 0, no);
+create_enemy(310, 13, 2, no,  0, 0, no);
+create_enemy(315, 13, 2, no,  0, 0, no);
+create_enemy(320, 13, 2, no,  0, 0, no);
+create_enemy(325, 13, 2, no,  0, 0, no);
+create_enemy(330, 13, 2, no,  0, 0, no);
+create_enemy(335, 13, 2, no,  0, 0, no);
+create_enemy(340, 13, 2, no,  0, 0, no);
+create_enemy(345, 13, 2, no,  0, 0, no);
+create_enemy(350, 13, 2, no,  0, 0, no);
+create_enemy(355, 13, 2, no,  0, 0, no);
+create_enemy(360, 13, 2, no,  0, 0, no);
+create_enemy(365, 13, 2, no,  0, 0, no);
+create_enemy(370, 13, 2, no,  0, 0, no);
+create_enemy(375, 13, 2, no,  0, 0, no);
+create_enemy(380, 13, 2, no,  0, 0, no);
+create_enemy(385, 13, 2, no,  0, 0, no);
+create_enemy(390, 13, 2, no,  0, 0, no);
+create_enemy(395, 13, 2, no,  0, 0, no);
+create_enemy(450, 1, 0, yes, 5, 0, no);
+create_enemy(455, 1, 1, no, 0, 5, no);
+create_enemy(460, 1, 2, no, 5, 0, no);
+create_enemy(465, 1, 3, no, 0, 5, no);
+create_enemy(470, 1, 4, no, 5, 0, no);
+create_enemy(475, 1, 0, yes, 0, 5, no);
+create_enemy(480, 1, 1, no, 5, 0, no);
+create_enemy(485, 1, 2, no, 0, 5, no);
+create_enemy(490, 1, 3, no, 5, 0, no);
+create_enemy(495, 1, 4, no, 0, 5, no);
+create_enemy(550, 2, 0, yes, 5, 0, no);
+create_enemy(555, 2, 1, no, 0, 5, no);
+create_enemy(560, 2, 2, no, 5, 0, no);
+create_enemy(565, 2, 3, no, 0, 5, no);
+create_enemy(570, 2, 4, no, 5, 0, no);
+create_enemy(575, 2, 0, yes, 0, 5, no);
+create_enemy(580, 2, 1, no, 5, 0, no);
+create_enemy(585, 2, 2, no, 0, 5, no);
+create_enemy(590, 2, 3, no, 5, 0, no);
+create_enemy(595, 2, 4, no, 0, 5, no);
+create_enemy(650, 7, 1, no, 5, 0, no);
+create_enemy(650, 2, 2, no, 0, 5, no);
+create_enemy(655, 2, 1, no,  0, 0, no);
+create_enemy(655, 1, 2, no,  0, 0, no);
+create_enemy(660, 1, 3, no,  0, 0, no);
+create_enemy(660, 2, 4, no,  0, 0, no);
+create_enemy(670, 13, 0, no,  0, 0, no);
+create_enemy(670, 13, 0, no,  0, 0, no);
+/*
+if (g_time == 870)
+{
+	power_up(addhealth);
+}
+*/
+create_enemy(1200, 13, 1, no, 5, 0, no);
+create_enemy(1200, 13, 2, no, 0, 5, no);
+create_enemy(1200, 13, 3, no, 5, 0, no);
+create_enemy(1200, 13, 4, no, 0, 5, no);
+create_enemy(1205, 3, 1, no, 5, 0, no);
+create_enemy(1205, 13, 2, no, 0, 5, no);
+create_enemy(1205, 13, 3, no, 5, 0, no);
+create_enemy(1205, 13, 4, no, 0, 5, no);
+create_enemy(1210, 3, 1, no, 5, 0, no);
+create_enemy(1210, 13, 2, no, 0, 5, no);
+create_enemy(1210, 13, 3, no, 5, 0, no);
+create_enemy(1210, 13, 4, no, 0, 5, no);
+create_enemy(1215, 3, 1, no, 5, 0, no);
+create_enemy(1215, 13, 2, no, 0, 5, no);
+create_enemy(1215, 13, 3, no, 5, 0, no);
+create_enemy(1215, 13, 4, no, 0, 5, no);
+create_enemy(1250, 13, 1, no, 5, 0, no);
+create_enemy(1250, 13, 2, no, 0, 5, no);
+create_enemy(1250, 13, 3, no, 5, 0, no);
+create_enemy(1250, 13, 4, no, 0, 5, no);
+create_enemy(1255, 13, 1, no, 5, 0, no);
+create_enemy(1255, 13, 2, no, 0, 5, no);
+create_enemy(1255, 13, 3, no, 5, 0, no);
+create_enemy(1255, 13, 4, no, 0, 5, no);
+create_enemy(1260, 13, 1, no, 5, 0, no);
+create_enemy(1260, 13, 2, no, 0, 5, no);
+create_enemy(1260, 13, 3, no, 5, 0, no);
+create_enemy(1260, 13, 4, no, 0, 5, no);
+create_enemy(1265, 4, 1, no, 5, 0, no);
+create_enemy(1265, 13, 2, no, 0, 5, no);
+create_enemy(1265, 13, 3, no, 5, 0, no);
+create_enemy(1265, 13, 4, no, 0, 5, no);
+create_enemy(1250, 4, 1, no, 5, 0, no);
+create_enemy(1250, 13, 2, no, 0, 5, no);
+create_enemy(1250, 13, 3, no, 5, 0, no);
+create_enemy(1250, 4, 4, no, 0, 5, no);
+create_enemy(1255, 13, 0, no, 5, 0, no);
+create_enemy(1255, 13, 0, no, 0, 5, no);
+create_enemy(1255, 13, 0, no, 5, 0, no);
+create_enemy(1255, 13, 0, no, 0, 5, no);
+create_enemy(1280, 1, 0, no, 5, 0, no);
+create_enemy(1280, 1, 0, no, 0, 5, no);
+create_enemy(1280, 1, 0, no, 5, 0, no);
+create_enemy(1280, 1, 0, no, 0, 5, no);
+create_enemy(1285, 1, 1, no, 5, 0, no);
+create_enemy(1285, 1, 2, no, 0, 5, no);
+create_enemy(1285, 1, 3, no, 5, 0, no);
+create_enemy(1285, 1, 4, no, 0, 5, no);
+create_enemy(1510, 2, 0, no, 5, 0, no);
+create_enemy(1510, 2, 0, no, 0, 5, no);
+create_enemy(1510, 2, 0, no, 5, 0, no);
+create_enemy(1510, 2, 0, no, 0, 5, no);
+create_enemy(1515, 9, 1, no, 5, 0, no);
+create_enemy(1515, 13, 2, no, 0, 5, no);
+create_enemy(1515, 13, 3, no, 5, 0, no);
+create_enemy(1515, 13, 4, no, 0, 5, no);
+create_enemy(1520, 9, 1, no, 5, 0, no);
+create_enemy(1520, 13, 2, no, 0, 5, no);
+create_enemy(1520, 13, 3, no, 5, 0, no);
+create_enemy(1520, 13, 4, no, 0, 5, no);
+/*
+if (g_time == 1520)
+{
+	power_up(addhealth);
+}
+*/
+create_enemy(1710, 13, 0, no, 5, 0, no);
+create_enemy(1715, 13, 0, no, 5, 0, no);
+create_enemy(1720, 13, 0, no, 5, 0, no);
+create_enemy(1725, 13, 0, no, 5, 0, no);
+create_enemy(1730, 13, 0, no, 5, 0, no);
+create_enemy(1735, 13, 0, no, 5, 0, no);
+create_enemy(1740, 13, 0, no, 5, 0, no);
+create_enemy(1745, 13, 0, no, 5, 0, no);
+create_enemy(1750, 13, 0, no, 5, 0, no);
+create_enemy(1755, 13, 0, no, 5, 0, no);
+create_enemy(1760, 13, 0, no, 5, 0, no);
+create_enemy(1765, 13, 0, no, 5, 0, no);
+create_enemy(1770, 13, 0, no, 5, 0, no);
+create_enemy(1775, 13, 0, no, 5, 0, no);
+create_enemy(1780, 13, 0, no, 5, 0, no);
+create_enemy(1785, 13, 0, no, 5, 0, no);
+create_enemy(1790, 13, 0, no, 5, 0, no);
+create_enemy(1795, 13, 0, no, 5, 0, no);
+create_enemy(1800, 13, 0, no, 5, 0, no);
+create_enemy(1805, 13, 0, no, 5, 0, no);
+create_enemy(1810, 2, 1, no, 5, 0, no);
+create_enemy(1815, 2, 1, no, 5, 0, no);
+create_enemy(1820, 2, 2, no, 5, 0, no);
+create_enemy(1825, 2, 2, no, 5, 0, no);
+create_enemy(1830, 2, 1, no, 5, 0, no);
+create_enemy(1835, 2, 2, no, 5, 0, no);
+create_enemy(1840, 2, 3, no, 5, 0, no);
+create_enemy(1845, 2, 4, no, 5, 0, no);
+create_enemy(1840, 2, 1, no, 5, 0, no);
+create_enemy(1845, 2, 2, no, 5, 0, no);
+create_enemy(1850, 2, 1, no, 5, 0, no);
+create_enemy(1855, 2, 2, no, 5, 0, no);
+create_enemy(1860, 13, 0, no, 5, 0, no);
+create_enemy(1865, 13, 0, no, 5, 0, no);
+create_enemy(1870, 13, 0, no, 5, 0, no);
+create_enemy(1875, 13, 0, no, 5, 0, no);
+create_enemy(1880, 2, 1, no, 5, 0, no);
+create_enemy(1885, 2, 2, no, 5, 0, no);
+create_enemy(1890, 2, 3, no, 5, 0, no);
+create_enemy(1895, 2, 4, no, 5, 0, no);
+create_enemy(1900, 2, 3, no, 5, 0, no);
+create_enemy(1905, 2, 4, no, 5, 0, no);
+create_enemy(1910, 2, 1, no, 5, 0, no);
+create_enemy(1915, 2, 1, no, 5, 0, no);
+create_enemy(1920, 2, 2, no, 5, 0, no);
+create_enemy(1925, 2, 2, no, 5, 0, no);
+create_enemy(1930, 2, 1, no, 5, 0, no);
+create_enemy(1935, 2, 2, no, 5, 0, no);
+create_enemy(1940, 2, 3, no, 5, 0, no);
+create_enemy(1945, 2, 4, no, 5, 0, no);
+create_enemy(1940, 2, 1, no, 5, 0, no);
+create_enemy(1945, 2, 2, no, 5, 0, no);
+create_enemy(1950, 2, 1, no, 5, 0, no);
+create_enemy(1955, 8, 2, no, 5, 0, no);
+
+
+loadLevelOnCollision
+level13
+64
+2248

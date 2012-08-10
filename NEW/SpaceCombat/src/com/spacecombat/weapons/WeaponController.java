@@ -1,11 +1,14 @@
 package com.spacecombat.weapons;
 
+import com.spacecombat.Camera;
 import com.spacecombat.ClickListener;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 import com.spacecombat.Input;
 import com.spacecombat.Time;
+import com.spacecombat.Vector2;
 import com.spacecombat.game.PowerUp;
+import com.spacecombat.game.PrefabFactory;
 
 public class WeaponController extends Component implements ClickListener {
 	public Weapon [] weapons;
@@ -22,17 +25,9 @@ public class WeaponController extends Component implements ClickListener {
 		Input.subscribeListener(this);
 	}
 	
-	private final static String powerUpTag = "PowerUp";
-	@Override
-	public void collide(final GameObject whatIHit) {
-		if (whatIHit.hasTag(powerUpTag)) {
-			final PowerUp powerUp = (PowerUp) whatIHit.getComponent(PowerUp.class);
-
-			if (powerUp != null && this.weapons != null && powerUp.type == this.weapons[this.selectedWeapon].getPowerUpType())
-			{
-				this.weapons[this.selectedWeapon].powerUp();
-			}
-		}
+	public void destroy ()
+	{
+		Input.unsubscribeListener(this);
 	}
 
 	public Weapon getSelectedWeapon()
@@ -42,7 +37,8 @@ public class WeaponController extends Component implements ClickListener {
 
 	@Override
 	public void onClick(final float x, final float y) 
-	{		
+	{
+		/*
 		if (Time.getTime() < this.nextWeaponSelect)
 		{
 			return;
@@ -65,5 +61,6 @@ public class WeaponController extends Component implements ClickListener {
 
 			this.weapons[this.selectedWeapon].setEnabled(true);
 		}
+		*/
 	}
 }

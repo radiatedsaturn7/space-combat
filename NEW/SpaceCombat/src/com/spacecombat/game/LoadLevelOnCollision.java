@@ -25,7 +25,7 @@ public class LoadLevelOnCollision extends Component {
 			}
 			this.isFired = true;
 
-			LevelLoader.loadLevel(this.level);
+			LevelLoader.loadLevel(this.level,false);
 		}
 	}
 }

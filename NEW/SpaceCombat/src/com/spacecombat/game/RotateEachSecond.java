@@ -8,12 +8,10 @@ import com.spacecombat.RigidBody;
 import com.spacecombat.Time;
 
 public class RotateEachSecond extends Component {
-	private RigidBody rigidBody;
 	private float degreesPerSec;
 	
-	public RotateEachSecond (final RigidBody r, float degreesPerSec)
+	public RotateEachSecond (float degreesPerSec)
 	{
-		this.rigidBody = r;
 		this.degreesPerSec = degreesPerSec;
 	}
 

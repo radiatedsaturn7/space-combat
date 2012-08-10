@@ -1,11 +1,12 @@
 package com.spacecombat;
 
-public interface GenericText {
-	public void create(String text);
+public abstract class GenericText {
+	public abstract void create(String text, String font, int color);
+	public abstract void setText(String text);
+	public abstract void setFont(String font);
+	public abstract void setColor(int color);
 
-	public void draw(int offsetx, int offsety, int rotx, int roty, int scalex, int scaley);
-
-	public int getHeight();
-
-	public int getWidth();
+	public abstract void draw(float offsetx, float offsety, int rotx, int roty, int scalex, int scaley);
+	public abstract int getHeight();
+	public abstract int getWidth();
 }

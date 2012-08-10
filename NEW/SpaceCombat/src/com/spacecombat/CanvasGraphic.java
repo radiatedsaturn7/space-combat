@@ -48,6 +48,11 @@ public class CanvasGraphic implements GenericGraphic {
 			this.myBitmap = CanvasGraphic.loaded.get(name);
 			return;
 		}
+		
+		if (is == null)
+		{
+			throw new RuntimeException("INPUT STREAM IS NULL");
+		}
 
 		Bitmap bitmap = null;
 		try {
@@ -61,10 +66,20 @@ public class CanvasGraphic implements GenericGraphic {
 			} catch (final IOException e) {
 				throw new RuntimeException(e);
 			}
+		} 
+		
+		if (bitmap == null)
+		{
+			throw new RuntimeException("GRAPHIC CREATED, IS NULL");
 		}
 
 		CanvasGraphic.loaded.put(name, bitmap);
 		this.myBitmap = CanvasGraphic.loaded.get(name);
+		
+		if (this.myBitmap == null)
+		{
+			throw new RuntimeException("GRAPHIC CREATED, STILL NULL");
+		}
 	}
 
 	@Override
@@ -72,12 +87,16 @@ public class CanvasGraphic implements GenericGraphic {
 			final int height, final int offsetX, final int offsetY,
 			final int rotx, final int roty, final int scalex, final int scaley) {
 
-		//this.dst.set(offsetX, offsetY, offsetX + width, offsetY + height);
-		this.dst.set(offsetX, offsetY, width, height);
+		this.dst.set(0, 0, width, height);
 
 		if (!this.dst.intersect(CanvasGraphic.screen))
 		{
 			return;
+		}
+		
+		if (this.myBitmap == null)
+		{
+			throw new RuntimeException("BITMAP IS NULL");
 		}
 
 
@@ -87,9 +106,7 @@ public class CanvasGraphic implements GenericGraphic {
 			// Rect src = new Rect(x,y,x+width,y+height);
 			// Rect dst = new Rect(offsetX,offsetY,offsetX+width,offsetY+width);
 
-			// canvas.drawBitmap(bitmap, 100, 100, paint);
-
-			System.out.println("DEST:"+dst);
+			// canvas.drawBitmap(bitmap, 100, 100, paint);			
 			
 			this.src.set(x, y, x + width, y + height);
 
@@ -97,15 +114,18 @@ public class CanvasGraphic implements GenericGraphic {
 			if (rotx != 0)
 			{
 				CanvasGraphic.canvas.save();
-				CanvasGraphic.canvas.rotate(rotx,this.dst.left+width/2,this.dst.top+height/2);
-								CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,					
-						CanvasGraphic.paint);	
+				CanvasGraphic.canvas.rotate(rotx,offsetX+width/2,offsetY+height/2);
+				CanvasGraphic.canvas.translate(offsetX,offsetY);
+				CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst, CanvasGraphic.paint);	
 				CanvasGraphic.canvas.restore();
 			}
 			else
 			{
+				CanvasGraphic.canvas.save();
+				CanvasGraphic.canvas.translate(offsetX,offsetY);
 				CanvasGraphic.canvas.drawBitmap(this.myBitmap, this.src, this.dst,					
 						CanvasGraphic.paint);	
+				CanvasGraphic.canvas.restore();
 			}
 
 		} else if (CanvasGraphic.canvas == null) {
