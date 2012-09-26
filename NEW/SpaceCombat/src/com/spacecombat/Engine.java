@@ -2,12 +2,25 @@ package com.spacecombat;
 
 import java.util.List;
 
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+
 import com.spacecombat.ai.AllyAI;
+import com.spacecombat.game.HealthController;
 import com.spacecombat.game.LevelLoader;
+import com.spacecombat.weapons.ChargeLaser;
+import com.spacecombat.weapons.FlameThrower;
+import com.spacecombat.weapons.Laser;
+import com.spacecombat.weapons.LockingLaser;
+import com.spacecombat.weapons.MachineGun;
+import com.spacecombat.weapons.MissileLauncher;
+import com.spacecombat.weapons.PulseCannon;
+import com.spacecombat.weapons.Weapon;
 
 public class Engine implements ClickListener {
+	public static boolean created = false;
 	private String startingLevel = "level1";
-	
+	 
 	// this is da master list of all components0
 	// private int fps = 60;
 	// private int sleepTime; //calculated
@@ -17,6 +30,7 @@ public class Engine implements ClickListener {
 		public void run() {			
 			while (true) {
 				//System.out.println("DRAW Loop!"); 
+				
 				drawLoop();
 			}  
 		}
@@ -281,5 +295,60 @@ public class Engine implements ClickListener {
 				}
 			}
 		}
+
+	
+	public void toBackground(Editor editor) {
+		GameObject player = GameObject.findByName("player");
+		
+		Weapon cl = (Weapon) player.getComponent(ChargeLaser.class);
+		Weapon ft = (Weapon) player.getComponent(FlameThrower.class);		
+		Weapon l = (Weapon) player.getComponent(Laser.class);
+		Weapon ll = (Weapon) player.getComponent(LockingLaser.class);		
+		Weapon mg = (Weapon) player.getComponent(MachineGun.class);
+		Weapon ml = (Weapon) player.getComponent(MissileLauncher.class);
+		Weapon pc = (Weapon) player.getComponent(PulseCannon.class);		
+		
+		editor.putInt("chargeLaser", cl.getPowerLevel());
+		editor.putInt("flameThrower", ft.getPowerLevel());
+		editor.putInt("laser", l.getPowerLevel());
+		editor.putInt("lockingLaser", ll.getPowerLevel());
+		editor.putInt("machineGun", mg.getPowerLevel());
+		editor.putInt("missileLauncher", ml.getPowerLevel());
+		editor.putInt("pulseCannon", pc.getPowerLevel());
+		
+		HealthController hc = (HealthController) player.getComponent(HealthController.class);
+		editor.putInt("health", hc.getHealth());
+		editor.putInt("maxHealth", hc.getMaxHealth());
+		
+		
+		editor.putString("lastLevel", LevelLoader.getLastLevelLoaded());
+		GameObject.clear();
 	}
+
+	public void fromBackground(SharedPreferences preferences) {
+		String startingLevel = preferences.getString("lastLevel", "level1");
+		LevelLoader.loadLevel(startingLevel,true);			
+		
+		GameObject player = GameObject.findByName("player");
+		Weapon cl = (Weapon) player.getComponent(ChargeLaser.class);
+		Weapon ft = (Weapon) player.getComponent(FlameThrower.class);		
+		Weapon l = (Weapon) player.getComponent(Laser.class);
+		Weapon ll = (Weapon) player.getComponent(LockingLaser.class);		
+		Weapon mg = (Weapon) player.getComponent(MachineGun.class);
+		Weapon ml = (Weapon) player.getComponent(MissileLauncher.class);
+		Weapon pc = (Weapon) player.getComponent(PulseCannon.class);		
+		
+		cl.setPowerLevel(preferences.getInt("chargeLaser", cl.getPowerLevel()));
+		ft.setPowerLevel(preferences.getInt("flameThrower", ft.getPowerLevel()));
+		l.setPowerLevel(preferences.getInt("laser", l.getPowerLevel()));
+		ll.setPowerLevel(preferences.getInt("lockingLaser", ll.getPowerLevel()));
+		mg.setPowerLevel(preferences.getInt("machineGun", mg.getPowerLevel()));
+		ml.setPowerLevel(preferences.getInt("missileLauncher", ml.getPowerLevel()));
+		pc.setPowerLevel(preferences.getInt("pulseCannon", pc.getPowerLevel()));
+		
+		HealthController hc = (HealthController) player.getComponent(HealthController.class);
+		hc.setHealth(preferences.getInt("health", hc.getHealth()));
+		hc.setMaxHealth(preferences.getInt("maxHealth", hc.getMaxHealth()));		
+	}
+}
 

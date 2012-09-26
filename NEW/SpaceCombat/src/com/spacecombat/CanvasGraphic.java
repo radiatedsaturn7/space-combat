@@ -31,8 +31,14 @@ public class CanvasGraphic implements GenericGraphic {
 
 	private Bitmap myBitmap;
 	private int layer;
+	private String name = null;
 
 	public CanvasGraphic() {
+	}
+	
+	public String getName()
+	{
+		return name;
 	}
 
 	@Override
@@ -80,6 +86,7 @@ public class CanvasGraphic implements GenericGraphic {
 		{
 			throw new RuntimeException("GRAPHIC CREATED, STILL NULL");
 		}
+		this.name  = name;
 	}
 
 	@Override

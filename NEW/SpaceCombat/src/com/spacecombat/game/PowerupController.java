@@ -5,6 +5,7 @@ import com.spacecombat.ClickListener;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 import com.spacecombat.Input;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
@@ -20,7 +21,7 @@ public class PowerupController extends Component {
 		this.weapons = weapons;
 	}
 	
-	private final static String powerUpTag = "PowerUp";
+	private final static int powerUpTag = Tags.powerup;
 	@Override
 	public void collide(final GameObject whatIHit) {
 		if (whatIHit.hasTag(powerUpTag)) {			
@@ -28,10 +29,19 @@ public class PowerupController extends Component {
 			
 			for (int x = 0; x < weapons.length; x++)
 			{
-				if (powerUp != null && this.weapons != null && this.weapons[x] != null && powerUp.type == this.weapons[x].getSelectedWeapon().getPowerUpType())
+				if (powerUp == null || this.weapons == null || this.weapons[x] == null)
 				{
-					this.weapons[x].getSelectedWeapon().powerUp();
-				}				
+					continue;
+				}
+				
+				for (int y = 0; y < weapons[x].weapons.length; y++)
+				{
+					if (powerUp.type == this.weapons[x].weapons[y].getPowerUpType())
+					{
+						this.weapons[x].selectedWeapon = y;
+						this.weapons[x].getSelectedWeapon().powerUp();						
+					}
+				}
 			}
 			
 			if (powerUp != null)

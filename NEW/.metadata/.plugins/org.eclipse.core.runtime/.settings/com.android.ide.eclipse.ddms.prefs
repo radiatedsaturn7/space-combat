@@ -1,7 +1,8 @@
-#Fri Jul 13 09:10:55 EDT 2012
+#Fri Sep 14 10:43:52 EDT 2012
 threadPanel.stack.col0=113
 emulatorControl.waypoint.desc=94
 logcat.view.colsize.Time=69
+logcat.view.filters.list=name\: 'sc', tag\: '', text\: '', pid\: '', app\: 'com.spacecombat', level\: 'verbose', 
 allocPanel.sash=401
 emulatorControl.track.first=118
 logcat.view.colsize.PID=48
@@ -10,7 +11,7 @@ com.android.ide.eclipse.ddms.explorer.permissions=72
 com.android.ide.eclipse.ddms.explorer.time=40
 com.android.ide.eclipse.ddms.explorer.info=72
 com.android.ide.eclipse.ddms.explorer.data=68
-logcat.view.colsize.Tag=40
+logcat.view.colsize.Tag=137
 logcat.view.colsize.Level=27
 emulatorControl.waypoint.name=68
 allocPanel.Col00=65

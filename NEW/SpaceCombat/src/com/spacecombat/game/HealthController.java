@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.spacecombat.Audio;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 
 public class HealthController extends Component {
@@ -31,7 +32,6 @@ public class HealthController extends Component {
 	public void collide(final GameObject whatIHit) {
 		
 		if (!whatIHit.hasTag(this.gameObject.getTags())) {
-			
 			final ShotCollision sc = (ShotCollision) whatIHit.getComponent(ShotCollision.class);					
 
 			if (sc != null)
@@ -45,16 +45,17 @@ public class HealthController extends Component {
 				{
 					audio.playOnce();
 				}
+				
 				this.dying = true;				
 				this.gameObject.playAnimation("death");
 				this.gameObject.destroyAfter(this.gameObject.getCurrentAnimation().getDuration());
 			}
 		}
 				
-		if (whatIHit.hasTag(powerUpTag)) {
+		if (whatIHit.hasTag(Tags.powerup)) {
 			final PowerUp powerUp = (PowerUp) whatIHit.getComponent(PowerUp.class);
 
-			if (powerUp != null && powerUp.type == 1)
+			if (powerUp != null && powerUp.type == 7)
 			{
 				this.health = this.maxHealth;
 			}
@@ -65,7 +66,7 @@ public class HealthController extends Component {
 	public void onAfterUpdate ()
 	{
 		//shield recharger
-		if (gameObject.getName().equals("player"))
+		if (this.gameObject.getName().equals(Tags.player))
 		{			
 			this.health += 2 * Time.getDeltaTime();
 			if (this.health > this.maxHealth)
@@ -76,17 +77,32 @@ public class HealthController extends Component {
 
 		if (this.dying && !this.addedTag)
 		{
-			if (this.gameObject.hasTag("enemy"))
+			if (this.gameObject.hasTag(Tags.enemy))
 			{
 				PlayerData.score += this.maxHealth;
 			}
-			this.gameObject.addTag("dying");
+			this.gameObject.addTag(Tags.dying);
 			this.addedTag = true;
 		}
 	}
 
+	public int getHealth ()
+	{
+		return health;
+	}
+	
+	public int getMaxHealth ()
+	{
+		return maxHealth;
+	}
+	
 	public void setHealth(final int health) {
 		this.health = health;
 		this.maxHealth = health;
+	}
+	
+	public void setMaxHealth(int maxHealth)
+	{
+		this.maxHealth = maxHealth;
 	}
 }

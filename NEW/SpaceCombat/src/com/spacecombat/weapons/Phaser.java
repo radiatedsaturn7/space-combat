@@ -19,8 +19,8 @@ public class Phaser extends Weapon //
 				reloadTime, Phaser.life, Phaser.shotSpeed, direction, false, powerUpType);
 	}
  
-	public Phaser(final Vector2 direction, final float reloadTime,
-			final int magazineSize, final float magazineReloadTime) {
+	public Phaser(final Vector2 direction, final float reloadTime,	final int magazineSize, final float magazineReloadTime) 
+	{
 		super(Phaser.name, Phaser.damage, 0, reloadTime, magazineSize,
 				magazineReloadTime, Phaser.life, Phaser.shotSpeed, direction,
 				false, powerUpType);

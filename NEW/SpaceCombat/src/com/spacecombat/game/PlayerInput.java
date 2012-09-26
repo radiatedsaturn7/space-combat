@@ -40,21 +40,50 @@ public class PlayerInput extends Component implements ClickListener {
 		this.lastX = this.gameObject.transform.position.x;
 		this.lastY = this.gameObject.transform.position.y;
 
-		this.gameObject.transform.position.x = x + Camera.mainCamera.gameObject.transform.position.x;
-		this.gameObject.transform.position.y = y + Camera.mainCamera.gameObject.transform.position.y;
+		
+		this.gameObject.transform.position.x = x;
+		this.gameObject.transform.position.y = y;
 
 		if (this.collider != null)
 		{
 			this.gameObject.transform.position.x -= this.collider.size.x * .5;
 			this.gameObject.transform.position.y -= this.collider.size.y * 4;				
+			
+			if (y > 700)
+			{
+				float tempY = y;				
+				tempY -= 700;
+				float max = 100;
+				
+				float inc = ((float)tempY) / ((float)max);				
+				this.gameObject.transform.position.y += inc * (((float)(this.collider.size.y)) * 4.0f);
+				
+				if (this.gameObject.transform.position.y > 800-32)
+				{
+					System.out.println("POS"+this.gameObject.transform.position.y);
+					this.gameObject.transform.position.y = 800-32;
+				}
+			}
+			
+			if (this.gameObject.transform.position.y < 0)
+			{
+				System.out.println("POS"+this.gameObject.transform.position.y);
+				this.gameObject.transform.position.y = 0;
+			}
+			
 		}
+		
+		this.gameObject.transform.position.x += Camera.mainCamera.gameObject.transform.position.x;
+		this.gameObject.transform.position.y += Camera.mainCamera.gameObject.transform.position.y;
+
 		
 		for (int d = 0; d < this.wc.length; d++)
 		{
 			if (this.wc[d].getSelectedWeapon() != null) {				
 				this.wc[d].getSelectedWeapon().shoot();
 			}
-		}
+		}		
+		
 		clicked = true;
 	}
 

@@ -93,6 +93,14 @@ createPlayer
 hunter
 laser
 
+createAlly
+64
+4448
+300
+4884
+calumniator
+machinegun
+
 create_enemy(-50,  13, 1, no, 0, 0, no);
 create_enemy(-51,  13, 2, no, 0, 0, no);
 create_enemy(-105, 13, 3, no, 0, 0, no);

@@ -12,7 +12,7 @@ public class AIScriptFive extends AIScript {
 	private final Vector2 maxSpeed = new Vector2(32, 32);
 	private final GameObject target;
 
-	public AIScriptFive(final String[] targets) {
+	public AIScriptFive(final int targets) {
 		this.target = GameObject.findRandomByTags(targets);
 	}
 

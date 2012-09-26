@@ -3,6 +3,7 @@ package com.spacecombat.game;
 
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.Tags;
 
 public class ShotCollision extends Component {
 	public float damage = 1;
@@ -11,7 +12,8 @@ public class ShotCollision extends Component {
 	@Override
 	public void collide(final GameObject whatIHit) {
 
-		if (whatIHit.getName().equalsIgnoreCase("TopOfScreen") || whatIHit.hasTag("shot") || whatIHit.hasTag("node") || whatIHit.hasTag("powerup") || whatIHit.hasTag("powerup") || whatIHit.hasTag("dying")) {
+		if (whatIHit.getName().equalsIgnoreCase("topOfScreen") || whatIHit.hasTag(Tags.topOfScreen | Tags.shot | Tags.node |Tags.powerup | Tags.dying))
+		{
 			return;
 		}
 

@@ -6,13 +6,14 @@ import java.util.List;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 import com.spacecombat.RigidBody;
+import com.spacecombat.Tags;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
 
 public class HomingMovement extends Component {
 	private float speed = 0;
-	private String [] targets = null;
-	private final String [] ignoreTargets = {"powerup","shot"};
+	private int targets = 0;
+	private final int ignoreTargets = Tags.powerup | Tags.shot;
 	private final RigidBody rigidBody;	
 	private GameObject target = null;
 	private List<GameObject> gos = null;
@@ -22,7 +23,7 @@ public class HomingMovement extends Component {
 	
 	private boolean foundOne = false;
 
-	public HomingMovement (final String [] tags, final RigidBody r, final float speed)
+	public HomingMovement (final int tags, final RigidBody r, final float speed)
 	{
 		this.targets = tags;
 		this.rigidBody = r;

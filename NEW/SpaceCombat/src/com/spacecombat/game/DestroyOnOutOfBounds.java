@@ -14,11 +14,11 @@ public class DestroyOnOutOfBounds extends Component {
 			this.gameObject.destroy();
 		}
 
-		if (this.gameObject.transform.position.x  > Camera.mainCamera.gameObject.transform.position.x + 0 + 528) {
+		if (this.gameObject.transform.position.x  > Camera.mainCamera.gameObject.transform.position.x + 0 + 528 + 256) {
 			this.gameObject.destroy();
 		}
 
-		if (this.gameObject.transform.position.x < Camera.mainCamera.gameObject.transform.position.x + 0 - 128) {
+		if (this.gameObject.transform.position.x < Camera.mainCamera.gameObject.transform.position.x + 0 - 128 - 256) {
 			this.gameObject.destroy();
 		}
 	}

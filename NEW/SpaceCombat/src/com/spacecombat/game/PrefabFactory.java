@@ -21,9 +21,15 @@ import com.spacecombat.GraphicAnimation;
 import com.spacecombat.Level;
 import com.spacecombat.R;
 import com.spacecombat.RigidBody;
+import com.spacecombat.Tags;
 import com.spacecombat.TextAnimation;
+import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
+import com.spacecombat.ai.AIBoss2;
+import com.spacecombat.ai.AIBoss3;
+import com.spacecombat.ai.AIBoss4;
+import com.spacecombat.ai.AIBoss5;
 import com.spacecombat.ai.AINodeFollower;
 import com.spacecombat.ai.AIScript;
 import com.spacecombat.ai.AIScriptEight;
@@ -37,6 +43,10 @@ import com.spacecombat.ai.AIScriptThree;
 import com.spacecombat.ai.AIScriptTwo;
 import com.spacecombat.ai.AllyAI;
 import com.spacecombat.ai.Node;
+import com.spacecombat.weapons.Boss2WeaponHandler;
+import com.spacecombat.weapons.Boss3WeaponHandler;
+import com.spacecombat.weapons.Boss4WeaponHandler;
+import com.spacecombat.weapons.Boss5WeaponHandler;
 import com.spacecombat.weapons.ChargeLaser;
 import com.spacecombat.weapons.FlameThrower;
 import com.spacecombat.weapons.Laser;
@@ -54,9 +64,9 @@ public class PrefabFactory {
 	private static boolean useOpenGl = false;
 	private static int defaultFps = 17;
 
-	private static final String[] enemyTargets = { "player", "ally" };
-	private static final String[] playerTargets = { "enemy" };
-	private static final String[] nodeTag = { "node" };
+	private static final int enemyTargets = Tags.player | Tags.ally;
+	private static final int playerTargets = Tags.enemy;
+	private static final int nodeTag = Tags.node;
 
 	private static final Vector2 shootDown = new Vector2(0, 200);
 	private static final Vector2 shootDownLeft = new Vector2(-8, 8);
@@ -151,14 +161,14 @@ public class PrefabFactory {
 
 		final RigidBody rigidBody = new RigidBody();
 		final Collider collider = new BoxCollider(new Vector2(32, 32));
-		collider.setIgnoreTags(new String[] { "Player", "Ally", "TopOfScreen" });
+		collider.setIgnoreTags(Tags.player | Tags.topOfScreen | Tags.ally);
 
 		rigidBody.setCollider(collider);
 
 		final GameObject o = GameObject.getNew();
 		//final GameObject o = new GameObject();
 		o.setName(name);
-		o.setTags(new String[] { "Ally" });
+		o.setTags(Tags.ally);
 		o.transform.position.x = position.x;
 		o.transform.position.y = position.y;
 		o.setRigidBody(rigidBody);
@@ -256,13 +266,13 @@ public class PrefabFactory {
 
 		final RigidBody rigidBody = new RigidBody();
 		final Collider collider = new BoxCollider(new Vector2(32, 32));
-		collider.setIgnoreTags( PrefabFactory.playerTargets );
+		collider.setIgnoreTags(PrefabFactory.playerTargets );
 		rigidBody.setCollider(collider);
 
 		final GameObject o = GameObject.getNew();
 		//final GameObject o = new GameObject();
 		o.setName(name);
-		o.setTags(new String[] { "Enemy" });
+		o.setTags(Tags.enemy);
 		o.transform.position.x = position.x;
 		o.transform.position.y = position.y;
 		o.setRigidBody(rigidBody);
@@ -357,7 +367,7 @@ public class PrefabFactory {
 			ai = new AIScript();
 		}
 
-		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
+		HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
 		hc.setHealth(100);
 
 		if (enemyType == 1) {
@@ -558,7 +568,7 @@ public class PrefabFactory {
 	}
 
 	public static GenericGraphic createGraphic(final String name,
-			final InputStream is, final int layer) {
+			final InputStream is, final int layer) { 
 		final CanvasGraphic temp = new CanvasGraphic();
 		temp.create(name, is, layer);
 		return temp;
@@ -566,15 +576,19 @@ public class PrefabFactory {
 
 	public static GameObject createLevel(final String name, final int[] map, final int mapWidth,
 			final int mapHeight, final String wadName) {
+		
+		System.out.println("WADNAME:"+wadName);
 		final GenericGraphic graphic = PrefabFactory.createGraphic(wadName, PrefabFactory.getImage(wadName),0);
 		final Level l = new Level();
+		System.out.println("WADNAME2:"+graphic.getName());
+		System.out.println("SIZE:"+graphic.getHeight());
 
 		l.createLevel(map, mapWidth, mapHeight, graphic, 64, 64);
 
 		final GameObject o = GameObject.getNew();
 		//GameObject o = new GameObject();		
 		o.setName(name);
-		o.setTags(new String[] { "level" });
+		o.setTags(Tags.level);
 		o.addComponent(l);
 		o.transform.position.x = 0;
 		o.transform.position.y = 0;
@@ -659,7 +673,7 @@ public class PrefabFactory {
 
 		final RigidBody rigidBody = new RigidBody();
 		final Collider collider = new BoxCollider(new Vector2(32, 32));
-		collider.setIgnoreTags(new String[] { "Player", "Ally", "shot", "spawner" });
+		collider.setIgnoreTags(Tags.player | Tags.ally | Tags.shot | Tags.spawner);
 		g.setTags(PrefabFactory.nodeTag);
 
 		rigidBody.setCollider(collider);
@@ -677,7 +691,7 @@ public class PrefabFactory {
 	{
 		final GameObject o = GameObject.getNew();
 		o.setName(name);
-		o.setTags(new String[] {"Player", "Ally", "Camera"});
+		o.setTags(Tags.player | Tags.ally | Tags.camera);
 		
 		final RigidBody rigidBody = new RigidBody();
 		o.setRigidBody(rigidBody);
@@ -724,7 +738,7 @@ public class PrefabFactory {
 		final GameObject o = GameObject.getNew();
 		//final GameObject o = new GameObject();
 		o.setName(name);
-		o.setTags(new String[] { "Player", "Ally" });
+		o.setTags(Tags.player | Tags.ally);
 
 		// Load the texture for the cube once during Surface creation
 		final GenericGraphic graphic = PrefabFactory.createGraphic(playerType,
@@ -791,7 +805,7 @@ public class PrefabFactory {
 		o.setRigidBody(rigidBody);
 		
 		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));
-		collider.setIgnoreTags(new String[] { "Player", "Ally", "TopOfScreen" });
+		collider.setIgnoreTags(Tags.player | Tags.ally | Tags.topOfScreen);
 		rigidBody.setCollider(collider);
 
 		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));;
@@ -822,7 +836,7 @@ public class PrefabFactory {
 		o.addComponent(weapons[3]);
 		
 		
-		Weapon [] secondaryWeapons = new Weapon[1];				
+		Weapon [] secondaryWeapons = new Weapon[2];				
 		
 		secondaryWeapons[0] = new LockingLaser(PrefabFactory.shootUp);
 		secondaryWeapons[0].setPowerLevel(0);
@@ -832,13 +846,13 @@ public class PrefabFactory {
 		o.addComponent(lwh);				
 		
 		
-		Weapon [] terciaryWeapons = new Weapon[1];
+		//Weapon [] terciaryWeapons = new Weapon[1];
 		
-		terciaryWeapons[0] = new MissileLauncher(PrefabFactory.shootUp);
-		terciaryWeapons[0].setUseMagazine(false);
-		terciaryWeapons[0].setPowerLevel(0);
-		terciaryWeapons[0].addAudio(new Audio(PrefabFactory.createAudio("missilelauncher"),"machinegun"));
-		o.addComponent(terciaryWeapons[0]);
+		secondaryWeapons[1] = new MissileLauncher(PrefabFactory.shootUp);
+		secondaryWeapons[1].setUseMagazine(false);
+		secondaryWeapons[1].setPowerLevel(0);
+		secondaryWeapons[1].addAudio(new Audio(PrefabFactory.createAudio("missilelauncher"),"machinegun"));
+		o.addComponent(secondaryWeapons[1]);
 		
 		
 		Weapon [] chargeWeapons = new Weapon[1];
@@ -849,18 +863,16 @@ public class PrefabFactory {
 		//RotateEachSecond res = new RotateEachSecond(45);
 		//o.addComponent(res);
 		
-		final WeaponController [] wc = new WeaponController[4];
+		final WeaponController [] wc = new WeaponController[3];
 		wc[0] = new WeaponController(0,weapons);
 		wc[1] = new WeaponController(0,secondaryWeapons);
-		wc[2] = new WeaponController(0,terciaryWeapons);
-		wc[3] = new WeaponController(0,chargeWeapons);
+		wc[2] = new WeaponController(0,chargeWeapons);
 		
 		PowerupController pc = new PowerupController(wc);
 		o.addComponent(pc);
 		o.addComponent(wc[0]);
 		o.addComponent(wc[1]);
 		o.addComponent(wc[2]);
-		o.addComponent(wc[3]);
 
 		Component playerInput = new PlayerInput(wc,collider);
 		o.addComponent(playerInput);
@@ -897,7 +909,7 @@ public class PrefabFactory {
 				PrefabFactory.getImage("shield"),11);
 		
 		GameObject go = GameObject.getNew();
-		go.setTags(new String[] { "Player", "Ally" });
+		go.setTags(Tags.player | Tags.ally);
 		go.setDestroyOnLevelLoad(false);
 		
 		go.transform.position.x = g.transform.position.x;
@@ -905,7 +917,7 @@ public class PrefabFactory {
 		
 		RigidBody r = new RigidBody();		
 		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));		
-		collider.setIgnoreTags(new String[] { "Player", "Ally", "TopOfScreen" });
+		collider.setIgnoreTags(Tags.player | Tags.ally | Tags.topOfScreen);
 		r.setCollider(collider);
 		go.setRigidBody(r);
 		
@@ -952,6 +964,10 @@ public class PrefabFactory {
 		Animation gl0 = new Animation();
 		gl0.init("0%", 10, 10, false,
 				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation glRestored = new Animation();
+		gl0.init("Restored", 10, 10, false,
+				PrefabFactory.defaultFps, 32, 32);
 
 		final GraphicAnimation ga100 = new GraphicAnimation(graphic, gl100);
 		final GraphicAnimation ga90 = new GraphicAnimation(graphic, gl90);
@@ -964,6 +980,7 @@ public class PrefabFactory {
 		final GraphicAnimation ga20 = new GraphicAnimation(graphic, gl20);
 		final GraphicAnimation ga10 = new GraphicAnimation(graphic, gl10);
 		final GraphicAnimation ga0 = new GraphicAnimation(graphic, gl0);
+		final GraphicAnimation gaRestored = new GraphicAnimation(graphic, glRestored);
 
 		go.addComponent(ga100);
 		go.addComponent(ga90);
@@ -976,6 +993,7 @@ public class PrefabFactory {
 		go.addComponent(ga20);
 		go.addComponent(ga10);
 		go.addComponent(ga0);
+		go.addComponent(gaRestored);
 		
 		FixedJoint f = new FixedJoint(g);
 		go.addComponent(f);
@@ -986,26 +1004,35 @@ public class PrefabFactory {
 		return go;
 	}
 
-	public static GameObject createPowerUp (final Vector2 position, final int type, final boolean canChange) {
+	public static GameObject createPowerUp (final Vector2 position, int type, final boolean canChange) {
 		// Load the texture for the cube once during Surface creation
 
 		final GameObject o = GameObject.getNew();
 		//GameObject o = new GameObject();
 		o.setName("PowerUp");
-		o.setTags(new String [] {"PowerUp"});
+		o.setTags(Tags.powerup);
 		final GenericGraphic graphic = PrefabFactory.createGraphic("powerup", PrefabFactory.getImage("powerup"),9);
 
 		Animation animation = Animation.getNew();
-		animation.init("PowerUp", 0, 2, true, PrefabFactory.defaultFps,	32, 32);
+		animation.init("Laser", 0, 0, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation2 = Animation.getNew();
-		animation2.init("Health", 3, 5, true, PrefabFactory.defaultFps,	32, 32);
+		animation2.init("MachineGun", 1, 1, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation3 = Animation.getNew();
-		animation3.init("Missile", 6, 8, true, PrefabFactory.defaultFps,	32, 32);
+		animation3.init("FlameThrower", 2, 2, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation4 = Animation.getNew();
-		animation4.init("LockingLaser", 3, 5, true, PrefabFactory.defaultFps,	32, 32);
+		animation4.init("PulseCannon", 3, 3, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation5 = Animation.getNew();
-		animation5.init("ChargeLaser", 6, 8, true, PrefabFactory.defaultFps,	32, 32);
+		animation5.init("LockingLaser", 6, 6, true, PrefabFactory.defaultFps,	32, 32);
+		Animation animation6 = Animation.getNew();
+		animation6.init("MissileLauncher", 7, 7, true, PrefabFactory.defaultFps,	32, 32);
+		
+		Animation animation7 = Animation.getNew();
+		animation7.init("ChargeLaser", 9, 9, true, PrefabFactory.defaultFps,	32, 32);
+		
+		Animation animation8 = Animation.getNew();
+		animation8.init("Health", 4, 4, true, PrefabFactory.defaultFps,	32, 32);
 
+		
 		
 
 		final GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
@@ -1013,21 +1040,30 @@ public class PrefabFactory {
 		final GraphicAnimation glIdle3 = new GraphicAnimation(graphic, animation3);
 		final GraphicAnimation glIdle4 = new GraphicAnimation(graphic, animation4);
 		final GraphicAnimation glIdle5 = new GraphicAnimation(graphic, animation5);
+		final GraphicAnimation glIdle6 = new GraphicAnimation(graphic, animation6);
+		final GraphicAnimation glIdle7 = new GraphicAnimation(graphic, animation7);
+		final GraphicAnimation glIdle8 = new GraphicAnimation(graphic, animation8);
 
 		o.addComponent(glIdle);
 		o.addComponent(glIdle2);
 		o.addComponent(glIdle3);
 		o.addComponent(glIdle4);
 		o.addComponent(glIdle5);
+		o.addComponent(glIdle6);
+		o.addComponent(glIdle7);
+		o.addComponent(glIdle8);
 
 		glIdle2.setEnabled(false);
 		glIdle3.setEnabled(false);
 		glIdle4.setEnabled(false);
 		glIdle5.setEnabled(false);
+		glIdle6.setEnabled(false);
+		glIdle7.setEnabled(false);
+		glIdle8.setEnabled(false);
 		glIdle.play();
 
 		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));
-		collider.setIgnoreTags(new String [] {"PowerUp"});
+		collider.setIgnoreTags(Tags.powerup);
 
 		final RigidBody rigidBody = new RigidBody();
 		rigidBody.setCollider(collider);
@@ -1040,7 +1076,8 @@ public class PrefabFactory {
 		o.addComponent(sm);
 
 		final SetPositionOnCreate spoc = new SetPositionOnCreate(position);
-		final PowerUp p = new PowerUp(sm, type, canChange);
+		System.out.println("TYPE:"+type);
+		PowerUp p = new PowerUp(sm, type, canChange);
 		o.addComponent(p);
 		p.setType(type);
 		o.addComponent(spoc);
@@ -1059,7 +1096,7 @@ public class PrefabFactory {
 	private final static Vector2 v32by32 = new Vector2(32, 32);
 	
 	public static GameObject createShot(final String name,
-			final Vector2 position, final Vector2 speed, final String[] tags,
+			final Vector2 position, final Vector2 speed, int tags,
 			final float damage, final int power, final float life) {
 		// Load the texture for the cube once during Surface creation
 
@@ -1128,11 +1165,7 @@ public class PrefabFactory {
 
 		final GameObject o = GameObject.getNew();
 		
-		final String[] newTags = new String[tags.length + 1];
-		for (int x = 0; x < tags.length; x++) {
-			newTags[x] = tags[x];
-		}
-		newTags[tags.length] = "shot";
+		int newTags = tags | Tags.shot;
 		o.setName(name);
 		o.setTags(newTags);
 		o.transform.position.x = position.x;
@@ -1191,8 +1224,8 @@ public class PrefabFactory {
 		final Collider c = new BoxCollider(new Vector2(800,32));
 		rigidBody.setCollider(c);
 
-		spawner.setTags(new String [] {"spawner"});
-		c.setIgnoreTags(new String [] {"spawner", "shot", "player", "enemy", "powerup"});
+		spawner.setTags(Tags.spawner);
+		c.setIgnoreTags(Tags.spawner | Tags.shot | Tags.player | Tags.enemy | Tags.powerup);
 
 		spawner.setRigidBody(rigidBody);
 		spawner.addComponent(new SpawnOnCollision(objectToCreate));
@@ -1218,12 +1251,13 @@ public class PrefabFactory {
 		//GameObject go = new GameObject();
 		go.setName("TopOfScreen");
 		
-		go.transform.position.x = 0;
+		go.transform.position.x = 0; 
 		go.transform.position.y = 0;
 		
 		final RigidBody r = new RigidBody();
 		final Collider c = new BoxCollider(new Vector2(800,32));
-				
+		//go.setTags(Tags.topOfScreen);
+		//c.setIgnoreTags(Tags.shot);
 		r.setCollider(c);
 		go.setRigidBody(r);		
 		
@@ -1236,7 +1270,9 @@ public class PrefabFactory {
 
 	//consider changing to a hashmap!
 	public static InputStream elaser;
+	public static InputStream enemy;
 	public static InputStream getImage(final String name) {
+		
 		if (name.equals("calumniator")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.pcalumniator);
@@ -1293,16 +1329,14 @@ public class PrefabFactory {
 			return elaser;
 		}
 		else if (name.equals("enemy")) {
-			return PrefabFactory.context.getResources().openRawResource(
-					R.drawable.enemy);
+			return enemy;
 		}
 		else if (name.equals("powerup")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.powerup);
 		}
 		else if (name.equals("wad3")) {
-			return PrefabFactory.context.getResources().openRawResource(
-					R.drawable.wad3);
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.wad3);
 		}
 		else if (name.equals("hell")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1320,6 +1354,22 @@ public class PrefabFactory {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.shield);
 		}
+		else if (name.equals("boss2")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.boss2);
+		}
+		else if (name.equals("boss3")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.boss3);
+		}
+		else if (name.equals("boss4")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.boss4);
+		}
+		else if (name.equals("boss5")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.boss5);
+		}
 		return null;
 	}
 		
@@ -1332,5 +1382,618 @@ public class PrefabFactory {
 	private static void init ()
 	{
 		elaser = PrefabFactory.context.getResources().openRawResource(R.drawable.helaser);
+		enemy = PrefabFactory.context.getResources().openRawResource(R.drawable.enemy);
 	}
+
+	public static GameObject createBoss(String name, Vector2 position, int bossType, String nextLevel) {
+		
+		if (bossType == 2)
+		{
+			return createBoss2(name,position,bossType,nextLevel);
+		}
+		if (bossType == 3)
+		{
+			return createBoss3(name,position,bossType,nextLevel);
+		}
+		if (bossType == 4)
+		{
+			return createBoss4(name,position,bossType,nextLevel);
+		}
+		if (bossType == 5)
+		{
+			return createBoss5(name,position,bossType,nextLevel);
+		}
+		
+		return createBoss3(name,position,bossType,nextLevel);
+	}
+	
+	public static GameObject createBoss2(String name, Vector2 position, int bossType, String nextLevel) {
+		// Load the texture for the cube once during Surface creation
+		final GenericGraphic graphic = PrefabFactory.createGraphic("boss2",
+				PrefabFactory.getImage("boss2"),8);
+
+		final int startFrame = 0;
+		final int endFrame = 2;
+		
+		Animation idle = Animation.getNew();
+		idle.init("idle", startFrame, endFrame,
+				true, PrefabFactory.defaultFps, 208, 98);
+
+		Animation death = Animation.getNew();
+		death.init("death", 0,
+				2, false, PrefabFactory.defaultFps, 208, 98);
+
+		final GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		final GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+
+		final RigidBody rigidBody = new RigidBody();
+		final Collider collider = new BoxCollider(new Vector2(208, 98));
+		collider.setIgnoreTags( PrefabFactory.playerTargets );
+		rigidBody.setCollider(collider);
+
+		final GameObject o = GameObject.getNew();
+		//final GameObject o = new GameObject();
+		o.setName("boss2");
+		o.setTags(Tags.enemy);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+
+		
+/*
+			final GameObject [] nodes = {
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+			};			
+			/*
+			nodes[0] = GameObject.create(PrefabFactory.createNode(new Vector2(0,-32),0.0f));
+			nodes[1] = GameObject.create(PrefabFactory.createNode(new Vector2(0,800-32),0.0f));
+			nodes[2] = GameObject.create(PrefabFactory.createNode(new Vector2(400,800-32),0.0f));
+			nodes[3] = GameObject.create(PrefabFactory.createNode(new Vector2(400,0),0.0f));
+			nodes[4] = GameObject.create(PrefabFactory.createNode(new Vector2(0,0),0.0f));
+			nodes[5] = GameObject.create(PrefabFactory.createNode(new Vector2(0,900),0.0f));
+			ai = new AINodeFollower(nodes);*/
+
+		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
+		hc.setHealth(5000);
+
+		Component ai = new AIBoss2(hc);
+		
+		final Weapon [] weapons = new Weapon[8];
+		
+		weapons[0] = new Phaser(PrefabFactory.shootLeft, 3);
+		o.addComponent(weapons[0]);
+		weapons[0].setOffset(86, 82);
+
+		weapons[1] = new Phaser(PrefabFactory.shootDownLeft, 3);
+		o.addComponent(weapons[1]);
+		weapons[1].setOffset(86, 82);
+
+		weapons[2] = new Phaser(PrefabFactory.shootDownRight, 3);
+		o.addComponent(weapons[2]);
+		weapons[2].setOffset(86, 82);
+
+		weapons[3] = new Phaser(PrefabFactory.shootRight, 3);
+		o.addComponent(weapons[3]);
+		weapons[3].setOffset(86, 82);
+		
+		weapons[4] = new Phaser(PrefabFactory.shootDown, 3);
+		o.addComponent(weapons[4]);
+		weapons[4].setOffset(32-18, 80);
+
+		weapons[5] = new Phaser(PrefabFactory.shootDown, 3);
+		o.addComponent(weapons[5]);
+		weapons[5].setOffset(146+18, 80);
+		
+		weapons[6] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		final LockingWeaponHandler wh4 = new LockingWeaponHandler(weapons[6],PrefabFactory.enemyTargets,false);
+		weapons[6].setOffset(32, 80);
+		o.addComponent(weapons[6]);
+		o.addComponent(wh4);
+
+		weapons[7] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		final LockingWeaponHandler wh5 = new LockingWeaponHandler(weapons[7],PrefabFactory.enemyTargets,false);
+		weapons[7].setShots(100);
+		weapons[7].setOffset(146, 80);
+		o.addComponent(weapons[7]);
+		o.addComponent(wh5);
+		
+		Boss2WeaponHandler bwh = new Boss2WeaponHandler(weapons,hc);
+		o.addComponent(bwh);
+
+		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion1));
+
+		final GameObject explosion2 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion2));
+
+		final GameObject explosion3 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion3));
+
+		LoadLevelOnDestroy llod = new LoadLevelOnDestroy(nextLevel);
+		o.addComponent(llod);
+		//o.addComponent(new DestroyOnOutOfBounds());
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+		o.addComponent(ai);
+		o.addComponent(hc);
+		
+		System.out.println("boss2");
+		
+		return o;
+	}
+
+	public static GameObject createBoss3(String name, Vector2 position, int bossType, String nextLevel) {
+		// Load the texture for the cube once during Surface creation
+		final GenericGraphic graphic = PrefabFactory.createGraphic("boss3",
+				PrefabFactory.getImage("boss3"),8);
+
+		final int startFrame = 0;
+		final int endFrame = 2;
+		
+		Animation idle = Animation.getNew();
+		idle.init("idle", startFrame, endFrame,
+				true, PrefabFactory.defaultFps, 230, 140);
+
+		Animation death = Animation.getNew();
+		death.init("death", 0,
+				2, false, PrefabFactory.defaultFps, 230, 140);
+
+		final GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		final GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+
+		final RigidBody rigidBody = new RigidBody();
+		final Collider collider = new BoxCollider(new Vector2(230, 138));		
+		collider.setIgnoreTags(PrefabFactory.playerTargets);
+		rigidBody.setCollider(collider);
+		
+		final GameObject o = GameObject.getNew();
+		//final GameObject o = new GameObject();
+		
+		o.setName("boss3");
+		o.setTags(Tags.enemy);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+
+/*
+			final GameObject [] nodes = {
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+					GameObject.getNew(),
+			};			
+			/*
+			nodes[0] = GameObject.create(PrefabFactory.createNode(new Vector2(0,-32),0.0f));
+			nodes[1] = GameObject.create(PrefabFactory.createNode(new Vector2(0,800-32),0.0f));
+			nodes[2] = GameObject.create(PrefabFactory.createNode(new Vector2(400,800-32),0.0f));
+			nodes[3] = GameObject.create(PrefabFactory.createNode(new Vector2(400,0),0.0f));
+			nodes[4] = GameObject.create(PrefabFactory.createNode(new Vector2(0,0),0.0f));
+			nodes[5] = GameObject.create(PrefabFactory.createNode(new Vector2(0,900),0.0f));
+			ai = new AINodeFollower(nodes);
+*/
+
+		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
+		hc.setHealth(5000);
+
+		Component ai = new AIBoss3(hc);
+		
+		final Weapon [] weapons = new Weapon[8];
+		
+		weapons[0] = new Phaser(PrefabFactory.shootDown, 1.5f, 8 ,5);
+		o.addComponent(weapons[0]);
+		weapons[0].setOffset(117-16, 139-16);
+		weapons[0].setShotDelay(0.0f);
+
+		weapons[1] = new Phaser(PrefabFactory.shootDown, 1.5f, 8, 5);
+		o.addComponent(weapons[1]);
+		weapons[1].setOffset(98-16, 139-16);
+		weapons[1].setShotDelay(0.5f);
+
+		weapons[2] = new Phaser(PrefabFactory.shootDown, 1.5f, 8, 5);
+		o.addComponent(weapons[2]);
+		weapons[2].setOffset(137-16, 139-16);
+		weapons[2].setShotDelay(1.0f);
+		
+				
+		weapons[3] = new Phaser(PrefabFactory.shootDown, 3);
+		o.addComponent(weapons[3]);
+		weapons[3].setOffset(75-16, 116-16);
+		
+		weapons[4] = new Phaser(PrefabFactory.shootDown, 3);
+		o.addComponent(weapons[4]);
+		weapons[4].setOffset(160-16, 116-16);
+				
+		weapons[5] = new Phaser(PrefabFactory.shootDown, 3);
+		weapons[5].setOffset(117-16, 139-16);		
+		weapons[5].setShotDelay(Time.getTime()+1);
+		final LockingWeaponHandler wh7 = new LockingWeaponHandler(weapons[5],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[5]);
+		o.addComponent(wh7);
+		
+		weapons[6] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		final LockingWeaponHandler wh4 = new LockingWeaponHandler(weapons[6],PrefabFactory.enemyTargets,false);
+		weapons[6].setOffset(1-16, 122-16);
+		o.addComponent(weapons[6]);
+		o.addComponent(wh4);
+
+		weapons[7] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		final LockingWeaponHandler wh5 = new LockingWeaponHandler(weapons[7],PrefabFactory.enemyTargets,false);
+		weapons[7].setShots(100);
+		weapons[7].setOffset(233-16, 122-16);
+		o.addComponent(weapons[7]);
+		o.addComponent(wh5);
+		
+		Boss3WeaponHandler bwh = new Boss3WeaponHandler(weapons,hc);
+		o.addComponent(bwh);
+
+		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion1));
+
+		final GameObject explosion2 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion2));
+
+		final GameObject explosion3 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion3));
+
+		LoadLevelOnDestroy llod = new LoadLevelOnDestroy(nextLevel);
+		o.addComponent(llod);
+		//o.addComponent(new DestroyOnOutOfBounds());
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+		o.addComponent(ai);
+		o.addComponent(hc);
+		
+		System.out.println("boss2");
+		
+		return o;
+	}
+	
+	public static GameObject createBoss4(String name, Vector2 position, int bossType, String nextLevel) {
+		// Load the texture for the cube once during Surface creation
+		final GenericGraphic graphic = PrefabFactory.createGraphic("boss4",
+				PrefabFactory.getImage("boss4"),8);
+
+		final int startFrame = 0;
+		final int endFrame = 2;
+		
+		Animation idle = Animation.getNew();
+		idle.init("idle", startFrame, endFrame,
+				true, PrefabFactory.defaultFps, 208, 98);
+
+		Animation death = Animation.getNew();
+		death.init("death", 0,
+				2, false, PrefabFactory.defaultFps, 208, 98);
+
+		final GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		final GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+
+		final RigidBody rigidBody = new RigidBody();
+		final Collider collider = new BoxCollider(new Vector2(208, 98));		
+		collider.setIgnoreTags(PrefabFactory.playerTargets);
+		rigidBody.setCollider(collider);
+		
+		final GameObject o = GameObject.getNew();
+		//final GameObject o = new GameObject();
+		
+		o.setName("boss4");
+		o.setTags(Tags.enemy);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+
+		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
+		hc.setHealth(5000);
+
+		Component ai = new AIBoss4(hc);
+		
+		final Weapon [] weapons = new Weapon[12];
+		
+		weapons[0] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[0].setOffset(18-16, 75-16);
+		weapons[0].setShotDelay(0.0f);
+		final LockingWeaponHandler wh0 = new LockingWeaponHandler(weapons[0],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[0]);
+		o.addComponent(wh0);
+
+		weapons[1] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[1].setOffset(42-16, 83-16);
+		weapons[1].setShotDelay(0.5f);
+		final LockingWeaponHandler wh1 = new LockingWeaponHandler(weapons[1],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[1]);
+		o.addComponent(wh1);
+
+		weapons[2] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[2].setOffset(73-16, 96-16);
+		weapons[2].setShotDelay(1.0f);
+		final LockingWeaponHandler wh2 = new LockingWeaponHandler(weapons[2],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[2]);
+		o.addComponent(wh2);
+				
+		weapons[3] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[3].setOffset(136-16, 96-16);
+		weapons[3].setShotDelay(1.5f);
+		final LockingWeaponHandler wh3 = new LockingWeaponHandler(weapons[3],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[3]);
+		o.addComponent(wh3);
+		
+		weapons[4] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[4].setOffset(166-16, 81-16);
+		weapons[4].setShotDelay(2.0f);
+		final LockingWeaponHandler wh4 = new LockingWeaponHandler(weapons[4],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[4]);
+		o.addComponent(wh4);
+		
+				
+		weapons[5] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[5].setOffset(191-16, 75-16);		
+		weapons[5].setShotDelay(2.5f);
+		final LockingWeaponHandler wh5 = new LockingWeaponHandler(weapons[5],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[5]);
+		o.addComponent(wh5);
+
+		weapons[6] = new Phaser(PrefabFactory.shootLeft, 3);
+		o.addComponent(weapons[6]);
+		weapons[6].setOffset(105-16, 86-16);
+
+		weapons[7] = new Phaser(PrefabFactory.shootDownLeft, 3);
+		o.addComponent(weapons[7]);
+		weapons[7].setOffset(105-16, 86-16);
+
+		weapons[8] = new Phaser(PrefabFactory.shootDownRight, 3);
+		o.addComponent(weapons[8]);
+		weapons[8].setOffset(105-16, 86-16);
+
+		weapons[9] = new Phaser(PrefabFactory.shootRight, 3);
+		o.addComponent(weapons[9]);
+		weapons[9].setOffset(105-16, 86-16);
+		
+		weapons[10] = new Phaser(PrefabFactory.shootDown, 3);
+		o.addComponent(weapons[10]);
+		weapons[10].setOffset(105-16, 86-16);
+		
+		weapons[11] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		final LockingWeaponHandler wh11 = new LockingWeaponHandler(weapons[11],PrefabFactory.enemyTargets,false);
+		weapons[11].setOffset(105-16, 63-16);
+		o.addComponent(weapons[11]);
+		o.addComponent(wh11);
+
+
+		
+		Boss4WeaponHandler bwh = new Boss4WeaponHandler(weapons,hc);
+		o.addComponent(bwh);
+
+		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion1));
+
+		final GameObject explosion2 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion2));
+
+		final GameObject explosion3 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion3));
+
+		LoadLevelOnDestroy llod = new LoadLevelOnDestroy(nextLevel);
+		o.addComponent(llod);
+		//o.addComponent(new DestroyOnOutOfBounds());
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+		o.addComponent(ai);
+		o.addComponent(hc);
+		
+		System.out.println("boss4");
+		
+		return o;
+	}
+
+	
+	public static GameObject createBoss5(String name, Vector2 position, int bossType, String nextLevel) {
+		// Load the texture for the cube once during Surface creation
+		final GenericGraphic graphic = PrefabFactory.createGraphic("boss5",
+				PrefabFactory.getImage("boss5"),8);
+
+		final int startFrame = 0;
+		final int endFrame = 2;
+		
+		Animation idle = Animation.getNew();
+		idle.init("idle", startFrame, endFrame,
+				true, PrefabFactory.defaultFps, 478, 298);
+
+		Animation death = Animation.getNew();
+		death.init("death", 0,
+				2, false, PrefabFactory.defaultFps, 478, 298);
+
+		final GraphicAnimation glIdle = new GraphicAnimation(graphic, idle);
+		final GraphicAnimation glDeath = new GraphicAnimation(graphic, death);
+		glIdle.play();
+
+		final RigidBody rigidBody = new RigidBody();
+		final Collider collider = new BoxCollider(new Vector2(478, 200));		
+		collider.setIgnoreTags(PrefabFactory.playerTargets);
+		rigidBody.setCollider(collider);
+		
+		final GameObject o = GameObject.getNew();
+		//final GameObject o = new GameObject();
+		
+		o.setName("boss5");
+		o.setTags(Tags.enemy);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+
+		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
+		hc.setHealth(5000);
+
+		Component ai = new AIBoss5(hc);
+		
+		final Weapon [] weapons = new Weapon[23];
+		
+		weapons[0] = new Phaser(PrefabFactory.shootLeft, 6);
+		weapons[0].setOffset(82, 183);
+		weapons[0].setShotDelay(0.0f);
+		o.addComponent(weapons[0]);
+		
+		weapons[1] = new Phaser(PrefabFactory.shootDownLeft, 6);
+		weapons[1].setOffset(82, 183);
+		weapons[1].setShotDelay(0.2f);
+		o.addComponent(weapons[1]);
+		
+		weapons[2] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[2].setOffset(82, 183);
+		weapons[2].setShotDelay(0.4f);
+		o.addComponent(weapons[2]);
+		
+		weapons[3] = new Phaser(PrefabFactory.shootDownRight, 6);
+		weapons[3].setOffset(82, 183);
+		weapons[3].setShotDelay(0.6f);
+		o.addComponent(weapons[3]);
+		
+		weapons[4] = new Phaser(PrefabFactory.shootRight, 6);
+		weapons[4].setOffset(82, 183);
+		weapons[4].setShotDelay(0.8f);
+		o.addComponent(weapons[4]);
+
+		weapons[5] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[5].setOffset(127, 201);
+		weapons[5].setShotDelay(2.0f);
+		final LockingWeaponHandler wh5 = new LockingWeaponHandler(weapons[5],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[5]);
+		o.addComponent(wh5);
+
+		weapons[6] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[6].setOffset(179, 222);
+		weapons[6].setShotDelay(2.5f);
+		final LockingWeaponHandler wh6 = new LockingWeaponHandler(weapons[6],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[6]);
+		o.addComponent(wh6);
+				
+		weapons[7] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[7].setOffset(300, 222);
+		weapons[7].setShotDelay(3.0f);
+		final LockingWeaponHandler wh7 = new LockingWeaponHandler(weapons[7],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[7]);
+		o.addComponent(wh7);
+		
+		weapons[8] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[8].setOffset(352, 202);
+		weapons[8].setShotDelay(3.5f);
+		final LockingWeaponHandler wh8 = new LockingWeaponHandler(weapons[8],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[8]);
+		o.addComponent(wh8);
+		
+		weapons[9] = new Phaser(PrefabFactory.shootLeft, 3);
+		o.addComponent(weapons[9]);
+		weapons[9].setShotDelay(0.8f);
+		weapons[9].setOffset(398, 183);
+
+		weapons[10] = new Phaser(PrefabFactory.shootDownLeft, 3);
+		o.addComponent(weapons[10]);
+		weapons[10].setShotDelay(0.6f);
+		weapons[10].setOffset(398, 183);
+		
+		weapons[11] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[11].setOffset(398, 183);
+		weapons[11].setShotDelay(0.4f);
+		o.addComponent(weapons[11]);
+
+		weapons[12] = new Phaser(PrefabFactory.shootDownRight, 3);
+		o.addComponent(weapons[12]);
+		weapons[12].setShotDelay(0.2f);
+		weapons[12].setOffset(398, 183);
+
+		weapons[13] = new Phaser(PrefabFactory.shootRight, 3);
+		o.addComponent(weapons[13]);
+		weapons[13].setShotDelay(0.0f);
+		weapons[13].setOffset(398, 183);
+		
+	
+		weapons[14] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		weapons[14].setOffset(51, 154);
+		weapons[14].setShotDelay(0.0f);
+		final LockingWeaponHandler wh14 = new LockingWeaponHandler(weapons[14],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[14]);
+		o.addComponent(wh14);
+
+		weapons[15] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		weapons[15].setOffset(428, 154);
+		weapons[15].setShotDelay(0.3f*8);
+		final LockingWeaponHandler wh15 = new LockingWeaponHandler(weapons[15],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[15]);
+		o.addComponent(wh15);
+
+		weapons[16] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		weapons[16].setOffset(135-16, 170-16);
+		weapons[16].setShotDelay(0.5f);
+		final LockingWeaponHandler wh16 = new LockingWeaponHandler(weapons[16],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[16]);
+		o.addComponent(wh16);
+
+		weapons[17] = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+		weapons[17].setOffset(345-16, 170-16);
+		weapons[17].setShotDelay(1.0f);
+		final LockingWeaponHandler wh17 = new LockingWeaponHandler(weapons[17],PrefabFactory.enemyTargets,false);
+		o.addComponent(weapons[17]);
+		o.addComponent(wh17);
+
+
+		weapons[18] = new Phaser(PrefabFactory.shootLeft, 6);
+		weapons[18].setOffset(239-16, 297-16);
+		weapons[18].setShotDelay(0.0f);
+		o.addComponent(weapons[0]);
+		
+		weapons[19] = new Phaser(PrefabFactory.shootDownLeft, 6);
+		weapons[19].setOffset(239-16, 297-16);
+		weapons[19].setShotDelay(0.2f);
+		o.addComponent(weapons[19]);
+		
+		weapons[20] = new Phaser(PrefabFactory.shootDown, 6);
+		weapons[20].setOffset(239-16, 297-16);
+		weapons[20].setShotDelay(0.4f);
+		o.addComponent(weapons[20]);
+		
+		weapons[21] = new Phaser(PrefabFactory.shootDownRight, 6);
+		weapons[21].setOffset(239-16, 297-16);
+		weapons[21].setShotDelay(0.2f);
+		o.addComponent(weapons[21]);
+		
+		weapons[22] = new Phaser(PrefabFactory.shootRight, 6);
+		weapons[22].setOffset(239-16, 297-16);
+		weapons[22].setShotDelay(0.0f);
+		o.addComponent(weapons[22]);
+
+		
+		
+		Boss5WeaponHandler bwh = new Boss5WeaponHandler(weapons,hc);
+		o.addComponent(bwh);
+
+		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion1));
+
+		final GameObject explosion2 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion2));
+
+		final GameObject explosion3 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion3));
+
+		LoadLevelOnDestroy llod = new LoadLevelOnDestroy(nextLevel);
+		o.addComponent(llod);
+		//o.addComponent(new DestroyOnOutOfBounds());
+		o.addComponent(glIdle);
+		o.addComponent(glDeath);
+		o.addComponent(ai);
+		o.addComponent(hc);
+		
+		System.out.println("boss4");
+		
+		return o;
+	}
+
 }

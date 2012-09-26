@@ -39,9 +39,14 @@ public class Level extends Component {
 	public void draw() {
 		final float originalX = this.gameObject.transform.position.x;
 		final float originalY = this.gameObject.transform.position.y;
-
+/*
+		System.out.println("DRAWING");
+		System.out.println("SIZE:"+this.tileHeight + " " + this.tileWidth);
+		System.out.println("WAD:"+this.wad.length);
+	*/	
 		for (int x = 0; x < this.mapWidth; x++) {
 			for (int y = 0; y < this.mapHeight; y++) {
+				//System.out.println(x + " " + y + " = " + this.map[x][y] + " < " + this.wad.length);
 				this.wad[this.map[x][y]].setGameObject(this.gameObject);
 				this.wad[this.map[x][y]].draw();		
 				this.gameObject.transform.position.y += this.tileHeight;
@@ -62,29 +67,37 @@ public class Level extends Component {
 		this.mapHeight = mapHeight;
 		this.map = new int[this.mapWidth][this.mapHeight];
 
-		//System.out.println("--MAP--");//
+//		System.out.println("--MAP--");//
 		int i = 0;
 		for (i = 0; i < map.length; i++) {
 			if (i % this.mapWidth == 0 && i != 0) {
-				//System.out.println("   x=" + x + " y=" + y + " i=" + i);
+	//			System.out.println("   x=" + x + " y=" + y + " i=" + i);
 				y++;
 				x = 0;
 			}
 
 			if (x < this.map.length && y < this.map[x].length) {
-				//System.out.print(map[i]);
+		//		System.out.print(map[i]);
 				this.map[x][y] = map[i];
 			}
 			x++;
 		}
 		//System.out.println();
-//		/System.out.println("   x=" + x + " y=" + y + " i=" + i);
+		//System.out.println("   x=" + x + " y=" + y + " i=" + i);
 	}
 
 	public void setWad(final GenericGraphic image, final int tileWidth,
 			final int tileHeight) {
 		final int tiles = (image.getHeight() - 1) / (tileHeight + 1);
 
+/*
+		System.out.println("WAD:" + tiles);
+		System.out.println(image.getName());
+		System.out.println("(" +image.getHeight() +" - 1) / (" + tileHeight + " + 1)");
+		System.out.println((image.getHeight() - 1) + "/" + (tileHeight + 1));
+		System.out.println(tiles);
+*/
+		
 		this.wad = new GraphicAnimation[tiles];
 
 		for (int x = 0; x < this.wad.length; x++) {
@@ -98,5 +111,7 @@ public class Level extends Component {
 
 		this.tileHeight = tileHeight;
 		this.tileWidth = tileWidth;
+		
+//		System.out.println(this.tileHeight + " " + this.tileWidth);
 	}
 }

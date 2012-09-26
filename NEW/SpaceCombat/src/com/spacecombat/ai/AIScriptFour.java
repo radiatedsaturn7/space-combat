@@ -14,7 +14,7 @@ public class AIScriptFour extends AIScript {
 
 	private final int give = 8;
 
-	public AIScriptFour(final String[] targets) {
+	public AIScriptFour(final int targets) {
 		this.target = GameObject.findRandomByTags(targets);
 	}
 

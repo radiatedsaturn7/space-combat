@@ -34,7 +34,7 @@ public class WeaponController extends Component implements ClickListener {
 	{
 		return this.weapons[this.selectedWeapon];
 	}	
-
+	
 	@Override
 	public void onClick(final float x, final float y) 
 	{

@@ -94,15 +94,12 @@ createPlayer
 hunter
 laser
 
-create_enemy(-100,  1, 8, no, 0, 0, no);
-create_enemy(-100,  2, 9, no, 0, 0, no);
-create_enemy(-100,  3, 10, no, 0, 0, no);
-create_enemy(-100,  4, 11, no, 0, 0, no);
-create_enemy(-100,  5, 12, no, 0, 0, no);
-
-
-create_enemy(-50,  1, 0, no, 0, 0, no);
-create_enemy(-50,  2, 1, no, 0, 0, no);
-create_enemy(-50,  3, 2, no, 0, 0, no);
-create_enemy(-50,  4, 3, no, 0, 0, no);
-create_enemy(-50,  5, 4, no, 0, 0, no);
+/*
+createBoss
+64
+4200
+200
+3900
+5
+level1
+*/

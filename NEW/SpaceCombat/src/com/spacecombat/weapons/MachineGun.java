@@ -9,12 +9,12 @@ public class MachineGun extends Weapon {
 	private static final String name = "MachineGun";
 	private static final float damage = 15;
 	private static final float reloadTime = 0.2f;
-	private static final float shotSpeed = 128;
+	private static final float shotSpeed = 256;
 	private static final float life = 5;
 	private static final float accuracy = 40;
 	private static final int magazineSize = 5;
 	private static final float magazineReloadTime = 1;
-	private static final int powerUpType = 0;
+	private static final int powerUpType = 1;
 
 	public MachineGun(final Vector2 direction) {
 		super(MachineGun.name, MachineGun.damage, MachineGun.accuracy,
@@ -29,7 +29,7 @@ public class MachineGun extends Weapon {
 		GameObject.create(PrefabFactory.createShot("bullet", position,
 				this.shotSpeedVector, this.tags,
 				this.baseDamage + (7.5f * (this.powerLevel-1)), this.powerLevel, MachineGun.life));
-
+/*
 		if (this.powerLevel > 5)
 		{
 			final int nextPowerLevel = this.powerLevel - 5;
@@ -57,6 +57,7 @@ public class MachineGun extends Weapon {
 					this.baseDamage + (7.5f * (nextPowerLevel-1)), nextPowerLevel, MachineGun.life));
 			this.shotSpeedVector.x -= 60;
 		}
+		*/
 		return true;
 	}
 }

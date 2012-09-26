@@ -9,7 +9,7 @@ import com.spacecombat.Vector2;
 
 public class ScoreHUD extends Component 
 {
-	public int nextUpdate = 2500;
+	public int nextUpdate = 1000;
 	public int updateIncrement = 2500;
 	public float updateIncrementIncrement = 1.1f;
 	public boolean createPowerup = false;
@@ -65,7 +65,7 @@ public class ScoreHUD extends Component
 
 		if (createPowerup)
 		{
-			GameObject.create(PrefabFactory.createPowerUp(new Vector2(Camera.mainCamera.gameObject.transform.position.x + 200, Camera.mainCamera.gameObject.transform.position.y), 0, true));
+			GameObject.create(PrefabFactory.createPowerUp(new Vector2(Camera.mainCamera.gameObject.transform.position.x + 200, Camera.mainCamera.gameObject.transform.position.y), -1, true));
 		}
 		createPowerup = false;
 	}

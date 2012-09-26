@@ -2,7 +2,7 @@ package com.spacecombat;
 
 public abstract class Collider {
 	protected RigidBody rigidBody;
-	private String[] tags;
+	private int tags;
 
 	public abstract boolean collidesWith(BoxCollider boxCollider);
 
@@ -19,67 +19,19 @@ public abstract class Collider {
 		return false;
 	}
 
-	public String[] getIgnoreTags() {
+	public int getIgnoreTags() {
 		return this.tags;
-	}
-
-	public String getPrintableTags() {
-		String s = "";
-		if (this.tags != null) {
-			int x = 0;
-			for (x = 0; x < this.tags.length; x++) {
-				s += this.tags[x] + ",";
-			}
-		}
-		return s;
 	}
 
 	public RigidBody getRigidBody() {
 		return this.rigidBody;
 	}
 
-	public boolean hasIgnoreTag(final String tag) {
-		if (this.tags == null) {
-			return false;
-		}
-
-		if (tag == null) {
-			return false;
-		}
-
-		int x = 0;
-		for (x = 0; x < this.tags.length; x++) {
-			if (this.tags[x].equalsIgnoreCase(tag)) {
-				return true;
-			}
-		}
-
-		return false;
+	public boolean hasIgnoreTag(final int tag) {
+		return Tags.compareTagsOr(this.tags, tag);
 	}
 
-	public boolean hasIgnoreTag(final String[] otherTags) {
-		if (this.tags == null) {
-			return false;
-		}
-		if (otherTags == null) {
-			return false;
-		}
-
-		int x = 0;
-		for (x = 0; x < this.tags.length; x++) {
-			int y = 0;
-			for (y = 0; y < otherTags.length; y++) {
-				if (this.tags[x].equalsIgnoreCase(otherTags[y])
-						&& otherTags[y] != null) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	public void setIgnoreTags(final String[] tags) {
+	public void setIgnoreTags(final int tags) {
 		this.tags = tags;
 	}
 

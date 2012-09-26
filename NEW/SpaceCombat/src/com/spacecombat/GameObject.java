@@ -19,21 +19,22 @@ public class GameObject extends Component implements Poolable {
 	}
 	
 	public static GameObject findByName(final String search) {
+		GameObject staticXGameObject = null;
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX);
-			if (GameObject.staticXGameObject.getName().equals(search)) {
-				return GameObject.staticXGameObject;
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.getName().equals(search)) {
+				return staticXGameObject;
 			}
 		}
 		return null;
 	}
-	public static GameObject findRandomByTags(final String[] search) {
-
+	public static GameObject findRandomByTags(final int search) {
+		GameObject staticXGameObject = null;
 		final LinkedList<GameObject> gos = new LinkedList<GameObject>();		
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX);
-			if (GameObject.staticXGameObject.hasTag(search)) {
-				gos.add(GameObject.staticXGameObject);
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
+				gos.add(staticXGameObject);
 			}
 		}
 		if (gos.size() == 0) {
@@ -55,12 +56,6 @@ public class GameObject extends Component implements Poolable {
 	}
 
 	private boolean destroyOnLevelLoad = true;
-
-	private static GameObject staticXGameObject;
-
-	private GameObject XGameObject;
-
-	private Component xComponent;
 
 	private int id = 0;
 
@@ -108,30 +103,33 @@ public class GameObject extends Component implements Poolable {
 		return gameObject;
 	}
 
-	public static void executeOnAllWithTags(final String[] search,
+	public static void executeOnAllWithTags(final int search,
 			final Function f) {
+		GameObject staticXGameObject = null;
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX);
-			if (GameObject.staticXGameObject.hasTag(search)) {
-				f.execute(GameObject.staticXGameObject);
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
+				f.execute(staticXGameObject);
 			}
 		}
 	}
 
 	public static List<GameObject> findAllByName(final String search) {
 		final LinkedList<GameObject> gos = new LinkedList<GameObject>();
+		GameObject staticXGameObject = null;
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX); 
-			if (GameObject.staticXGameObject.getName().equals(search)) {
-				gos.add(GameObject.staticXGameObject);
+			staticXGameObject = GameObject.gameObjects.get(staticX); 
+			if (staticXGameObject.getName().equals(search)) {
+				gos.add(staticXGameObject);
 			}
 		}
 		return gos;
 	}
 
-	public static List<GameObject> findAllByTags(final String[] search,
+	public static List<GameObject> findAllByTags(final int search,
 			final List<GameObject> gos) {
 		gos.clear();
+		GameObject staticXGameObject = null;
 
 		float xMin = 800;
 		float xMax = 0;
@@ -139,22 +137,22 @@ public class GameObject extends Component implements Poolable {
 		float yMax = 0;
 
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX);
-			if (GameObject.staticXGameObject.hasTag(search)) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(search)) {
 				xMax = Math.max(
-						GameObject.staticXGameObject.transform.position.x,
+						staticXGameObject.transform.position.x,
 						xMax);
 				xMin = Math.min(
-						GameObject.staticXGameObject.transform.position.x,
+						staticXGameObject.transform.position.x,
 						xMin);
 				yMax = Math.max(
-						GameObject.staticXGameObject.transform.position.y,
+						staticXGameObject.transform.position.y,
 						yMax);
 				yMin = Math.min(
-						GameObject.staticXGameObject.transform.position.y,
+						staticXGameObject.transform.position.y,
 						yMin);
 
-				gos.add(GameObject.staticXGameObject);
+				gos.add(staticXGameObject);
 			}
 		}
 		GameObject.distances.x = xMax - xMin;
@@ -163,7 +161,7 @@ public class GameObject extends Component implements Poolable {
 		return gos;
 	}
 
-	public static List<GameObject> findAllByTags(final String[] hasThese, final String [] butNotThese,
+	public static List<GameObject> findAllByTags(final int hasThese, final int butNotThese,
 			final List<GameObject> gos) {
 		gos.clear();
 
@@ -171,24 +169,24 @@ public class GameObject extends Component implements Poolable {
 		float xMax = 0;
 		float yMin = 800;
 		float yMax = 0;
-
+		GameObject staticXGameObject = null;
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
-			GameObject.staticXGameObject = GameObject.gameObjects.get(staticX);
-			if (GameObject.staticXGameObject.hasTag(hasThese) && !GameObject.staticXGameObject.hasTag(butNotThese)) {
+			staticXGameObject = GameObject.gameObjects.get(staticX);
+			if (staticXGameObject.hasTag(hasThese) && !staticXGameObject.hasTag(butNotThese)) {
 				xMax = Math.max(
-						GameObject.staticXGameObject.transform.position.x,
+						staticXGameObject.transform.position.x,
 						xMax);
 				xMin = Math.min(
-						GameObject.staticXGameObject.transform.position.x,
+						staticXGameObject.transform.position.x,
 						xMin);
 				yMax = Math.max(
-						GameObject.staticXGameObject.transform.position.y,
+						staticXGameObject.transform.position.y,
 						yMax);
 				yMin = Math.min(
-						GameObject.staticXGameObject.transform.position.y,
+						staticXGameObject.transform.position.y,
 						yMin);
 
-				gos.add(GameObject.staticXGameObject);
+				gos.add(staticXGameObject);
 			}
 		}
 		GameObject.distances.x = xMax - xMin;
@@ -206,7 +204,7 @@ public class GameObject extends Component implements Poolable {
 
 	private String name = "GameObject";
 
-	private String[] tags;
+	private int tags;
 
 	private boolean isDestroyed = false;
 
@@ -219,7 +217,7 @@ public class GameObject extends Component implements Poolable {
 	public GameObject() {		
 		this.name = "GameObject";
 		trace = false;	
-		this.tags = null;
+		this.tags = 0;
 		this.transform = new Transform();
 		this.components = new ArrayList<Component>();
 		doTrace();
@@ -231,37 +229,23 @@ public class GameObject extends Component implements Poolable {
 		this.components.add(c);		
 	}
 
-	public void addTag(final String tag)
+	public void addTag(final int tag)
 	{
 		doTrace();
-		if (this.hasTag(tag))
-		{
-			return;
-		}
 
-		if (this.tags == null)
-		{
-			this.tags = new String [] {};
-		}
-
-		final String [] newTags = new String[this.tags.length+1];
-		for (int x = 0; x < newTags.length-1; x++)
-		{
-			newTags[x] = this.tags[x];
-		}
-		newTags[newTags.length-1] = tag;
-		this.tags = newTags;		
+		this.tags = this.tags | tag;
 	}
 
 	@Override
 	public void clean() {
 		doTrace();
 		this.components.clear();
+		
 		this.trace = false;	
 		this.rigidBody = null;
 		this.transform.position.x = 0;
 		this.transform.position.y = 0;
-		this.transform.rotation.x = 0;
+		this.transform.rotation.x = 0; 
 		this.transform.rotation.y = 0;
 		this.transform.scale.x = 1;
 		this.transform.scale.y = 1;
@@ -297,6 +281,7 @@ public class GameObject extends Component implements Poolable {
 	
 	public static void clear()
 	{
+		System.out.println("REMOVING ALLN OBJECTS");
 		for (int x = 0; x < GameObject.gameObjects.size(); x++)
 		{
 			gameObjects.get(x).destroy();
@@ -307,12 +292,14 @@ public class GameObject extends Component implements Poolable {
 	
 	@Override
 	public void destroy() {
-		doTrace();		
+		doTrace();	
 		this.isDestroyed = true;		
 	}
 	
 	public void release()
 	{
+		doTrace();
+		
 		int size = this.components.size();
 		//System.out.println("releasing:"+size);
 		for (int x = 0; x < size; x++) {
@@ -346,10 +333,11 @@ public class GameObject extends Component implements Poolable {
 			this.rigidBody.draw();
 		}
 
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);
-			if (this.xComponent.isEnabled()) {
-				this.xComponent.draw();
+			xComponent = this.components.get(x);
+			if (xComponent.isEnabled()) {
+				xComponent.draw();
 			}
 		}
 	}
@@ -367,13 +355,13 @@ public class GameObject extends Component implements Poolable {
 
 	public GraphicAnimation getAnimation(final String name) {
 		doTrace();
-		
-		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);
-			if (this.xComponent instanceof GraphicAnimation) {
-				if (((GraphicAnimation) this.xComponent).getName()
+		Component xComponent = null;
+		for (int x = 0; x < this.components.size(); x++) {			
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				if (((GraphicAnimation) xComponent).getName()
 						.equals(name)) {
-					return (GraphicAnimation) this.xComponent;
+					return (GraphicAnimation) xComponent;
 				}
 			}
 
@@ -411,12 +399,12 @@ public class GameObject extends Component implements Poolable {
 
 	public GraphicAnimation getCurrentAnimation() {
 		doTrace();
-		
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);
-			if (this.xComponent instanceof GraphicAnimation) {
-				if (this.xComponent.isEnabled()) {
-					return (GraphicAnimation) this.xComponent;
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				if (xComponent.isEnabled()) {
+					return (GraphicAnimation) xComponent;
 				}
 			}
 		}
@@ -453,83 +441,20 @@ public class GameObject extends Component implements Poolable {
 		return this.poolId;
 	}
 
-	public String getPrintableTags() {
-		doTrace();
-		
-		String s = "";
-		if (this.tags != null) {
-			for (int x = 0; x < this.tags.length; x++) {
-				s += this.tags[x] + ",";
-			}
-		}
-		return s;
-	}
-
 	public RigidBody getRigidBody() {
 		//doTrace();
 		
 		return this.rigidBody;
 	}
 
-	public String[] getTags() {
-		doTrace();
-		
+	public int getTags() {
+		doTrace();		
 		return this.tags;
 	}
 
-	public boolean hasTag(final String tag) {
-		doTrace();
-		
-		if (this.tags == null) {
-			return false;
-		}
-		if (tag == null) {
-			return false;
-		}
-
-		for (int x = 0; x < this.tags.length; x++) {
-			if (this.tags[x].equalsIgnoreCase(tag)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public boolean hasTag(String[] otherTags) {
-		doTrace();
-		
-		return hasTag(otherTags,false);
-	}
-	
-	public boolean hasTag(String[] otherTags, boolean print) {
-		doTrace();
-		
-		if (this.tags == null) {
-			if (print)
-				System.out.println("NULL");
-			return false;
-		}
-		if (otherTags == null) {
-			if (print)
-				System.out.println("NULL");
-			return false;
-		}
-
-		for (int x = 0; x < this.tags.length; x++) {
-			for (int y = 0; y < otherTags.length; y++) {
-				if (print)
-				{
-					System.out.println(this.tags[x] + " " + otherTags[y]);
-				}
-				if (this.tags[x].equalsIgnoreCase(otherTags[y])
-						&& otherTags[y] != null) {
-					return true;
-				}
-			}
-		}
-
-		return false;
+	public boolean hasTag(final int tag) {
+		doTrace();		
+		return Tags.compareTagsOr(this.tags, tag);
 	}
 
 	public boolean isDestroyed() {
@@ -551,11 +476,12 @@ public class GameObject extends Component implements Poolable {
 			this.rigidBody.onAfterUpdate();
 		}
 
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);			
-			if (this.xComponent.isEnabled()) {
+			xComponent = this.components.get(x);			
+			if (xComponent.isEnabled()) {
 				// c.getClass().getSimpleName());
-				this.xComponent.onAfterUpdate();
+				xComponent.onAfterUpdate();
 			}
 		}
 
@@ -600,11 +526,11 @@ public class GameObject extends Component implements Poolable {
 		doTrace();
 		
 		GraphicAnimation animation = null;
-
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);
-			if (this.xComponent instanceof GraphicAnimation) {
-				final GraphicAnimation gl = (GraphicAnimation) this.xComponent;
+			xComponent = this.components.get(x);
+			if (xComponent instanceof GraphicAnimation) {
+				final GraphicAnimation gl = (GraphicAnimation) xComponent;
 
 				if (gl.getName().equalsIgnoreCase(name)) {
 					gl.setEnabled(true);
@@ -620,11 +546,11 @@ public class GameObject extends Component implements Poolable {
 
 	public void removeComponent(final Class<? extends Component> getClass) {
 		doTrace();
-		
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);
-			if (this.xComponent.getClass() == getClass) {
-				this.components.remove(this.xComponent);
+			xComponent = this.components.get(x);
+			if (xComponent.getClass() == getClass) {
+				this.components.remove(xComponent);
 				return;
 			}
 
@@ -664,7 +590,7 @@ public class GameObject extends Component implements Poolable {
 		this.rigidBody = rigidBody;
 		rigidBody.setGameObject(this);
 	}
-	public void setTags(final String[] tags) {
+	public void setTags(final int tags) {
 		doTrace();		
 		this.tags = tags;
 	}
@@ -681,11 +607,12 @@ public class GameObject extends Component implements Poolable {
 			this.rigidBody.update();
 		}
 
+		Component xComponent = null;
 		for (int x = 0; x < this.components.size(); x++) {
-			this.xComponent = this.components.get(x);			
-			if (this.xComponent.isEnabled()) {
+			xComponent = this.components.get(x);			
+			if (xComponent.isEnabled()) {
 				// c.getClass().getSimpleName());
-				this.xComponent.update();
+				xComponent.update();
 			}
 		}
 	}
@@ -694,6 +621,7 @@ public class GameObject extends Component implements Poolable {
 	{
 		String string = "";
 		string += "GameObject [" + this.name + "]:\n";
+		string += "    PoolID [" + this.poolId + "]:\n";
 		string += "    Transform:" + transform.position + " " + transform.rotation + " " + transform.scale + "\n";
 		string += "    RigidBody:" + rigidBody;	
 		
@@ -715,7 +643,7 @@ public class GameObject extends Component implements Poolable {
 		doTrace();
 		trace = t;
 	}
-	
+		
 	public void doTrace()
 	{
 		if (trace)

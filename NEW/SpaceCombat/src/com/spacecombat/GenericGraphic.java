@@ -12,4 +12,6 @@ public interface GenericGraphic {
 	public int getLayer();
 
 	public int getWidth();
+
+	public String getName();
 }

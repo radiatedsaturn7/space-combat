@@ -17,7 +17,7 @@ public class ChargeLaser extends Weapon {
 	private static final float accuracy = 0;
 	private static final int magazineSize = 3;
 	private static final float magazineReloadTime = .01f;
-	private static final int powerUpType = 0;
+	private static final int powerUpType = 6;
 	
 	private static float charge = 0;
 	private static float chargeRate = 1;
@@ -43,7 +43,7 @@ public class ChargeLaser extends Weapon {
 					this.shotSpeedVector, this.tags,
 					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
 		}
-		if (charge >= 4)
+		if (charge >= 4 && powerLevel > 4)
 		{
 			position.x -= 32;
 			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
@@ -55,7 +55,7 @@ public class ChargeLaser extends Weapon {
 					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
 			position.x -= 32;
 		}
-		if (charge >= 6)
+		if (charge >= 6 && powerLevel > 8)
 		{
 			position.x -= 64;
 			GameObject.create(PrefabFactory.createShot("chargeLaser", position,

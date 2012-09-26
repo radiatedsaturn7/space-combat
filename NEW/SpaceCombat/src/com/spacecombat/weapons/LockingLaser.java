@@ -14,7 +14,7 @@ public class LockingLaser extends Weapon
 	private static final float life = 5;
 	private static final float accuracy = 0;
 	private static final int magazineSize = 1;
-	private static final int powerUpType = 2;
+	private static final int powerUpType = 4;
 
 	public LockingLaser(final Vector2 direction) {
 		super(LockingLaser.name, LockingLaser.damage, LockingLaser.accuracy, LockingLaser.reloadTime, LockingLaser.magazineSize,

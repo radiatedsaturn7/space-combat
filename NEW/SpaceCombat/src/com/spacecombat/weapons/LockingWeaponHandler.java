@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
@@ -14,14 +15,14 @@ public class LockingWeaponHandler extends Component {
 	private GameObject go = null;
 	private final Vector2 defaultDirection;
 	private final Vector2 temp;
-	private String[] targets = null;
+	private int targets = 0;
 	private final float searchTime = 2.0f;
 	private float nextSearch = 0.0f;
 	private List<GameObject> gos;
 	private boolean autoShoot = false;
-	private final String [] nonTargets = new String [] {"shot","Camera"};
+	private final int nonTargets = Tags.shot | Tags.camera;
 
-	public LockingWeaponHandler(final Weapon w, final String[] targets, final boolean autoShoot) {
+	public LockingWeaponHandler(final Weapon w, final int targets, final boolean autoShoot) {
 		this.gos = new LinkedList<GameObject>();
 		this.w = w;
 		final Vector2 t = new Vector2(w.getShotDirection());
@@ -32,8 +33,8 @@ public class LockingWeaponHandler extends Component {
 	}
 
 	public void calculateTrajectory() {
-		this.temp.x = (this.go.transform.position.x - this.gameObject.transform.position.x);
-		this.temp.y = (this.go.transform.position.y - this.gameObject.transform.position.y);
+		this.temp.x = (this.go.transform.position.x - (this.gameObject.transform.position.x + w.getOffset().x));
+		this.temp.y = (this.go.transform.position.y - (this.gameObject.transform.position.y + w.getOffset().y));
 
 		this.temp.x -= this.gameObject.getRigidBody().speed.x;
 		this.temp.y -= this.gameObject.getRigidBody().speed.y;
@@ -63,6 +64,7 @@ public class LockingWeaponHandler extends Component {
 
 	@Override
 	public void update() {
+		
 		if (canSearch()) {
 			search();
 			if (this.go == null) {

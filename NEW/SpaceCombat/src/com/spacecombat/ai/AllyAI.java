@@ -7,6 +7,7 @@ import com.spacecombat.BoxCollider;
 import com.spacecombat.GameObject;
 import com.spacecombat.Rectangle;
 import com.spacecombat.RigidBody;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
@@ -50,8 +51,8 @@ public class AllyAI extends AIScript {
 	private float nextSearch;
 	private int enemyCount = 0;
 
-	public String[] playerTag = new String[] { "Player" };
-	private final String[] targets = new String[] { "enemy" };
+	public int playerTag = Tags.player;
+	private final int targets = Tags.enemy;
 
 	private final Rectangle Top = new Rectangle();
 	private final Rectangle Bottom = new Rectangle();
@@ -138,7 +139,7 @@ public class AllyAI extends AIScript {
 					+ this.boundingBox.width
 					&& this.sBoundingBox.y < this.boundingBox.y
 					&& !(s.hasTag(this.gameObject.getTags()))
-					&& (s.hasTag("Enemy"))) {
+					&& (s.hasTag(Tags.enemy))) {
 				return true;
 			}
 		}
@@ -167,7 +168,7 @@ public class AllyAI extends AIScript {
 
 			if (this.sBoundingBox.collidesWith(this.dodgeRectangle)
 					&& !(s.hasTag(this.gameObject.getTags()))
-					&& !(s.hasTag("PowerUp"))) {
+					&& !(s.hasTag(Tags.powerup))) {
 				return true;
 			}
 		}
@@ -311,7 +312,7 @@ public class AllyAI extends AIScript {
 			}
 
 			if (!(s.hasTag(this.gameObject.getTags()))
-					&& !(s.hasTag("PowerUp"))) {
+					&& !(s.hasTag(Tags.powerup))) {
 				if (this.sBoundingBox.collidesWith(this.Top)
 						|| this.sBoundingBox.collidesWith(this.Bottom)) {
 					if (this.sBoundingBox.collidesWith(this.Top)) {
@@ -334,13 +335,13 @@ public class AllyAI extends AIScript {
 					}
 					break;
 				} else if (this.sBoundingBox.collidesWith(this.Right)
-						&& !(s.hasTag("PowerUp"))) {
+						&& !(s.hasTag(Tags.powerup))) {
 					if (this.rigidBody.speed.x > -this.maxSpeed.x) {
 						this.rigidBody.speed.x-=this.accel.x;
 					}
 					break;
 				} else if (this.sBoundingBox.collidesWith(this.Left)
-						&& !(s.hasTag("PowerUp"))) {
+						&& !(s.hasTag(Tags.powerup))) {
 					if (this.rigidBody.speed.x < this.maxSpeed.x) {
 						this.rigidBody.speed.x+=this.accel.x;
 					}

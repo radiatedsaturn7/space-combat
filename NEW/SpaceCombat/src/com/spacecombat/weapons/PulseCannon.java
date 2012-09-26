@@ -16,7 +16,7 @@ public class PulseCannon extends Weapon {
 	private static final float accuracy = 0;
 	private static final int magazineSize = 0;
 	private static final float magazineReloadTime = 1;
-	private static final int powerUpType = 0;
+	private static final int powerUpType = 3;
 
 	private static final Vector2 spinny = new Vector2(0,-2048);
 

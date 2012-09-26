@@ -3,6 +3,7 @@ package com.spacecombat.game;
 
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
 
@@ -15,17 +16,31 @@ public class PowerUp extends Component
 	public float movementTime = 2.0f;
 	public float nextMovementChange = 0.0f;
 
-	public int type;
-	public final int maxTypes = 2;
+	public int type = -1;
+	public int maxTypes = 7; //0 based
 
 	public SimpleMovement sm;
 
 	public boolean destroyMe = false;
 
-	public PowerUp (final SimpleMovement sm, final int type, final boolean canChange)
+	public PowerUp (final SimpleMovement sm, int type, final boolean canChange)
 	{
-		this.sm = sm;
-		this.type = type;
+		System.out.println("TYPE:"+type);
+		
+		if (type < 0)
+		{			
+			this.type = Util.randomNumber(0, maxTypes);
+			System.out.println("max:"+maxTypes);
+			System.out.println("TYPE:"+this.type);
+		}
+		else
+		{
+			this.type = type;
+		}
+		
+		System.out.println("TYPE:"+this.type);
+		
+		this.sm = sm;		
 		this.canChange = canChange;
 		
 		if (Util.randomNumber(0, 1) == 1)
@@ -46,34 +61,42 @@ public class PowerUp extends Component
 
 		if (this.type == 0)
 		{
-			this.gameObject.playAnimation("PowerUp");
+			this.gameObject.playAnimation("Laser");
 		}
 		if (this.type == 1)
 		{
-			this.gameObject.playAnimation("Missile");
+			this.gameObject.playAnimation("MachineGun");
 		}
 		if (this.type == 2)
 		{
-			this.gameObject.playAnimation("LockingLaser");
+			this.gameObject.playAnimation("FlameThrower");
 		}
 		if (this.type == 3)
 		{
-			this.gameObject.playAnimation("Wingman");
+			this.gameObject.playAnimation("PulseCannon");
 		}
 		if (this.type == 4)
 		{
-			this.gameObject.playAnimation("Health");
+			this.gameObject.playAnimation("LockingLaser");
 		}
 		if (this.type == 5)
 		{
-			this.gameObject.playAnimation("Charge");
+			this.gameObject.playAnimation("MissileLauncher");
+		}
+		if (this.type == 6)
+		{
+			this.gameObject.playAnimation("ChargeLaser");
+		}
+		if (this.type == 7)
+		{
+			this.gameObject.playAnimation("Health");
 		}
 	}
 
 	@Override
 	public void collide (final GameObject whatIHit)
 	{
-		if (whatIHit.hasTag("player") && !whatIHit.hasTag("shot"))
+		if (whatIHit.hasTag(Tags.player) && !whatIHit.hasTag(Tags.shot))
 		{
 			this.destroyMe = true;
 		}
@@ -84,9 +107,19 @@ public class PowerUp extends Component
 		return this.type;
 	}
 	
-	public void setType (int t)
+	public void setType (int type)
 	{
-		this.type = t;
+		if (type < 0)
+		{			
+			this.type = Util.randomNumber(0, maxTypes);
+			System.out.println("max:"+maxTypes);
+			System.out.println("TYPE:"+this.type);
+		}
+		else
+		{
+			this.type = type;
+		}
+
 		this.type--;
 		change();
 		

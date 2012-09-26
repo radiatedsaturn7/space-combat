@@ -8,13 +8,10 @@ import android.content.Context;
 
 import com.spacecombat.BoxCollider;
 import com.spacecombat.Collider;
-import com.spacecombat.Engine;
-import com.spacecombat.FixedJoint;
 import com.spacecombat.GameObject;
-import com.spacecombat.Input;
-import com.spacecombat.Level;
 import com.spacecombat.R;
 import com.spacecombat.RigidBody;
+import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
 
@@ -94,11 +91,9 @@ public class LevelLoader {
 
 	public static void loadLevel (final String name, final boolean clearAll) 
 	{ 
-		int line = 0;
-		String line2 = "";
-
-		try
-		{
+		//Time.pause();
+		//		try
+//		{
 			lastLevelLoaded = name;
 			final List<GameObject> gos = GameObject.getAllGameObjects();
 			for (int x = 0; x < gos.size(); x++)
@@ -113,10 +108,10 @@ public class LevelLoader {
 			}
 
 			//System.out.println("-START-");
-			for (final GameObject o : GameObject.getAllGameObjects())
-			{
+			//for (final GameObject o : GameObject.getAllGameObjects())
+			//{
 				//System.out.println(o.getName());
-			}
+			//}
 			//System.out.println("------");
 
 
@@ -158,8 +153,6 @@ public class LevelLoader {
 
 			for (int x = 0; x < lines.length; x++)
 			{
-				line = x;
-				line2 = lines[x];
 				if (ignoring)
 				{
 					if (lines[x].startsWith("*/"))
@@ -178,7 +171,7 @@ public class LevelLoader {
 					continue;
 				}
 
-				if (lines[x].startsWith("createLevel"))
+				if (x < lines.length && lines[x].startsWith("createLevel"))
 				{
 					x++;
 					final String wadName = lines[x].trim();
@@ -206,13 +199,13 @@ public class LevelLoader {
 					level.setDestroyOnLevelLoad(true);
 					GameObject.create(level);
 				}
-
-				System.out.println("LOADING");
+				
 				//AWESOME!
 				//I found my old code, and i'm importing my levels!
 				//WOOOT!!!
-				if (lines[x].startsWith("create_enemy("))
+				if (x < lines.length && lines[x].startsWith("create_enemy("))
 				{
+					String enemyName = lines[x];
 					String[] parts = lines[x].split(",");
 					int time = Integer.parseInt(parts[0].substring("create_enemy(".length()).trim());
 					int ship = Integer.parseInt(parts[1].trim());
@@ -325,12 +318,13 @@ public class LevelLoader {
 
 					System.out.println("Script:" + script + " " + scriptType);
 
-					final GameObject objectToCreate = PrefabFactory.createEnemy("enemy", new Vector2(enemyX,enemyY), enemyType, scriptType, isReversed);
+					final GameObject objectToCreate = PrefabFactory.createEnemy(enemyName, new Vector2(enemyX,enemyY), enemyType, scriptType, isReversed);
 					final GameObject spawner = PrefabFactory.createSpawner(spawnX, spawnY, objectToCreate);
 
 					GameObject.create(spawner);
 				}
-				if (lines[x].startsWith("createEnemy"))
+				
+				if (x < lines.length && lines[x].startsWith("createEnemy"))
 				{
 					x++;
 					final String sspawnX = lines[x].trim();
@@ -362,7 +356,37 @@ public class LevelLoader {
 					GameObject.create(spawner);
 				}
 
-				if (lines[x].startsWith("createPowerUp"))
+				
+				if (x < lines.length && lines[x].startsWith("createBoss"))
+				{
+					x++;
+					final String sspawnX = lines[x].trim();
+					final int spawnX = Integer.parseInt(sspawnX);
+					x++;
+					final String sspawnY = lines[x].trim();
+					final int spawnY = Integer.parseInt(sspawnY);
+					x++;
+					final String senemyX = lines[x].trim();
+					final int enemyX = Integer.parseInt(senemyX);
+					x++;
+					final String senemyY = lines[x].trim();
+					final int enemyY = Integer.parseInt(senemyY);
+					x++;
+					final String senemyType = lines[x].trim();
+					final int bossType = Integer.parseInt(senemyType);
+					x++;
+					final String nextLevel = lines[x].trim();
+					x++;
+
+					System.out.println("CREATED BOSS:" + new Vector2(enemyX,enemyY) + " " + bossType + " ");
+
+					final GameObject objectToCreate = PrefabFactory.createBoss("boss", new Vector2(enemyX,enemyY), bossType, nextLevel);
+					final GameObject spawner = PrefabFactory.createSpawner(spawnX, spawnY, objectToCreate);
+
+					GameObject.create(spawner);
+				}
+
+				if (x < lines.length && lines[x].startsWith("createPowerUp"))
 				{
 					x++;
 					final int spawnX = Integer.parseInt(lines[x].trim());
@@ -385,7 +409,7 @@ public class LevelLoader {
 					GameObject.create(spawner);
 				}
 				//
-				if (lines[x].startsWith("createAlly"))
+				if (x < lines.length && lines[x].startsWith("createAlly"))
 				{
 					x++;
 					final int spawnX = Integer.parseInt(lines[x].trim());
@@ -408,7 +432,7 @@ public class LevelLoader {
 					GameObject.create(spawner);
 				}
 
-				if (lines[x].startsWith("createPlayer"))
+				if (x < lines.length && lines[x].startsWith("createPlayer"))
 				{
 					x++;
 					final int spawnX = Integer.parseInt(lines[x].trim());
@@ -462,7 +486,7 @@ public class LevelLoader {
 					}
 				}
 
-				if (lines[x].startsWith("loadLevelOnCollision"))
+				if (x < lines.length && lines[x].startsWith("loadLevelOnCollision"))
 				{
 					x++;
 					final String nextLevel = lines[x].trim();
@@ -500,11 +524,13 @@ public class LevelLoader {
 			} catch (final IOException e) {
 				throw new RuntimeException(e);
 			}
+			/*
 		}
 		catch (Exception e)
 		{
 			throw new RuntimeException("FAILED AT LINE:" + line + "\n" + line2 + "\n" + e);
-		}
+		}*/
+		//Time.unPause();
 	}
 
 	public static void setContext (final Context c)

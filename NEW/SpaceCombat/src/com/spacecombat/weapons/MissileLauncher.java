@@ -13,7 +13,7 @@ public class MissileLauncher extends Weapon {
 	private static final float accuracy = 32;
 	private static final int magazineSize = 3;
 	private static final float magazineReloadTime = 2;
-	private static final int powerUpType = 1;
+	private static final int powerUpType = 5;
 	
 	public MissileLauncher(final Vector2 direction) {
 		super(MissileLauncher.name, MissileLauncher.damage, MissileLauncher.accuracy, MissileLauncher.reloadTime,

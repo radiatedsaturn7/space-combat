@@ -15,7 +15,7 @@ public class FlameThrower extends Weapon {
 	private static final float accuracy = 32;
 	private static final int magazineSize = 3;
 	private static final float magazineReloadTime = 0f;
-	private static final int powerUpType = 0;
+	private static final int powerUpType = 2;
 
 	public FlameThrower(final Vector2 direction) {
 		super(FlameThrower.name, FlameThrower.damage, FlameThrower.accuracy,				FlameThrower.reloadTime, FlameThrower.magazineSize,

@@ -2,6 +2,7 @@ package com.spacecombat.weapons;
 
 import com.spacecombat.Audio;
 import com.spacecombat.Component;
+import com.spacecombat.Tags;
 import com.spacecombat.Time;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
@@ -21,11 +22,14 @@ public abstract class Weapon extends Component {
 	protected int magazineSize;
 	protected int shots;
 	protected float magazineReloadTime;
-	protected String [] tags = null;
+	protected int tags = 0;
 	protected boolean useMagazine = true;
 	private final Vector2 shotPosition;
 	protected int powerUpType = -1;
 	private Audio audio;
+	private Vector2 offset = new Vector2(0,0);
+	private float shotDelay = 0;
+	private boolean hasDelayed = false;
 
 	public Weapon(final String name, final float damage, final float accuracy,
 			final float reloadTime, final int magazineSize,
@@ -47,15 +51,41 @@ public abstract class Weapon extends Component {
 		this.magazineReloadTime = magazineReloadTime;
 		this.powerUpType = powerUpType;
 		this.shotPosition = new Vector2(0.0f,0.0f);		
-
+		this.shotDelay = 0;
 		setShootDirection(shootDirection);
 	}
-
-	public boolean canShoot() {				
-		if (Time.getTime() > this.nextShotTime && powerLevel >= 1) {
+	
+	public void onStart()
+	{
+		this.nextShotTime = Time.getTime() + this.shotDelay;
+	}
+	
+	public void setOffset(int x, int y)
+	{
+		this.offset.x = x;
+		this.offset.y = y;
+	}
+	
+	public Vector2 getOffset()
+	{
+		return this.offset;
+	}
+	
+	public void setShots(int shots)
+	{
+		this.shots = shots;
+	}
+	
+	public boolean canShoot() 
+	{			
+		if (Time.getTime() > this.nextShotTime && powerLevel >= 1) 
 			return true;
-		}
 		return false;
+	}
+	
+	public void setShotDelay(float time)
+	{
+		this.shotDelay = time;
 	}
 
 	protected abstract boolean fire(Vector2 position);
@@ -90,22 +120,20 @@ public abstract class Weapon extends Component {
 			return;
 		}	
 
-		if (this.tags == null)
+		if (this.gameObject == null)
 		{
-			this.tags = this.gameObject.getTags().clone();
-			final String [] temp = new String [this.tags.length+2];
-
-			for (int x = 0; x < this.tags.length; x++)
-			{
-				temp[x] = this.tags[x];				
-			}
-			temp[temp.length-1] = "shot";
-			temp[temp.length-2] = "node";
+			return;
+		}
+		
+				
+		if (this.tags == 0)
+		{
+			this.tags = this.gameObject.getTags() | Tags.node | Tags.shot;			
 		}
 
 		this.shots++;
 
-		if (this.shots > this.magazineSize) {
+		if (this.shots >= this.magazineSize) {
 			if (this.useMagazine)
 			{
 				this.nextShotTime = Time.getTime() + this.magazineReloadTime;
@@ -143,6 +171,9 @@ public abstract class Weapon extends Component {
 		this.shotPosition.x = this.gameObject.transform.position.x;
 		this.shotPosition.y = this.gameObject.transform.position.y;
 		
+		this.shotPosition.x += offset.x;
+		this.shotPosition.y += offset.y;
+		
 		if (fire(this.shotPosition))
 		{
 			if (audio != null)
@@ -165,6 +196,11 @@ public abstract class Weapon extends Component {
 		return powerUpType;
 	}
 	
+	public int getPowerLevel()
+	{
+		return powerLevel;
+	}
+	
 	public void setPowerLevel (int pl)
 	{
 		powerLevel = pl;
@@ -180,5 +216,5 @@ public abstract class Weapon extends Component {
 		{
 			audio.destroy();
 		}
-	}
+	}		
 }

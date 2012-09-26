@@ -283,7 +283,15 @@ create_enemy(1875,3,0,no,0,0,no)
 create_enemy(1900,3,0,no,0,0,no)
 
 
+createBoss
+100
+2048
+200
+1948
+5
+level1
+
 loadLevelOnCollision
 level1
 64
-2048
+2

@@ -6,13 +6,14 @@ import java.util.List;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 import com.spacecombat.RigidBody;
+import com.spacecombat.Tags;
 import com.spacecombat.Util;
 import com.spacecombat.Vector2;
 
 public class LerpMovement extends Component {
 	private float speed = 0;
-	private String [] targets = null;
-	private final String [] ignoreTargets = {"powerup","shot"};
+	private int targets = 0;
+	private final int ignoreTargets = Tags.powerup | Tags.shot;
 	private final RigidBody rigidBody;	
 	private GameObject target = null;
 	private List<GameObject> gos = null;
@@ -20,7 +21,7 @@ public class LerpMovement extends Component {
 
 	private final Vector2 temp = new Vector2();
 
-	public LerpMovement (final String [] tags, final RigidBody r, final float speed)
+	public LerpMovement (final int tags, final RigidBody r, final float speed)
 	{
 		this.targets = tags;
 		this.rigidBody = r;

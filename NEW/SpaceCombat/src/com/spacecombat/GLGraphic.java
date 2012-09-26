@@ -65,6 +65,10 @@ public class GLGraphic implements GenericGraphic {
 	public GLGraphic() {
 	}
 
+	public String getName()
+	{
+		return name;
+	}
 	@Override
 	public void create(final String name, final InputStream is, final int layer) {
 		this.layer = layer;		
