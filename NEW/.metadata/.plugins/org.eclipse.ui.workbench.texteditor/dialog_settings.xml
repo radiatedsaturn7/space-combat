@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="168" key="DIALOG_Y_ORIGIN"/>
-		<item value="357" key="DIALOG_HEIGHT"/>
-		<item value="962" key="DIALOG_X_ORIGIN"/>
+		<item value="513" key="DIALOG_WIDTH"/>
+		<item value="193" key="DIALOG_Y_ORIGIN"/>
+		<item value="378" key="DIALOG_HEIGHT"/>
+		<item value="924" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="followPlayer" key="selection"/>
+		<item value="charge" key="selection"/>
 		<list key="findhistory">
-			<item value="targetPlayer"/>
-			<item value="s.m_iFaction != m_iFaction"/>
-			<item value="s instanceof PowerUp"/>
-			<item value=".m_alSprite.get"/>
-			<item value="PlayAnimation"/>
-			<item value="intersects"/>
-			<item value="m_pSpeed"/>
-			<item value="speed"/>
+			<item value="charge"/>
+			<item value="clh"/>
+			<item value="createPlayer"/>
+			<item value="createPo"/>
+			<item value="create"/>
+			<item value="createPower"/>
+			<item value="createShot"/>
+			<item value="finish"/>
 		</list>
 		<list key="replacehistory">
 			<item value="followPlayer"/>

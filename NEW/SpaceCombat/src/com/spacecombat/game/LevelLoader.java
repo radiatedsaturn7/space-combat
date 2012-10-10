@@ -91,7 +91,7 @@ public class LevelLoader {
 
 	public static void loadLevel (final String name, final boolean clearAll) 
 	{ 
-		//Time.pause();
+		Time.pause();
 		//		try
 //		{
 			lastLevelLoaded = name;
@@ -465,11 +465,14 @@ public class LevelLoader {
 						cam.setDestroyOnLevelLoad(false);
 						GameObject hud = PrefabFactory.createHUD(cam,objectToCreate);
 						GameObject.create(hud);
+						GameObject hbh = PrefabFactory.createHUDHealthBar(cam,(HealthController)objectToCreate.getComponent(HealthController.class));
+						GameObject cbh = PrefabFactory.createHUDChargeBar(cam, objectToCreate);
+						hbh.setDestroyOnLevelLoad(false);
+						cbh.setDestroyOnLevelLoad(false);
+						GameObject.create(hbh);
+						GameObject.create(cbh);
 
 						hud.setDestroyOnLevelLoad(false);
-
-						hud.transform.position.x = cam.transform.position.x + 16;
-						hud.transform.position.y = cam.transform.position.y + 16;
 
 						top.transform.position.x = cam.transform.position.x;
 						top.transform.position.y = cam.transform.position.y;
@@ -530,7 +533,7 @@ public class LevelLoader {
 		{
 			throw new RuntimeException("FAILED AT LINE:" + line + "\n" + line2 + "\n" + e);
 		}*/
-		//Time.unPause();
+		Time.unPause();
 	}
 
 	public static void setContext (final Context c)

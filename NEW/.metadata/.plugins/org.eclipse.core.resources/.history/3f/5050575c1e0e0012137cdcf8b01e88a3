@@ -1,0 +1,8 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Vector2;
+
+public class HUDConstants {
+	public static Vector2 shieldBar = new Vector2(20.0f,20.0f);
+	public static Vector2 scoreBoard = new Vector2(20.0f,50.0f);
+}

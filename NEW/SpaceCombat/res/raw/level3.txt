@@ -220,7 +220,7 @@ createBoss
 200
 1948
 2
-level6
+level4
 
 loadLevelOnCollision
 level4

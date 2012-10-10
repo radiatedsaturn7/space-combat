@@ -51,7 +51,7 @@ public class ScoreHUD extends Component
 				display = "" + PlayerData.score;
 			} 			
 		}
-		GUI.drawText(display, 50, 50, 100, 100);
+		GUI.drawText(display, HUDConstants.scoreBoard.x, HUDConstants.scoreBoard.y, 100, 100);
 	 
 		lastScore = PlayerData.score;
 	}

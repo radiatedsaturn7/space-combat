@@ -9,9 +9,9 @@ public class FlameThrower extends Weapon {
 
 	private static final String name = "FlameThrower";
 	private static final float damage = 5;
-	private static final float reloadTime = 0.2f;
+	private static final float reloadTime = 0.1f;
 	private static final float shotSpeed = 200;
-	private static final float life = 0.75f;
+	private static final float life = 1.0f;
 	private static final float accuracy = 32;
 	private static final int magazineSize = 3;
 	private static final float magazineReloadTime = 0f;
@@ -28,7 +28,7 @@ public class FlameThrower extends Weapon {
 		GameObject.create(PrefabFactory.createShot("flame", position,
 				this.shotSpeedVector, this.tags,
 				this.baseDamage + (15 * this.powerLevel), 8-this.powerLevel, FlameThrower.life));
-
+/*
 		this.shotSpeedVector.y *= .5;
 		GameObject.create(PrefabFactory.createShot("flame", position,
 				this.shotSpeedVector, this.tags,
@@ -46,7 +46,8 @@ public class FlameThrower extends Weapon {
 			this.shotSpeedVector.x -= randX;
 			this.shotSpeedVector.y *= 2;				
 		}
-		
+	
+		*/
 		return true;
 	}
 

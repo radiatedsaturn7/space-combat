@@ -87,12 +87,18 @@ public class PlayerInput extends Component implements ClickListener {
 		clicked = true;
 	}
 
+	static float cameraScrollSpeed = 0;
+	public static void setCameraScrollSpeed(float s)
+	{
+		cameraScrollSpeed = s;
+	}
+	
 	@Override
 	public void update ()
 	{
 		if (!clicked)
 		{
-			this.gameObject.getRigidBody().speed.y = -15;
+			this.gameObject.getRigidBody().speed.y = cameraScrollSpeed;
 		}
 		else
 		{

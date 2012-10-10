@@ -1,7 +1,8 @@
-#Fri Sep 14 10:43:52 EDT 2012
+#Mon Oct 08 09:06:40 EDT 2012
 threadPanel.stack.col0=113
 emulatorControl.waypoint.desc=94
 logcat.view.colsize.Time=69
+logcat.view.display.filters=false
 logcat.view.filters.list=name\: 'sc', tag\: '', text\: '', pid\: '', app\: 'com.spacecombat', level\: 'verbose', 
 allocPanel.sash=401
 emulatorControl.track.first=118

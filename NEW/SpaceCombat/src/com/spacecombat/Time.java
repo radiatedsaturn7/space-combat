@@ -4,7 +4,7 @@ public class Time {
 	private static float currentTime = 0;
 	private static float deltaTime = 0;
 	private static float lastTime = 0;
-	private static boolean isPaused = false;
+	private static boolean isPaused = true;
 
 	public static float getDeltaTime() {
 		return Time.deltaTime;

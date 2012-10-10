@@ -1,0 +1,12 @@
+package com.spacecombat.game;
+
+import com.spacecombat.weapons.ChargeLaser;
+
+public class ChargeLaserHUD {
+
+	private ChargeLaser chargeLaser = null;
+	public ChargeLaserHUD(ChargeLaser cl) {
+		chargeLaser = cl;
+	}
+
+}

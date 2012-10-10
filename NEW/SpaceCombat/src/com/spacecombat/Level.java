@@ -102,7 +102,7 @@ public class Level extends Component {
 
 		for (int x = 0; x < this.wad.length; x++) {
 			final Animation a = Animation.getNew();
-			a.init("idle", x - 1, x - 1, false, 17,
+			a.init("idle", x, x, false, 17,
 					tileWidth, tileHeight);
 			final GraphicAnimation b = new GraphicAnimation(image, a);
 			b.setGameObject(this.gameObject);

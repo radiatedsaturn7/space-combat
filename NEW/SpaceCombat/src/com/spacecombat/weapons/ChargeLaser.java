@@ -18,8 +18,8 @@ public class ChargeLaser extends Weapon {
 	private static final int magazineSize = 3;
 	private static final float magazineReloadTime = .01f;
 	private static final int powerUpType = 6;
+	private static float baseChargeTime = 2.0f;
 	
-	private static float charge = 0;
 	private static float chargeRate = 1;
 	private float lastShot;
 
@@ -31,48 +31,103 @@ public class ChargeLaser extends Weapon {
 
 	@Override
 	protected boolean fire(final Vector2 position) {
-		float time = Time.getTime() - lastShot;
-		lastShot = Time.getTime();
-		charge = chargeRate * time;
 		boolean fired = false;
+		float charge = getCharge();
 		
-		if (charge >= 2)
+		int tempPowerLevel = powerLevel;
+		boolean isOdd = false;
+		if (powerLevel % 2 == 1)
 		{
-			fired = true;
-			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
-					this.shotSpeedVector, this.tags,
-					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
-		}
-		if (charge >= 4 && powerLevel > 4)
-		{
-			position.x -= 32;
-			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
-					this.shotSpeedVector, this.tags,
-					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
-			position.x += 64;
-			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
-					this.shotSpeedVector, this.tags,
-					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
-			position.x -= 32;
-		}
-		if (charge >= 6 && powerLevel > 8)
-		{
-			position.x -= 64;
-			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
-					this.shotSpeedVector, this.tags,
-					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
-			position.x += 128;
-			GameObject.create(PrefabFactory.createShot("chargeLaser", position,
-					this.shotSpeedVector, this.tags,
-					this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));			
+			tempPowerLevel = powerLevel - 1;
+			isOdd = true;
 		}
 		
+		tempPowerLevel /= 2;
+		position.x -= 32 * tempPowerLevel;
+		if (!isOdd)
+			position.x += 16;
+		
+		int workingPowerLevel = getMaxCharge();
+		boolean adding = false;
+		boolean firstAdd = true;
+		
+		//System.out.println("CHARGE SHOT");
+	
+		for (int x = 0; x < powerLevel; x++)
+		{
+			if (adding)
+			{
+				if (!isOdd && firstAdd)
+				{
+					//this makes it zero next time around
+					workingPowerLevel = -1;
+					firstAdd = false;
+				}
+				workingPowerLevel++;
+			}
+			else
+			{
+				workingPowerLevel--;
+				if (workingPowerLevel == 0)
+				{
+					adding = true;
+				}
+			}
+			
+			//System.out.println(workingPowerLevel);
+			if (charge >= baseChargeTime + workingPowerLevel)
+			{
+				fired = true;
+				GameObject.create(PrefabFactory.createShot("chargeLaser", position,
+						this.shotSpeedVector, this.tags,
+						this.baseDamage + (10 * (this.powerLevel-1)), this.powerLevel, ChargeLaser.life));
+				
+			}
+			position.x += 32; 
+		}
+		lastShot = Time.getTime();
 		return fired;
 	}
 	
 	public void powerUp()
 	{
 		super.powerUp();
-		this.chargeRate += .1;
+		//this.chargeRate += .1;
+	}
+	
+	public float getCharge ()
+	{
+		float charge = 0;
+		float time = Time.getTime() - lastShot;
+		charge = chargeRate * time;
+		return charge;
+	}
+	
+	public int getMaxCharge ()
+	{
+		boolean isOdd = false;
+		if (powerLevel % 2 == 1)
+		{
+			isOdd = true;
+		}
+		
+		int workingPowerLevel = (int) Math.floor(((float)powerLevel)/2.0f);
+		if (isOdd){
+		workingPowerLevel += 1;
+		}
+		return workingPowerLevel;
+	}
+	
+	public float getChargePercentage()
+	{
+		float percentage = 0.0f;
+		percentage = getCharge() / (((float) baseChargeTime) + ((float)getMaxCharge())-1);
+		
+		//System.out.println("CHARGE PERCENTAGE:");
+		//System.out.println(percentage + " = " + getCharge() + " / (" + baseChargeTime + " + " + getMaxCharge() + ")");
+		
+		if (percentage > 1)
+			percentage = 1;
+		return percentage;
 	}
 }

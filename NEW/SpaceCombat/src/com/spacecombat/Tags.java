@@ -47,6 +47,8 @@ public class Tags {
 		s += "\n";
 		s += "Spawner    :" + Integer.toBinaryString(spawner);
 		s += "\n";
+		s += "HUD    :" + Integer.toBinaryString(hud);
+		s += "\n";
 		System.out.println(s);
 		
 	}
@@ -66,4 +68,5 @@ public class Tags {
 	public static final int ally = 1 << 8;
 	public static final int level = 1 << 9;
 	public static final int spawner = 1 << 10;
+	public static final int hud = 1 << 11;
 }

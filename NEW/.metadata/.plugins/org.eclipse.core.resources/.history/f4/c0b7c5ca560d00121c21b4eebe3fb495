@@ -1,0 +1,5 @@
+package com.spacecombat.game;
+
+public class HUDConstants {
+
+}

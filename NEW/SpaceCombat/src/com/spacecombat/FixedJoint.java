@@ -11,7 +11,7 @@ public class FixedJoint extends Component {
 	}	
 
 	@Override
-	public void update()
+	public void onAfterUpdate()
 	{
 		if (this.attachedTo == null) {
 			return;

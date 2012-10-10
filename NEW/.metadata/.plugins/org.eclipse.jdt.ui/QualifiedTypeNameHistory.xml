@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="com.spacecombat.R.drawable"/>
 <fullyQualifiedTypeName name="com.spacecombat.Level"/>
 <fullyQualifiedTypeName name="com.spacecombat.game.SimpleMovement"/>
-<fullyQualifiedTypeName name="com.spacecombat.Component"/>
 <fullyQualifiedTypeName name="com.spacecombat.ai.Node"/>
 <fullyQualifiedTypeName name="com.spacecombat.ai.AINodeFollower"/>
 <fullyQualifiedTypeName name="com.spacecombat.Collision"/>
@@ -38,9 +37,7 @@
 <fullyQualifiedTypeName name="com.spacecombat.RigidBody"/>
 <fullyQualifiedTypeName name="com.spacecombat.Collider"/>
 <fullyQualifiedTypeName name="com.spacecombat.BoxCollider"/>
-<fullyQualifiedTypeName name="com.spacecombat.Vector2"/>
 <fullyQualifiedTypeName name="com.spacecombat.Camera"/>
-<fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.Boss2WeaponHandler"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.Boss3WeaponHandler"/>
 <fullyQualifiedTypeName name="com.spacecombat.ai.AIBoss3"/>
@@ -48,7 +45,6 @@
 <fullyQualifiedTypeName name="com.spacecombat.ai.AIBoss4"/>
 <fullyQualifiedTypeName name="com.spacecombat.ai.AIBoss5"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.Boss5WeaponHandler"/>
-<fullyQualifiedTypeName name="com.spacecombat.Tags"/>
 <fullyQualifiedTypeName name="com.spacecombat.game.PrefabFactory"/>
 <fullyQualifiedTypeName name="com.spacecombat.Time"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.Laser"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="com.spacecombat.weapons.PulseCannon"/>
 <fullyQualifiedTypeName name="com.spacecombat.weapons.Weapon"/>
 <fullyQualifiedTypeName name="com.spacecombat.game.HealthController"/>
+<fullyQualifiedTypeName name="com.spacecombat.GameObject"/>
+<fullyQualifiedTypeName name="com.spacecombat.Vector2"/>
+<fullyQualifiedTypeName name="com.spacecombat.Tags"/>
+<fullyQualifiedTypeName name="com.spacecombat.Component"/>
 </qualifiedTypeNameHistroy>

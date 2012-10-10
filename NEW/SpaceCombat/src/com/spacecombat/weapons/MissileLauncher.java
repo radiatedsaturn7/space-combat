@@ -23,7 +23,7 @@ public class MissileLauncher extends Weapon {
 
 	@Override
 	protected boolean fire(final Vector2 position) {
-		if (this.powerLevel == 1 || this.powerLevel >= 3)
+		if (this.powerLevel == 1 || this.powerLevel >= 6)
 		{
 			GameObject.create(PrefabFactory.createShot("missile", position,
 				this.shotSpeedVector, this.tags,
@@ -32,7 +32,7 @@ public class MissileLauncher extends Weapon {
 		position.x += 16;
 		position.y += 16;
 		
-		if (this.powerLevel >= 2)
+		if (this.powerLevel >= 3)
 		{
 			GameObject.create(PrefabFactory.createShot("missile", position,
 				this.shotSpeedVector, this.tags,

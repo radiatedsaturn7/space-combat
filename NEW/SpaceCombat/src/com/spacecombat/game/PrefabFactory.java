@@ -601,11 +601,6 @@ public class PrefabFactory {
 		final RigidBody rigidBody = new RigidBody();
 		o.setRigidBody(rigidBody);
 
-		//used to be turned on
-		//SimpleMovement s = SimpleMovement.getNew();
-		//s.init(rigidBody, 0, 10.0f);
-		//o.addComponent(s);
-
 		return o;
 	}
 	
@@ -701,8 +696,9 @@ public class PrefabFactory {
 		Camera.setMainCamera(c);
 		o.addComponent(c);
 		
-		float speed = -15;
+		float speed = -20;
 				
+		PlayerInput.setCameraScrollSpeed(speed);
 		SimpleMovement sm = SimpleMovement.getNew();
 		sm.init(rigidBody, 0, speed);
 		o.addComponent(sm);
@@ -880,10 +876,112 @@ public class PrefabFactory {
 		o.transform.position.x = position.x;
 		o.transform.position.y = position.y;
 
-		GameObject.create(PrefabFactory.createHealthHUD(o,hc));
+		GameObject.create(PrefabFactory.createHUDHealthShield(o,hc));	
+		
+		
+		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion1));
 
+		final GameObject explosion2 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion2));
+
+		final GameObject explosion3 = PrefabFactory.createExplosion(o.transform.position);
+		o.addComponent(new SpawnOnDestroy(explosion3));
 		
 		return o;
+	}
+	
+	public static GameObject createHUDChargeBar(GameObject camera, GameObject player)
+	{
+		final GenericGraphic graphic = PrefabFactory.createGraphic("chargebar",
+				PrefabFactory.getImage("chargebar"),11);
+		
+		GameObject go = GameObject.getNew();
+		go.setTags(Tags.player | Tags.ally);
+		go.setDestroyOnLevelLoad(false);
+		
+		ChargeLaser cl = (ChargeLaser)player.getComponent(ChargeLaser.class);
+		
+		ChargeLaserHUD clh = new ChargeLaserHUD(cl);
+		go.addComponent(clh);
+		
+		go.transform.position.x = camera.transform.position.x + HUDConstants.chargeBar.x;
+		go.transform.position.y = camera.transform.position.y + HUDConstants.chargeBar.y;
+		
+		int sizeX = 26;
+		int sizeY = 52;
+
+		Animation gl100 = new Animation();
+		gl100.init("0%", 10, 10, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl90 = new Animation();
+		gl90.init("10%", 9, 9, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl80 = new Animation();
+		gl80.init("20%", 8, 8, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl70 = new Animation();
+		gl70.init("30%", 7, 7, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl60 = new Animation();
+		gl60.init("40%", 6, 6, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl50 = new Animation();
+		gl50.init("50%", 5, 5, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl40 = new Animation();
+		gl40.init("60%", 4, 4, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl30 = new Animation();
+		gl30.init("70%", 3, 3, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl20 = new Animation();
+		gl20.init("80%",2, 2, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl10 = new Animation();
+		gl10.init("90%", 1, 1, true,
+				PrefabFactory.defaultFps, sizeX, sizeY);
+		
+		Animation gl0 = new Animation();
+		gl0.init("100%", 0, 0, false,
+				PrefabFactory.defaultFps, sizeX, sizeY);	
+
+		final GraphicAnimation ga100 = new GraphicAnimation(graphic, gl100);
+		final GraphicAnimation ga90 = new GraphicAnimation(graphic, gl90);
+		final GraphicAnimation ga80 = new GraphicAnimation(graphic, gl80);
+		final GraphicAnimation ga70 = new GraphicAnimation(graphic, gl70);
+		final GraphicAnimation ga60 = new GraphicAnimation(graphic, gl60);
+		final GraphicAnimation ga50 = new GraphicAnimation(graphic, gl50);
+		final GraphicAnimation ga40 = new GraphicAnimation(graphic, gl40);
+		final GraphicAnimation ga30 = new GraphicAnimation(graphic, gl30);
+		final GraphicAnimation ga20 = new GraphicAnimation(graphic, gl20);
+		final GraphicAnimation ga10 = new GraphicAnimation(graphic, gl10);
+		final GraphicAnimation ga0 = new GraphicAnimation(graphic, gl0);
+
+		go.addComponent(ga100);
+		go.addComponent(ga90);
+		go.addComponent(ga80);
+		go.addComponent(ga70);
+		go.addComponent(ga60);
+		go.addComponent(ga50);
+		go.addComponent(ga40);
+		go.addComponent(ga30);
+		go.addComponent(ga20);
+		go.addComponent(ga10);
+		go.addComponent(ga0);
+		
+		FixedJoint f = new FixedJoint(camera);
+		go.addComponent(f);
+		return go;
 	}
 	
 	public static GameObject createGameOverText(GameObject fj)
@@ -903,7 +1001,7 @@ public class PrefabFactory {
 		return go;
 	}
 	
-	public static GameObject createHealthHUD(GameObject g, HealthController hc)
+	public static GameObject createHUDHealthShield(GameObject g, HealthController hc)
 	{
 		final GenericGraphic graphic = PrefabFactory.createGraphic("shield",
 				PrefabFactory.getImage("shield"),11);
@@ -912,8 +1010,8 @@ public class PrefabFactory {
 		go.setTags(Tags.player | Tags.ally);
 		go.setDestroyOnLevelLoad(false);
 		
-		go.transform.position.x = g.transform.position.x;
-		go.transform.position.y = g.transform.position.y;
+		go.transform.position.x = g.transform.position.x + 5;
+		go.transform.position.y = g.transform.position.y + 5;
 		
 		RigidBody r = new RigidBody();		
 		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));		
@@ -999,6 +1097,105 @@ public class PrefabFactory {
 		go.addComponent(f);
 
 		HealthHUD hud = new HealthHUD(hc);
+		go.addComponent(hud);
+		
+		return go;
+	}
+	
+	public static GameObject createHUDHealthBar(GameObject g, HealthController hc)
+	{
+		final GenericGraphic graphic = PrefabFactory.createGraphic("shieldbar",
+				PrefabFactory.getImage("shieldbar"),11);
+		
+		GameObject go = GameObject.getNew();
+		go.setTags(Tags.player | Tags.ally);
+		go.setDestroyOnLevelLoad(false);
+		
+		go.transform.position.x = g.transform.position.x + HUDConstants.shieldBar.x;
+		go.transform.position.y = g.transform.position.y + HUDConstants.shieldBar.y;
+		
+		RigidBody r = new RigidBody();
+		
+		/* 
+		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));		
+		collider.setIgnoreTags(Tags.player | Tags.ally | Tags.topOfScreen | Tags.enemy);
+		r.setCollider(collider);ll
+		*/
+		
+		go.setRigidBody(r);
+		
+		Animation gl100 = new Animation();
+		gl100.init("0%", 0, 0, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl90 = new Animation();
+		gl90.init("10%", 1, 1, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl80 = new Animation();
+		gl80.init("20%", 2, 2, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl70 = new Animation();
+		gl70.init("30%", 3, 3, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl60 = new Animation();
+		gl60.init("40%", 4, 4, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl50 = new Animation();
+		gl50.init("50%", 5, 5, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl40 = new Animation();
+		gl40.init("60%", 6, 6, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl30 = new Animation();
+		gl30.init("70%", 7, 7, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl20 = new Animation();
+		gl20.init("80%",8, 8, false,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl10 = new Animation();
+		gl10.init("90%", 9, 9, true,
+				PrefabFactory.defaultFps, 32, 32);
+		
+		Animation gl0 = new Animation();
+		gl0.init("100%", 10, 10, false,
+				PrefabFactory.defaultFps, 32, 32);		
+
+		final GraphicAnimation ga100 = new GraphicAnimation(graphic, gl100);
+		final GraphicAnimation ga90 = new GraphicAnimation(graphic, gl90);
+		final GraphicAnimation ga80 = new GraphicAnimation(graphic, gl80);
+		final GraphicAnimation ga70 = new GraphicAnimation(graphic, gl70);
+		final GraphicAnimation ga60 = new GraphicAnimation(graphic, gl60);
+		final GraphicAnimation ga50 = new GraphicAnimation(graphic, gl50);
+		final GraphicAnimation ga40 = new GraphicAnimation(graphic, gl40);
+		final GraphicAnimation ga30 = new GraphicAnimation(graphic, gl30);
+		final GraphicAnimation ga20 = new GraphicAnimation(graphic, gl20);
+		final GraphicAnimation ga10 = new GraphicAnimation(graphic, gl10);
+		final GraphicAnimation ga0 = new GraphicAnimation(graphic, gl0);
+
+		go.addComponent(ga100);
+		go.addComponent(ga90);
+		go.addComponent(ga80);
+		go.addComponent(ga70);
+		go.addComponent(ga60);
+		go.addComponent(ga50);
+		go.addComponent(ga40);
+		go.addComponent(ga30);
+		go.addComponent(ga20);
+		go.addComponent(ga10);
+		go.addComponent(ga0);
+		
+		FixedJoint f = new FixedJoint(g);
+		go.addComponent(f);
+
+		HealthBarHUD hud = new HealthBarHUD(hc);
 		go.addComponent(hud);
 		
 		return go;
@@ -1125,11 +1322,11 @@ public class PrefabFactory {
 		{
 			if (power < 0)		
 			{
-				animation.init("idle", 0, 8, false,PrefabFactory.defaultFps/2, 32, 32);
+				animation.init("idle", 0, 8, false,PrefabFactory.defaultFps/8, 32, 32);
 			}
 			else
 			{
-				animation.init("idle", power, 8, false,PrefabFactory.defaultFps/2, 32, 32);
+				animation.init("idle", power, 8, false,PrefabFactory.defaultFps/8, 32, 32);
 			}
 		}
 		else if (name.equals("missile"))
@@ -1203,16 +1400,30 @@ public class PrefabFactory {
 	public static GameObject createHUD (GameObject camera, GameObject player)
 	{
 		GameObject go = GameObject.getNew();
+		go.setTags(Tags.hud);
 		RigidBody rigidBody = new RigidBody();
 		go.setRigidBody(rigidBody);
 						
 		HealthController c = (HealthController)player.getComponent(HealthController.class);
 		ScoreHUD sh = new ScoreHUD(c);
 		go.addComponent(sh);
-		 
+		
+		GenericGraphic graphic = PrefabFactory.createGraphic("hud1", PrefabFactory.getImage("hud1"),11);
+		
+		Animation idle = new Animation();
+		idle.init("idle", 0, 0, false, PrefabFactory.defaultFps, 98, 32);
+		
+		final GraphicAnimation ga100 = new GraphicAnimation(graphic, idle);
+		
+		
 		FixedJoint fj = new FixedJoint(camera);
 		go.addComponent(fj);
+		go.addComponent(ga100);
+		go.playAnimation("idle");
 
+		go.transform.position.x = camera.transform.position.x + HUDConstants.hud.x;
+		go.transform.position.y = camera.transform.position.y + HUDConstants.hud.y;
+		
 		return go;		
 	}
 	
@@ -1270,6 +1481,7 @@ public class PrefabFactory {
 
 	//consider changing to a hashmap!
 	public static InputStream elaser;
+	public static InputStream laser;
 	public static InputStream enemy;
 	public static InputStream getImage(final String name) {
 		
@@ -1301,9 +1513,12 @@ public class PrefabFactory {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.prenegade);
 		}
-		else if (name.equals("laser")) {
+		else if (name.equals("chargebar")) {
 			return PrefabFactory.context.getResources().openRawResource(
-					R.drawable.hlaser);
+					R.drawable.chargebar);
+		}
+		else if (name.equals("laser")) {
+			return laser;
 		}
 		else if (name.equals("bullet")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1311,7 +1526,7 @@ public class PrefabFactory {
 		} 
 		else if (name.equals("lockingLaser")) {
 			return PrefabFactory.context.getResources().openRawResource(
-					R.drawable.hmgun);
+					R.drawable.hlockinglaser);
 		}
 		else if (name.equals("chargeLaser")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1325,6 +1540,10 @@ public class PrefabFactory {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.hpulse);
 		}
+		else if (name.equals("hud1")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.hud1);
+		}
 		else if (name.equals("phaser")) {
 			return elaser;
 		}
@@ -1337,6 +1556,9 @@ public class PrefabFactory {
 		}
 		else if (name.equals("wad3")) {
 			return PrefabFactory.context.getResources().openRawResource(R.drawable.wad3);
+		}
+		else if (name.equals("level2")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level2); 
 		}
 		else if (name.equals("hell")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1353,6 +1575,10 @@ public class PrefabFactory {
 		else if (name.equals("shield")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.shield);
+		}
+		else if (name.equals("shieldbar")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.shieldbar);
 		}
 		else if (name.equals("boss2")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1381,6 +1607,7 @@ public class PrefabFactory {
 	
 	private static void init ()
 	{
+		laser = PrefabFactory.context.getResources().openRawResource(R.drawable.hlaser);
 		elaser = PrefabFactory.context.getResources().openRawResource(R.drawable.helaser);
 		enemy = PrefabFactory.context.getResources().openRawResource(R.drawable.enemy);
 	}
