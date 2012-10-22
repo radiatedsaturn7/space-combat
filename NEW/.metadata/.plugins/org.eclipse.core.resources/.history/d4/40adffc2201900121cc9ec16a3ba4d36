@@ -1,0 +1,50 @@
+package com.spacecombat.ai;
+
+import com.spacecombat.Component;
+import com.spacecombat.GameObject;
+import com.spacecombat.Time;
+import com.spacecombat.game.HealthController;
+import com.spacecombat.game.PlayerInput;
+
+public class PlayerAI extends Component {
+	
+	private PlayerInput playerInput = null;
+	private HealthController hc = null;
+	private GameObject player;
+	private float moveTime = 5;
+	private float moveSpeed = -30;
+	private float totalTime = 0;
+	
+	public PlayerAI (GameObject player)
+	{
+		this.player = player;
+		this.playerInput = (PlayerInput)player.getComponent(PlayerInput.class);
+		this.hc = (HealthController)player.getComponent(HealthController.class);
+	}
+
+	@Override
+	public void onCreate ()
+	{
+		playerInput.setEnabled(false);
+		//do this so the player ends up where we want
+		player.gameObject.transform.position.y += moveSpeed * moveTime;
+	}
+	
+	public void update ()
+	{
+		if (totalTime < moveTime)
+		{
+			player.getRigidBody().speed.y = moveSpeed;
+			//player is invincible while he can't control ship
+			hc.setHealth(hc.getMaxHealth());
+			totalTime += Time.getDeltaTime();
+		}
+		else
+		{
+			player.getRigidBody().speed.y = 0;
+			playerInput.setEnabled(true;)
+			this.setEnabled(false);
+		}
+		
+	}
+}

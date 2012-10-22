@@ -1,0 +1,24 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Camera;
+import com.spacecombat.Component;
+import com.spacecombat.GameObject;
+import com.spacecombat.Time;
+
+public class StopMovementOnCreate extends Component {
+
+	public StopMovementOnCreate () 
+	{
+	}
+
+	@Override
+	public void  onCreate ()
+	{
+		SimpleMovement sm = (SimpleMovement) Camera.mainCamera.gameObject.getComponent(SimpleMovement.class);
+		sm.setSpeed(0, 0);
+		
+		GameObject player = GameObject.findByName("player");
+		PlayerInput pi = player.getComponent(PlayerInput.class);
+		pi.setCameraScrollSpeed(0);
+	}
+}

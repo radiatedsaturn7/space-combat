@@ -65,7 +65,7 @@ public class ScoreHUD extends Component
 
 		if (createPowerup)
 		{
-			GameObject.create(PrefabFactory.createPowerUp(new Vector2(Camera.mainCamera.gameObject.transform.position.x + 200, Camera.mainCamera.gameObject.transform.position.y), -1, true));
+			//GameObject.create(PrefabFactory.createPowerUp(new Vector2(Camera.mainCamera.gameObject.transform.position.x + 200, Camera.mainCamera.gameObject.transform.position.y), -1, true));
 		}
 		createPowerup = false;
 	}

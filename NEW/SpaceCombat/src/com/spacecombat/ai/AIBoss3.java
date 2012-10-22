@@ -13,7 +13,7 @@ public class AIBoss3 extends AIScript {
 
 	private RigidBody rigidBody;
 	private final Vector2 accel = new Vector2(2, 2);
-	private final Vector2 maxSpeed = new Vector2(30, -15);
+	private final Vector2 maxSpeed = new Vector2(30, 15);
 	private Vector2 startPos = new Vector2(0, 0);
 	private float nextSpawnTime = 5;
 	private float lastSpawnTime = 0;
@@ -71,7 +71,7 @@ public class AIBoss3 extends AIScript {
 			}
 		}
 		
-		if (this.gameObject.transform.position.y < Camera.mainCamera.gameObject.transform.position.y)
+		if (this.gameObject.transform.position.y > Camera.mainCamera.gameObject.transform.position.y)
 		{
 			this.rigidBody.speed.y = 0;
 		}

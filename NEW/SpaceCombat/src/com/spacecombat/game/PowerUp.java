@@ -17,6 +17,7 @@ public class PowerUp extends Component
 	public float nextMovementChange = 0.0f;
 
 	public int type = -1;
+	public int minType = 0;
 	public int maxTypes = 7; //0 based
 
 	public SimpleMovement sm;
@@ -38,6 +39,24 @@ public class PowerUp extends Component
 			this.type = type;
 		}
 		
+		if (type == 10)
+		{
+			this.minType = 0;
+			this.maxTypes = 3;
+			this.type = Util.randomNumber(this.minType, maxTypes);
+		}
+		if (type == 11)
+		{
+			this.minType = 4;
+			this.maxTypes = 5;
+			this.type = Util.randomNumber(this.minType, maxTypes);
+		}
+		if (type == 12)
+		{
+			this.minType = 0;
+			this.maxTypes = 6;
+			this.type = Util.randomNumber(this.minType, maxTypes);
+		}
 		System.out.println("TYPE:"+this.type);
 		
 		this.sm = sm;		
@@ -56,7 +75,7 @@ public class PowerUp extends Component
 
 		if (this.type > this.maxTypes)
 		{
-			this.type = 0;
+			this.type = this.minType;
 		}
 
 		if (this.type == 0)

@@ -7,6 +7,7 @@ import java.util.List;
 import android.content.Context;
 
 import com.spacecombat.BoxCollider;
+import com.spacecombat.Camera;
 import com.spacecombat.Collider;
 import com.spacecombat.GameObject;
 import com.spacecombat.R;
@@ -17,8 +18,8 @@ import com.spacecombat.Vector2;
 
 public class LevelLoader {
 
+	public final static float scrollSpeed = -20;
 	private static Context context;
-
 	public static InputStream getLevel (final String name)
 	{
 		//System.out.println("Loading " + name);
@@ -218,9 +219,9 @@ public class LevelLoader {
 					time *= 1;
 
 					int spawnX = 64;
-					int spawnY = 4148 - time;
+					int spawnY = 4048 - time;
 					int enemyX = 64;
-					int enemyY = 4148 - time - 32;
+					int enemyY = 4048 - time - 32;
 
 					int tile = 24;
 					script++;
@@ -420,13 +421,15 @@ public class LevelLoader {
 					x++;
 					final int allyY = Integer.parseInt(lines[x].trim());
 					x++;
+					final int script = Integer.parseInt(lines[x].trim());
+					x++;
 					final String allyType = lines[x].trim();
 					x++;
 					final String weapon = lines[x].trim();
 
 					//System.out.println("CREATED ALLY:" + new Vector2(allyX,allyY) + " " + allyType + " " + " " + weapon);
 
-					final GameObject objectToCreate = PrefabFactory.createAlly("Ally - " + allyType, new Vector2(allyX, allyY), allyType, weapon);
+					final GameObject objectToCreate = PrefabFactory.createAlly("Ally - " + allyType, new Vector2(allyX, allyY), allyType, script, weapon);
 					final GameObject spawner = PrefabFactory.createSpawner(spawnX, spawnY, objectToCreate);
 
 					GameObject.create(spawner);
@@ -486,6 +489,9 @@ public class LevelLoader {
 						alreadyExistsCam.transform.position.y = spawnY;
 						alreadyExists.transform.position.x = playerX;
 						alreadyExists.transform.position.y = playerY;
+						PlayerInput.setCameraScrollSpeed(scrollSpeed);
+						PlayerFollower pf = (PlayerFollower) Camera.mainCamera.gameObject.getComponent(PlayerFollower.class);
+						pf.setScrollSpeed(scrollSpeed);
 					}
 				}
 

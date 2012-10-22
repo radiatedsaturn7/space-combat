@@ -6,6 +6,7 @@ import com.spacecombat.Component;
 import com.spacecombat.GameObject;
 import com.spacecombat.RigidBody;
 import com.spacecombat.Vector2;
+import com.spacecombat.ai.AIPlayerEndLevel;
 
 public class LoadLevelOnDestroy extends Component {
 
@@ -23,6 +24,7 @@ public class LoadLevelOnDestroy extends Component {
 		if (!fired)
 		{			
 			fired = true;
+			/*
 			final LoadLevelAfter lloc = new LoadLevelAfter(level,5);
 			//final FixedJoint fj = new FixedJoint(level);
 
@@ -35,7 +37,13 @@ public class LoadLevelOnDestroy extends Component {
 			spawner.transform.position.y = this.gameObject.transform.position.y-32;
 			spawner.addComponent(lloc);				
 			GameObject.create(spawner);
-
+			 */
+			GameObject player = GameObject.findByName("player");
+			PlayerInput pi = (PlayerInput)player.getComponent(PlayerInput.class);
+			HealthController hc = (HealthController)player.getComponent(HealthController.class);
+			BoxCollider bc = (BoxCollider)player.getRigidBody().getCollider();
+			player.addComponent(new AIPlayerEndLevel(pi, hc, bc, level));
+			//LevelLoader.loadLevel(this.level,false);
 		}
 	}
 }

@@ -7,7 +7,7 @@ import com.spacecombat.game.PrefabFactory;
 public class Laser extends Weapon {
 
 	private static final String name = "laser";
-	private static final float damage = 33;
+	private static final float damage = 40;
 	private static final float reloadTime = .33f;
 	private static final float shotSpeed = 256;
 	private static final float life = 5;

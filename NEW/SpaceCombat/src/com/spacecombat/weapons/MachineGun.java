@@ -7,7 +7,7 @@ import com.spacecombat.game.PrefabFactory;
 public class MachineGun extends Weapon {
 
 	private static final String name = "MachineGun";
-	private static final float damage = 15;
+	private static final float damage = 20;
 	private static final float reloadTime = 0.2f;
 	private static final float shotSpeed = 256;
 	private static final float life = 5;

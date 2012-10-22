@@ -464,14 +464,18 @@ public class AllyAI extends AIScript {
 		this.give = 5;
 		this.dodgeRectangle = new Rectangle();
 		this.boundingBox = new Rectangle();
-		this.formationID = 0;
+		if (formation != 6)
+		{
+			this.formationID = 0;
+			this.formation = 2;
+			this.roamFormation = 2;
+		}
 		this.nextFormationTime = 0;
 		this.formationHoldTime = 1;
 		this.searchTime = 1;
 		this.nextSearch = 0;
 		this.tempLine = true;
-		this.formation = 2;
-		this.roamFormation = 2;
+
 		this.headUnit = false;
 		this.sBoundingBox = new Rectangle();
 		this.boxCollider = (BoxCollider) this.gameObject.getRigidBody()
@@ -704,6 +708,11 @@ public class AllyAI extends AIScript {
 			return;
 		}
 
+		if (this.formation == 6)
+		{
+			return;
+		}
+		
 		if (this.formation == 5) {
 			roam();
 		}
@@ -781,5 +790,9 @@ public class AllyAI extends AIScript {
 				this.rigidBody.speed.y-=this.accel.y;
 			}
 		}
+	}
+	public void setFormation(int allyScript) {
+		this.roamFormation = allyScript;
+		this.formation = allyScript;
 	}
 }

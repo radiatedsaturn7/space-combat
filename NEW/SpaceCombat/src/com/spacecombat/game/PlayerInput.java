@@ -31,7 +31,12 @@ public class PlayerInput extends Component implements ClickListener {
 	}
 
 	@Override
-	public void onClick(final float x, final float y) {		
+	public void onClick(final float x, final float y) {	
+		if (!isEnabled())
+		{
+			return;
+		}
+		
 		if (this.gameObject == null) {
 			return;
 		}

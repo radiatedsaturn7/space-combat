@@ -85,7 +85,7 @@ public class PowerupController extends Component {
 				sGun = "pulsecannon";
 			
 			System.out.println("Creating:"+sType+" "+sGun);
-			GameObject.create(PrefabFactory.createAlly("renegade", new Vector2(200,800+Camera.mainCamera.gameObject.transform.position.y), sType, sGun));
+			GameObject.create(PrefabFactory.createAlly("renegade", new Vector2(200,800+Camera.mainCamera.gameObject.transform.position.y), sType, 5, sGun));
 			createAlly = false;
 		}
 	}

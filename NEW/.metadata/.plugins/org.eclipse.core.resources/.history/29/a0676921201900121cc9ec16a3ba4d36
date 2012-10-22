@@ -1,0 +1,17 @@
+package com.spacecombat.ai;
+
+import com.spacecombat.Component;
+
+public class PlayerAI extends Component {
+	public float destroyAfter;
+	public PlayerAI (final float l)
+	{
+		this.destroyAfter = l;
+	}
+
+	@Override
+	public void onCreate ()
+	{
+		this.gameObject.destroyAfter(this.destroyAfter);
+	}
+}

@@ -10,9 +10,9 @@ public class PulseCannon extends Weapon {
 
 	private static final String name = "PulseCannon";
 	private static final float damage = 45;
-	private static final float reloadTime = 1.25f;
+	private static final float reloadTime = 2.0f;
 	private static final float shotSpeed = 0;
-	private static final float life = .3f;
+	private static final float life = .25f;
 	private static final float accuracy = 0;
 	private static final int magazineSize = 0;
 	private static final float magazineReloadTime = 1;

@@ -43,6 +43,7 @@ import com.spacecombat.ai.AIScriptThree;
 import com.spacecombat.ai.AIScriptTwo;
 import com.spacecombat.ai.AllyAI;
 import com.spacecombat.ai.Node;
+import com.spacecombat.ai.AIPlayerStartLevel;
 import com.spacecombat.weapons.Boss2WeaponHandler;
 import com.spacecombat.weapons.Boss3WeaponHandler;
 import com.spacecombat.weapons.Boss4WeaponHandler;
@@ -86,7 +87,7 @@ public class PrefabFactory {
 	public static int spawner = 0;
 
 	public static GameObject createAlly(final String name,
-			final Vector2 position, final String allyType, final String weapon) {
+			final Vector2 position, final String allyType, int allyScript, final String weapon) {
 		// Load the texture for the cube once during Surface creation
 		final GenericGraphic graphic = PrefabFactory.createGraphic(allyType,
 				PrefabFactory.getImage(allyType),1);
@@ -175,7 +176,7 @@ public class PrefabFactory {
 
 		final AllyAI ai = new AllyAI(allyType,w);
 		o.addComponent(ai);
-		o.addComponent(w);		
+		o.addComponent(w);
 		
 		final HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
 		
@@ -241,6 +242,12 @@ public class PrefabFactory {
 		o.addComponent(glDown);
 		o.addComponent(glDownLeft);
 
+		ai.setFormation(allyScript);
+		if (allyScript == 6)
+		{
+			o.addComponent(new DestroyOnOutOfBounds());
+		}
+		
 		return o;
 	}
 
@@ -695,12 +702,10 @@ public class PrefabFactory {
 		Camera c = new Camera();
 		Camera.setMainCamera(c);
 		o.addComponent(c);
-		
-		float speed = -20;
 				
-		PlayerInput.setCameraScrollSpeed(speed);
+		PlayerInput.setCameraScrollSpeed(LevelLoader.scrollSpeed);
 		SimpleMovement sm = SimpleMovement.getNew();
-		sm.init(rigidBody, 0, speed);
+		sm.init(rigidBody, 0, LevelLoader.scrollSpeed);
 		o.addComponent(sm);
 		
 		//PositionEchoer pe = new PositionEchoer();
@@ -711,7 +716,7 @@ public class PrefabFactory {
 		float maxRightMove = 128;
 		float maxLeftMove = 0;
 				
-		PlayerFollower pf = new PlayerFollower(GameObject.findByName("player"), sm, maxLeftMove, maxRightMove, moveIfLessThan, moveIfGreaterThan, speed);
+		PlayerFollower pf = new PlayerFollower(GameObject.findByName("player"), sm, maxLeftMove, maxRightMove, moveIfLessThan, moveIfGreaterThan, LevelLoader.scrollSpeed);
 		o.addComponent(pf);
 		
 		GameObject go2 = GameObject.findByName("TopOfScreen");
@@ -870,13 +875,14 @@ public class PrefabFactory {
 		o.addComponent(wc[1]);
 		o.addComponent(wc[2]);
 
-		Component playerInput = new PlayerInput(wc,collider);
+		PlayerInput playerInput = new PlayerInput(wc,collider);
 		o.addComponent(playerInput);
 
 		o.transform.position.x = position.x;
 		o.transform.position.y = position.y;
 
 		GameObject.create(PrefabFactory.createHUDHealthShield(o,hc));	
+		o.addComponent(new AIPlayerStartLevel(playerInput,hc));
 		
 		
 		final GameObject explosion1 = PrefabFactory.createExplosion(o.transform.position);
@@ -1554,15 +1560,26 @@ public class PrefabFactory {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.powerup);
 		}
-		else if (name.equals("wad3")) {
-			return PrefabFactory.context.getResources().openRawResource(R.drawable.wad3);
+		else if (name.equals("level4")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level4);
+		}
+		else if (name.equals("level1")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level1);
 		}
 		else if (name.equals("level2")) {
 			return PrefabFactory.context.getResources().openRawResource(R.drawable.level2); 
 		}
-		else if (name.equals("hell")) {
-			return PrefabFactory.context.getResources().openRawResource(
-					R.drawable.hhell);
+		else if (name.equals("level3")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level3); 
+		}
+		else if (name.equals("level5")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level5); 
+		}
+		else if (name.equals("level6")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level6); 
+		}
+		else if (name.equals("level7")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level7); 
 		}
 		else if (name.equals("explosion")) {
 			return PrefabFactory.context.getResources().openRawResource(
@@ -1749,6 +1766,7 @@ public class PrefabFactory {
 		o.addComponent(glDeath);
 		o.addComponent(ai);
 		o.addComponent(hc);
+		o.addComponent(new StopMovementOnCreate());
 		
 		System.out.println("boss2");
 		
@@ -1878,8 +1896,9 @@ public class PrefabFactory {
 		o.addComponent(glDeath);
 		o.addComponent(ai);
 		o.addComponent(hc);
+		o.addComponent(new StopMovementOnCreate());
 		
-		System.out.println("boss2");
+		System.out.println("boss3");
 		
 		return o;
 	}
@@ -2015,6 +2034,7 @@ public class PrefabFactory {
 		o.addComponent(glDeath);
 		o.addComponent(ai);
 		o.addComponent(hc);
+		o.addComponent(new StopMovementOnCreate());
 		
 		System.out.println("boss4");
 		
@@ -2217,6 +2237,7 @@ public class PrefabFactory {
 		o.addComponent(glDeath);
 		o.addComponent(ai);
 		o.addComponent(hc);
+		o.addComponent(new StopMovementOnCreate());
 		
 		System.out.println("boss4");
 		

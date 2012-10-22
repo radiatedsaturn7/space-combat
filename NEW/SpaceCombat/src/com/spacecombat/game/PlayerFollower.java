@@ -64,4 +64,10 @@ public class PlayerFollower extends Component
 			simpleMovement.setSpeed(0, yScroll);
 		}
 	}
+
+	public void setScrollSpeed(float i) {
+		// TODO Auto-generated method stub
+		yScroll = i;
+		
+	}
 }

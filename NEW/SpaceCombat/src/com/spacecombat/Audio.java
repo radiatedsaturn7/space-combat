@@ -28,7 +28,8 @@ public class Audio extends Component
 	}
 	
 	public void playOnce()
-	{		
+	{	
+		
 		if (!mediaPlayer.isPlaying())
 		{
 			//mediaPlayer.seekTo(0);

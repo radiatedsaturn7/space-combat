@@ -2,36 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="513" key="DIALOG_WIDTH"/>
-		<item value="193" key="DIALOG_Y_ORIGIN"/>
+		<item value="180" key="DIALOG_Y_ORIGIN"/>
 		<item value="378" key="DIALOG_HEIGHT"/>
-		<item value="924" key="DIALOG_X_ORIGIN"/>
+		<item value="824" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
 		<item value="false" key="isRegEx"/>
-		<item value="true" key="casesensitive"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="charge" key="selection"/>
+		<item value="level6" key="selection"/>
 		<list key="findhistory">
-			<item value="charge"/>
-			<item value="clh"/>
+			<item value="level6"/>
+			<item value=",1,"/>
+			<item value=",2,"/>
+			<item value="scrollSpeed"/>
+			<item value="camera"/>
+			<item value="scroll"/>
 			<item value="createPlayer"/>
-			<item value="createPo"/>
-			<item value="create"/>
-			<item value="createPower"/>
-			<item value="createShot"/>
-			<item value="finish"/>
+			<item value="level5"/>
 		</list>
 		<list key="replacehistory">
-			<item value="followPlayer"/>
-			<item value="!(s.hasTag(gameObject.getTags())"/>
-			<item value="s.hasTag(&quot;PowerUp&quot;)"/>
-			<item value="gameObject.playAnimation"/>
-			<item value="collidesWith"/>
-			<item value="rigidBody.speed"/>
-			<item value="rigidBody."/>
+			<item value=",7,"/>
+			<item value=",6,"/>
+			<item value=",5,"/>
+			<item value="5"/>
+			<item value="4"/>
+			<item value="0"/>
+			<item value=",17"/>
+			<item value=",16"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

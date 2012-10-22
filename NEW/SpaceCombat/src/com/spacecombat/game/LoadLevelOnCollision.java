@@ -1,7 +1,10 @@
 package com.spacecombat.game;
 
+import com.spacecombat.BoxCollider;
+import com.spacecombat.Collider;
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.ai.AIPlayerEndLevel;
 
 public class LoadLevelOnCollision extends Component {
 
@@ -25,7 +28,12 @@ public class LoadLevelOnCollision extends Component {
 			}
 			this.isFired = true;
 
-			LevelLoader.loadLevel(this.level,false);
+			GameObject player = GameObject.findByName("player");
+			PlayerInput pi = (PlayerInput)player.getComponent(PlayerInput.class);
+			HealthController hc = (HealthController)player.getComponent(HealthController.class);
+			BoxCollider bc = (BoxCollider)player.getRigidBody().getCollider();
+			player.addComponent(new AIPlayerEndLevel(pi, hc, bc, level));
+			//LevelLoader.loadLevel(this.level,false);
 		}
 	}
 }
