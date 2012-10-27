@@ -13,11 +13,15 @@ import com.spacecombat.weapons.Weapon;
 import com.spacecombat.weapons.WeaponController;
 
 public class PowerupController extends Component {
-	public WeaponController [] weapons;
+	public WeaponController [] weapons = null;
 	public boolean createAlly = false;
 	
 	public PowerupController (final WeaponController [] weapons)
 	{
+		if (weapons == null)
+		{
+			throw new RuntimeException("can't have null weapons");
+		}
 		this.weapons = weapons;
 	}
 	
@@ -27,7 +31,12 @@ public class PowerupController extends Component {
 		if (whatIHit.hasTag(powerUpTag)) {			
 			final PowerUp powerUp = (PowerUp) whatIHit.getComponent(PowerUp.class);
 			
-			for (int x = 0; x < weapons.length; x++)
+			if (weapons == null)
+			{
+				return;
+			}
+			
+			for (int x = 0; x < this.weapons.length; x++)
 			{
 				if (powerUp == null || this.weapons == null || this.weapons[x] == null)
 				{

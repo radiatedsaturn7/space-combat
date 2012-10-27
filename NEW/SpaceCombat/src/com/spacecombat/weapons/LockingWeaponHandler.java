@@ -20,7 +20,7 @@ public class LockingWeaponHandler extends Component {
 	private float nextSearch = 0.0f;
 	private List<GameObject> gos;
 	private boolean autoShoot = false;
-	private final int nonTargets = Tags.shot | Tags.camera;
+	private final int nonTargets = Tags.shot | Tags.camera | Tags.hud;
 
 	public LockingWeaponHandler(final Weapon w, final int targets, final boolean autoShoot) {
 		this.gos = new LinkedList<GameObject>();

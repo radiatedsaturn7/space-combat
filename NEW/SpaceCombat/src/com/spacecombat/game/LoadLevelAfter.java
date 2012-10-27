@@ -25,6 +25,7 @@ public class LoadLevelAfter extends Component {
 		if (Time.getTime() > start + seconds)
 		{
 			LevelLoader.loadLevel(this.level,false);
+			this.gameObject.removeComponent(this);
 		}
 	}
 }

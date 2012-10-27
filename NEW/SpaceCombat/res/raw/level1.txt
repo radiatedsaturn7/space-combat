@@ -106,7 +106,7 @@ createPowerUp
 3800
 264
 3770
-0
+4
 false
 
 createPowerUp
@@ -114,7 +114,7 @@ createPowerUp
 3000
 264
 2970
-4
+5
 false
 
 createAlly

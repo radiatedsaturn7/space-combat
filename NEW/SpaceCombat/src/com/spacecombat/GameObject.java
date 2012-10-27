@@ -84,7 +84,7 @@ public class GameObject extends Component implements Poolable {
 				}
 			}
 		}
-
+		
 		final Level l = (Level)gameObject.getComponent(Level.class);
 		if (!added && l != null)
 		{
@@ -353,6 +353,36 @@ public class GameObject extends Component implements Poolable {
 		return false;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + poolId;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GameObject other = (GameObject) obj;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (poolId != other.poolId)
+			return false;
+		return true;
+	}
+	
 	public GraphicAnimation getAnimation(final String name) {
 		doTrace();
 		Component xComponent = null;
@@ -495,7 +525,7 @@ public class GameObject extends Component implements Poolable {
 	@Override
 	public void onCreate() {
 		doTrace();
-		
+
 		this.isDestroyed = false;
 		this.id = GameObject.nextId;
 		GameObject.nextId++;

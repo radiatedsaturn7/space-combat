@@ -18,9 +18,9 @@ import com.spacecombat.weapons.PulseCannon;
 import com.spacecombat.weapons.Weapon;
 
 public class Engine implements ClickListener {
-	public static boolean created = false;
+	public boolean created = false;
 	private String startingLevel = "level1"; 
-	private static boolean ready = false;
+	private boolean ready = false;
 	 
 	// this is da master list of all components0
 	// private int fps = 60;
@@ -82,8 +82,6 @@ public class Engine implements ClickListener {
 	private int frames = 0;
 	private final Object lock = new Object();
 
-	private GameObject xGameObject1;
-	private GameObject yGameObject1;
 	private static FinishListener finishListener = null;
 
 	/** The Activity Context ( NEW ) */
@@ -94,7 +92,11 @@ public class Engine implements ClickListener {
 	 * * Instance the Cube object and set the Activity Context handed over
 	 */
 	public Engine(FinishListener f) {
-		
+		finishListener = f;
+	}
+	
+	public void start()
+	{
 		if (this.useMultithreadedDrawLoop) {
 			final Thread drawLoop = new DrawLoop();
 			//System.out.println("Drawing Started");
@@ -112,7 +114,6 @@ public class Engine implements ClickListener {
 		}
 
 		Input.subscribeListener(this);
-		finishListener = f;
 	}
 	
 	public static void exit()
@@ -228,23 +229,24 @@ public class Engine implements ClickListener {
 			return;
 		}
 
+		GameObject yGameObject1 = null;
 		for (int y = start; y < this.gameObjects.size(); y++) {
-			this.yGameObject1 = this.gameObjects.get(y);
+			yGameObject1 = this.gameObjects.get(y);
 
-			if (this.yGameObject1.getRigidBody() == null
-					|| this.yGameObject1.getRigidBody().getCollider() == null) {
+			if (yGameObject1.getRigidBody() == null
+					|| yGameObject1.getRigidBody().getCollider() == null) {
 				continue;
 			}
 
-			final boolean collision = this.xGameObject1
+			final boolean collision = xGameObject
 					.getRigidBody()
 					.getCollider()
 					.collidesWith(
-							this.yGameObject1.getRigidBody().getCollider());
+							yGameObject1.getRigidBody().getCollider());
 
 			if (collision) {
-				this.xGameObject1.collide(this.yGameObject1);
-				this.yGameObject1.collide(this.xGameObject1);
+				xGameObject.collide(yGameObject1);
+				yGameObject1.collide(xGameObject);
 			}
 		}
 	}
@@ -255,9 +257,10 @@ public class Engine implements ClickListener {
 			return;
 		}
 		
+		GameObject xGameObject1 = null;
 		synchronized (this.lock) {
 			for (int x = 0; x < this.gameObjects.size(); x++) {				
-				this.xGameObject1 = this.gameObjects.get(x);
+				xGameObject1 = this.gameObjects.get(x);
 				checkCollision(xGameObject1,x+1);
 			}
 		}		
@@ -291,11 +294,12 @@ public class Engine implements ClickListener {
 		}
 
 
+		GameObject xGameObject1 = null;
 		synchronized (this.lock) {			
 			for (int x = 0; x < this.gameObjects.size(); x++) {
-				this.xGameObject1 = this.gameObjects.get(x);
+				xGameObject1 = this.gameObjects.get(x);
 
-				this.xGameObject1.update();
+				xGameObject1.update();
 
 				if (!useMultithreadedCollisionLoop)
 				{
@@ -307,9 +311,11 @@ public class Engine implements ClickListener {
 		synchronized (this.lock)
 			{
 				for (int x = 0; x < this.gameObjects.size(); x++) {
-					this.xGameObject1 = this.gameObjects.get(x);
-					this.xGameObject1.onAfterUpdate();
+					xGameObject1 = this.gameObjects.get(x);
+					xGameObject1.onAfterUpdate();
 				}
+				
+				
 			}
 
 

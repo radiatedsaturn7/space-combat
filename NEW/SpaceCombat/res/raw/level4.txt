@@ -95,9 +95,9 @@ laser
 
 createPowerUp
 64
-3900
+4100
 264
-3870
+4070
 3
 false
 

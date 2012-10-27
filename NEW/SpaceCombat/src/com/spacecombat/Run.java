@@ -29,6 +29,7 @@ public class Run extends Activity implements FinishListener {
 			if (!created)
 			{
 				e = new Engine((FinishListener)context);
+				e.start();
 				e.createGameObjects(preferences);
 			}
 			created = true;

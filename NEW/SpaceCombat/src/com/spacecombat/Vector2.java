@@ -18,17 +18,28 @@ public class Vector2 {
 	}
 
 	@Override
-	public boolean equals (final Object o)
-	{
-		if (o instanceof Vector2)
-		{
-			final Vector2 v = (Vector2)o;
-			if (Math.abs(v.x - this.x) < 0.001 && Math.abs(v.y - this.y) < 0.001)
-			{
-				return true;
-			}
-		}
-		return false;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Float.floatToIntBits(x);
+		result = prime * result + Float.floatToIntBits(y);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vector2 other = (Vector2) obj;
+		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x))
+			return false;
+		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y))
+			return false;
+		return true;
 	}
 
 	public void normalize() {

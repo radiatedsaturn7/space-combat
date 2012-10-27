@@ -66,7 +66,7 @@ public class HealthController extends Component {
 	public void onAfterUpdate ()
 	{
 		//shield recharger
-		if (this.gameObject.getName().equals(Tags.player))
+		if (this.gameObject.getName().equals("player"))
 		{			
 			this.health += 2 * Time.getDeltaTime();
 			if (this.health > this.maxHealth)

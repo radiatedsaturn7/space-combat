@@ -60,7 +60,7 @@ public class ScoreHUD extends Component
 	{
 		if (healthController.health <= 0)
 		{
-			PlayerData.score = 0;
+			PlayerData.setScore(0);
 		}
 
 		if (createPowerup)

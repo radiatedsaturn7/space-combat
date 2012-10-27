@@ -93,11 +93,13 @@ public class LevelLoader {
 	public static void loadLevel (final String name, final boolean clearAll) 
 	{ 
 		Time.pause();
-		//		try
-//		{
+		int x = 0;
+		String [] lines = null;
+		try
+		{
 			lastLevelLoaded = name;
 			final List<GameObject> gos = GameObject.getAllGameObjects();
-			for (int x = 0; x < gos.size(); x++)
+			for (x = 0; x < gos.size(); x++)
 			{
 				if (gos.get(x).getDestroyOnLevelLoad() || clearAll)
 				{
@@ -148,11 +150,11 @@ public class LevelLoader {
 			}
 
 			final String file = sb.toString();
-			final String[] lines = file.split("\\n");
+			lines = file.split("\\n");
 
 			boolean ignoring = false;
 
-			for (int x = 0; x < lines.length; x++)
+			for (x = 0; x < lines.length; x++)
 			{
 				if (ignoring)
 				{
@@ -379,10 +381,12 @@ public class LevelLoader {
 					final String nextLevel = lines[x].trim();
 					x++;
 
-					System.out.println("CREATED BOSS:" + new Vector2(enemyX,enemyY) + " " + bossType + " ");
+					System.out.println("CREATED BOSS:" + new Vector2(enemyX,enemyY) + " " + bossType + " " + nextLevel);
 
 					final GameObject objectToCreate = PrefabFactory.createBoss("boss", new Vector2(enemyX,enemyY), bossType, nextLevel);
 					final GameObject spawner = PrefabFactory.createSpawner(spawnX, spawnY, objectToCreate);
+					
+					System.out.println("DONE!");
 
 					GameObject.create(spawner);
 				}
@@ -507,7 +511,7 @@ public class LevelLoader {
 					final LoadLevelOnCollision lloc = new LoadLevelOnCollision(nextLevel);
 					//final FixedJoint fj = new FixedJoint(level);
 
-					final GameObject spawner = new GameObject();
+					final GameObject spawner = GameObject.getNew();
 					final RigidBody r = new RigidBody();
 					final Collider c = new BoxCollider(new Vector2(800,32));
 					r.setCollider(c);
@@ -533,12 +537,19 @@ public class LevelLoader {
 			} catch (final IOException e) {
 				throw new RuntimeException(e);
 			}
-			/*
+			
 		}
 		catch (Exception e)
 		{
-			throw new RuntimeException("FAILED AT LINE:" + line + "\n" + line2 + "\n" + e);
-		}*/
+			if (lines != null && x < lines.length)
+			{
+				throw new RuntimeException("FAILED AT LINE:" + x + "\n" + lines[x] + "\n" + e);
+			}
+			else
+			{
+				throw new RuntimeException("FAILED AT LINE:" + x + "\n");
+			}
+		}
 		Time.unPause();
 	}
 

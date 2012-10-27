@@ -184,7 +184,7 @@ public class AllyAI extends AIScript {
 			fix = 1;
 		}
 
-		if (this.side % 2 == 1) {
+		if (Math.abs(this.side) % 2 == 1) {
 			neg = -1; // switch the side the ally appears on
 		}
 
@@ -416,7 +416,7 @@ public class AllyAI extends AIScript {
 		if (fix == 0) {
 			fix = 1;
 		}
-		if (this.side % 2 == 1) {
+		if (Math.abs(this.side) % 2 == 1) {
 			neg = -1; // switch the side the ally appears on
 		}
 		if (this.boundingBox.x < this.followRectangle.x + neg
@@ -744,7 +744,7 @@ public class AllyAI extends AIScript {
 			fix = 1;
 		}
 
-		if (this.side % 2 == 1) {
+		if (Math.abs(this.side) % 2 == 1) {
 			neg = -1; // switch the side the ally appears on
 		}
 

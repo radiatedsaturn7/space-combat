@@ -903,7 +903,7 @@ public class PrefabFactory {
 				PrefabFactory.getImage("chargebar"),11);
 		
 		GameObject go = GameObject.getNew();
-		go.setTags(Tags.player | Tags.ally);
+		go.setTags(Tags.hud | Tags.player | Tags.ally);
 		go.setDestroyOnLevelLoad(false);
 		
 		ChargeLaser cl = (ChargeLaser)player.getComponent(ChargeLaser.class);
@@ -1013,7 +1013,7 @@ public class PrefabFactory {
 				PrefabFactory.getImage("shield"),11);
 		
 		GameObject go = GameObject.getNew();
-		go.setTags(Tags.player | Tags.ally);
+		go.setTags(Tags.hud | Tags.player | Tags.ally);
 		go.setDestroyOnLevelLoad(false);
 		
 		go.transform.position.x = g.transform.position.x + 5;
@@ -1114,7 +1114,7 @@ public class PrefabFactory {
 				PrefabFactory.getImage("shieldbar"),11);
 		
 		GameObject go = GameObject.getNew();
-		go.setTags(Tags.player | Tags.ally);
+		go.setTags(Tags.hud | Tags.player | Tags.ally);
 		go.setDestroyOnLevelLoad(false);
 		
 		go.transform.position.x = g.transform.position.x + HUDConstants.shieldBar.x;
@@ -1406,7 +1406,7 @@ public class PrefabFactory {
 	public static GameObject createHUD (GameObject camera, GameObject player)
 	{
 		GameObject go = GameObject.getNew();
-		go.setTags(Tags.hud);
+		go.setTags(Tags.hud | Tags.player | Tags.ally);
 		RigidBody rigidBody = new RigidBody();
 		go.setRigidBody(rigidBody);
 						
@@ -1581,6 +1581,15 @@ public class PrefabFactory {
 		else if (name.equals("level7")) {
 			return PrefabFactory.context.getResources().openRawResource(R.drawable.level7); 
 		}
+		else if (name.equals("level8")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level8); 
+		}
+		else if (name.equals("level9")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level9); 
+		}
+		else if (name.equals("level11")) {
+			return PrefabFactory.context.getResources().openRawResource(R.drawable.level11); 
+		}
 		else if (name.equals("explosion")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.exp1);
@@ -1630,7 +1639,10 @@ public class PrefabFactory {
 	}
 
 	public static GameObject createBoss(String name, Vector2 position, int bossType, String nextLevel) {
-		
+		/*
+		GameObject pl = GameObject.findByName("player");
+		pl.addComponent(new LoadLevelAfter(nextLevel, 300));
+		*/
 		if (bossType == 2)
 		{
 			return createBoss2(name,position,bossType,nextLevel);

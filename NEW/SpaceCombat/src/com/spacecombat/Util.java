@@ -15,6 +15,11 @@ public class Util {
 
 	public static int randomNumber(final int num1, int num2) {
 		num2 = num2 + 1;
-		return (Math.abs(Util.random.nextInt()) % (num2 - num1)) + num1;
+		int x = Util.random.nextInt();
+		if (x <= 0)
+		{
+			x = -x;
+		}
+		return (x % (num2 - num1)) + num1;
 	}
 }

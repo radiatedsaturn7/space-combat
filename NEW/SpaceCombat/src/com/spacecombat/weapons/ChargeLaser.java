@@ -36,7 +36,7 @@ public class ChargeLaser extends Weapon {
 		
 		int tempPowerLevel = powerLevel;
 		boolean isOdd = false;
-		if (powerLevel % 2 == 1)
+		if (Math.abs(powerLevel) % 2 == 1)
 		{
 			tempPowerLevel = powerLevel - 1;
 			isOdd = true;
@@ -106,7 +106,7 @@ public class ChargeLaser extends Weapon {
 	public int getMaxCharge ()
 	{
 		boolean isOdd = false;
-		if (powerLevel % 2 == 1)
+		if (Math.abs(powerLevel) % 2 == 1)
 		{
 			isOdd = true;
 		}

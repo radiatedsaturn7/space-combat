@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.1" sequence="26" timestamp="1351296716507" analysisTimestamp="1351296715863" release="">
+  <Project projectName="SpaceCombat">
+    <Jar>C:\SpaceCombat\NEW\SpaceCombat\bin\classes\com\spacecombat\GameObject.class</Jar>
+    <AuxClasspathEntry>C:\SpaceCombat\NEW\SpaceCombat\bin\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files (x86)\Android\android-sdk\platforms\android-10\android.jar</AuxClasspathEntry>
+    <SrcDir>C:\SpaceCombat\NEW\SpaceCombat\gen</SrcDir>
+    <SrcDir>C:\SpaceCombat\NEW\SpaceCombat\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Camera">
+      <SourceLine classname="com.spacecombat.Camera" sourcefile="Camera.java" sourcepath="com/spacecombat/Camera.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Camera" name="mainCamera" signature="Lcom/spacecombat/Camera;" isStatic="true">
+      <SourceLine classname="com.spacecombat.Camera" sourcefile="Camera.java" sourcepath="com/spacecombat/Camera.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Camera" start="4" end="4" startBytecode="1" endBytecode="1" sourcefile="Camera.java" sourcepath="com/spacecombat/Camera.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.CanvasText">
+      <SourceLine classname="com.spacecombat.CanvasText" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+    </Class>
+    <Field classname="com.spacecombat.CanvasText" name="color" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.CanvasText" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.CanvasText" start="27" end="27" startBytecode="16" endBytecode="16" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.CanvasText">
+      <SourceLine classname="com.spacecombat.CanvasText" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+    </Class>
+    <Field classname="com.spacecombat.CanvasText" name="font" signature="Landroid/graphics/Typeface;" isStatic="false">
+      <SourceLine classname="com.spacecombat.CanvasText" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.CanvasText" start="26" end="26" startBytecode="11" endBytecode="11" sourcefile="CanvasText.java" sourcepath="com/spacecombat/CanvasText.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="collisionFrameRate" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="71" end="71" startBytecode="69" endBytecode="69" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="drawFrameRate" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="67" end="67" startBytecode="53" endBytecode="53" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="printFrameRate" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="66" end="66" startBytecode="47" endBytecode="47" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="runDrawLoop" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="64" end="64" startBytecode="37" endBytecode="37" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="runGameLoop" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="74" end="74" startBytecode="79" endBytecode="79" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="updateFrameRate" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="76" end="76" startBytecode="90" endBytecode="90" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useCollisionFrameRate" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="70" end="70" startBytecode="63" endBytecode="63" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useFrameRate" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="65" end="65" startBytecode="42" endBytecode="42" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useGameFrameRate" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="75" end="75" startBytecode="84" endBytecode="84" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useInputStep" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="60" end="60" startBytecode="22" endBytecode="22" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useMultithreadedCollisionLoop" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="69" end="69" startBytecode="58" endBytecode="58" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useMultithreadedDrawLoop" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="63" end="63" startBytecode="32" endBytecode="32" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="useMultithreadedGameLoop" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="73" end="73" startBytecode="74" endBytecode="74" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE" first="1" last="4" removedByChange="true">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Engine" name="fromBackground" signature="(Landroid/content/SharedPreferences;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" start="402" end="415" startBytecode="0" endBytecode="67" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Method>
+    <Field classname="com.spacecombat.Engine" name="ready" signature="Z" isStatic="true">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="402" end="402" startBytecode="1" endBytecode="1" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE" first="1" last="4" removedByChange="true">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Engine" name="toBackground" signature="(Landroid/content/SharedPreferences$Editor;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" start="358" end="399" startBytecode="0" endBytecode="209" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Method>
+    <Field classname="com.spacecombat.Engine" name="ready" signature="Z" isStatic="true">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="358" end="358" startBytecode="1" endBytecode="1" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Engine" name="&lt;init&gt;" signature="(Lcom/spacecombat/FinishListener;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" start="94" end="96" startBytecode="0" endBytecode="269" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Method>
+    <Field classname="com.spacecombat.Engine" name="finishListener" signature="Lcom/spacecombat/FinishListener;" isStatic="true">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="95" end="95" startBytecode="122" endBytecode="122" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="canRun" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="61" end="61" startBytecode="27" endBytecode="27" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="frames" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="82" end="82" startBytecode="100" endBytecode="100" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="lastTimeCheck" signature="F" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="79" end="79" startBytecode="95" endBytecode="95" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.Engine">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Engine" name="created" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Engine" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Engine" start="21" end="21" startBytecode="6" endBytecode="6" sourcefile="Engine.java" sourcepath="com/spacecombat/Engine.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_SELF_USE_OBJECT" priority="2" abbrev="Eq" category="CORRECTNESS" first="1" last="1" removedByChange="true">
+    <Class classname="com.spacecombat.GameObject">
+      <SourceLine classname="com.spacecombat.GameObject" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Class>
+    <Method classname="com.spacecombat.GameObject" name="equals" signature="(Lcom/spacecombat/GameObject;)Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.GameObject" start="347" end="353" startBytecode="0" endBytecode="91" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="2" abbrev="HE" category="BAD_PRACTICE" first="1" last="1" removedByChange="true">
+    <Class classname="com.spacecombat.GameObject">
+      <SourceLine classname="com.spacecombat.GameObject" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Class>
+    <Method classname="com.spacecombat.GameObject" name="equals" signature="(Lcom/spacecombat/GameObject;)Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.GameObject" start="347" end="353" startBytecode="0" endBytecode="91" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.GameObject">
+      <SourceLine classname="com.spacecombat.GameObject" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Class>
+    <Method classname="com.spacecombat.GameObject" name="toString" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="com.spacecombat.GameObject" start="652" end="668" startBytecode="0" endBytecode="448" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.GameObject" start="666" end="666" startBytecode="257" endBytecode="257" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.GameObject">
+      <SourceLine classname="com.spacecombat.GameObject" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Class>
+    <Method classname="com.spacecombat.GameObject" name="onCreate" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.GameObject" start="527" end="540" startBytecode="0" endBytecode="177" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Method>
+    <Field classname="com.spacecombat.GameObject" name="nextId" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.GameObject" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.GameObject" start="531" end="531" startBytecode="21" endBytecode="21" sourcefile="GameObject.java" sourcepath="com/spacecombat/GameObject.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Input">
+      <SourceLine classname="com.spacecombat.Input" sourcefile="Input.java" sourcepath="com/spacecombat/Input.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Input" name="xPos" signature="F" isStatic="true">
+      <SourceLine classname="com.spacecombat.Input" start="8" end="8" startBytecode="0" endBytecode="0" sourcefile="Input.java" sourcepath="com/spacecombat/Input.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Input">
+      <SourceLine classname="com.spacecombat.Input" sourcefile="Input.java" sourcepath="com/spacecombat/Input.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Input" name="yPos" signature="F" isStatic="true">
+      <SourceLine classname="com.spacecombat.Input" start="9" end="9" startBytecode="0" endBytecode="0" sourcefile="Input.java" sourcepath="com/spacecombat/Input.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="com.spacecombat.R$attr">
+      <SourceLine classname="com.spacecombat.R$attr" start="11" end="11" sourcefile="R.java" sourcepath="com/spacecombat/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="com.spacecombat.R$drawable">
+      <SourceLine classname="com.spacecombat.R$drawable" start="13" end="13" sourcefile="R.java" sourcepath="com/spacecombat/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="com.spacecombat.R$raw">
+      <SourceLine classname="com.spacecombat.R$raw" start="59" end="59" sourcefile="R.java" sourcepath="com/spacecombat/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="com.spacecombat.R$string">
+      <SourceLine classname="com.spacecombat.R$string" start="89" end="89" sourcefile="R.java" sourcepath="com/spacecombat/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DM_STRING_CTOR" priority="2" abbrev="Dm" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.Rectangle">
+      <SourceLine classname="com.spacecombat.Rectangle" sourcefile="Rectangle.java" sourcepath="com/spacecombat/Rectangle.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Rectangle" name="toString" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="com.spacecombat.Rectangle" start="84" end="84" startBytecode="0" endBytecode="112" sourcefile="Rectangle.java" sourcepath="com/spacecombat/Rectangle.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.Rectangle" start="84" end="84" startBytecode="59" endBytecode="59" sourcefile="Rectangle.java" sourcepath="com/spacecombat/Rectangle.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Run">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Run" name="created" signature="Z" isStatic="true">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Run" start="18" end="18" startBytecode="9" endBytecode="9" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Run">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Run" name="e" signature="Lcom/spacecombat/Engine;" isStatic="true">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Run" start="16" end="16" startBytecode="1" endBytecode="1" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.Run">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Class>
+    <Field classname="com.spacecombat.Run" name="paint" signature="Landroid/graphics/Paint;" isStatic="true">
+      <SourceLine classname="com.spacecombat.Run" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.Run" start="17" end="17" startBytecode="5" endBytecode="5" sourcefile="Run.java" sourcepath="com/spacecombat/Run.java"/>
+  </BugInstance>
+  <BugInstance type="RV_ABSOLUTE_VALUE_OF_RANDOM_INT" priority="1" abbrev="RV" category="CORRECTNESS" first="1" last="8" removedByChange="true">
+    <Class classname="com.spacecombat.Util">
+      <SourceLine classname="com.spacecombat.Util" sourcefile="Util.java" sourcepath="com/spacecombat/Util.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Util" name="randomNumber" signature="(II)I" isStatic="true">
+      <SourceLine classname="com.spacecombat.Util" start="17" end="19" startBytecode="0" endBytecode="90" sourcefile="Util.java" sourcepath="com/spacecombat/Util.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.Util" start="19" end="19" startBytecode="11" endBytecode="11" sourcefile="Util.java" sourcepath="com/spacecombat/Util.java"/>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="1" abbrev="HE" category="BAD_PRACTICE" first="1" last="2" removedByChange="true">
+    <Class classname="com.spacecombat.Vector2">
+      <SourceLine classname="com.spacecombat.Vector2" sourcefile="Vector2.java" sourcepath="com/spacecombat/Vector2.java"/>
+    </Class>
+    <Method classname="com.spacecombat.Vector2" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.Vector2" start="23" end="31" startBytecode="0" endBytecode="142" sourcefile="Vector2.java" sourcepath="com/spacecombat/Vector2.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIBoss2">
+      <SourceLine classname="com.spacecombat.ai.AIBoss2" sourcefile="AIBoss2.java" sourcepath="com/spacecombat/ai/AIBoss2.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIBoss2" name="maxWidth" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIBoss2" sourcefile="AIBoss2.java" sourcepath="com/spacecombat/ai/AIBoss2.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIBoss2" start="20" end="20" startBytecode="65" endBytecode="65" sourcefile="AIBoss2.java" sourcepath="com/spacecombat/ai/AIBoss2.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIBoss3">
+      <SourceLine classname="com.spacecombat.ai.AIBoss3" sourcefile="AIBoss3.java" sourcepath="com/spacecombat/ai/AIBoss3.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIBoss3" name="maxWidth" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIBoss3" sourcefile="AIBoss3.java" sourcepath="com/spacecombat/ai/AIBoss3.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIBoss3" start="20" end="20" startBytecode="65" endBytecode="65" sourcefile="AIBoss3.java" sourcepath="com/spacecombat/ai/AIBoss3.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIBoss4">
+      <SourceLine classname="com.spacecombat.ai.AIBoss4" sourcefile="AIBoss4.java" sourcepath="com/spacecombat/ai/AIBoss4.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIBoss4" name="maxWidth" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIBoss4" sourcefile="AIBoss4.java" sourcepath="com/spacecombat/ai/AIBoss4.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIBoss4" start="20" end="20" startBytecode="65" endBytecode="65" sourcefile="AIBoss4.java" sourcepath="com/spacecombat/ai/AIBoss4.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIBoss5">
+      <SourceLine classname="com.spacecombat.ai.AIBoss5" sourcefile="AIBoss5.java" sourcepath="com/spacecombat/ai/AIBoss5.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIBoss5" name="maxWidth" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIBoss5" sourcefile="AIBoss5.java" sourcepath="com/spacecombat/ai/AIBoss5.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIBoss5" start="20" end="20" startBytecode="65" endBytecode="65" sourcefile="AIBoss5.java" sourcepath="com/spacecombat/ai/AIBoss5.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.ai.AINodeFollower">
+      <SourceLine classname="com.spacecombat.ai.AINodeFollower" sourcefile="AINodeFollower.java" sourcepath="com/spacecombat/ai/AINodeFollower.java"/>
+    </Class>
+    <Method classname="com.spacecombat.ai.AINodeFollower" name="&lt;init&gt;" signature="([Lcom/spacecombat/GameObject;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AINodeFollower" start="25" end="31" startBytecode="0" endBytecode="171" sourcefile="AINodeFollower.java" sourcepath="com/spacecombat/ai/AINodeFollower.java"/>
+    </Method>
+    <Field classname="com.spacecombat.ai.AINodeFollower" name="nodes" signature="[Lcom/spacecombat/GameObject;" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AINodeFollower" sourcefile="AINodeFollower.java" sourcepath="com/spacecombat/ai/AINodeFollower.java"/>
+    </Field>
+    <LocalVariable name="nodes" register="1" pc="47" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.ai.AINodeFollower" start="26" end="26" startBytecode="47" endBytecode="47" sourcefile="AINodeFollower.java" sourcepath="com/spacecombat/ai/AINodeFollower.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.ai.AIPlayerStartLevel">
+      <SourceLine classname="com.spacecombat.ai.AIPlayerStartLevel" sourcefile="AIPlayerStartLevel.java" sourcepath="com/spacecombat/ai/AIPlayerStartLevel.java"/>
+    </Class>
+    <Method classname="com.spacecombat.ai.AIPlayerStartLevel" name="update" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIPlayerStartLevel" start="28" end="60" startBytecode="0" endBytecode="328" sourcefile="AIPlayerStartLevel.java" sourcepath="com/spacecombat/ai/AIPlayerStartLevel.java"/>
+    </Method>
+    <Field classname="com.spacecombat.ai.AIPlayerStartLevel" name="startTimes" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.ai.AIPlayerStartLevel" sourcefile="AIPlayerStartLevel.java" sourcepath="com/spacecombat/ai/AIPlayerStartLevel.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIPlayerStartLevel" start="43" end="43" startBytecode="87" endBytecode="87" sourcefile="AIPlayerStartLevel.java" sourcepath="com/spacecombat/ai/AIPlayerStartLevel.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIScriptFour">
+      <SourceLine classname="com.spacecombat.ai.AIScriptFour" sourcefile="AIScriptFour.java" sourcepath="com/spacecombat/ai/AIScriptFour.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIScriptFour" name="give" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIScriptFour" sourcefile="AIScriptFour.java" sourcepath="com/spacecombat/ai/AIScriptFour.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIScriptFour" start="15" end="15" startBytecode="35" endBytecode="35" sourcefile="AIScriptFour.java" sourcepath="com/spacecombat/ai/AIScriptFour.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AIScriptOne">
+      <SourceLine classname="com.spacecombat.ai.AIScriptOne" sourcefile="AIScriptOne.java" sourcepath="com/spacecombat/ai/AIScriptOne.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AIScriptOne" name="maxWidth" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AIScriptOne" sourcefile="AIScriptOne.java" sourcepath="com/spacecombat/ai/AIScriptOne.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AIScriptOne" start="13" end="13" startBytecode="53" endBytecode="53" sourcefile="AIScriptOne.java" sourcepath="com/spacecombat/ai/AIScriptOne.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AllyAI" name="ids" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="63" end="63" startBytecode="9" endBytecode="9" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AllyAI" name="numOfPlayers" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="18" end="18" startBytecode="1" endBytecode="1" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AllyAI" name="targets" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="55" end="55" startBytecode="102" endBytecode="102" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Method classname="com.spacecombat.ai.AllyAI" name="&lt;init&gt;" signature="(Ljava/lang/String;Lcom/spacecombat/weapons/Weapon;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" start="105" end="111" startBytecode="0" endBytecode="359" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Method>
+    <Field classname="com.spacecombat.ai.AllyAI" name="ids" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="109" end="109" startBytecode="197" endBytecode="197" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Method classname="com.spacecombat.ai.AllyAI" name="update" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" start="655" end="737" startBytecode="0" endBytecode="754" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Method>
+    <Field classname="com.spacecombat.ai.AllyAI" name="numOfPlayers" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="676" end="676" startBytecode="180" endBytecode="180" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.ai.AllyAI">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Class>
+    <Field classname="com.spacecombat.ai.AllyAI" name="screen" signature="Lcom/spacecombat/Rectangle;" isStatic="false">
+      <SourceLine classname="com.spacecombat.ai.AllyAI" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.ai.AllyAI" start="34" end="34" startBytecode="33" endBytecode="33" sourcefile="AllyAI.java" sourcepath="com/spacecombat/ai/AllyAI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.HUDConstants">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HUDConstants" name="chargeBar" signature="Lcom/spacecombat/Vector2;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HUDConstants" start="9" end="9" startBytecode="50" endBytecode="50" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.HUDConstants">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HUDConstants" name="hud" signature="Lcom/spacecombat/Vector2;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HUDConstants" start="8" end="8" startBytecode="38" endBytecode="38" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.HUDConstants">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HUDConstants" name="scoreBoard" signature="Lcom/spacecombat/Vector2;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HUDConstants" start="7" end="7" startBytecode="25" endBytecode="25" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.HUDConstants">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HUDConstants" name="shieldBar" signature="Lcom/spacecombat/Vector2;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.HUDConstants" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HUDConstants" start="6" end="6" startBytecode="11" endBytecode="11" sourcefile="HUDConstants.java" sourcepath="com/spacecombat/game/HUDConstants.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="com.spacecombat.game.HealthController">
+      <SourceLine classname="com.spacecombat.game.HealthController" sourcefile="HealthController.java" sourcepath="com/spacecombat/game/HealthController.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.HealthController" name="onAfterUpdate" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.HealthController" start="69" end="87" startBytecode="0" endBytecode="189" sourcefile="HealthController.java" sourcepath="com/spacecombat/game/HealthController.java"/>
+    </Method>
+    <Field classname="com.spacecombat.game.PlayerData" name="score" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PlayerData" sourcefile="PlayerData.java" sourcepath="com/spacecombat/game/PlayerData.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HealthController" start="82" end="82" startBytecode="83" endBytecode="83" sourcefile="HealthController.java" sourcepath="com/spacecombat/game/HealthController.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.HealthHUD">
+      <SourceLine classname="com.spacecombat.game.HealthHUD" sourcefile="HealthHUD.java" sourcepath="com/spacecombat/game/HealthHUD.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HealthHUD" name="createGameOver" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.HealthHUD" sourcefile="HealthHUD.java" sourcepath="com/spacecombat/game/HealthHUD.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HealthHUD" start="21" end="21" startBytecode="27" endBytecode="27" sourcefile="HealthHUD.java" sourcepath="com/spacecombat/game/HealthHUD.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.HomingMovement">
+      <SourceLine classname="com.spacecombat.game.HomingMovement" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HomingMovement" name="accel" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.HomingMovement" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HomingMovement" start="22" end="22" startBytecode="44" endBytecode="44" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.HomingMovement">
+      <SourceLine classname="com.spacecombat.game.HomingMovement" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.HomingMovement" name="ignoreTargets" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.HomingMovement" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.HomingMovement" start="16" end="16" startBytecode="17" endBytecode="17" sourcefile="HomingMovement.java" sourcepath="com/spacecombat/game/HomingMovement.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.LerpMovement">
+      <SourceLine classname="com.spacecombat.game.LerpMovement" sourcefile="LerpMovement.java" sourcepath="com/spacecombat/game/LerpMovement.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.LerpMovement" name="ignoreTargets" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.LerpMovement" sourcefile="LerpMovement.java" sourcepath="com/spacecombat/game/LerpMovement.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.LerpMovement" start="16" end="16" startBytecode="17" endBytecode="17" sourcefile="LerpMovement.java" sourcepath="com/spacecombat/game/LerpMovement.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" first="1">
+    <Class classname="com.spacecombat.game.LevelLoader">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.LevelLoader" name="loadLevel" signature="(Ljava/lang/String;Z)V" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" start="95" end="554" startBytecode="0" endBytecode="5381" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="5" end="5" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.game.LevelLoader" start="122" end="122" startBytecode="111" endBytecode="111" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_EXCEPTION" priority="2" abbrev="NP" category="CORRECTNESS" first="1" last="3" removedByChange="true">
+    <Class classname="com.spacecombat.game.LevelLoader">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.LevelLoader" name="loadLevel" signature="(Ljava/lang/String;Z)V" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" start="95" end="554" startBytecode="0" endBytecode="5381" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Method>
+    <LocalVariable name="lines" register="3" pc="135" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="com.spacecombat.game.LevelLoader" start="544" end="544" startBytecode="2395" endBytecode="2395" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java" role="SOURCE_LINE_DEREF"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullDerefProperty.ALWAYS_ON_EXCEPTION_PATH" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DoomedCodeWarningProperty.DOOMED_CODE" value="true"/>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="2" abbrev="REC" category="STYLE" first="1">
+    <Class classname="com.spacecombat.game.LevelLoader">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.LevelLoader" name="loadLevel" signature="(Ljava/lang/String;Z)V" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.LevelLoader" start="95" end="554" startBytecode="0" endBytecode="5381" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.game.LevelLoader" start="542" end="542" startBytecode="2387" endBytecode="2387" sourcefile="LevelLoader.java" sourcepath="com/spacecombat/game/LevelLoader.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.LoadLevelAfter">
+      <SourceLine classname="com.spacecombat.game.LoadLevelAfter" sourcefile="LoadLevelAfter.java" sourcepath="com/spacecombat/game/LoadLevelAfter.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.LoadLevelAfter" name="isFired" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.LoadLevelAfter" sourcefile="LoadLevelAfter.java" sourcepath="com/spacecombat/game/LoadLevelAfter.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.LoadLevelAfter" start="16" end="16" startBytecode="6" endBytecode="6" sourcefile="LoadLevelAfter.java" sourcepath="com/spacecombat/game/LoadLevelAfter.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1" last="5" removedByChange="true">
+    <Class classname="com.spacecombat.game.PlayerData">
+      <SourceLine classname="com.spacecombat.game.PlayerData" sourcefile="PlayerData.java" sourcepath="com/spacecombat/game/PlayerData.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.PlayerData" name="score" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PlayerData" start="8" end="8" startBytecode="0" endBytecode="0" sourcefile="PlayerData.java" sourcepath="com/spacecombat/game/PlayerData.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PlayerInput">
+      <SourceLine classname="com.spacecombat.game.PlayerInput" sourcefile="PlayerInput.java" sourcepath="com/spacecombat/game/PlayerInput.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.PlayerInput" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/WeaponController;Lcom/spacecombat/BoxCollider;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.PlayerInput" start="22" end="26" startBytecode="0" endBytecode="160" sourcefile="PlayerInput.java" sourcepath="com/spacecombat/game/PlayerInput.java"/>
+    </Method>
+    <Field classname="com.spacecombat.game.PlayerInput" name="wc" signature="[Lcom/spacecombat/weapons/WeaponController;" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.PlayerInput" sourcefile="PlayerInput.java" sourcepath="com/spacecombat/game/PlayerInput.java"/>
+    </Field>
+    <LocalVariable name="wc" register="1" pc="46" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.game.PlayerInput" start="24" end="24" startBytecode="46" endBytecode="46" sourcefile="PlayerInput.java" sourcepath="com/spacecombat/game/PlayerInput.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PowerupController">
+      <SourceLine classname="com.spacecombat.game.PowerupController" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.PowerupController" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/WeaponController;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.PowerupController" start="19" end="26" startBytecode="0" endBytecode="130" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Method>
+    <Field classname="com.spacecombat.game.PowerupController" name="weapons" signature="[Lcom/spacecombat/weapons/WeaponController;" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.PowerupController" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Field>
+    <LocalVariable name="weapons" register="1" pc="30" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.game.PowerupController" start="25" end="25" startBytecode="30" endBytecode="30" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" priority="2" abbrev="RCN" category="STYLE" first="1">
+    <Class classname="com.spacecombat.game.PowerupController">
+      <SourceLine classname="com.spacecombat.game.PowerupController" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.PowerupController" name="collide" signature="(Lcom/spacecombat/GameObject;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.PowerupController" start="31" end="61" startBytecode="0" endBytecode="303" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Method>
+    <Field classname="com.spacecombat.game.PowerupController" name="weapons" signature="[Lcom/spacecombat/weapons/WeaponController;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="com.spacecombat.game.PowerupController" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.PowerupController" start="41" end="41" startBytecode="40" endBytecode="40" sourcefile="PowerupController.java" sourcepath="com/spacecombat/game/PowerupController.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PrefabFactory">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.PrefabFactory" name="elaser" signature="Ljava/io/InputStream;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" start="1489" end="1489" startBytecode="0" endBytecode="0" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PrefabFactory">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.PrefabFactory" name="enemy" signature="Ljava/io/InputStream;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" start="1491" end="1491" startBytecode="0" endBytecode="0" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PrefabFactory">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.PrefabFactory" name="laser" signature="Ljava/io/InputStream;" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" start="1490" end="1490" startBytecode="0" endBytecode="0" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.game.PrefabFactory">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.PrefabFactory" name="spawner" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PrefabFactory" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.PrefabFactory" start="87" end="87" startBytecode="122" endBytecode="122" sourcefile="PrefabFactory.java" sourcepath="com/spacecombat/game/PrefabFactory.java"/>
+  </BugInstance>
+  <BugInstance type="DM_NUMBER_CTOR" priority="2" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.RandomSpawner">
+      <SourceLine classname="com.spacecombat.game.RandomSpawner" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.RandomSpawner" name="update" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.RandomSpawner" start="16" end="39" startBytecode="0" endBytecode="301" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="&lt;init&gt;" signature="(I)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Integer" start="6" end="6" startBytecode="0" endBytecode="65" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="valueOf" signature="(I)V" isStatic="true" role="SHOULD_CALL">
+      <SourceLine classname="java.lang.Integer" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.game.RandomSpawner" start="32" end="32" startBytecode="94" endBytecode="94" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+  </BugInstance>
+  <BugInstance type="DM_STRING_CTOR" priority="2" abbrev="Dm" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.game.RandomSpawner">
+      <SourceLine classname="com.spacecombat.game.RandomSpawner" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.RandomSpawner" name="update" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.RandomSpawner" start="16" end="39" startBytecode="0" endBytecode="301" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+    </Method>
+    <SourceLine classname="com.spacecombat.game.RandomSpawner" start="32" end="32" startBytecode="100" endBytecode="100" sourcefile="RandomSpawner.java" sourcepath="com/spacecombat/game/RandomSpawner.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE" first="1" last="6" removedByChange="true">
+    <Class classname="com.spacecombat.game.ScoreHUD">
+      <SourceLine classname="com.spacecombat.game.ScoreHUD" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+    </Class>
+    <Method classname="com.spacecombat.game.ScoreHUD" name="onAfterUpdate" signature="()V" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.ScoreHUD" start="61" end="71" startBytecode="0" endBytecode="82" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+    </Method>
+    <Field classname="com.spacecombat.game.PlayerData" name="score" signature="I" isStatic="true">
+      <SourceLine classname="com.spacecombat.game.PlayerData" sourcefile="PlayerData.java" sourcepath="com/spacecombat/game/PlayerData.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.ScoreHUD" start="63" end="63" startBytecode="11" endBytecode="11" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.game.ScoreHUD">
+      <SourceLine classname="com.spacecombat.game.ScoreHUD" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+    </Class>
+    <Field classname="com.spacecombat.game.ScoreHUD" name="createPowerup" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.game.ScoreHUD" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.game.ScoreHUD" start="15" end="15" startBytecode="26" endBytecode="26" sourcefile="ScoreHUD.java" sourcepath="com/spacecombat/game/ScoreHUD.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.weapons.Boss2WeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.Boss2WeaponHandler" sourcefile="Boss2WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss2WeaponHandler.java"/>
+    </Class>
+    <Method classname="com.spacecombat.weapons.Boss2WeaponHandler" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/Weapon;Lcom/spacecombat/game/HealthController;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss2WeaponHandler" start="10" end="13" startBytecode="0" endBytecode="88" sourcefile="Boss2WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss2WeaponHandler.java"/>
+    </Method>
+    <Field classname="com.spacecombat.weapons.Boss2WeaponHandler" name="w" signature="[Lcom/spacecombat/weapons/Weapon;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss2WeaponHandler" sourcefile="Boss2WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss2WeaponHandler.java"/>
+    </Field>
+    <LocalVariable name="w" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.weapons.Boss2WeaponHandler" start="11" end="11" startBytecode="6" endBytecode="6" sourcefile="Boss2WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss2WeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.weapons.Boss3WeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.Boss3WeaponHandler" sourcefile="Boss3WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss3WeaponHandler.java"/>
+    </Class>
+    <Method classname="com.spacecombat.weapons.Boss3WeaponHandler" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/Weapon;Lcom/spacecombat/game/HealthController;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss3WeaponHandler" start="10" end="13" startBytecode="0" endBytecode="88" sourcefile="Boss3WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss3WeaponHandler.java"/>
+    </Method>
+    <Field classname="com.spacecombat.weapons.Boss3WeaponHandler" name="w" signature="[Lcom/spacecombat/weapons/Weapon;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss3WeaponHandler" sourcefile="Boss3WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss3WeaponHandler.java"/>
+    </Field>
+    <LocalVariable name="w" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.weapons.Boss3WeaponHandler" start="11" end="11" startBytecode="6" endBytecode="6" sourcefile="Boss3WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss3WeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.weapons.Boss4WeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.Boss4WeaponHandler" sourcefile="Boss4WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss4WeaponHandler.java"/>
+    </Class>
+    <Method classname="com.spacecombat.weapons.Boss4WeaponHandler" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/Weapon;Lcom/spacecombat/game/HealthController;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss4WeaponHandler" start="10" end="13" startBytecode="0" endBytecode="88" sourcefile="Boss4WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss4WeaponHandler.java"/>
+    </Method>
+    <Field classname="com.spacecombat.weapons.Boss4WeaponHandler" name="w" signature="[Lcom/spacecombat/weapons/Weapon;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss4WeaponHandler" sourcefile="Boss4WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss4WeaponHandler.java"/>
+    </Field>
+    <LocalVariable name="w" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.weapons.Boss4WeaponHandler" start="11" end="11" startBytecode="6" endBytecode="6" sourcefile="Boss4WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss4WeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.weapons.Boss5WeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.Boss5WeaponHandler" sourcefile="Boss5WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss5WeaponHandler.java"/>
+    </Class>
+    <Method classname="com.spacecombat.weapons.Boss5WeaponHandler" name="&lt;init&gt;" signature="([Lcom/spacecombat/weapons/Weapon;Lcom/spacecombat/game/HealthController;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss5WeaponHandler" start="10" end="13" startBytecode="0" endBytecode="88" sourcefile="Boss5WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss5WeaponHandler.java"/>
+    </Method>
+    <Field classname="com.spacecombat.weapons.Boss5WeaponHandler" name="w" signature="[Lcom/spacecombat/weapons/Weapon;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Boss5WeaponHandler" sourcefile="Boss5WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss5WeaponHandler.java"/>
+    </Field>
+    <LocalVariable name="w" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.weapons.Boss5WeaponHandler" start="11" end="11" startBytecode="6" endBytecode="6" sourcefile="Boss5WeaponHandler.java" sourcepath="com/spacecombat/weapons/Boss5WeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.weapons.LockingWeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.LockingWeaponHandler" name="nonTargets" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" start="23" end="23" startBytecode="33" endBytecode="33" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.weapons.LockingWeaponHandler">
+      <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.LockingWeaponHandler" name="searchTime" signature="F" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.LockingWeaponHandler" start="19" end="19" startBytecode="16" endBytecode="16" sourcefile="LockingWeaponHandler.java" sourcepath="com/spacecombat/weapons/LockingWeaponHandler.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.spacecombat.weapons.Weapon">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.Weapon" name="hasDelayed" signature="Z" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.Weapon" start="32" end="32" startBytecode="44" endBytecode="44" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.weapons.Weapon">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.Weapon" name="life" signature="F" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.Weapon" start="47" end="47" startBytecode="93" endBytecode="93" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.weapons.Weapon">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.Weapon" name="maxPowerLevel" signature="I" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.Weapon" start="43" end="43" startBytecode="70" endBytecode="70" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.weapons.Weapon">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.Weapon" name="name" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.Weapon" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.Weapon" start="39" end="39" startBytecode="49" endBytecode="49" sourcefile="Weapon.java" sourcepath="com/spacecombat/weapons/Weapon.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="com.spacecombat.weapons.WeaponController">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Class>
+    <Method classname="com.spacecombat.weapons.WeaponController" name="&lt;init&gt;" signature="(I[Lcom/spacecombat/weapons/Weapon;)V" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" start="21" end="26" startBytecode="0" endBytecode="123" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Method>
+    <Field classname="com.spacecombat.weapons.WeaponController" name="weapons" signature="[Lcom/spacecombat/weapons/Weapon;" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Field>
+    <LocalVariable name="weapons" register="2" pc="26" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.spacecombat.weapons.WeaponController" start="24" end="24" startBytecode="26" endBytecode="26" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.weapons.WeaponController">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.WeaponController" name="nextWeaponSelect" signature="F" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.WeaponController" start="17" end="17" startBytecode="11" endBytecode="11" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="com.spacecombat.weapons.WeaponController">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Class>
+    <Field classname="com.spacecombat.weapons.WeaponController" name="weaponSelectTime" signature="F" isStatic="false">
+      <SourceLine classname="com.spacecombat.weapons.WeaponController" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+    </Field>
+    <SourceLine classname="com.spacecombat.weapons.WeaponController" start="18" end="18" startBytecode="16" endBytecode="16" sourcefile="WeaponController.java" sourcepath="com/spacecombat/weapons/WeaponController.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Fri, 26 Oct 2012 20:11:55 -0400" total_classes="1" referenced_classes="28" total_bugs="82" total_size="415" num_packages="4" vm_version="14.2-b01" cpu_seconds="0.95" clock_seconds="0.65" peak_mbytes="186.32" alloc_mbytes="508.06" gc_seconds="0.07" priority_2="77" priority_1="5">
+    <PackageStats package="com.spacecombat" total_bugs="33" total_types="11" total_size="415" priority_2="33">
+      <ClassStats class="com.spacecombat.GameObject" sourceFile="GameObject.java" interface="false" size="415" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="94" invocations="2" avgMicrosecondsPerInvocation="47120" maxMicrosecondsPerInvocation="82166" standardDeviationMircosecondsPerInvocation="35046"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="59" invocations="204" avgMicrosecondsPerInvocation="291" maxMicrosecondsPerInvocation="7631" standardDeviationMircosecondsPerInvocation="518"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="38" invocations="52" avgMicrosecondsPerInvocation="732" maxMicrosecondsPerInvocation="8065" standardDeviationMircosecondsPerInvocation="1328"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="33" invocations="60" avgMicrosecondsPerInvocation="560" maxMicrosecondsPerInvocation="8201" standardDeviationMircosecondsPerInvocation="1136"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="33" invocations="52" avgMicrosecondsPerInvocation="638" maxMicrosecondsPerInvocation="11691" standardDeviationMircosecondsPerInvocation="1606"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="30" invocations="49" avgMicrosecondsPerInvocation="615" maxMicrosecondsPerInvocation="5131" standardDeviationMircosecondsPerInvocation="830"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="27" invocations="52" avgMicrosecondsPerInvocation="520" maxMicrosecondsPerInvocation="7271" standardDeviationMircosecondsPerInvocation="1062"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="24" invocations="199" avgMicrosecondsPerInvocation="124" maxMicrosecondsPerInvocation="963" standardDeviationMircosecondsPerInvocation="137"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="22" invocations="52" avgMicrosecondsPerInvocation="439" maxMicrosecondsPerInvocation="3186" standardDeviationMircosecondsPerInvocation="537"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="12" invocations="52" avgMicrosecondsPerInvocation="249" maxMicrosecondsPerInvocation="2008" standardDeviationMircosecondsPerInvocation="338"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1351290632506" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1351290632506" release="" codeSize="6369" numClasses="108"/>
+    <AppVersion sequence="2" timestamp="1351290947324" release="" codeSize="415" numClasses="1"/>
+    <AppVersion sequence="3" timestamp="1351291016881" release="" codeSize="51" numClasses="1"/>
+    <AppVersion sequence="4" timestamp="1351291037345" release="" codeSize="327" numClasses="1"/>
+    <AppVersion sequence="5" timestamp="1351291058296" release="" codeSize="203" numClasses="4"/>
+    <AppVersion sequence="6" timestamp="1351291116091" release="" codeSize="7" numClasses="1"/>
+    <AppVersion sequence="7" timestamp="1351291128290" release="" codeSize="46" numClasses="1"/>
+    <AppVersion sequence="8" timestamp="1351291182105" release="" codeSize="12" numClasses="1"/>
+    <AppVersion sequence="9" timestamp="1351291213307" release="" codeSize="14" numClasses="1"/>
+    <AppVersion sequence="10" timestamp="1351291222167" release="" codeSize="14" numClasses="1"/>
+    <AppVersion sequence="11" timestamp="1351291361973" release="" codeSize="400" numClasses="1"/>
+    <AppVersion sequence="12" timestamp="1351291378471" release="" codeSize="417" numClasses="1"/>
+    <AppVersion sequence="13" timestamp="1351291393730" release="" codeSize="418" numClasses="1"/>
+    <AppVersion sequence="14" timestamp="1351291481897" release="" codeSize="175" numClasses="4"/>
+    <AppVersion sequence="15" timestamp="1351291493334" release="" codeSize="175" numClasses="4"/>
+    <AppVersion sequence="16" timestamp="1351291536539" release="" codeSize="204" numClasses="4"/>
+    <AppVersion sequence="17" timestamp="1351291546555" release="" codeSize="204" numClasses="4"/>
+    <AppVersion sequence="18" timestamp="1351291554239" release="" codeSize="204" numClasses="4"/>
+    <AppVersion sequence="19" timestamp="1351291632074" release="" codeSize="204" numClasses="4"/>
+    <AppVersion sequence="20" timestamp="1351291637299" release="" codeSize="205" numClasses="4"/>
+    <AppVersion sequence="21" timestamp="1351291642864" release="" codeSize="205" numClasses="4"/>
+    <AppVersion sequence="22" timestamp="1351291647157" release="" codeSize="412" numClasses="8"/>
+    <AppVersion sequence="23" timestamp="1351293110286" release="" codeSize="327" numClasses="1"/>
+    <AppVersion sequence="24" timestamp="1351296584495" release="" codeSize="198" numClasses="4"/>
+    <AppVersion sequence="25" timestamp="1351296596265" release="" codeSize="198" numClasses="4"/>
+  </History>
+</BugCollection>

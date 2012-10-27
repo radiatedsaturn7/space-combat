@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="level6" key="selection"/>
+		<item value="update" key="selection"/>
 		<list key="findhistory">
-			<item value="level6"/>
-			<item value=",1,"/>
-			<item value=",2,"/>
-			<item value="scrollSpeed"/>
-			<item value="camera"/>
-			<item value="scroll"/>
-			<item value="createPlayer"/>
-			<item value="level5"/>
+			<item value="update"/>
+			<item value="createAlly"/>
+			<item value="level9"/>
+			<item value="createBo"/>
+			<item value="263"/>
+			<item value="pool"/>
+			<item value="runtime"/>
+			<item value="xGame"/>
 		</list>
 		<list key="replacehistory">
 			<item value=",7,"/>

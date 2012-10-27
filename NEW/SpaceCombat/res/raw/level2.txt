@@ -99,7 +99,7 @@ createPowerUp
 3900
 264
 3870
-2
+0
 false
 
 createPowerUp
@@ -107,7 +107,7 @@ createPowerUp
 3000
 264
 2970
-5
+2
 false
 
 
