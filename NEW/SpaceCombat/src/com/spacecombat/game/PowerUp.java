@@ -24,7 +24,7 @@ public class PowerUp extends Component
 
 	public boolean destroyMe = false;
 
-	public PowerUp (final SimpleMovement sm, int type, final boolean canChange)
+	public PowerUp (final SimpleMovement sm, int type, boolean canChange)
 	{
 		System.out.println("TYPE:"+type);
 		
@@ -39,24 +39,45 @@ public class PowerUp extends Component
 			this.type = type;
 		}
 		
+		if (type == 8)
+		{
+			this.minType = 8;
+			this.maxTypes = 8;
+			canChange = false;
+		}
+		if (type == 9)
+		{
+			this.minType = 9;
+			this.maxTypes = 9;
+			canChange = false;
+		}
 		if (type == 10)
+		{
+			this.minType = 10;
+			this.maxTypes = 10;
+			canChange = false;
+		}
+		
+		if (type == 11)
 		{
 			this.minType = 0;
 			this.maxTypes = 3;
 			this.type = Util.randomNumber(this.minType, maxTypes);
 		}
-		if (type == 11)
+		if (type == 12)
 		{
 			this.minType = 4;
 			this.maxTypes = 5;
 			this.type = Util.randomNumber(this.minType, maxTypes);
 		}
-		if (type == 12)
+		if (type == 13)
 		{
 			this.minType = 0;
 			this.maxTypes = 6;
 			this.type = Util.randomNumber(this.minType, maxTypes);
 		}
+
+
 		System.out.println("TYPE:"+this.type);
 		
 		this.sm = sm;		
@@ -109,6 +130,18 @@ public class PowerUp extends Component
 		if (this.type == 7)
 		{
 			this.gameObject.playAnimation("Health");
+		}
+		if (this.type == 8)
+		{
+			this.gameObject.playAnimation("Ally");
+		}
+		if (this.type == 9)
+		{
+			this.gameObject.playAnimation("Support");
+		}
+		if (this.type == 10)
+		{
+			this.gameObject.playAnimation("GunShip");
 		}
 	}
 

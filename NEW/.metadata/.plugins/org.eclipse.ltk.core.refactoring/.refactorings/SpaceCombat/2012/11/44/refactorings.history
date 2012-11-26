@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DestroyOnOutOfBounds.java&apos; to &apos;com.spacecombat.game.DestroyOnOutOfBounds.java&apos;&#x0D;&#x0A;- Original project: &apos;SpaceCombat&apos;&#x0D;&#x0A;- Destination element: &apos;com.spacecombat.game.DestroyOnOutOfBounds.java&apos;&#x0D;&#x0A;- Original element: &apos;com.spacecombat.game.DestroyOnOutOfBounds.java&apos;" description="Copy compilation unit" destination="/src&lt;com.spacecombat.game{DestroyOnOutOfBounds.java" element1="/src&lt;com.spacecombat.game{DestroyOnOutOfBounds.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1351894332240" units="1" version="1.0"/>
+</session>

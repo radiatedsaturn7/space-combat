@@ -50,6 +50,7 @@ import com.spacecombat.weapons.Boss4WeaponHandler;
 import com.spacecombat.weapons.Boss5WeaponHandler;
 import com.spacecombat.weapons.ChargeLaser;
 import com.spacecombat.weapons.FlameThrower;
+import com.spacecombat.weapons.GunShipWeaponController;
 import com.spacecombat.weapons.Laser;
 import com.spacecombat.weapons.LockingLaser;
 import com.spacecombat.weapons.LockingWeaponHandler;
@@ -79,6 +80,10 @@ public class PrefabFactory {
 	private static final Vector2 shootUp = new Vector2(0, -8);
 
 
+	public static final int HARD = 0;
+	public static final int MEDIUM = 1;
+	public static final int EASY = 2;
+	private static int difficulty = HARD;
 
 	private static Context context;	
 
@@ -86,6 +91,80 @@ public class PrefabFactory {
 
 	public static int spawner = 0;
 
+	public static GameObject createEscort(final String name, final Vector2 position)
+	{
+		System.out.println("Creating Gunship");
+		GameObject o = GameObject.getNew();
+
+		
+		final GenericGraphic graphic = PrefabFactory.createGraphic("escort",
+				PrefabFactory.getImage("escort"),1);
+		
+		final RigidBody rigidBody = new RigidBody();
+		final BoxCollider collider = new BoxCollider(new Vector2(64, 300));
+		collider.setIgnoreTags(Tags.player | Tags.topOfScreen | Tags.ally);
+		rigidBody.setCollider(collider);
+	
+
+		o.setName(name);
+		o.setTags(Tags.ally);
+		o.transform.position.x = position.x;
+		o.transform.position.y = position.y;
+		o.setRigidBody(rigidBody);
+		
+		Animation animation = Animation.getNew();
+		animation.init("up", 0, 2, true,
+				PrefabFactory.defaultFps, 64, 300);
+
+		final GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
+		glIdle.play();
+		o.addComponent(glIdle);
+		
+		o.setRigidBody(rigidBody);
+		
+		System.out.println("Adding Weapons");
+		Weapon w[] = new Weapon[4];
+
+		w[0] = new MissileLauncher(PrefabFactory.shootUp);
+		w[0].setPowerLevel(3);
+		w[0].setOffset(16, 0);
+
+		w[1] = new LockingLaser(PrefabFactory.shootUp);
+		w[1].setPowerLevel(3);
+		w[1].setOffset(16,64);
+
+		w[2] = new MissileLauncher(PrefabFactory.shootUp);
+		w[2].setPowerLevel(3);
+		w[2].setOffset(16,128);
+		
+		w[3] = new LockingLaser(PrefabFactory.shootUp);
+		w[3].setPowerLevel(3);
+		w[3].setOffset(16,256);
+		o.addComponent(w[0]);
+		o.addComponent(w[1]);
+		o.addComponent(w[2]);
+		o.addComponent(w[3]);
+
+		System.out.println("Added Weapons");
+		
+		final LockingWeaponHandler lwh = new LockingWeaponHandler(w[1],PrefabFactory.playerTargets,false);
+		o.addComponent(lwh);
+
+		final LockingWeaponHandler lwh2 = new LockingWeaponHandler(w[3],PrefabFactory.playerTargets,false);
+		o.addComponent(lwh2);
+		
+		o.addComponent(new DestroyOnTopOfScreen(330));
+		
+		SimpleMovement s = new SimpleMovement();
+		s.init(rigidBody, 0, -100);
+		o.addComponent(s);
+		
+		GunShipWeaponController gswc = new GunShipWeaponController(w); 
+		o.addComponent(gswc);
+		
+		return o;
+	}
+	
 	public static GameObject createAlly(final String name,
 			final Vector2 position, final String allyType, int allyScript, final String weapon) {
 		// Load the texture for the cube once during Surface creation
@@ -146,20 +225,8 @@ public class PrefabFactory {
 
 		glIdle.play();
 
-		Weapon w = null;
-		if (weapon.equals("laser")) {
-			w = new Laser(PrefabFactory.shootUp);
-		}
-		if (weapon.equals("machinegun")) {
-			w = new MachineGun(PrefabFactory.shootUp);
-		}
-		if (weapon.equals("flamethrower")) {
-			w = new FlameThrower(PrefabFactory.shootUp);
-		}
-		if (weapon.equals("pulsecannon")) {
-			w = new PulseCannon(PrefabFactory.shootUp);
-		}
 
+		
 		final RigidBody rigidBody = new RigidBody();
 		final Collider collider = new BoxCollider(new Vector2(32, 32));
 		collider.setIgnoreTags(Tags.player | Tags.topOfScreen | Tags.ally);
@@ -173,7 +240,32 @@ public class PrefabFactory {
 		o.transform.position.x = position.x;
 		o.transform.position.y = position.y;
 		o.setRigidBody(rigidBody);
-
+		
+		Weapon w = null;
+		if (weapon.equals("laser")) {
+			w = new Laser(PrefabFactory.shootUp);
+		}
+		if (weapon.equals("machinegun")) {
+			w = new MachineGun(PrefabFactory.shootUp);
+		}
+		if (weapon.equals("flamethrower")) {
+			w = new FlameThrower(PrefabFactory.shootUp);
+		}
+		if (weapon.equals("pulsecannon")) {
+			w = new PulseCannon(PrefabFactory.shootUp);
+		}
+		if (weapon.equals("missilelauncher")) {
+			
+			w = new MissileLauncher(PrefabFactory.shootUp);
+			w.setPowerLevel(3);
+		}
+		if (weapon.equals("lockinglaser")) {
+			w = new LockingLaser(PrefabFactory.shootUp);
+			w.setPowerLevel(3);
+			final LockingWeaponHandler lwh = new LockingWeaponHandler(w,PrefabFactory.playerTargets,false);
+			o.addComponent(lwh);
+		}
+		
 		final AllyAI ai = new AllyAI(allyType,w);
 		o.addComponent(ai);
 		o.addComponent(w);
@@ -243,14 +335,24 @@ public class PrefabFactory {
 		o.addComponent(glDownLeft);
 
 		ai.setFormation(allyScript);
+		
 		if (allyScript == 6)
 		{
 			o.addComponent(new DestroyOnOutOfBounds());
+		}
+		else if (allyScript >= 7)
+		{
+			o.addComponent(new DestroyOnTopOfScreen());
 		}
 		
 		return o;
 	}
 
+	public static void setDifficulty(int difficulty)
+	{
+		PrefabFactory.difficulty = difficulty;
+	}
+	
 	public static GameObject createEnemy(final String name,
 			final Vector2 position, final int enemyType, final int scriptType,
 			final boolean reverse) {
@@ -277,6 +379,7 @@ public class PrefabFactory {
 		rigidBody.setCollider(collider);
 
 		final GameObject o = GameObject.getNew();
+		
 		//final GameObject o = new GameObject();
 		o.setName(name);
 		o.setTags(Tags.enemy);
@@ -377,8 +480,18 @@ public class PrefabFactory {
 		HealthController hc = new HealthController(new Audio(PrefabFactory.createAudio("explosion"),"explosion"));
 		hc.setHealth(100);
 
+		float difficultyOffset = 0;
+		if (PrefabFactory.difficulty == PrefabFactory.EASY)
+		{
+			difficultyOffset = 2f;
+		}
+		else if (PrefabFactory.difficulty == PrefabFactory.MEDIUM)
+		{
+			difficultyOffset = 1f;
+		}
+		
 		if (enemyType == 1) {
-			final Weapon w = new Phaser(PrefabFactory.shootDown, 3);
+			final Weapon w = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 			final WeaponHandler wh = new WeaponHandler(w);
 			hc.setHealth(100);
 
@@ -386,7 +499,7 @@ public class PrefabFactory {
 			o.addComponent(wh);
 		}
 		if (enemyType == 2) {
-			final Weapon w = new Phaser(PrefabFactory.shootDown, 2);
+			final Weapon w = new Phaser(PrefabFactory.shootDown, 2 + difficultyOffset);
 			final WeaponHandler wh = new WeaponHandler(w);
 			hc.setHealth(100);
 
@@ -394,19 +507,28 @@ public class PrefabFactory {
 			o.addComponent(wh);
 		}
 		if (enemyType == 3) {
-			final Weapon w = new Phaser(PrefabFactory.shootDown, 3);
-			final LockingWeaponHandler wh = new LockingWeaponHandler(w,
-					PrefabFactory.enemyTargets,true);
+			final Weapon w = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 			hc.setHealth(150);
 
 			o.addComponent(w);
-			o.addComponent(wh);
+
+			if (PrefabFactory.difficulty == PrefabFactory.HARD)
+			{
+				final LockingWeaponHandler wh = new LockingWeaponHandler(w,
+					PrefabFactory.enemyTargets,true);
+				o.addComponent(wh);
+			}
+			else
+			{
+				final WeaponHandler wh = new WeaponHandler(w);
+				o.addComponent(wh);
+			}
   
 			//final GameObject powerup = PrefabFactory.createPowerUp(o.transform.position, 0, true);
 			//o.addComponent(new SpawnOnDestroy(powerup));
 		}
 		if (enemyType == 4) {
-			final Weapon w = new Phaser(PrefabFactory.shootDown, 2);
+			final Weapon w = new Phaser(PrefabFactory.shootDown, 2 + difficultyOffset);
 			final LockingWeaponHandler wh = new LockingWeaponHandler(w,
 					PrefabFactory.enemyTargets,true);
 			hc.setHealth(150);
@@ -417,61 +539,80 @@ public class PrefabFactory {
 		if (enemyType == 5 || enemyType == 6) {
 			hc.setHealth(200);
 
-			final Weapon w = new Phaser(PrefabFactory.shootLeft, 3);
-			final WeaponHandler wh = new WeaponHandler(w);
-			o.addComponent(w);
-			o.addComponent(wh);
-
-			final Weapon w2 = new Phaser(PrefabFactory.shootDownLeft, 3);
+			if (PrefabFactory.difficulty != PrefabFactory.EASY)
+			{
+				final Weapon w = new Phaser(PrefabFactory.shootLeft, 3 + difficultyOffset);
+				final WeaponHandler wh = new WeaponHandler(w);
+				o.addComponent(w);
+				o.addComponent(wh);
+			}
+			
+			final Weapon w2 = new Phaser(PrefabFactory.shootDownLeft, 3 + difficultyOffset);
 			final WeaponHandler wh2 = new WeaponHandler(w2);
 			o.addComponent(w2);
 			o.addComponent(wh2);
 
 			if (enemyType == 5) {
-				final Weapon w3 = new Phaser(PrefabFactory.shootDown, 3);
+				final Weapon w3 = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 				final WeaponHandler wh3 = new WeaponHandler(w3);
 				o.addComponent(w3);
 				o.addComponent(wh3);
 			}
 			if (enemyType == 6) {
-				final Weapon w3 = new Phaser(PrefabFactory.shootDown, 3);
-				final LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,
-						PrefabFactory.enemyTargets,true);
+				final Weapon w3 = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 				o.addComponent(w3);
-				o.addComponent(wh3);
+				
+				if (PrefabFactory.difficulty == PrefabFactory.HARD)
+				{
+					final LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,
+						PrefabFactory.enemyTargets,true);
+					o.addComponent(wh3);
+				}
 			}
 
-			final Weapon w4 = new Phaser(PrefabFactory.shootDownRight, 3);
+			final Weapon w4 = new Phaser(PrefabFactory.shootDownRight, 3 + difficultyOffset);
 			final WeaponHandler wh4 = new WeaponHandler(w4);
 			o.addComponent(w4);
 			o.addComponent(wh4);
 
-			final Weapon w5 = new Phaser(PrefabFactory.shootRight, 3);
-			final WeaponHandler wh5 = new WeaponHandler(w5);
-			o.addComponent(w5);
-			o.addComponent(wh5);
-
+			if (PrefabFactory.difficulty != PrefabFactory.EASY)
+			{
+				final Weapon w5 = new Phaser(PrefabFactory.shootRight, 3 + difficultyOffset);
+				final WeaponHandler wh5 = new WeaponHandler(w5);
+				o.addComponent(w5);
+				o.addComponent(wh5);
+			}
 		}
 		if (enemyType == 7 || enemyType == 8) {
 			hc.setHealth(250);
 
 			Weapon w3 = null;
-			if (enemyType == 7) {
-				w3 = new Phaser(PrefabFactory.shootDown, 0.3f, 8, 5);
+			if (enemyType == 7 || PrefabFactory.difficulty != PrefabFactory.HARD) {
+				w3 = new Phaser(PrefabFactory.shootDown, 0.3f + difficultyOffset, 8, 5);
 			} else {
-				w3 = new Phaser(PrefabFactory.shootDown, 0.3f, 14, 5);
+				w3 = new Phaser(PrefabFactory.shootDown, 0.3f + difficultyOffset, 14, 5);
 			}
-			final LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,
-					PrefabFactory.enemyTargets,true);
 			o.addComponent(w3);
-			o.addComponent(wh3);
+			
+			if ((PrefabFactory.difficulty == PrefabFactory.MEDIUM || PrefabFactory.difficulty == PrefabFactory.HARD) && enemyType == 8)
+			{
+				final LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,
+					PrefabFactory.enemyTargets,true);
+				o.addComponent(wh3);
+			}
+			else if (PrefabFactory.difficulty == PrefabFactory.HARD && enemyType == 7)
+			{
+				final LockingWeaponHandler wh3 = new LockingWeaponHandler(w3,
+					PrefabFactory.enemyTargets,true);
+				o.addComponent(wh3);
+			}
 		}
 		if (enemyType == 9 || enemyType == 10) {
 			hc.setHealth(250);
 
-			float speed = 4.0f;
+			float speed = 4.0f + difficultyOffset;
 			if (enemyType == 10) {
-				speed = 3.0f;
+				speed = 3.0f + difficultyOffset;
 			}
 			final Weapon w = new Phaser(PrefabFactory.shootUpLeft, speed);
 			final WeaponHandler wh = new WeaponHandler(w);
@@ -492,16 +633,31 @@ public class PrefabFactory {
 			final WeaponHandler wh4 = new WeaponHandler(w4);
 			o.addComponent(w4);
 			o.addComponent(wh4);
+			
+			final Weapon w5 = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
+			o.addComponent(w5);
+			
+			if (PrefabFactory.difficulty == PrefabFactory.HARD)
+			{
+				final LockingWeaponHandler wh5 = new LockingWeaponHandler(w5,
+					PrefabFactory.enemyTargets,true);
+				o.addComponent(wh5);
+			}
+			else
+			{
+				final WeaponHandler wh5 = new WeaponHandler(w5);
+				o.addComponent(wh5);
+			}
 		}
 		if (enemyType == 11 || enemyType == 12) {
 			hc.setHealth(100);
 
 			Weapon w = null;
 			if (enemyType == 11) {				
-				w = new Phaser(PrefabFactory.shootDown, 3);
+				w = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 			}
 			if (enemyType == 12) {
-				w = new Phaser(PrefabFactory.shootDown, 2);
+				w = new Phaser(PrefabFactory.shootDown, 2 + difficultyOffset);
 			}
 			final LockingWeaponHandler wh = new LockingWeaponHandler(w,
 					PrefabFactory.enemyTargets,true);
@@ -509,14 +665,22 @@ public class PrefabFactory {
 			o.addComponent(w);
 			o.addComponent(wh);
 		}
-
 		if (enemyType == 13) {
-			final Weapon w = new Phaser(PrefabFactory.shootDown, 3);
+			final Weapon w = new Phaser(PrefabFactory.shootDown, 3 + difficultyOffset);
 			final LockingWeaponHandler wh = new LockingWeaponHandler(w,
 					PrefabFactory.enemyTargets,true);
 
 			o.addComponent(w);
-			o.addComponent(wh);
+			
+			if (PrefabFactory.difficulty == PrefabFactory.HARD)
+			{
+				o.addComponent(wh);
+			}
+			else
+			{
+				final WeaponHandler wh2 = new WeaponHandler(w);
+				o.addComponent(wh2);
+			}
 
 			hc.setHealth(50);
 		}
@@ -990,19 +1154,15 @@ public class PrefabFactory {
 		return go;
 	}
 	
-	public static GameObject createGameOverText(GameObject fj)
+	public static GameObject createMainMenu ()
 	{				
 		GameObject go = GameObject.getNew();				
-		GenericText t = new CanvasText();
-		t.create("GameOver","terminal",255);
-		TextAnimation ta = new TextAnimation(t);
-		go.addComponent(ta);
+		MainMenuHUD mmhud = new MainMenuHUD();
+		go.addComponent(mmhud);
 		
-		go.transform.position.x = fj.transform.position.x+240;
-		go.transform.position.y = fj.transform.position.y+400;
-		
-		FixedJoint f = new FixedJoint(fj);
-		go.addComponent(f);
+		Camera c = new Camera();
+		Camera.setMainCamera(c);
+		go.addComponent(c);
 		
 		return go;
 	}
@@ -1225,6 +1385,14 @@ public class PrefabFactory {
 		Animation animation4 = Animation.getNew();
 		animation4.init("PulseCannon", 3, 3, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation5 = Animation.getNew();
+		
+		Animation animation9 = Animation.getNew();
+		animation9.init("Ally", 5, 5, true, PrefabFactory.defaultFps,	32, 32);
+		Animation animation10 = Animation.getNew();
+		animation10.init("Support", 8, 8, true, PrefabFactory.defaultFps,	32, 32);
+		Animation animation11 = Animation.getNew();
+		animation11.init("GunShip", 10, 10, true, PrefabFactory.defaultFps,	32, 32);
+		
 		animation5.init("LockingLaser", 6, 6, true, PrefabFactory.defaultFps,	32, 32);
 		Animation animation6 = Animation.getNew();
 		animation6.init("MissileLauncher", 7, 7, true, PrefabFactory.defaultFps,	32, 32);
@@ -1235,9 +1403,6 @@ public class PrefabFactory {
 		Animation animation8 = Animation.getNew();
 		animation8.init("Health", 4, 4, true, PrefabFactory.defaultFps,	32, 32);
 
-		
-		
-
 		final GraphicAnimation glIdle = new GraphicAnimation(graphic, animation);
 		final GraphicAnimation glIdle2 = new GraphicAnimation(graphic, animation2);
 		final GraphicAnimation glIdle3 = new GraphicAnimation(graphic, animation3);
@@ -1246,6 +1411,9 @@ public class PrefabFactory {
 		final GraphicAnimation glIdle6 = new GraphicAnimation(graphic, animation6);
 		final GraphicAnimation glIdle7 = new GraphicAnimation(graphic, animation7);
 		final GraphicAnimation glIdle8 = new GraphicAnimation(graphic, animation8);
+		final GraphicAnimation glIdle9 = new GraphicAnimation(graphic, animation9);
+		final GraphicAnimation glIdle10 = new GraphicAnimation(graphic, animation10);
+		final GraphicAnimation glIdle11 = new GraphicAnimation(graphic, animation11);
 
 		o.addComponent(glIdle);
 		o.addComponent(glIdle2);
@@ -1255,6 +1423,9 @@ public class PrefabFactory {
 		o.addComponent(glIdle6);
 		o.addComponent(glIdle7);
 		o.addComponent(glIdle8);
+		o.addComponent(glIdle9);
+		o.addComponent(glIdle10);
+		o.addComponent(glIdle11);
 
 		glIdle2.setEnabled(false);
 		glIdle3.setEnabled(false);
@@ -1263,6 +1434,9 @@ public class PrefabFactory {
 		glIdle6.setEnabled(false);
 		glIdle7.setEnabled(false);
 		glIdle8.setEnabled(false);
+		glIdle9.setEnabled(false);
+		glIdle10.setEnabled(false);
+		glIdle11.setEnabled(false);
 		glIdle.play();
 
 		final BoxCollider collider = new BoxCollider(new Vector2(32, 32));
@@ -1490,7 +1664,6 @@ public class PrefabFactory {
 	public static InputStream laser;
 	public static InputStream enemy;
 	public static InputStream getImage(final String name) {
-		
 		if (name.equals("calumniator")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.pcalumniator);
@@ -1498,6 +1671,10 @@ public class PrefabFactory {
 		else if (name.equals("exemplar")) {
 			return PrefabFactory.context.getResources().openRawResource(
 					R.drawable.pexemplar);
+		}
+		else if (name.equals("escort")) {
+			return PrefabFactory.context.getResources().openRawResource(
+					R.drawable.escort);
 		}
 		else if (name.equals("hunter")) {
 			return PrefabFactory.context.getResources().openRawResource(

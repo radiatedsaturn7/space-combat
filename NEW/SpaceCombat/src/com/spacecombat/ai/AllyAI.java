@@ -464,12 +464,15 @@ public class AllyAI extends AIScript {
 		this.give = 5;
 		this.dodgeRectangle = new Rectangle();
 		this.boundingBox = new Rectangle();
-		if (formation != 6)
+		if (formation < 6)
 		{
 			this.formationID = 0;
-			this.formation = 2;
-			this.roamFormation = 2;
 		}
+		
+		this.followPlayer = GameObject.findByName("player");
+		this.followRectangle = getBoundingBox(this.followPlayer,
+				this.followRectangle);
+		
 		this.nextFormationTime = 0;
 		this.formationHoldTime = 1;
 		this.searchTime = 1;
@@ -619,16 +622,48 @@ public class AllyAI extends AIScript {
 
 	}
 
+	private int nonTargets = Tags.shot | Tags.spawner;
+	
 	public void search() {
 		this.nextSearch = Time.getTime() + this.searchTime;
 
-		this.gos = GameObject.findAllByTags(this.targets, this.gos);
+		this.gos = GameObject.findAllByTags(this.targets, this.nonTargets, this.gos);
+		System.out.println("SEARCHING:-->" + gos.size());
+		
 		this.enemyCount = this.gos.size();
 		this.distances = GameObject.getDistances();
-
+		
+		
 		if (this.gos.size() > 0) {
 			this.enemy = this.gos.get(Util.randomNumber(0, this.gos.size() - 1));
+
+			if (this.enemy.hasTag(Tags.shot))
+			{
+				System.out.println("FOUND BAD::"+this.enemy.getName() + " " + this.gos.size() + " " + Tags.tagToString(this.enemy.getTags()));
+				for (int x = 0; x < this.gos.size(); x++)
+				{
+					this.enemy = this.gos.get(x);
+					if (!(this.enemy.hasTag(Tags.shot)))					
+					{
+						break;
+					}
+
+					System.out.println("FOUND BAD::"+this.enemy.getName() + " " + Tags.tagToString(this.enemy.getTags()));
+				}
+			}
+				
+			if ((this.enemy.hasTag(Tags.shot)))
+			{
+				System.out.println("FOUND::NOTHING");
+				this.enemy = null;
+			}
+			
+			if (!(this.enemy == null))
+			{
+				System.out.println("FOUND::"+this.enemy.getName() + " " + Tags.tagToString(this.enemy.getTags()));
+			}
 		} else {
+			System.out.println("FOUND::NOTHING");
 			this.enemy = null;
 		}
 	}
@@ -702,14 +737,34 @@ public class AllyAI extends AIScript {
 		if (canShoot()) {
 			shoot();
 		}
-
-		if (checkDodge()) {
-			dodge();
+		
+		if (this.formation == 7)
+		{
+			shoot();
+			this.gameObject.getRigidBody().speed.y = -this.maxSpeed.y*2;
 			return;
 		}
-
+		if (this.formation == 8)
+		{
+			shoot();
+			this.gameObject.getRigidBody().speed.x = -this.maxSpeed.x/2;
+			this.gameObject.getRigidBody().speed.y = -this.maxSpeed.y*2;
+			return;
+		}
+		if (this.formation == 9)
+		{
+			shoot();
+			this.gameObject.getRigidBody().speed.x = this.maxSpeed.x/2;
+			this.gameObject.getRigidBody().speed.y = -this.maxSpeed.y*2;
+			return;
+		}
+		
 		if (this.formation == 6)
 		{
+			if (checkDodge()) {
+				dodge();
+				return;
+			}	
 			return;
 		}
 		
@@ -743,6 +798,8 @@ public class AllyAI extends AIScript {
 		if (fix == 0) {
 			fix = 1;
 		}
+		
+		
 
 		if (Math.abs(this.side) % 2 == 1) {
 			neg = -1; // switch the side the ally appears on

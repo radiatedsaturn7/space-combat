@@ -72,12 +72,12 @@ public class AIBoss2 extends AIScript {
 			
 			if (leftRight)
 			{
-				GameObject.create(PrefabFactory.createEnemy("enemy", v1, ship, 6, leftRight));
+				//GameObject.create(PrefabFactory.createEnemy("enemy", v1, ship, 6, leftRight));
 			}
 			
 			if (!leftRight)
 			{
-				GameObject.create(PrefabFactory.createEnemy("enemy", v2, ship, 6, leftRight));
+				//GameObject.create(PrefabFactory.createEnemy("enemy", v2, ship, 6, leftRight));
 			}
 		}
 		

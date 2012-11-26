@@ -93,21 +93,28 @@ createPlayer
 hunter
 laser
 
-createAlly
+createPowerUp
 64
-4448
-400
-4500
-5
-paladin
-laser
+2500
+264
+2470
+8
+false
+
+createPowerUp
+64
+3500
+264
+3470
+8
+false
 
 createPowerUp
 64
 3900
 264
 3870
-10
+11
 true
 
 createPowerUp
@@ -115,7 +122,7 @@ createPowerUp
 2500
 264
 2470
-11
+12
 true
 
 createPowerUp

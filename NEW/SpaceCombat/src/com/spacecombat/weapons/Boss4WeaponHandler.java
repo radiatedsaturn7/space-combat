@@ -17,21 +17,21 @@ public class Boss4WeaponHandler extends Component {
 		for (int x = 0; x < w.length; x++)
 		{
 			float percentage = ((float)hc.health) / ((float)hc.maxHealth);
-			if (x < 6)
+			if (percentage < .33 && x < 6)
 			{
 				if (this.w[x] != null && this.w[x].canShoot()) {
 					this.w[x].shoot();
 				}
 			}			
 			
-			if (percentage < .66 && x < 11)
+			if (percentage < .66 && x < 11 && x >= 6)
 			{
 				if (this.w[x] != null && this.w[x].canShoot()) {
 					this.w[x].shoot();
 				}
 			}
 			
-			if (percentage < .33 && x < 12)
+			if (x >= 11 && x < 12)
 			{
 				if (this.w[x] != null && this.w[x].canShoot()) {
 					this.w[x].shoot();

@@ -57,6 +57,10 @@ public class Pool {
 			if (x == pool.length)
 			{
 				x = 0;
+				if (x == finish)
+				{
+					break;
+				}
 			}
 			
 			if (!this.used[x])

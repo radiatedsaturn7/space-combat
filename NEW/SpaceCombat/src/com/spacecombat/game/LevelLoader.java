@@ -23,12 +23,16 @@ public class LevelLoader {
 	public static InputStream getLevel (final String name)
 	{
 		//System.out.println("Loading " + name);
-		if (name.equalsIgnoreCase("level0"))
+		if (name.equalsIgnoreCase("mainmenu"))
+		{
+			return LevelLoader.context.getResources().openRawResource(R.raw.mainmenu);
+		}
+		if (name.equalsIgnoreCase("level0")) 
 		{
 			return LevelLoader.context.getResources().openRawResource(R.raw.level0);
 		}
 		if (name.equalsIgnoreCase("level1"))
-		{
+		{ 
 			return LevelLoader.context.getResources().openRawResource(R.raw.level1);
 		}
 		if (name.equalsIgnoreCase("level2"))
@@ -128,7 +132,7 @@ public class LevelLoader {
 			while (true)
 			{
 				int ascii;
-
+				
 				try {
 					ascii = br.read();
 				} catch (final IOException e) {
@@ -156,6 +160,7 @@ public class LevelLoader {
 
 			for (x = 0; x < lines.length; x++)
 			{
+				System.out.println("LINE ["+x+"] " + lines[x]);
 				if (ignoring)
 				{
 					if (lines[x].startsWith("*/"))
@@ -319,12 +324,20 @@ public class LevelLoader {
 						isReversed = true;
 					}
 
-					System.out.println("Script:" + script + " " + scriptType);
-
+					System.out.println("CREATING ENEMY");
 					final GameObject objectToCreate = PrefabFactory.createEnemy(enemyName, new Vector2(enemyX,enemyY), enemyType, scriptType, isReversed);
+					System.out.println("CREATED ENEMY");
 					final GameObject spawner = PrefabFactory.createSpawner(spawnX, spawnY, objectToCreate);
-
+					System.out.println("CREATED SPAWNER");
 					GameObject.create(spawner);
+					System.out.println("DONE");
+				}
+				
+				if (x < lines.length && lines[x].startsWith("createMainMenu"))
+				{
+					final GameObject objectToCreate = PrefabFactory.createMainMenu();
+					objectToCreate.setDestroyOnLevelLoad(true);
+					GameObject.create(objectToCreate);
 				}
 				
 				if (x < lines.length && lines[x].startsWith("createEnemy"))
@@ -541,16 +554,19 @@ public class LevelLoader {
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			if (lines != null && x < lines.length)
 			{
-				throw new RuntimeException("FAILED AT LINE:" + x + "\n" + lines[x] + "\n" + e);
+				throw new RuntimeException("FAILED AT LINE:" + x + " " + lines[x] + " " + e);
 			}
 			else
 			{
-				throw new RuntimeException("FAILED AT LINE:" + x + "\n");
+				throw new RuntimeException("FAILED AT LINE:" + x + " " + e);
 			}
 		}
 		Time.unPause();
+		
+		System.out.println("LEVEL LOADED!!!");
 	}
 
 	public static void setContext (final Context c)

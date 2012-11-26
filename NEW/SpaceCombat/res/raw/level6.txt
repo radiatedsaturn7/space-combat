@@ -99,7 +99,7 @@ createPowerUp
 3900
 264
 3870
-10
+11
 true
 
 createPowerUp
@@ -107,7 +107,7 @@ createPowerUp
 2500
 264
 2470
-11
+12
 true
 
 createPowerUp
@@ -116,6 +116,22 @@ createPowerUp
 264
 2970
 6
+false
+
+createPowerUp
+64
+2500
+264
+2470
+10
+false
+
+createPowerUp
+64
+3500
+264
+3470
+8
 false
 
 create_enemy(-50,  13, 1, no, 0, 0, no);

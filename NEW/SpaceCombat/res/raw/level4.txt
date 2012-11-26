@@ -106,18 +106,16 @@ createPowerUp
 2500
 264
 2470
-5
+3
 false
 
-
-createAlly
+createPowerUp
 64
-4448
-350
-5200
-5
-exemplar
-pulsecannon
+4300
+264
+4270
+8
+false
 
 create_enemy(-50,  13, 1, no, 0, 0, no);
 create_enemy(-51,  13, 2, no, 0, 0, no);

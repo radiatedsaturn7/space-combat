@@ -1692,3 +1692,2155 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
 	... 22 more
+!SESSION 2012-10-31 18:22:43.542 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:24:18.465
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:24:18.465
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:24:20.431
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:24:20.431
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:24:35.384
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:24:35.384
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:24:44.416
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:24:44.416
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:27:41.172
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:27:41.172
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:29:47.719
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:29:47.719
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:30:06.970
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:30:06.970
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:30:56.609
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:30:56.609
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:31:29.291
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:31:29.291
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:31:41.678
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:31:41.678
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:32:03.736
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:32:03.736
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:36:55.113
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:36:55.113
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:37:06.221
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:37:06.221
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:37:14.379
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:37:14.379
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:40:24.559
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:40:24.559
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-10-31 18:41:12.126
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-10-31 18:41:12.126
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-10-31 18:47:41.333
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-10-31 18:48:36.628
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-10-31 18:49:11.304 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY org.eclipse.ui 4 0 2012-10-31 18:53:49.436
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-01 08:20:57.701
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-01 08:20:57.701
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-01 08:27:37.286
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-01 08:27:37.286
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-01 08:31:25.917
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-01 08:31:25.917
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-01 08:31:33.780
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-01 08:31:33.780
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-01 08:44:36.168
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-02 08:19:21.569 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 08:32:10.794
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 08:32:10.794
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-02 08:41:28.886
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-02 17:50:41.960 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:02:01.334
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:02:01.334
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:03:35.963
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:03:35.963
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:09:54.617
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:09:54.617
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:11:10.186
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:11:10.186
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:12:12.805
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:12:12.805
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-02 18:12:27.275
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-02 18:12:27.290
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-02 18:16:43.179
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-05 08:21:35.082
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-05 08:21:35.082
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-05 08:26:55.195
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-05 08:26:55.195
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-05 08:28:59.533
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-05 09:08:34.691
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-05 18:27:48.838 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:41:15.517
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:41:15.517
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:42:08.467
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:42:08.468
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:42:10.311
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:42:10.311
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:42:24.007
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:42:24.008
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:43:18.614
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:43:18.614
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:45:15.931
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:45:15.931
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:45:32.800
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:45:32.800
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 08:47:10.769
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 08:47:10.769
+!MESSAGE java.rmi.Remote
+!SESSION 2012-11-06 18:24:22.428 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 18:28:02.773
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 18:28:02.773
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 18:30:58.704
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 18:30:58.704
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 18:37:06.101
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 18:37:06.101
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-06 18:42:16.401
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-06 18:42:16.401
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:31:32.617
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:31:32.617
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:34:13.574
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:34:13.574
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:36:21.457
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:36:21.457
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:36:48.429
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:36:48.429
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:37:23.556
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:37:23.556
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:40:04.198
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:40:04.198
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-07 08:41:07.497
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:41:10.074
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:41:10.074
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:44:31.919
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:44:31.919
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:47:28.367
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:47:28.367
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:47:41.168
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:47:41.169
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:47:51.851
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:47:51.851
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-07 08:47:59.422
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-07 08:47:59.422
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-07 08:48:32.979
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-07 21:02:47.653 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:22:49.475
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:22:49.475
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:27:11.524
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:27:11.524
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:28:44.906
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:28:44.906
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:29:42.532
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:29:42.532
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:29:55.745
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:29:55.745
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:30:26.790
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:30:26.790
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:33:35.924
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:33:35.924
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:34:40.961
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:34:40.961
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:34:57.325
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:34:57.325
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:35:53.360
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:35:53.360
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:36:22.907
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:36:22.907
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:36:28.273
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:36:28.273
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:38:03.168
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:38:03.168
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:38:20.890
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:38:20.890
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:38:33.978
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:38:33.978
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:46:20.483
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:46:20.483
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:46:29.941
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:46:29.941
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:46:33.266
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:46:33.266
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:46:47.014
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:46:47.014
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:46:52.076
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:46:52.076
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-08 08:49:08.871
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-08 08:49:08.871
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-08 08:54:40.164
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-08 18:25:40.710 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY org.eclipse.ui 4 0 2012-11-08 18:34:51.753
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-08 18:53:11.448
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:24:16.724
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:24:16.724
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:24:51.076
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:24:51.076
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:25:07.690
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:25:07.690
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:25:21.277
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:25:21.277
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:25:29.264
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:25:29.264
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:25:31.339
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:25:31.339
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:26:01.619
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:26:01.619
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:26:22.788
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:26:22.788
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:26:28.560
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:26:28.560
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:26:47.389
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:26:47.389
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 08:31:09.610
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 08:31:09.610
+!MESSAGE java.rmi.Remote
+!SESSION 2012-11-09 18:38:03.694 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-09 18:39:19.705
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-09 18:39:19.705
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-09 18:47:30.780
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:24:06.195
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:24:06.195
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:25:22.543
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:25:22.543
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:25:39.348
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:25:39.348
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:27:59.415
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:27:59.415
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:29:31.511
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:29:31.511
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:33:17.882
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:33:17.882
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:39:09.322
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:39:09.322
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:43:59.913
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:43:59.913
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-12 08:45:45.984
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-12 08:45:45.984
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-12 08:45:56.518
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-14 08:19:04.468 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:20:39.670
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:20:39.670
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:29:15.892
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:29:15.892
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:32:27.465
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:32:27.465
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:39:36.002
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:39:36.002
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:39:47.043
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:39:47.043
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:39:57.553
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:39:57.553
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:40:00.926
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:40:00.926
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 08:42:06.396
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 08:42:06.396
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-14 08:50:01.657
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-14 18:23:18.795 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:25:11.146
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:25:11.146
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:25:13.892
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:25:13.892
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:28:39.699
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:28:39.699
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:34:26.889
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:34:26.889
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:36:30.799
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:36:30.799
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:41:09.188
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:41:09.188
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:43:30.890
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:43:30.890
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:43:41.183
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:43:41.183
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-14 18:48:18.181
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-14 18:48:18.181
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-14 18:49:20.988
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-15 06:12:13.019
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-15 18:23:27.793 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:24:51.279
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:24:51.279
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:25:16.154
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:25:16.154
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:27:57.866
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:27:57.866
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:35:00.790
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:35:00.790
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:37:48.204
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:37:48.204
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:38:11.245
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:38:11.245
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:44:05.887
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:44:05.887
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:44:10.496
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:44:10.496
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:45:14.656
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:45:14.656
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:45:44.119
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:45:44.119
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:46:03.503
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:46:03.503
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:46:19.729
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:46:19.729
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:49:07.331
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:49:07.331
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:50:45.058
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:50:45.058
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:53:48.499
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:53:48.499
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:54:36.730
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:54:36.730
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:54:40.833
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:54:40.833
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:55:09.897
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:55:09.897
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:55:19.270
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:55:19.270
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-15 18:57:29.425
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-15 18:57:29.426
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-15 18:58:54.632
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:40:55.331
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:40:55.331
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:42:05.188
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:42:05.188
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:43:05.808
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:43:05.808
+!MESSAGE java.rmi.Remote
+!SESSION 2012-11-16 07:45:59.785 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:48:33.805
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:48:33.805
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:52:00.437
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:52:00.438
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 07:53:47.389
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:55:28.588
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:55:28.588
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:56:21.776
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:56:21.776
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:57:02.991
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:57:02.991
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 07:59:18.872
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 07:59:18.872
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 08:04:06.724
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 08:04:06.724
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 08:04:15.657
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 08:04:15.657
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 08:06:38.898
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 08:06:38.898
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 08:07:09.648
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 08:07:09.648
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 08:10:43.181
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 08:54:52.536
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 08:54:52.536
+!MESSAGE java.rmi.Remote
+!SESSION 2012-11-16 18:22:13.083 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\SpaceCombat\NEW -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:31:56.382
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:31:56.382
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:32:00.201
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:32:00.201
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:34:56.116
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:34:56.116
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:35:47.481
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:35:47.481
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:38:13.000
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:38:13.000
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:39:27.408
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:39:27.408
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:43:14.958
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:43:14.958
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:45:05.946
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:45:05.946
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:47:37.940
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:47:37.940
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:49:09.903
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:49:09.903
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:49:59.306
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:49:59.306
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:50:02.989
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:50:02.989
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:50:19.105
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:50:19.105
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:50:50.215
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:50:50.215
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:54:16.100
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:54:16.100
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:54:21.547
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:54:21.548
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 18:54:58.718
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 18:54:58.718
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 18:55:13.801
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 21:33:59.575
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+!SESSION 2012-11-16 21:34:42.644 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -Xms64m
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -Xms64m
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 21:42:57.815
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 21:42:57.815
+!MESSAGE java.rmi.Remote
+
+!ENTRY edu.umd.cs.findbugs.plugin.eclipse 2 2 2012-11-16 21:46:46.322
+!MESSAGE The following classes needed for FindBugs analysis on project SpaceCombat were missing:
+!SUBENTRY 1 edu.umd.cs.findbugs.plugin.eclipse 2 0 2012-11-16 21:46:46.322
+!MESSAGE java.rmi.Remote
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 21:49:19.857
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.core.runtime.AssertionFailedException: null argument:)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:85)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:73)
+	at org.eclipse.jface.viewers.StructuredViewer.assertElementsNotNull(StructuredViewer.java:599)
+	at org.eclipse.jface.viewers.StructuredViewer.getRawChildren(StructuredViewer.java:1011)
+	at org.eclipse.jface.viewers.ColumnViewer.getRawChildren(ColumnViewer.java:703)
+	at org.eclipse.jface.viewers.AbstractTableViewer.getRawChildren(AbstractTableViewer.java:1087)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:917)
+	at org.eclipse.jface.viewers.StructuredViewer.getSortedChildren(StructuredViewer.java:1067)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalVirtualRefreshAll(AbstractTableViewer.java:676)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalRefresh(AbstractTableViewer.java:651)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalRefresh(AbstractTableViewer.java:636)
+	at org.eclipse.jface.viewers.StructuredViewer$7.run(StructuredViewer.java:1508)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1443)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1404)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1506)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:537)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1465)
+	at com.android.ddmuilib.logcat.LogCatPanel$LogCatTableRefresherTask.run(LogCatPanel.java:954)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-16 22:02:16.604
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-17 05:58:20.826
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-17 07:44:13.567
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-17 21:48:10.791
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-17 22:08:53.016
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-18 07:36:46.809
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2012-11-19 07:10:39.000
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more

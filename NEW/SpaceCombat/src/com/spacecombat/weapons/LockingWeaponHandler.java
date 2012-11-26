@@ -20,7 +20,7 @@ public class LockingWeaponHandler extends Component {
 	private float nextSearch = 0.0f;
 	private List<GameObject> gos;
 	private boolean autoShoot = false;
-	private final int nonTargets = Tags.shot | Tags.camera | Tags.hud;
+	private final int nonTargets = Tags.shot | Tags.camera | Tags.hud | Tags.spawner;
 
 	public LockingWeaponHandler(final Weapon w, final int targets, final boolean autoShoot) {
 		this.gos = new LinkedList<GameObject>();
@@ -60,6 +60,8 @@ public class LockingWeaponHandler extends Component {
 		final int x = Util.randomNumber(0, this.gos.size() - 1);
 
 		this.go = this.gos.get(x);
+
+		System.out.println(gameObject.getName() + " targeting " + this.go.getName() + ":" + Tags.tagToString(this.go.getTags()));
 	}
 
 	@Override

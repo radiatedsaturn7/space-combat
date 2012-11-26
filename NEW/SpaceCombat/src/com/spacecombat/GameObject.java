@@ -172,7 +172,9 @@ public class GameObject extends Component implements Poolable {
 		GameObject staticXGameObject = null;
 		for (int staticX = 0; staticX < GameObject.gameObjects.size(); staticX++) {
 			staticXGameObject = GameObject.gameObjects.get(staticX);
+
 			if (staticXGameObject.hasTag(hasThese) && !staticXGameObject.hasTag(butNotThese)) {
+				
 				xMax = Math.max(
 						staticXGameObject.transform.position.x,
 						xMax);
@@ -191,7 +193,14 @@ public class GameObject extends Component implements Poolable {
 		}
 		GameObject.distances.x = xMax - xMin;
 		GameObject.distances.y = yMax - yMin;
-
+		
+		
+		if (hasThese == Tags.enemy && butNotThese == (Tags.shot | Tags.spawner))
+		{
+			new Exception().printStackTrace();
+			System.out.println("SEARCHING:" + gos.size());
+		}
+		
 		return gos;
 	}
 
@@ -199,7 +208,6 @@ public class GameObject extends Component implements Poolable {
 
 	private float destroyTimeStamp;
 
-	//
 	private RigidBody rigidBody;
 
 	private String name = "GameObject";
@@ -489,7 +497,6 @@ public class GameObject extends Component implements Poolable {
 
 	public boolean isDestroyed() {
 		doTrace();
-		
 		return this.isDestroyed;
 	}
 

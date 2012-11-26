@@ -1,0 +1,24 @@
+package com.spacecombat.game;
+
+import com.spacecombat.Camera;
+import com.spacecombat.Component;
+
+public class DestroyOnTopOfScreen extends Component {
+	
+	private float height = 0;
+	@Override
+	public DestroyOnTopOfScreen()
+	{
+		this.height = 0;
+	}
+	
+	public DestroyOnTopOfScreen(float height)
+	{
+		this.height = height;
+	}
+	public void update() {
+		if (this.gameObject.transform.position.y + this.height < Camera.mainCamera.gameObject.transform.position.y + 0 - 128) {
+			this.gameObject.destroy();
+		}
+	}
+}

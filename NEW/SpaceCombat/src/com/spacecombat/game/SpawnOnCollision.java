@@ -2,6 +2,7 @@ package com.spacecombat.game;
 
 import com.spacecombat.Component;
 import com.spacecombat.GameObject;
+import com.spacecombat.Tags;
 
 public class SpawnOnCollision extends Component {
 
@@ -25,7 +26,7 @@ public class SpawnOnCollision extends Component {
 			}
 			this.isFired = true;
 
-			System.out.println("FIRING:"+go.getName());
+			//System.out.println("FIRING:"+go.getName() + " " + Tags.tagToString(this.go.getTags()));
 			GameObject.create(this.go);			
 			this.gameObject.destroy();
 		}

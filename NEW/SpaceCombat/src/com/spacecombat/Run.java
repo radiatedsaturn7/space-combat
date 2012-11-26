@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,6 +41,9 @@ public class Run extends Activity implements FinishListener {
 		protected void onDraw(final Canvas canvas) {
 
 			super.onDraw(canvas);
+			Paint p = new Paint();
+			p.setColor(Color.GRAY);
+			canvas.drawRect(new Rect(0,0,1000,1000), p);
 			CanvasGraphic.setCanvas(canvas);
 			CanvasText.setCanvas(canvas);
 			e.drawLoop();

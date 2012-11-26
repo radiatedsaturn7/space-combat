@@ -106,7 +106,7 @@ createPowerUp
 3800
 264
 3770
-4
+0
 false
 
 createPowerUp
@@ -114,8 +114,17 @@ createPowerUp
 3000
 264
 2970
-5
+0
 false
+
+createPowerUp
+64
+3800
+264
+3770
+8
+false
+
 
 createAlly
 64
@@ -153,16 +162,43 @@ createAlly
 exemplar
 pulsecannon
 
+/*
+createAlly
+64
+3800
+100
+4700
+7
+pariah
+missilelauncher
 
 createAlly
 64
-3000
-100
-3800
-5
+3850
+300
+4700
+8
 calumniator
-machinegun
+lockinglaser
 
+createAlly
+64
+3700
+300
+4600
+7
+pariah
+missilelauncher
+
+createAlly
+64
+3700
+100
+4600
+9
+calumniator
+lockinglaser
+*/
 /*
 createAlly
 64
@@ -202,10 +238,12 @@ create_enemy(325,  1, 0, no, 0, 0, no);
 create_enemy(350,  1, 0, no, 0, 0, no);
 create_enemy(375,  1, 1, no, 0, 0, no);
 create_enemy(400,  1, 2, no, 0, 0, no);
+
 //if (g_time == 400)
 //{
 //	power_up(addhealth);
 //}
+
 create_enemy(425,  1, 1, no, 0, 0, no);
 create_enemy(450,  1, 2, no, 0, 0, no);
 create_enemy(500,  13, 0, no, 0, 0, no);

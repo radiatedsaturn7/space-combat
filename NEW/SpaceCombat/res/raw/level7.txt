@@ -94,13 +94,29 @@ createPlayer
 hunter
 laser
 
+createPowerUp
+64
+3500
+264
+3470
+9
+false
+
+createPowerUp
+64
+2500
+264
+2470
+9
+false
+
 
 createPowerUp
 64
 3900
 264
 3870
-10
+11
 true
 
 createPowerUp
@@ -108,7 +124,7 @@ createPowerUp
 2500
 264
 2470
-11
+12
 true
 
 createPowerUp

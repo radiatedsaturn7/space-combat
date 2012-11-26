@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="513" key="DIALOG_WIDTH"/>
-		<item value="180" key="DIALOG_Y_ORIGIN"/>
-		<item value="824" key="DIALOG_X_ORIGIN"/>
-		<item value="378" key="DIALOG_HEIGHT"/>
+		<item value="832" key="DIALOG_WIDTH"/>
+		<item value="397" key="DIALOG_Y_ORIGIN"/>
+		<item value="181" key="DIALOG_X_ORIGIN"/>
+		<item value="430" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Exception" key="selection"/>
+		<item value="checkDodge" key="selection"/>
 		<list key="findhistory">
-			<item value="exception"/>
-			<item value="update"/>
-			<item value="createAlly"/>
-			<item value="level9"/>
-			<item value="createBo"/>
-			<item value="263"/>
-			<item value="pool"/>
-			<item value="runtime"/>
+			<item value="checkDodge"/>
+			<item value="nonTar"/>
+			<item value="setTags"/>
+			<item value="createEnemy"/>
+			<item value="findAll"/>
+			<item value="FOUND:"/>
+			<item value="check"/>
+			<item value="canSearch"/>
 		</list>
 		<list key="replacehistory">
 			<item value=",7,"/>

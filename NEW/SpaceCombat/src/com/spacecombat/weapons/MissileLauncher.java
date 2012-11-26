@@ -5,6 +5,7 @@ import com.spacecombat.Vector2;
 import com.spacecombat.game.PrefabFactory;
 
 public class MissileLauncher extends Weapon {
+	
 	private static final String name = "missileLauncher";
 	private static final float damage = 50;
 	private static final float reloadTime = 3.0f;

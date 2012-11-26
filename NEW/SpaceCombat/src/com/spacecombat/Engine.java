@@ -18,8 +18,9 @@ import com.spacecombat.weapons.PulseCannon;
 import com.spacecombat.weapons.Weapon;
 
 public class Engine implements ClickListener {
+	
 	public boolean created = false;
-	private String startingLevel = "level1"; 
+	private String startingLevel = "mainmenu"; 
 	private boolean ready = false;
 	 
 	// this is da master list of all components0

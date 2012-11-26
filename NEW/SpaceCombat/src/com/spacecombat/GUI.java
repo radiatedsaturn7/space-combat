@@ -33,14 +33,24 @@ public class GUI {
 	
 
 	private static GenericText genericText = new CanvasText();
+	public static void setDrawColor (int r, int g, int b)
+	{
+		int color = 0;
+		r = r << 8 * 2;
+		g = g << 8 * 1;
+		b = b << 8 * 0;
+		color = r | g | b;
+		genericText.setColor(color);
+	}
+	
 	public static boolean drawText (String text, float x, float y, float width, float height)
 	{
 		genericText.setText(text);
 		genericText.draw(x, y, 0, 0, 1, 1);
 
-		if (Input.xPos >= x && Input.xPos <= x + width)
+		if (Input.xPos >= x-5 && Input.xPos <= x + width)
 		{
-			if (Input.yPos >= x && Input.yPos <= y + height)
+			if (Input.yPos >= y-5 && Input.yPos <= y + height)
 			{
 				return true;
 			}
